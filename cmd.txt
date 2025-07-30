@@ -1,0 +1,51 @@
+python3 ./astra-sim-alibabacloud/inputs/topo/gen_Topo_Template.py -topo OCS -g 64 --ocs --ocs_degree 3 -l 0.0001 -bw 800Gbps
+
+
+python3 -m workload_generator.AIOB_simAI_workload_generator   --model_name GPT-13B --frame=Megatron   --world_size=16 --tensor_model_parallel_size=2 --pipeline_model_parallel=1 --global_batch=16   --micro_batch=1   --num_layers=40 --seq_length=2048   --hidden_size=5120 --epoch_num=1   --use-distributed-optimizer --num_attention_heads=40   --aiob_enable --use_flash_attn --swiglu --comp_filepath workload/aiob_inputs/Example.txt
+
+
+
+python3 ./astra-sim-alibabacloud/inputs/topo/gen_Topo_Template.py -topo UB -g 64 -gps 8 --ub_intra_bw 600Gbps --ub_intra_lat 0.000025ms -bw 400Gbps -l 0.0005ms -gt H100 -er 0
+
+
+python3 ./astra-sim-alibabacloud/inputs/topo/gen_Topo_Template.py -topo UB -g 32
+-gps 8 --ub_intra_bw 600Gbps --ub_intra_lat 0.000025ms -bw 200Gbps -l 0.0005ms -gt A100 -er 0
+
+
+
+
+
+
+AS_SEND_LAT=2 ./bin/SimAI_simulator -t 16 -w ./example/microAllReduce.txt -n  .
+/Rail_Opti_SingleToR_32g_8gps_400Gbps_H100  -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+
+
+## fat tree server level topolgy generation
+python3 ./astra-sim-alibabacloud/inputs/topo/gen_Topo_Template.py -topo fat_tree --fat_tree server -g 32 -gps 8 -gt H100 -bw 200Gps
+
+
+
+
+## Simulation commands:  ## 
+
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./fat_tree_server_32g_8gps_nvs4_k4_H100  -c astra-sim-alibabaclo
+ud/inputs/config/SimAI.conf
+
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+
+
+
+
+## workload generation:   ##
+
+python3 -m workload_generator.AIOB_simAI_workload_generator \
+  --model_name GPT-13B --frame=Megatron \
+  --world_size=16 --tensor_model_parallel_size=2 --pipeline_model_parallel=1 --global_batch=16 \
+  --micro_batch=1   --num_layers=40 --seq_length=2048 \
+  --hidden_size=5120 --epoch_num=1 \
+  --use-distributed-optimizer --num_attention_heads=40 \
+  --aiob_enable --use_flash_attn --swiglu --comp_filepath workload/aiob_inputs/Example.txt
