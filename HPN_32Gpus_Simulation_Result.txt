@@ -1,11 +1,8 @@
-parozario@Anthony:~/SimAI$ AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16\
--w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt\
--n  ./UB_AI_32g_8gps_1D‑FM‑B_200Gbps_A100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+parozario@Anthony:~/SimAI$ AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
- 
-maxRtt=4080 maxBdp=102000
-
+maxRtt=5080 maxBdp=127000
 Running Simulation.
+
 The final active chunks per dimension 1 after allocating to queues is: 1
 ring of node 0, id: 0 dimension: local total nodes in ring: 36 index in ring: 0 offset: 1total nodes in ring: 36
 ring of node 0, id: 0 dimension: local total nodes in ring: 36 index in ring: 0 offset: 1total nodes in ring: 36
@@ -1591,7 +1588,7 @@ info: no weight grad collective for layer: embedding_layer
 info: no input grad collective for layer: grad_norm
 chunk size is: 8763801600 , size is: 8763801600 , layer_num is: 0 , node: 0
 info: reduce-scatter weight grad collective issued for layer: grad_norm, involved dimensions:  0, 1, 1, 1, 1, 1, 1, 1, 1, 1,
-pass: 0 finished at time: 127404695
+pass: 0 finished at time: 102865825
 ***** info: weight gradient collective for layer: grad_norm is finished************
 workload stats for the job scheduled at NPU offset: 0
 *******************
@@ -1602,10 +1599,10 @@ id: grad_norm ,Total cycles spent on fwd pass compute: 1
 id: grad_norm ,Total cycles spent on weight grad compute: 1
 id: grad_norm ,Total cycles spent on input grad compute: 1
 id: grad_norm ,Total cycles spent idle waiting for fwd finish: 6088207
-id: grad_norm ,Total cycles spent idle waiting for weight grad finish: 244325972
+id: grad_norm ,Total cycles spent idle waiting for weight grad finish: 71498289
 id: grad_norm ,Total cycles spent idle waiting for input grad finish: 0
 id: grad_norm ,Total cycles spent on fwd pass comm: 6088207
-id: grad_norm ,Total cycles spent on weight grad comm: 244325973
+id: grad_norm ,Total cycles spent on weight grad comm: 71498290
 id: grad_norm ,Total cycles spent on input grad comm: 0
 *******************
 Layer id: embedding_layer
@@ -1655,242 +1652,8 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2599
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 4896
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2599
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 4896
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31362
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 116448
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31362
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 116448
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 3161163
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 3156436
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 3161163
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 3156436
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 132752
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235376
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 132752
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 235376
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 148423
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 148423
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2486019
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 3109380
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2486019
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 3109380
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31451
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31451
-*******************
-Layer id: attention_column
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_column
-id: attention_column ,Total cycles spent on fwd pass compute: 1
-id: attention_column ,Total cycles spent on weight grad compute: 1
-id: attention_column ,Total cycles spent on input grad compute: 1
-id: attention_column ,Total cycles spent idle waiting for fwd finish: 60614
-id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_column ,Total cycles spent on fwd pass comm: 60614
-id: attention_column ,Total cycles spent on weight grad comm: 0
-id: attention_column ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: attention_row
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_row
-id: attention_row ,Total cycles spent on fwd pass compute: 1
-id: attention_row ,Total cycles spent on weight grad compute: 1
-id: attention_row ,Total cycles spent on input grad compute: 1
-id: attention_row ,Total cycles spent idle waiting for fwd finish: 60435
-id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_row ,Total cycles spent on fwd pass comm: 60435
-id: attention_row ,Total cycles spent on weight grad comm: 0
-id: attention_row ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2653
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2510
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2653
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2510
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31312
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 33391
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31312
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 33391
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2290993
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2692748
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2290993
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2692748
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118618
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235160
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118618
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 235160
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118868
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 418614
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118868
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 418614
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2908908
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2645552
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2908908
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2645552
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 543524
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31310
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 543524
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31310
-*******************
-Layer id: attention_column
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_column
-id: attention_column ,Total cycles spent on fwd pass compute: 1
-id: attention_column ,Total cycles spent on weight grad compute: 1
-id: attention_column ,Total cycles spent on input grad compute: 1
-id: attention_column ,Total cycles spent idle waiting for fwd finish: 60410
-id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_column ,Total cycles spent on fwd pass comm: 60410
-id: attention_column ,Total cycles spent on weight grad comm: 0
-id: attention_column ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: attention_row
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_row
-id: attention_row ,Total cycles spent on fwd pass compute: 1
-id: attention_row ,Total cycles spent on weight grad compute: 1
-id: attention_row ,Total cycles spent on input grad compute: 1
-id: attention_row ,Total cycles spent idle waiting for fwd finish: 60568
-id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_row ,Total cycles spent on fwd pass comm: 60568
-id: attention_row ,Total cycles spent on weight grad comm: 0
-id: attention_row ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2699
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
 id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2724
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2699
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2599
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
 id: mlp_moelayer ,Total cycles spent on input grad comm: 2724
 *******************
@@ -1900,10 +1663,10 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 44506
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31362
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
 id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31237
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 44506
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31362
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
 id: mlp_moelayer ,Total cycles spent on input grad comm: 31237
 *******************
@@ -1913,246 +1676,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2132959
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2095857
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2466848
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2132959
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2033335
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2095857
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2466848
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 379157
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235501
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 379157
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 235501
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118660
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118660
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2665237
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2310797
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2665237
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2310797
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31451
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31451
-*******************
-Layer id: attention_column
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_column
-id: attention_column ,Total cycles spent on fwd pass compute: 1
-id: attention_column ,Total cycles spent on weight grad compute: 1
-id: attention_column ,Total cycles spent on input grad compute: 1
-id: attention_column ,Total cycles spent idle waiting for fwd finish: 60614
-id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_column ,Total cycles spent on fwd pass comm: 60614
-id: attention_column ,Total cycles spent on weight grad comm: 0
-id: attention_column ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: attention_row
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_row
-id: attention_row ,Total cycles spent on fwd pass compute: 1
-id: attention_row ,Total cycles spent on weight grad compute: 1
-id: attention_row ,Total cycles spent on input grad compute: 1
-id: attention_row ,Total cycles spent idle waiting for fwd finish: 80164
-id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_row ,Total cycles spent on fwd pass comm: 80164
-id: attention_row ,Total cycles spent on weight grad comm: 0
-id: attention_row ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 4662
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2510
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 4662
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2510
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 48816
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 73439
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 48816
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 73439
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 3184779
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1708788
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 3184779
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 1708788
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 132752
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235160
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 132752
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 235160
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 148423
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1516317
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 148423
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 1516317
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2877606
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1792897
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2877606
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 1792897
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 38681
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31451
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 38681
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31451
-*******************
-Layer id: attention_column
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_column
-id: attention_column ,Total cycles spent on fwd pass compute: 1
-id: attention_column ,Total cycles spent on weight grad compute: 1
-id: attention_column ,Total cycles spent on input grad compute: 1
-id: attention_column ,Total cycles spent idle waiting for fwd finish: 81989
-id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_column ,Total cycles spent on fwd pass comm: 81989
-id: attention_column ,Total cycles spent on weight grad comm: 0
-id: attention_column ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: attention_row
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_row
-id: attention_row ,Total cycles spent on fwd pass compute: 1
-id: attention_row ,Total cycles spent on weight grad compute: 1
-id: attention_row ,Total cycles spent on input grad compute: 1
-id: attention_row ,Total cycles spent idle waiting for fwd finish: 80828
-id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_row ,Total cycles spent on fwd pass comm: 80828
-id: attention_row ,Total cycles spent on weight grad comm: 0
-id: attention_row ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2574
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2510
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2574
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2510
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31387
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 829378
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31387
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 829378
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 3037079
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2513105
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 3037079
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2513105
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2033335
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2162,10 +1691,10 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118618
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 264502
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 264327
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118618
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 264502
+id: mlp_moelayer ,Total cycles spent on input grad comm: 264327
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2173,12 +1702,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 133431
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118868
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 133431
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 271368
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118868
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
+id: mlp_moelayer ,Total cycles spent on input grad comm: 271368
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2186,12 +1715,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2434686
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1943512
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2450525
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2434686
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1994825
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1943512
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2450525
+id: mlp_moelayer ,Total cycles spent on input grad comm: 1994825
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2199,12 +1728,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 95227
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 54912
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31285
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 95227
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31310
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 54912
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31285
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31310
 *******************
 Layer id: attention_column
 Total collectives issued for this layer: 1
@@ -2240,10 +1769,10 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2549
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2874
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2724
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2549
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2874
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2724
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2251,12 +1780,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 36287
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31412
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 36775
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 36287
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31237
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31412
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 36775
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31237
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2264,12 +1793,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2451086
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2205837
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 3147872
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2451086
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2203153
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2205837
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 3147872
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2203153
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2277,12 +1806,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 130064
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118618
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 264327
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 130064
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 249764
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118618
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 264327
+id: mlp_moelayer ,Total cycles spent on input grad comm: 249764
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2290,12 +1819,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 121027
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118868
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 244284
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 121027
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 187643
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118868
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 244284
+id: mlp_moelayer ,Total cycles spent on input grad comm: 187643
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2303,12 +1832,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2841728
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2416635
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 3395766
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2841728
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2066235
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2416635
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 3395766
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2066235
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2318,10 +1847,10 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31310
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31451
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31310
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31451
 *******************
 Layer id: attention_column
 Total collectives issued for this layer: 1
@@ -2357,10 +1886,10 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2653
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2724
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2510
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2653
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2724
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2510
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2370,10 +1899,10 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31312
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31237
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 346518
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31312
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31237
+id: mlp_moelayer ,Total cycles spent on input grad comm: 346518
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2381,12 +1910,25 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2656885
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1874639
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2613426
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2656885
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1595116
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1874639
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2613426
+id: mlp_moelayer ,Total cycles spent on input grad comm: 1595116
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 445406
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 279065
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 445406
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 279065
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2396,10 +1938,10 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118618
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235160
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118618
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 235160
+id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2407,12 +1949,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118868
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1913273
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 159484
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118868
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1989564
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1913273
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 159484
+id: mlp_moelayer ,Total cycles spent on input grad comm: 1989564
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2420,12 +1962,38 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2972456
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2587912
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2972456
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31310
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2587912
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31310
+*******************
+Layer id: attention_column
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_column
+id: attention_column ,Total cycles spent on fwd pass compute: 1
+id: attention_column ,Total cycles spent on weight grad compute: 1
+id: attention_column ,Total cycles spent on input grad compute: 1
+id: attention_column ,Total cycles spent idle waiting for fwd finish: 60614
+id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_column ,Total cycles spent on fwd pass comm: 60614
+id: attention_column ,Total cycles spent on weight grad comm: 0
+id: attention_column ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: attention_row
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_row
+id: attention_row ,Total cycles spent on fwd pass compute: 1
+id: attention_row ,Total cycles spent on weight grad compute: 1
+id: attention_row ,Total cycles spent on input grad compute: 1
+id: attention_row ,Total cycles spent idle waiting for fwd finish: 65489
+id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_row ,Total cycles spent on fwd pass comm: 65489
+id: attention_row ,Total cycles spent on weight grad comm: 0
+id: attention_row ,Total cycles spent on input grad comm: 0
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2433,10 +2001,88 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 62794
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2703
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2724
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2703
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2724
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 53763
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31237
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 53763
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31237
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1928121
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2039082
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1928121
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2039082
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 132602
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 241135
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 132602
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 241135
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 119447
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 126379
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 119447
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 126379
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1834139
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2379262
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1834139
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2379262
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 673333
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
 id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31487
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 62794
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 673333
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
 id: mlp_moelayer ,Total cycles spent on input grad comm: 31487
 *******************
@@ -2485,12 +2131,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31412
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 36687
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 499273
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31412
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 115624
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 36687
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 499273
+id: mlp_moelayer ,Total cycles spent on input grad comm: 115624
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2498,12 +2144,129 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2340812
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1838358
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2368287
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2340812
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2232298
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1838358
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2368287
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2232298
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 171074
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235376
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 171074
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 235376
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118660
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118660
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2032445
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2309478
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2032445
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2309478
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31451
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31451
+*******************
+Layer id: attention_column
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_column
+id: attention_column ,Total cycles spent on fwd pass compute: 1
+id: attention_column ,Total cycles spent on weight grad compute: 1
+id: attention_column ,Total cycles spent on input grad compute: 1
+id: attention_column ,Total cycles spent idle waiting for fwd finish: 60614
+id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_column ,Total cycles spent on fwd pass comm: 60614
+id: attention_column ,Total cycles spent on weight grad comm: 0
+id: attention_column ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: attention_row
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_row
+id: attention_row ,Total cycles spent on fwd pass compute: 1
+id: attention_row ,Total cycles spent on weight grad compute: 1
+id: attention_row ,Total cycles spent on input grad compute: 1
+id: attention_row ,Total cycles spent idle waiting for fwd finish: 86852
+id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_row ,Total cycles spent on fwd pass comm: 86852
+id: attention_row ,Total cycles spent on weight grad comm: 0
+id: attention_row ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2708
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2510
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2708
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2510
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 32375
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 95674
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 32375
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 95674
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2161368
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1851250
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2161368
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 1851250
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2524,10 +2287,10 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 132318
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118868
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
 id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 132318
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118868
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
 id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
 *******************
@@ -2537,12 +2300,246 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2563698
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2173572
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2893336
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2563698
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2558879
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2173572
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2893336
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2558879
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 258255
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 32973
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 258255
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 32973
+*******************
+Layer id: attention_column
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_column
+id: attention_column ,Total cycles spent on fwd pass compute: 1
+id: attention_column ,Total cycles spent on weight grad compute: 1
+id: attention_column ,Total cycles spent on input grad compute: 1
+id: attention_column ,Total cycles spent idle waiting for fwd finish: 69498
+id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_column ,Total cycles spent on fwd pass comm: 69498
+id: attention_column ,Total cycles spent on weight grad comm: 0
+id: attention_column ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: attention_row
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_row
+id: attention_row ,Total cycles spent on fwd pass compute: 1
+id: attention_row ,Total cycles spent on weight grad compute: 1
+id: attention_row ,Total cycles spent on input grad compute: 1
+id: attention_row ,Total cycles spent idle waiting for fwd finish: 60618
+id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_row ,Total cycles spent on fwd pass comm: 60618
+id: attention_row ,Total cycles spent on weight grad comm: 0
+id: attention_row ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2535
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 3268
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2535
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 3268
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31426
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 41912
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31426
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 41912
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1521459
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2028912
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1521459
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2028912
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 989576
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235160
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 989576
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 235160
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118660
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 759879
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118660
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 759879
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2208131
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1923815
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2208131
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 1923815
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 41861
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31310
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 41861
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31310
+*******************
+Layer id: attention_column
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_column
+id: attention_column ,Total cycles spent on fwd pass compute: 1
+id: attention_column ,Total cycles spent on weight grad compute: 1
+id: attention_column ,Total cycles spent on input grad compute: 1
+id: attention_column ,Total cycles spent idle waiting for fwd finish: 63700
+id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_column ,Total cycles spent on fwd pass comm: 63700
+id: attention_column ,Total cycles spent on weight grad comm: 0
+id: attention_column ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: attention_row
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_row
+id: attention_row ,Total cycles spent on fwd pass compute: 1
+id: attention_row ,Total cycles spent on weight grad compute: 1
+id: attention_row ,Total cycles spent on input grad compute: 1
+id: attention_row ,Total cycles spent idle waiting for fwd finish: 60385
+id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_row ,Total cycles spent on fwd pass comm: 60385
+id: attention_row ,Total cycles spent on weight grad comm: 0
+id: attention_row ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2703
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2724
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2703
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2724
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31312
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31237
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31312
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31237
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2343134
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 1835342
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2343134
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 1835342
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118618
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 278890
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118618
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 278890
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118868
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 154680
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118868
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 154680
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2292596
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2103384
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2292596
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2103384
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2552,10 +2549,10 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31894
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31310
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31894
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31310
 *******************
 Layer id: final_column
 Total collectives issued for this layer: 1
@@ -2615,10 +2612,10 @@ Total collectives issued for this layer: 1
 id: attention_row ,Total cycles spent on fwd pass compute: 1
 id: attention_row ,Total cycles spent on weight grad compute: 1
 id: attention_row ,Total cycles spent on input grad compute: 1
-id: attention_row ,Total cycles spent idle waiting for fwd finish: 67464
+id: attention_row ,Total cycles spent idle waiting for fwd finish: 60539
 id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
 id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_row ,Total cycles spent on fwd pass comm: 67464
+id: attention_row ,Total cycles spent on fwd pass comm: 60539
 id: attention_row ,Total cycles spent on weight grad comm: 0
 id: attention_row ,Total cycles spent on input grad comm: 0
 *******************
@@ -2628,12 +2625,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2762
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2549
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2474
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2762
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2724
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2549
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2474
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2724
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2641,12 +2638,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 37600
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31412
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 317523
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 37600
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31237
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31412
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 317523
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31237
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2654,12 +2651,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2604707
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1804022
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2706363
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2604707
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2326171
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1804022
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2706363
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2326171
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2667,12 +2664,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 358913
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118618
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235160
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 358913
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235376
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118618
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 235160
+id: mlp_moelayer ,Total cycles spent on input grad comm: 235376
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2680,12 +2677,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 118660
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 130493
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 120933
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 118660
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 130493
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 120933
+id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2693,12 +2690,12 @@ Total collectives issued for this layer: 2
 id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
 id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2515966
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2338381
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2192819
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2515966
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2503706
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2338381
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2192819
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2503706
 *******************
 Layer id: mlp_moelayer
 Total collectives issued for this layer: 2
@@ -2708,10 +2705,127 @@ id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
 id: mlp_moelayer ,Total cycles spent on input grad compute: 1
 id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
 id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 42826
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31310
 id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
 id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 42826
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31310
+*******************
+Layer id: attention_column
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_column
+id: attention_column ,Total cycles spent on fwd pass compute: 1
+id: attention_column ,Total cycles spent on weight grad compute: 1
+id: attention_column ,Total cycles spent on input grad compute: 1
+id: attention_column ,Total cycles spent idle waiting for fwd finish: 101415
+id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_column ,Total cycles spent on fwd pass comm: 101415
+id: attention_column ,Total cycles spent on weight grad comm: 0
+id: attention_column ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: attention_row
+Total collectives issued for this layer: 1
+*************************  Workload stats  ************************* attention_row
+id: attention_row ,Total cycles spent on fwd pass compute: 1
+id: attention_row ,Total cycles spent on weight grad compute: 1
+id: attention_row ,Total cycles spent on input grad compute: 1
+id: attention_row ,Total cycles spent idle waiting for fwd finish: 61140
+id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
+id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
+id: attention_row ,Total cycles spent on fwd pass comm: 61140
+id: attention_row ,Total cycles spent on weight grad comm: 0
+id: attention_row ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2549
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2724
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2549
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2724
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31412
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31237
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31412
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 31237
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1912972
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2129268
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1912972
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2129268
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 142503
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 235160
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 142503
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 235160
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 147811
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 198051
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 147811
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 198051
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2323414
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2094286
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2323414
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 2094286
+*******************
+Layer id: mlp_moelayer
+Total collectives issued for this layer: 2
+*************************  Workload stats  ************************* mlp_moelayer
+id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
+id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
+id: mlp_moelayer ,Total cycles spent on input grad compute: 1
+id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 31237
+id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
+id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 37412
+id: mlp_moelayer ,Total cycles spent on fwd pass comm: 31237
+id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
+id: mlp_moelayer ,Total cycles spent on input grad comm: 37412
 *******************
 Layer id: attention_column
 Total collectives issued for this layer: 1
@@ -2723,123 +2837,6 @@ id: attention_column ,Total cycles spent idle waiting for fwd finish: 60614
 id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
 id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
 id: attention_column ,Total cycles spent on fwd pass comm: 60614
-id: attention_column ,Total cycles spent on weight grad comm: 0
-id: attention_column ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: attention_row
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_row
-id: attention_row ,Total cycles spent on fwd pass compute: 1
-id: attention_row ,Total cycles spent on weight grad compute: 1
-id: attention_row ,Total cycles spent on input grad compute: 1
-id: attention_row ,Total cycles spent idle waiting for fwd finish: 60435
-id: attention_row ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_row ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_row ,Total cycles spent on fwd pass comm: 60435
-id: attention_row ,Total cycles spent on weight grad comm: 0
-id: attention_row ,Total cycles spent on input grad comm: 0
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2653
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2510
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2653
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2510
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 39237
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 204892
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 39237
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 204892
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2723039
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2720053
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2723039
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2720053
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 1134229
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 264502
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 1134229
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 264502
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 132998
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 118618
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 132998
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 118618
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 2817331
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 2476744
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 2817331
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 2476744
-*******************
-Layer id: mlp_moelayer
-Total collectives issued for this layer: 2
-*************************  Workload stats  ************************* mlp_moelayer
-id: mlp_moelayer ,Total cycles spent on fwd pass compute: 1
-id: mlp_moelayer ,Total cycles spent on weight grad compute: 1
-id: mlp_moelayer ,Total cycles spent on input grad compute: 1
-id: mlp_moelayer ,Total cycles spent idle waiting for fwd finish: 40825
-id: mlp_moelayer ,Total cycles spent idle waiting for weight grad finish: 0
-id: mlp_moelayer ,Total cycles spent idle waiting for input grad finish: 31285
-id: mlp_moelayer ,Total cycles spent on fwd pass comm: 40825
-id: mlp_moelayer ,Total cycles spent on weight grad comm: 0
-id: mlp_moelayer ,Total cycles spent on input grad comm: 31285
-*******************
-Layer id: attention_column
-Total collectives issued for this layer: 1
-*************************  Workload stats  ************************* attention_column
-id: attention_column ,Total cycles spent on fwd pass compute: 1
-id: attention_column ,Total cycles spent on weight grad compute: 1
-id: attention_column ,Total cycles spent on input grad compute: 1
-id: attention_column ,Total cycles spent idle waiting for fwd finish: 60764
-id: attention_column ,Total cycles spent idle waiting for weight grad finish: 0
-id: attention_column ,Total cycles spent idle waiting for input grad finish: 0
-id: attention_column ,Total cycles spent on fwd pass comm: 60764
 id: attention_column ,Total cycles spent on weight grad comm: 0
 id: attention_column ,Total cycles spent on input grad comm: 0
 *******************
@@ -5599,147 +5596,146 @@ id:  ,Total cycles spent on fwd pass comm: 0
 id:  ,Total cycles spent on weight grad comm: 0
 id:  ,Total cycles spent on input grad comm: 0
 *************************
-all passes finished at time: 371730668, id of first layer: grad_norm
+all passes finished at time: 174364115, id of first layer: grad_norm
 path to create csvs is: ./ncclFlowModel_
 success in openning file
 *****
-Time to exit: Tue Jul 29 23:54:06 2025
+Time to exit: Sat Aug  2 00:20:13 2025
 all-reduce Collective implementation: NcclFlowModel
 reduce-scatter Collective implementation: NcclFlowModel
 all-gather Collective implementation: NcclFlowModel
 all-to-all Collective implementation: NcclFlowModel
 Collective optimization: baseline
-Total sim duration: 0:24 hours
+Total sim duration: 0:17 hours
 Total streams injected: 165
 Total streams finished: 165
 Percentage of finished streams: 100 %
 *****
-Exiting
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 0 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 0 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 1 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 1 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 2 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 2 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 3 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 3 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 4 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 4 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 5 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 5 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 6 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 6 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 7 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 7 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 8 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 8 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 9 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 9 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 10 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 10 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 11 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 11 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 12 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 12 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 13 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 13 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 14 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 14 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 15 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 15 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 16 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 16 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 17 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 17 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 18 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 18 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 19 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 19 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 20 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 20 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 21 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 21 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 22 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 22 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 23 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 23 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 24 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 24 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 25 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 25 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 26 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 26 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 27 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 27 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 28 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 28 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 29 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 29 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 30 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 30 is 16860999680
-sim_finish on sent,  Thread id: 123892168641856
+sim_finish on sent,  Thread id: 132903095954752
 All data sent from node 31 is 16860999680
-sim_finish on received,  Thread id: 123892168641856
+sim_finish on received,  Thread id: 132903095954752
 All data received by node 31 is 16860999680
