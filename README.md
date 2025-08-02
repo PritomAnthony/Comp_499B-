@@ -1,106 +1,108 @@
-# Lastest News
-### Update of SimCCL
-[2025/06] The code of SimCCL is first released in the branch [SimCCL](https://github.com/aliyun/SimAI/tree/SimCCL) and will be released in SimCCL repository soon.
-<div align="center">
-🎯 <b>Events & Community Engagement</b> 🎯
+# Simulation results with various types of topology: 
+|Name | maxRtt | maxBdp|
+|:---:|:------:|:-----:|
+|fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 | 8160 | 204000|
+|AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 | 5080 | 127000 |
+|UB_AI_32g_8gps_1D-FM-B_200Gbps_H100 | 4080 | 102000 |
+|UB_AI_32g_8gps_2D-FM_200Gbps_H100 | 4080 | 102000 |
+|UB_AI_32g_8gps_4D_200Gbps_H100 | 4080 | 102000| 
 
-### 📅 Upcoming Events
 
-| Date | Event | Location | Content | Type |
-|:----:|:------|:---------|:--------|:----:|
-| TBD | SimAI 2.0 | 🌐 Online | The release of SimAI 2.0 | 💻 Virtual  |
 
-### 🌟 Past Events
+# Commands to Run Simulation
+```bash
 
-| Date | Event | Location | Content | Type |
-|:----:|:------|:---------|:--------|:----:|
-| Jun 4, 2025  | The first workshop of the SimAI community | 📍 Peking University | Three talks from community contributors | 🎓 On-site |
-| May 24, 2025  | The 28th Chinasys workshop | 📍 Chongqing University | An invited talk about SimAI | 🎓 On-site |
-| Dec 27, 2024 | SimAI Technical Presentation | 📍 Beihang University | SimAI Technical Sharing & Discussion | 🎓 On-site |
-| Dec 6, 2024 | HKUST Technical Workshop | 📍 HKUST(GZ) | SimAI Technical Sharing & Discussion | 🎓 On-site |
-| Dec 5, 2024 | [Bench'24 Conference](https://mp.weixin.qq.com/s/STic_E12xMhZRxhzK9wRnw) | 📍 Guangzhou | SimAI Tutorial & Deep-dive Session | 🎓 On-site |
-| Nov 26, 2024 | SimAI Community Live Stream | 🌐 Online | Interactive Technical Discussion & Demo (400+ Attendees) | 💻 Virtual |
-| Nov 15, 2024 | Technical Workshop | 📍 Thousand Island Lake | SimAI Offline Technical Exchange | 🎯 On-site |
-| Oct 18, 2024 | Guest Lecture | 📍 Fudan University | SimAI Tutorial & Public Course | 🎓 On-site |
-| Sept 24-26, 2024 | CCF HPC China 2024 | 📍 Wuhan | SimAI Introduction & Technical Presentation | 🎤 Conference |
-</div>
+# 1. fat tree simulation command : 
 
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+# 2. UB Mesh 4D: 
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_4D_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+# 3. UB mesh 1D-FM-B:
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_1D-FM-B_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+# 4. UB mesh 2D-FM:
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./UB_AI_32g_8gps_2D-FM_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+# 5. Alibaba HPN:
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+```
+
+## Simulation Result files and location
+
+```bash 
+# workload files:
+
+./SimAI/aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt
+
+# Fat tree Server level topology: 
+
+./SimAI/Fat_tree_32Gpus_Simulation_result.txt
+
+# UB Mesh topology variants:
+
+./SimAi/UB_Mesh (1D FM B)_32Gpu_Simulation_result.txt
+
+./SimAI/UB_Mesh (2D-FM)_32Gpus_Simulation_Result.txt
+
+./SimAI/UB_Mesh (4D)_32Gpu_Simulation Result.txt
+
+# AlibabaHPN topology:
+./SimAI/HPN_32Gpus_Simulation_Result.txt
+```
+
+
+
+## Description of different UB mesh topology variants:
+
+- 1D-FM 
+  -  Intra-board: Full mesh via NVSwitch (high bandwidth, low latency).
+
+  - Inter-board: GPUs connect through hierarchical routing switches (HRS) in a global mesh.
+
+  - Why chosen: This is optimized for workloads with intensive intra-board GPU synchronization.
+
+  ----------
+  
+
+- 2D-FM (2-Dimensional Full Mesh):
+  - Intra-board: Full mesh via NVSwitch, similar to 1D-FM.
+
+  - Inter-board: GPUs interconnected explicitly in a structured grid pattern:
+
+    - Row-wise connections: GPUs share the same row, facilitating structured model-parallel or pipeline-parallel communications.
+
+    - Column-wise connections: GPUs share the same column, optimizing structured data-parallel communications.
+
+  - Why chosen: As it matches predictable, structured communication patterns in hybrid parallel AI workloads, enhancing parallel performance along clear dimensions .
+-------
+
+- 4D (Rank-matched Mesh):
+  - Intra-board: Full mesh via NVSwitch, similar to others.
+
+  - Inter-board: Fully connects GPUs of identical local ranks (indices) across all boards in a global mesh.
+
+  - Why chosen: This seemed ideal for workloads with heavy global collective operations (ALLREDUCE, ALLGATHER), ensuring direct synchronization among GPUs of the same rank, minimizing latency in collective communication.
 ---
 
-# Table of Contents
-- [SimAI Overview](#simai-overview)
-  - [Introduction](#introduction)
-  - [Components](#components)
-  - [Scenario](#scenario)
-  - [Citation](#citation)
-- [Usage](#usage)
-  - [Setup](#setup)
-    - [From Source Code](#from-source-code)
-  - [Use SimAI-Analytical](#use-simai-analytical)
-  - [Use SimAI-Simulation](#use-simai-simulation)
 
-# SimAI Overview
-## Introduction
+# My Understanding:
 
-**SimAI** is the industry's first full-stack, high-precision **Sim**ulator for **AI** large-scale training. It provides detailed modeling and simulation of the entire LLM training process, encompassing framework, collective communication, network layers, and more. This comprehensive approach offers end-to-end performance data, enabling researchers to:
+*From my understanding, SimAi used Shortest Path Routing by default, rather than using the Equal Cost Multi-Path (ECMP) routing. This is because the ECMP routing is not supported in the current version of SimAI, and it is not implemented in the ns-3 simulator.*
 
-- Analyze training process details
-- Evaluate the time consumption of AI tasks under specific conditions
-- Evaluate E2E performance gains from various algorithmic optimizations including:
-  - Framework parameters settings
-  - Collective communication algorithms
-  - NCCL environment variables
-  - Network transmission protocols
-  - Congestion control algorithms
-  - Adaptive routing algorithms
-  - Scale-up/out network topology modifications
-  - ...
+1. Even though variants like 1D-FM, 2D-FM, and 4D provide multiple parallel paths like multiple HRS connections or full meshes, SimAI’s shortest-path routing picks only one optimal route per communication pair. This leaves additional parallel routes unused, underrepresenting the potential benefits of richer topologies.
 
-## Components
-
-<pre>
-        |--- <a href="https://github.com/aliyun/aicb">AICB</a>
-SimAI --|--- <a href="https://github.com/aliyun/SimCCL">SimCCL</a>
-        |--- <a href="https://github.com/aliyun/SimAI/tree/master/astra-sim-alibabacloud">astra-sim-alibabacloud</a>
-        |--- <a href="https://github.com/aliyun/ns-3-alibabacloud">ns-3-alibabacloud</a>
-</pre>
-
-Building on pure simulation capabilities, SimAI has evolved into a versatile full-stack toolkit comprising four components ([aicb](https://github.com/aliyun/aicb), [SimCCL](https://github.com/aliyun/SimCCL), [astra-sim-alibabacloud](https://github.com/aliyun/SimAI/tree/master/astra-sim-alibabacloud), [ns-3-alibabacloud](https://github.com/aliyun/ns-3-alibabacloud)). These components can be combined in various ways to achieve different functionalities. Below, we present the six main usage scenarios for SimAI. We encourage users to explore even more possibilities with this powerful tool.
-
-Below is the architecture diagram of the SimAI Simulator:
-![SimAI_Arc](./docs/images/SimAI_Arc.png)
-
-astra-sim-alibabacloud is extended from [astra-sim](https://github.com/astra-sim/astra-sim/tree/ASTRA-sim-1.0). We are grateful to the astra-sim team for their excellent work and open-source contribution. We have integrated NCCL algorithms and added some new features.
-
-## Scenario
-
-SimAI supports three major operation modes to meet different simulation requirements:
-
-**SimAI-Analytical** offers fast simulation by abstracting network communication details using bus bandwidth (busbw) to estimate collective communication time. While it currently supports user-defined busbw, automatic busbw calculation feature is coming soon.
-
-**SimAI-Simulation** provides full-stack simulation with fine-grained network communication modeling. It leverages NS3 or other network simulators (NS3 currently open-sourced) to achieve detailed simulation of all communication behaviors, aiming for high-fidelity reproduction of actual training environments.
-
-**SimAI-Physical** *(Beta)* enables physical traffic generation for CPU RDMA cluster environments. This mode generates NCCL-like traffic patterns, allowing in-depth study of NIC behaviors during LLM training. It is currently in internal testing phase.
-
-| Scenario | Description | Component Combination |
-|----------|-------------|------------------------|
-| 1. AICB Test Suite | Run communication patterns on GPU clusters using AICB Test suite | [AICB](https://github.com/aliyun/aicb) |
-| 2. AICB/AIOB Workload | Model compute/communication patterns of training process to generate workload | [AICB](https://github.com/aliyun/aicb) |
-| 3. Collective Comm Analyze | Break down collective communication operations into point-to-point communication sets | [SimCCL](https://github.com/aliyun/SimCCL) |
-| 4. Collective Comm w/o GPU | Perform RDMA collective communication traffic on non-GPU clusters | [AICB](https://github.com/aliyun/aicb) + [SimCCL](https://github.com/aliyun/SimCCL) + [astra-sim-alibabacloud](https://github.com/aliyun/SimAI/tree/master/astra-sim-alibabacloud)(physical) |
-| 5. SimAI-Analytical | Conduct rapid AICB workload analysis and simulation on any server (ignoring underlying network details) | [AICB](https://github.com/aliyun/aicb) + [astra-sim-alibabacloud](https://github.com/aliyun/SimAI/tree/master/astra-sim-alibabacloud)(analytical) |
-| 6. SimAI-Simulation | Perform full simulation on any server | [AICB](https://github.com/aliyun/aicb) + [SimCCL](https://github.com/aliyun/SimCCL) + [astra-sim-alibabacloud](https://github.com/aliyun/SimAI/tree/master/astra-sim-alibabacloud)(simulation) + [ns-3-alibabacloud](https://github.com/aliyun/ns-3-alibabacloud) |
+2. To capture better simulation results, an advanced routing algorithm like multi-path routing was needed, but due to time constraint and complexity, i could not implemet it as it also required better understing of ns-3 simulator and C++ language.
 
 
-## Citation
 
-SimAI work has been accepted by NSDI'25 Spring, for more details, please refer to our paper below:
 
-*SimAI: Unifying Architecture Design and Performance Tuning for Large-Scale Large Language Model Training with Scalability and Precision.*
 
-[[pdf](https://ennanzhai.github.io/pub/nsdi25spring-simai.pdf)] / [[slides](./docs/SimAI_Intro_Online.pdf)] / [[video](https://n.dingtalk.com/dingding/live-room/index.html?roomId=OF5BkBUXVxmgsK7x&liveUuid=305736cd-aa70-498b-8003-2b471a53decd)]
-
-We encourage innovative research and extensions based on SimAI. Welcome to join our community group or reach out via email for discussion. We may provide technical support.
 
 # Quick Start
 

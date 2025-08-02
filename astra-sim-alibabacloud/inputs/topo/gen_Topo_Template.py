@@ -466,143 +466,189 @@ def No_Rail_Opti_DualToR(parameters):
                     f.write(line)
                     f.write('\n')
 
-######################################
-
-def OCS_Topology(parameters):
-    gpu_num = parameters['gpu']
-    gpu_per_server = parameters['gpu_per_server']
-    gpu_type = parameters['gpu_type']
-    bandwidth = parameters['bandwidth']
-    latency = parameters['latency']
-    error_rate = parameters['error_rate']
-    ocs_degree = parameters['ocs_degree']
-    
-    # Let's assume each GPU connects to exactly 1 OCS port (for simplicity)
-    # Number of OCS ports = gpu_num
-    ocs_ports_start = gpu_num
-    total_nodes = gpu_num + gpu_num  # GPUs + OCS ports
-    
-    # Each GPU connects to its dedicated OCS port
-    gpu_to_ocs_links = gpu_num
-    
-    # For OCS ports, we create a ring or partial mesh with degree = ocs_degree
-    # Each OCS port connects to 'ocs_degree' other OCS ports (symmetric)
-    
-    # To avoid duplicates, only connect OCS port i to ports i+1..i+ocs_degree (mod total OCS ports)
-    ocs_links = gpu_num * ocs_degree  # each port connects to ocs_degree others, but will write only once
-    
-    total_links = gpu_to_ocs_links + ocs_links
-    
-    file_name = f"OCS_{gpu_num}g_{ocs_degree}deg_{latency}_{bandwidth}"
-    
-    with open(file_name, 'w') as f:
-        print(f"Generating OCS-based topology: {file_name}")
-        # First line: total nodes, gpu_per_server, nv_switch=0, other_switch=number of OCS ports, links, gpu_type
-        # Treat OCS ports as switches
-        f.write(f"{total_nodes} {gpu_per_server} 0 {gpu_num} {total_links} {gpu_type}\n")
-        
-        # Second line: list OCS ports as switches
-        switch_line = " ".join(str(i) for i in range(ocs_ports_start, total_nodes))
-        f.write(switch_line + "\n")
-        
-        # GPU to OCS port connections
-        for gpu_id in range(gpu_num):
-            ocs_port_id = ocs_ports_start + gpu_id
-            line = f"{gpu_id} {ocs_port_id} {bandwidth} {latency} {error_rate}"
-            f.write(line + "\n")
-        
-        # OCS port to OCS port connections (reconfigurable links)
-        for i in range(gpu_num):
-            for offset in range(1, ocs_degree + 1):
-                j = (i + offset) % gpu_num
-                src = ocs_ports_start + i
-                dst = ocs_ports_start + j
-                line = f"{src} {dst} {bandwidth} {latency} {error_rate}"
-                f.write(line + "\n")
-
-###############################################
 
 
-
-# function  for modified UB topology 
+'''
+A UB Mesh topology function, using NVSwitches/Nvlink for on board GPU to GPU
+connectivity and direct UB links for cross board mesh + GPU to HRS + HRS to HRS (1D FM B)
+'''
 def UB_Optimized_AI_Topology(parameters):
-    """
-    Generate a UB‑Mesh topology file, using NVSwitches for on‑board GPU→GPU
-    connectivity and direct UB links for cross‑board mesh + GPU→HRS + HRS→HRS.
-    """
-    # unpack
+
     G    = parameters['gpu']
-    S    = parameters['gpu_per_server']
+    G_P_S    = parameters['gpu_per_server']
     NPS  = parameters['nv_switch_per_server']
     NVBW = parameters['nvlink_bw']
     NVLT = parameters['nv_latency']
-    IBW  = parameters['bandwidth']
-    IBLT = parameters['latency']
+    BW  = parameters['bandwidth']
+    LT = parameters['latency']
     ERR  = parameters['error_rate']
-    GPUt = parameters['gpu_type']
+    gpu_type = parameters['gpu_type']
     variant = parameters.get('fm_variant', '1D‑FM‑B')
 
-    # counts
-    B      = G // S                 # boards
-    NV_tot = B * NPS                # total NVSwitch nodes
+    
+    B      = G // G_P_S             #  boards number
+    NV_total = B * NPS              # total NVSwitch nodes
     HPS    = 2                      # HRS per board
-    H_tot  = B * HPS                # total HRS nodes
-    N_all  = G + NV_tot + H_tot     # total nodes
+    H_total  = B * HPS              # total HRS nodes
+    N_all  = G + NV_total + H_total  # total nodes
 
     # ID ranges
     gpu_ids = range(0, G)
-    nv_ids  = range(G, G + NV_tot)
-    hr_ids  = range(G + NV_tot, N_all)
+    nv_ids  = range(G, G + NV_total)
+    hr_ids  = range(G + NV_total, N_all)
 
     links = []
 
-    # 1) On‑board GPU→NVSwitch
+    # On‑board GPU to NVSwitch
     for b in range(B):
-        base_gpu = b * S
+        base_gpu = b * G_P_S
         base_nv  = G + b * NPS
-        for g in range(base_gpu, base_gpu + S):
+        for g in range(base_gpu, base_gpu + G_P_S):
             for n in range(NPS):
                 links.append((g, base_nv + n, NVBW, NVLT, ERR))
 
-    # 2) (optional) 4D rank‑matched cross‑board mesh
+    # 4D rank‑matched cross‑board mesh or 2D flattening: arrange boards in sqrt(B)x sqrt(B) grid
     if variant == '4D':
-        for gi in range(S):
-            group = [b * S + gi for b in range(B)]
+        for gi in range(G_P_S):
+            group = [b * G_P_S + gi for b in range(B)]
             for i in range(len(group)):
                 for j in range(i+1, len(group)):
-                    links.append((group[i], group[j], IBW, IBLT, ERR))
+                    links.append((group[i], group[j], BW, LT, ERR))
 
-    # 3) GPU→HRS uplinks
+    elif variant == '2D-FM':
+        sqrtB = int(math.sqrt(B))
+        assert sqrtB * sqrtB == B, "B must be a perfect square for 2D-FM"
+        for r in range(sqrtB):                                                  # row-dimension meshes
+            for gi in range(G_P_S):
+                group = [ (r*sqrtB + c)*G_P_S + gi for c in range(sqrtB) ]
+                for i in range(len(group)):
+                    for j in range(i+1, len(group)):
+                        links.append((group[i], group[j], BW, LT, ERR))
+        
+        # column dimension meshes
+        for c in range(sqrtB):
+            for gi in range(G_P_S):
+                # here we *define* r in the comprehension
+                group = [ (r*sqrtB + c)*G_P_S + gi for r in range(sqrtB) ]
+                for i in range(len(group)):
+                    for j in range(i+1, len(group)):
+                        links.append((group[i], group[j], BW, LT, ERR))
+
+
+    # GPU to HRS
     for b in range(B):
-        base_gpu = b * S
-        base_hr  = G + NV_tot + b * HPS
-        for g in range(base_gpu, base_gpu + S):
+        base_gpu = b * G_P_S
+        base_hr  = G + NV_total + b * HPS
+        for g in range(base_gpu, base_gpu + G_P_S):
             for h in range(HPS):
-                links.append((g, base_hr + h, IBW, IBLT, ERR))
+                links.append((g, base_hr + h, BW, LT, ERR))
 
-    # 4) HRS→HRS full mesh
+
+    # HRS to HRS full mesh
     hr_list = list(hr_ids)
     for i in range(len(hr_list)):
         for j in range(i+1, len(hr_list)):
-            links.append((hr_list[i], hr_list[j], IBW, IBLT, ERR))
+            links.append((hr_list[i], hr_list[j], BW, LT, ERR))
 
-    # emit file
-    fname = f"UB_AI_{G}g_{S}gps_{variant}_{IBW}_{GPUt}"
+
+    # file
+    fname = f"UB_AI_{G}g_{G_P_S}gps_{variant}_{BW}_{gpu_type}"
     with open(fname, 'w') as f:
-        # header: total_nodes, gpus/board, #NV, #HRS, #links, GPU_type
-        f.write(f"{N_all} {S} {NV_tot} {H_tot} {len(links)} {GPUt}\n")
-        # list all "switch" IDs (NVSwitch + HRS)
-        f.write(" ".join(str(i) for i in range(G, N_all)) + "\n")
-        # link lines
+        f.write(f"{N_all} {G_P_S} {NV_total} {H_total} {len(links)} {gpu_type}\n")    # header: total_nodes, gpus/board, #NV, #HRS, #links, GPU_type
+        f.write(" ".join(str(i) for i in range(G, N_all)) + "\n")                     # list all "switch" IDs (NVSwitch + HRS)
         for s, d, bw, lt, er in links:
             f.write(f"{s} {d} {bw} {lt} {er}\n")
 
     print(f"Wrote UB‑Mesh ({variant}) topology to {fname}")
 
 
+'''
+Varian of UB Mesh topology to use direct GPU to GPU links in a 2D flat mesh
+Connectivity  is shown as GPU to GPU direct links as switches 
+As SimAI’s parser ignores any link where both endpoints are hosts, so those flattening edges never get used and MaxRTT never improves
+'''
+def UB_2D_FM_Direct(parameters):
+    G        = parameters['gpu']
+    G_P_S    = parameters['gpu_per_server']
+    NPS      = parameters['nv_switch_per_server']
+    NVBW     = parameters['nvlink_bw']
+    NVLT     = parameters['nv_latency']
+    BW       = parameters['bandwidth']
+    LT       = parameters['latency']
+    ERR      = parameters['error_rate']
+    gpu_type = parameters['gpu_type']
+
+    B        = G // G_P_S
+    NV_total = B * NPS
+    HPS      = 2
+    H_total  = B * HPS
+    N_base   = G + NV_total + H_total
+
+    links = []
+
+    sqrtB = int(math.sqrt(B))
+    assert sqrtB*sqrtB == B, "B must be a perfect square"
+    
+    for b in range(B):
+        base_gpu = b * G_P_S
+        base_nv  = G + b * NPS
+        for g in range(base_gpu, base_gpu + G_P_S):
+            for n in range(NPS):
+                links.append((g, base_nv + n, NVBW, NVLT, ERR))
+
+
+    for i in range(G, G + NV_total):
+       for j in range(i+1, G + NV_total):
+          links.append((i, j, BW, LT, ERR))
+
+    # row
+    for r in range(sqrtB):
+        for gi in range(G_P_S):
+            group = [(r*sqrtB + c)*G_P_S + gi for c in range(sqrtB)]
+            for i in range(len(group)):
+                for j in range(i+1, len(group)):
+                    links.append((group[i], group[j], BW, LT, ERR))
+    # column
+    for c in range(sqrtB):
+        for gi in range(G_P_S):
+            group = [(r*sqrtB + c)*G_P_S + gi for r in range(sqrtB)]
+            for i in range(len(group)):
+                for j in range(i+1, len(group)):
+                    links.append((group[i], group[j], BW, LT, ERR))
+
+    # GPU to HRS 
+    for b in range(B):
+        base_gpu = b * G_P_S
+        base_hr  = G + NV_total + b * HPS
+        for g in range(base_gpu, base_gpu + G_P_S):
+            for h in range(HPS):
+                links.append((g, base_hr + h, BW, LT, ERR))
+
+    #HRS to HRS full mesh
+    hr_ids = list(range(G + NV_total, N_base))
+    for i in range(len(hr_ids)):
+        for j in range(i+1, len(hr_ids)):
+            links.append((hr_ids[i], hr_ids[j], BW, LT, ERR))
+
+    
+    total_nodes    = N_base
+    #total_switches = NV_total + H_total + G  #total_switches = NV_total + H_total
+    total_links    = len(links)
+
+    fname = f"UB_AI_{G}g_{G_P_S}gps_2D-FM-Direct_{BW}_{gpu_type}"
+    H_adj = H_total + G
+
+    with open(fname, 'w') as f:
+        f.write(f"{total_nodes} {G_P_S} {NV_total} {H_total} {total_links} {gpu_type}\n")
+        switch_ids = list(range(G, G + NV_total + H_total))
+        f.write(" ".join(str(s) for s in switch_ids) + "\n")
+        for s, d, bw, lt, er in links:
+            f.write(f"{s} {d} {bw} {lt} {er}\n")
+
+    print(f"Wrote UB-Mesh (2D-FM-Direct) topology to {fname}")
+
+
 # fat tree topology part
-
-
 def next_even(n):
     """Return the next even integer ≥ n."""
     return n if n % 2 == 0 else n + 1
@@ -618,9 +664,6 @@ def compute_min_k(hosts):
     return next_even(ceil(base))
 
 
-
-'''GPU-level fat-tree: each GPU is treated as a host.
-    Computes k dynamically to support ≥ G leaf ports.'''
 
 def fat_tree_gpu_level(parameters):
 
@@ -683,10 +726,10 @@ def fat_tree_gpu_level(parameters):
 def fat_tree_server_level(parameters):
     
     G = parameters['gpu']
-    S = parameters.get('gpu_per_server', 8)
+    G_P_S = parameters.get('gpu_per_server', 8)
     NPS = parameters.get('nv_switch_per_server', 1)
-    servers = G // S
-    nv_switch_num = (G // S) * NPS
+    servers = G // G_P_S
+    nv_switch_num = (G // G_P_S) * NPS
 
     # dynamically compute k for fat-tree pods based on NVSwitch count
     leaf_hosts = nv_switch_num
@@ -710,9 +753,9 @@ def fat_tree_server_level(parameters):
     links = []
     # 1) GPU -> NVSwitch
     for srv in range(servers):
-        base_gpu = srv * S
+        base_gpu = srv * G_P_S
         base_nv = nv_start + srv * NPS
-        for g in range(base_gpu, base_gpu + S):
+        for g in range(base_gpu, base_gpu + G_P_S):
             for n in range(NPS):
                 links.append((g, base_nv + n,
                               parameters['nvlink_bw'],
@@ -753,13 +796,13 @@ def fat_tree_server_level(parameters):
                       parameters['error_rate']))
 
     # write topology file
-    fname = f"fat_tree_server_{G}g_{S}gps_nvs{nv_switch_num}_k{k}_{parameters['bandwidth']}_{parameters['gpu_type']}"
+    fname = f"fat_tree_server_{G}g_{G_P_S}gps_nvs{nv_switch_num}_k{k}_{parameters['bandwidth']}_{parameters['gpu_type']}"
     with open(fname, 'w') as f:
         total_nodes = G + nv_switch_num + len(edge_ids) + len(agg_ids) + len(core_ids)
         total_switches = nv_switch_num + len(edge_ids) + len(agg_ids) + len(core_ids)
         total_links = len(links)
         # header: nodes, GPUs/server, NV switches, total switches, total links, GPU type
-        f.write(f"{total_nodes} {S} {nv_switch_num} {total_switches - nv_switch_num} {total_links} {parameters['gpu_type']}\n")
+        f.write(f"{total_nodes} {G_P_S} {nv_switch_num} {total_switches - nv_switch_num} {total_links} {parameters['gpu_type']}\n")
 
         # list all switch IDs: NVSwitch + edge + agg + core
         sw_list = nv_ids + edge_ids + agg_ids + core_ids
@@ -804,6 +847,8 @@ def main():
 
     parser.add_argument('--ub_intra_bw', type=str, default='600Gbps', help='Intra-board GPU-GPU bandwidth')
     parser.add_argument('--ub_intra_lat', type=str, default='0.000025ms', help='Intra-board GPU-GPU latency')
+    parser.add_argument('--fm_variant', choices=['1D-FM-B','4D', '2D-FM', '2D-FM-Direct'], default='1D-FM-B', help='Which fat-mesh variant to generate (1D-FM-B, 4D or 2D-FM / 2D-FM-Direct).')
+
 
     parser.add_argument('--fat_tree', dest='fat_tree', choices=['gpu','server'],
                         help='Use GPU-level or server-level fat-tree')
@@ -815,6 +860,7 @@ def main():
 
     default_parameters = []
     parameters = analysis_template(args, default_parameters)
+    parameters['fm_variant'] = args.fm_variant
 
     # if args.ocs:
     #     parameters = analysis_template(args, default_parameters)
@@ -832,8 +878,10 @@ def main():
 
 
     if args.topology == 'UB':
-        parameters = analysis_template(args, default_parameters)
-        UB_Optimized_AI_Topology(parameters)
+        if parameters['fm_variant'] == '2D-FM-Direct':
+            UB_2D_FM_Direct(parameters)
+        else:
+            UB_Optimized_AI_Topology(parameters)
         return
 
     if not parameters['rail_optimized']:
@@ -867,6 +915,7 @@ def analysis_template(args, default_parameters):
     parameters['rail_optimized'] = bool(args.ro)
     parameters['dual_ToR'] = bool(args.dt)
     parameters['dual_plane'] = bool(args.dp)
+    parameters['fm_variant'] = args.fm_variant
 
     
     if parameters['topology'] == 'Spectrum-X':
