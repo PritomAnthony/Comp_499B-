@@ -97,6 +97,9 @@ uint32_t bw_mon_interval = 10000;
 uint32_t qlen_mon_interval = 10000; 
 uint64_t mon_start = 0, mon_end = 2100000000;
 
+// Add missing variable for UB mesh topology
+bool enable_ub_mesh = false;
+
 string qlen_mon_file;
 string bw_mon_file;
 string rate_mon_file;
@@ -691,8 +694,32 @@ void SetConfig() {
   }
 }
 
-void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_finish)(FILE *, Ptr<RdmaQueuePair>)) {
+void SetupUBMeshTopology(NodeContainer &n, uint32_t numGpus) {
+  // Create direct connections between GPUs in UB mesh
+  for (uint32_t i = 0; i < numGpus; i++) {
+    for (uint32_t j = 0; j < numGpus; j++) {
+      if (i != j) {
+        // Create direct GPU-to-GPU links
+        QbbHelper qbb;
+        qbb.SetDeviceAttribute("DataRate", StringValue("300Gbps")); // UB mesh bandwidth
+        qbb.SetChannelAttribute("Delay", StringValue("100ns")); // UB mesh latency
+        NetDeviceContainer d = qbb.Install(n.Get(i), n.Get(j));
+        
+        // Setup device attributes for UB mesh
+        Ptr<QbbNetDevice> dev = DynamicCast<QbbNetDevice>(d.Get(0));
+        dev->SetAttribute("EnableNVLS", BooleanValue(true));  // Enable NVLS for UB mesh
+        
+        // Set up interface information
+        nbr2if[n.Get(i)][n.Get(j)].idx = dev->GetIfIndex();
+        nbr2if[n.Get(i)][n.Get(j)].up = true;
+        nbr2if[n.Get(i)][n.Get(j)].delay = 100;  // 100ns delay
+        nbr2if[n.Get(i)][n.Get(j)].bw = 300000000000ULL;  // 300Gbps
+      }
+    }
+  }
+}
 
+void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_finish)(FILE *, Ptr<RdmaQueuePair>)) {
   topof.open(topology_file.c_str());
   flowf.open(flow_file.c_str());
   tracef.open(trace_file.c_str());
@@ -702,6 +729,14 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
       link_num >> gpu_type_str;
   flowf >> flow_num;
   tracef >> trace_num;
+
+  // Handle UB mesh topology
+  if (enable_ub_mesh) {
+    nvswitch_num = 0;  // No NVSwitches in UB mesh
+    switch_num = 0;    // No switches in UB mesh
+    node_num = gpus_per_server;  // All nodes are GPUs
+  }
+  
   if(gpu_type_str == "A100"){
     gpu_type = GPUType::A100;
   } else if(gpu_type_str == "A800"){

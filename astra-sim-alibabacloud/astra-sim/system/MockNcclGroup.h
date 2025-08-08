@@ -111,16 +111,20 @@ namespace MockNccl {
     ~GroupInfo(){}
   };
   class MockNcclGroup {
+   public:
+  static bool enable_ub_mesh; // Set this flag externally before construction if UB mesh is enabled
     struct DoubleBinaryTreeNode {
     int node;
     DoubleBinaryTreeNode* left;
     DoubleBinaryTreeNode* right;
     DoubleBinaryTreeNode(int _node) : node(_node), left(nullptr), right(nullptr) {}
     };
-   public:
-    MockNcclGroup(){}
-    MockNcclGroup(int _ngpus,int _gpus_per_nodes, int _TP_size,int _DP_size,int _PP_size,int _EP_size,int _DP_EP_size,std::vector<int>_NVSwitch,GPUType _gpu_type);
-    ~MockNcclGroup(){};
+  MockNcclGroup(){}
+  MockNcclGroup(int _ngpus,int _gpus_per_nodes, int _TP_size,int _DP_size,int _PP_size,int _EP_size,int _DP_EP_size,std::vector<int>_NVSwitch,GPUType _gpu_type);
+  ~MockNcclGroup(){};
+
+  // UB mesh aware constructor logic (in .cc):
+  // If enable_ub_mesh is true, skip all NVSwitch and switch group logic, treat all nodes as GPUs.
 
     std::map<std::pair<int,GroupType>,int> GroupIndex;
     std::map<int,GroupInfo> AllGroups;

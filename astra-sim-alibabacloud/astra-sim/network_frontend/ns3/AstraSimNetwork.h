@@ -16,10 +16,13 @@
 #ifndef __ASTRASIMNETWORK_HH__
 #define __ASTRASIMNETWORK_HH__
 #include <iostream>
+#include "astra-sim/system/AstraNetworkAPI.hh" // Add this include for the base class
 using namespace std;
+// using namespace AstraSim; // Removed to avoid ambiguity
+
 class ASTRASimNetwork: AstraSim::AstraNetworkAPI{
     public:
-        ASTRASimNetwork(int rank):AstraNetworkAPI(rank){
+        ASTRASimNetwork(int rank):AstraSim::AstraNetworkAPI(rank){
         }
         ~ASTRASimNetwork(){}
         int sim_comm_size(AstraSim::sim_comm comm, int* size){

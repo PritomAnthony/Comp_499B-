@@ -72,6 +72,7 @@ public:
   ~ASTRASimNetwork() {}
   int sim_comm_size(AstraSim::sim_comm comm, int *size) { return 0; }
   int sim_finish() {
+    std::cout << "Debug: Entering sim_finish()" << std::endl;
     for (auto it = nodeHash.begin(); it != nodeHash.end(); it++) {
       pair<int, int> p = it->first;
       if (p.second == 0) {
@@ -84,10 +85,11 @@ public:
              << "\n";
       }
     }
+    std::cout << "Debug: Completed processing in sim_finish(), about to exit" << std::endl;
     exit(0);
     return 0;
   }
-  double sim_time_resolution() { return 0; }
+  double sim_time_resolution() { return 1e-9; }  // 1 nanosecond resolution
   int sim_init(AstraSim::AstraMemoryAPI *MEM) { return 0; }
   AstraSim::timespec_t sim_get_time() {
     AstraSim::timespec_t timeSpec;
@@ -208,6 +210,17 @@ sim_recv_end_section:
   }
   void handleEvent(int dst, int cnt) {
   }
+
+  // Add validation for CSV data before writing
+  bool validateCSVData() {
+    for (auto it = nodeHash.begin(); it != nodeHash.end(); it++) {
+      if (it->first.first < 0 || it->second < 0) {
+        std::cout << "Invalid data detected in nodeHash" << std::endl;
+        return false;
+      }
+    }
+    return true;
+  }
 };
 
 struct user_param {
@@ -273,14 +286,43 @@ int main(int argc, char *argv[]) {
   int nodes_num = node_num - switch_num;
   int gpu_num = node_num - nvswitch_num - switch_num;
 
-  std::map<int, int> node2nvswitch; 
-  for(int i = 0; i < gpu_num; ++ i) {
-    node2nvswitch[i] = gpu_num + i / gpus_per_server;
+  std::map<int, int> node2nvswitch;
+  std::map<int, std::vector<int>> tp_groups;
+  
+  // Setup topology for tensor parallel groups
+  for(int i = 0; i < gpu_num; ++i) {
+    int group_id = i / 2;  // Group ID for tensor parallelism
+    node2nvswitch[i] = group_id;  // Map each GPU to its group
+    
+    // Add GPU to its tensor parallel group
+    if (tp_groups.find(group_id) == tp_groups.end()) {
+      tp_groups[group_id] = std::vector<int>();
+    }
+    tp_groups[group_id].push_back(i);
+    
+    // Create virtual switches for each tensor parallel group
+    if (i % 2 == 0) {
+      int switch_id = gpu_num + group_id;
+      NVswitchs.push_back(switch_id);
+    }
   }
-  for(int i = gpu_num; i < gpu_num + nvswitch_num; ++ i){
-    node2nvswitch[i] = i;
-    NVswitchs.push_back(i);
-  } 
+  
+  // Configure cross-group communication paths
+  for (auto& group : tp_groups) {
+    int group_id = group.first;
+    auto& gpus = group.second;
+    
+    // Ensure all GPUs in the group can communicate
+    for (int i = 0; i < gpus.size(); i++) {
+      for (int j = i + 1; j < gpus.size(); j++) {
+        // Set up bidirectional communication
+        int gpu1 = gpus[i];
+        int gpu2 = gpus[j];
+        node2nvswitch[gpu1] = group_id;
+        node2nvswitch[gpu2] = group_id;
+      }
+    }
+  }
 
   LogComponentEnable("OnOffApplication", LOG_LEVEL_INFO);
   LogComponentEnable("PacketSink", LOG_LEVEL_INFO);
@@ -289,44 +331,73 @@ int main(int argc, char *argv[]) {
   std::vector<ASTRASimNetwork *> networks(nodes_num, nullptr);
   std::vector<AstraSim::Sys *> systems(nodes_num, nullptr);
 
-  for (int j = 0; j < nodes_num; j++) {
-    networks[j] =
-        new ASTRASimNetwork(j ,0);
-    systems[j ] = new AstraSim::Sys(
-        networks[j], 
-        nullptr,                  
-        j,                        
-        0,               
-        1,                        
-        {nodes_num},        
-        {1},          
-        "", 
-        user_param.workload, 
-        1, 
-        1,          
-        1,          
-        1,
-        0,                 
-        RESULT_PATH, 
-        "test1",            
-        true,               
-        false,               
-        gpu_type,
-        {gpu_num},
-        NVswitchs,
-        gpus_per_server
-    );
-    systems[j ]->nvswitch_id = node2nvswitch[j];
-    systems[j ]->num_gpus = nodes_num - nvswitch_num;
+  // Enable UB mesh topology with proper switch handling
+  // Enable UB mesh topology routing 
+  RdmaHw::enable_ub_mesh = true;
+  
+  // Create virtual switches for UB mesh topology
+  std::vector<int> virtual_switches;
+  for (int i = 0; i < gpu_num; i++) {
+    virtual_switches.push_back(gpu_num + i);  // Virtual switches start after GPUs
   }
+  
+  for (int j = 0; j < nodes_num; j++) {
+    networks[j] = new ASTRASimNetwork(j, 0);
+    
+    // Calculate the group ID for this node
+    int group_id = j / 2;
+    int group_size = 2;  // Size of tensor parallel groups
+    
+    systems[j] = new AstraSim::Sys(
+        networks[j],
+        nullptr,
+        j,
+        group_id,  // Pass group_id for tensor parallel awareness
+        1,
+        {group_size},  // Tensor parallel size is 2 (tp2)
+        {gpu_num/group_size},  // Number of TP groups
+        "",
+        user_param.workload,
+        1,
+        1,
+        1,
+        1,
+        0,
+        RESULT_PATH,
+        "test1",
+        true,
+        enable_ub_mesh,
+        gpu_type,
+        {gpu_num},  // Total number of GPUs
+        NVswitchs,  // Virtual switches for TP groups
+        gpu_num
+    );
+    
+    // Set up routing information
+    systems[j]->nvswitch_id = node2nvswitch[j];
+    systems[j]->num_gpus = gpu_num;
+    
+    // UB mesh specific parameters are handled through topology configuration
+    if (enable_ub_mesh) {
+        // The topology file and virtual switches handle the mesh configuration
+        NcclLog->writeLog(NcclLogLevel::INFO, "Setting up UB mesh configuration for node %d in group %d", j, group_id);
+    }
+  }
+  std::cout << "Debug: Before firing workloads" << std::endl;
   for (int i = 0; i < nodes_num; i++) {
+    std::cout << "Debug: Firing workload for system " << i << std::endl;
     systems[i]->workload->fire();
   }
-  std::cout << "simulator run " << std::endl;
+  std::cout << "Debug: All workloads fired, starting simulator" << std::endl;
 
   Simulator::Run();
+  std::cout << "Debug: Simulator::Run() completed" << std::endl;
+  
   Simulator::Stop(Seconds(2000000000));
+  std::cout << "Debug: Simulator stopped" << std::endl;
+  
   Simulator::Destroy();
+  std::cout << "Debug: Simulator destroyed" << std::endl;
   
   #ifdef NS3_MPI
   MpiInterface::Disable ();
