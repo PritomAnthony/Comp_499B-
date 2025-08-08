@@ -184,6 +184,14 @@ Sys::Sys(
   }
   all_generators[id+npu_offset] = this;
 
+  // UB mesh: skip NVSwitch/switch logic, all nodes are GPUs
+  if (MockNccl::MockNcclGroup::enable_ub_mesh) {
+    // In UB mesh, treat all nodes as GPUs, skip switch/NVSwitch logic
+    this->NVSwitchs.clear();
+    this->ngpus_per_node = 1;
+    // all_gpus should already be set to all node IDs
+  }
+
   inp_scheduling_policy = "LIFO";
   communication_delay = 10 * injection_scale;
   active_chunks_per_dimension = 1;
@@ -1318,6 +1326,9 @@ CollectivePhase Sys::generate_collective_phase(
                 << std::endl;
             exit(1);
           }
+    // Add a default return statement to handle cases not caught by the conditions above
+    CollectivePhase dummy(this, 0, NULL);
+    return dummy;
 }
 
 std::map<std::pair<int,int>, MockNccl::SingleFlow> Sys:: generate_net_test_flow_model(uint64_t data_size, int nums) {
@@ -1361,10 +1372,33 @@ bool Sys::mock_nccl_grobal_group_init(){
         ? total_nodes
         : workload->model_parallel_npu_group;
     int PP_size = 1;
-    int DP_size = all_gpus[0] / (TP_size * PP_size);
+    
+    // For UB mesh, adjust size calculations since all nodes are GPUs
+    int DP_size;
+    if (MockNccl::MockNcclGroup::enable_ub_mesh) {
+      DP_size = total_nodes / (TP_size * PP_size);  // All nodes are GPUs
+    } else {
+      DP_size = all_gpus[0] / (TP_size * PP_size);
+    }
+    
     int EP_size = workload->expert_parallel_npu_group;
     int DP_EP_size = DP_size / EP_size;
-    GlobalGroup = new MockNccl::MockNcclGroup(all_gpus[0],ngpus_per_node,TP_size,DP_size,PP_size,EP_size,DP_EP_size,NVSwitchs,gpu_type);
+    if (MockNccl::MockNcclGroup::enable_ub_mesh) {
+      // In UB mesh, all nodes are GPUs, no NVSwitchs
+      std::vector<int> empty_nv;
+      GlobalGroup = new MockNccl::MockNcclGroup(
+        all_gpus.size(), // total_gpus = total nodes
+        1,               // ngpus_per_node = 1
+        TP_size,
+        DP_size,
+        PP_size,
+        EP_size,
+        DP_EP_size,
+        empty_nv,
+        gpu_type);
+    } else {
+      GlobalGroup = new MockNccl::MockNcclGroup(all_gpus[0],ngpus_per_node,TP_size,DP_size,PP_size,EP_size,DP_EP_size,NVSwitchs,gpu_type);
+    }
     return true;
   }
 }

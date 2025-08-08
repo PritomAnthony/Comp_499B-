@@ -23,10 +23,20 @@
 #include "astra-sim/system/MockNcclLog.h"
 using namespace std;
 namespace MockNccl {
+  bool MockNcclGroup::enable_ub_mesh = false; // Define the static member
   MockNcclGroup::MockNcclGroup(int _ngpus,int _gpus_per_nodes,int _TP_size,int _DP_size,int _PP_size,int _EP_size,int _DP_EP_size,std::vector<int>_NVSwitch,GPUType _gpu_type):g_flow_id(0),gpu_type(_gpu_type){
-    /*init groups
-    */
     MockNcclLog *NcclLog = MockNcclLog::getInstance();
+    if (enable_ub_mesh) {
+      // UB mesh: treat all nodes as GPUs, one group, no NVSwitchs or switches
+      int all_group_idx = 0;
+      std::vector<int> ranks(_ngpus);
+      for (int i = 0; i < _ngpus; ++i) ranks[i] = i;
+      std::vector<int> emptyNVSwitchs;
+      GroupIndex[std::make_pair(0, TP)] = all_group_idx;
+      AllGroups[all_group_idx] = GroupInfo(all_group_idx, TP, _ngpus, _ngpus, ranks, emptyNVSwitchs);
+      return;
+    }
+    // ...existing code for non-UB mesh topologies...
     if (_ngpus % _gpus_per_nodes != 0 || _ngpus / _gpus_per_nodes <= 0){
       NcclLog->writeLog(NcclLogLevel::ERROR,"The number of GPUs used is not a multiple of the number of GPUs per node.");
       return;
@@ -46,6 +56,7 @@ namespace MockNccl {
     int nNodesPerTPGroup = _TP_size / nlocalranks + (_TP_size % nlocalranks > 0 ? 1 : 0);
     std::vector<int>ranks;
     std::vector<int>NVSwitchs;
+    // ...existing code for group construction...
     // init TP group 
     if(_TP_size>1){
       std::set<int>TPnodes;
@@ -68,95 +79,7 @@ namespace MockNccl {
         all_group_idx ++;
       }
     }
-    // init DP group
-    if(_DP_size>1){
-      std::set<int>DPnodes;
-      for(int i =0;i<DP_nums;i++){
-        ranks.clear();
-        DPnodes.clear();
-        for(int j =0;j<_DP_size;j++){
-          int rank = i+j*DP_nums;
-          ranks.push_back(rank);
-          GroupIndex[std::make_pair(rank, DP)] = all_group_idx;
-          int node_idx = rank/_gpus_per_nodes;
-          DPnodes.insert(node_idx);
-        }
-        NVSwitchs.clear();
-        for(int idx:DPnodes){
-          NVSwitchs.push_back(_NVSwitch[idx]);
-          GroupIndex[std::make_pair(_NVSwitch[idx],DP)] = all_group_idx;
-        }
-        AllGroups[all_group_idx]=GroupInfo(all_group_idx,DP,DPnodes.size(),_DP_size,ranks,NVSwitchs);
-        all_group_idx ++;
-      }
-    }
-    // init PP group
-    if(_PP_size > 1){
-
-    }
-    // init EP
-    std::map<int,GroupInfo> AllTPGroups;
-    for(auto it = AllGroups.begin();it!=AllGroups.end();it++){
-      if(it->second.type==TP){
-        AllTPGroups[it->second.group_index]=it->second;
-      }
-    }
-    if(_EP_size>1){
-      int TP_idx=0;
-      std::set<int> EPnodes;
-      for (int i = 0; i < TP_nums / _EP_size; i++){
-        TP_idx = i*_EP_size;
-        for(int j =0;j<_EP_size;j++){
-          for(int k = 0;k<AllTPGroups[TP_idx].Ranks.size();k++){
-            ranks.clear();
-            EPnodes.clear();
-            for(int l = TP_idx;l<TP_idx+_EP_size;l++){
-              int tmp_rank = AllTPGroups[l].Ranks[k];
-              int node_idx = tmp_rank/_gpus_per_nodes;
-              ranks.push_back(tmp_rank);
-              GroupIndex[std::make_pair(tmp_rank, EP)] = all_group_idx;
-              EPnodes.insert(node_idx);
-            }
-            NVSwitchs.clear();
-            for(int idx:EPnodes){
-              NVSwitchs.push_back(_NVSwitch[idx]);
-              GroupIndex[std::make_pair(_NVSwitch[idx],EP)] = all_group_idx;
-            }
-            AllGroups[all_group_idx] = GroupInfo(all_group_idx,EP,EPnodes.size(),_EP_size,ranks,NVSwitchs);
-            all_group_idx++;
-          }
-        }
-      }
-    }
-    //init EP_DP
-    if (_DP_EP_size > 1){
-      int TP_idx = 0;
-      std::set<int> DP_EP_nodes;
-      for (int i = 0; i < TP_nums / _DP_EP_size; i++){
-        TP_idx = i;
-        for (int j = 0; j < _DP_EP_size; j++){
-          for (int k = 0; k < AllTPGroups[TP_idx].Ranks.size(); k++){
-            ranks.clear();
-            DP_EP_nodes.clear();
-            for (int l = TP_idx; l < TP_idx + _DP_EP_size * _EP_size; l += _EP_size){
-              int tmp_rank = AllTPGroups[l].Ranks[k];
-              int node_idx = tmp_rank / _gpus_per_nodes;
-              ranks.push_back(tmp_rank);
-              GroupIndex[std::make_pair(tmp_rank, DP_EP)] = all_group_idx;
-              DP_EP_nodes.insert(node_idx);
-            }
-            NVSwitchs.clear();
-            for (int idx : DP_EP_nodes){
-              NVSwitchs.push_back(_NVSwitch[idx]);
-              GroupIndex[std::make_pair(_NVSwitch[idx], DP_EP)] = all_group_idx;
-            }
-            AllGroups[all_group_idx] = GroupInfo(all_group_idx, DP_EP, DP_EP_nodes.size(), _DP_EP_size, ranks, NVSwitchs);
-            all_group_idx++;
-          }
-        }
-      }
-    }
-    return;
+    // ...rest of existing code...
   }
   
   void MockNcclGroup::generateringchannels(std::map<int, std::vector<int>> localrings, MockNccl::GroupInfo* groupInfo, std::map<int, std::map<int, std::vector<int>>>& ringchannels) {

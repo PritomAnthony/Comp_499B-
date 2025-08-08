@@ -927,6 +927,7 @@ void Workload::iterate_hybrid_parallel_Transformer_fwd_in_bckwd() {
     return;
   }
 }
+
 void Workload::iterate_hybrid_parallel_DLRM() {
   assert(index >= 0);
   assert(index < SIZE);
