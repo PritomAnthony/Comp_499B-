@@ -333,7 +333,8 @@ int main(int argc, char *argv[]) {
 
   // Enable UB mesh topology with proper switch handling
   // Enable UB mesh topology routing 
-  RdmaHw::enable_ub_mesh = true;
+  Ptr<RdmaHw> rdma = CreateObject<RdmaHw>();
+  rdma->enable_ub_mesh_topology();
   
   // Create virtual switches for UB mesh topology
   std::vector<int> virtual_switches;

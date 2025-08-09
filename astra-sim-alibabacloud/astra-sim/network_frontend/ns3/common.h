@@ -439,6 +439,12 @@ void TakeDownLink(NodeContainer n, Ptr<Node> a, Ptr<Node> b) {
   DynamicCast<QbbNetDevice>(a->GetDevice(nbr2if[a][b].idx))->TakeDown();
   DynamicCast<QbbNetDevice>(b->GetDevice(nbr2if[b][a].idx))->TakeDown();
   SetRoutingEntries();
+  // Debug: dump per-host routing tables after population
+  for (uint32_t i = 0; i < node_num; i++) {
+    if (n.Get(i)->GetNodeType() == 0) {
+      n.Get(i)->GetObject<RdmaDriver>()->m_rdma->DumpRoutingTables();
+    }
+  }
 
   for (uint32_t i = 0; i < n.GetN(); i++) {
     if (n.Get(i)->GetNodeType() == 0)
@@ -735,6 +741,11 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
     nvswitch_num = 0;  // No NVSwitches in UB mesh
     switch_num = 0;    // No switches in UB mesh
     node_num = gpus_per_server;  // All nodes are GPUs
+  // In a flat fully-connected UB mesh each GPU is its own 'server'.
+  // If the topology file encodes gpus_per_server as total GPU count (legacy),
+  // routing logic would group all GPUs and look for intra-server (NVSwitch) paths.
+  // Force gpus_per_server to 1 so RdmaHw treats every GPU independently.
+  gpus_per_server = 1;
   }
   
   if(gpu_type_str == "A100"){
