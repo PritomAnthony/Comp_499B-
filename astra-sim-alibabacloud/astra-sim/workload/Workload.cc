@@ -1116,8 +1116,18 @@ std::map<std::string, std::vector<bool>> Workload::decode_involved_dimensions(
       policy == ParallelismPolicy::Transformer) {
     int model_parallel_boundary =
         generator->break_dimension(model_parallel_npu_group);
+    if (generator->id == 0) {
+      std::cout << "DEBUG_POLICY: TransformerFwdInBckwd, model_parallel_npu_group=" << model_parallel_npu_group 
+                << ", model_parallel_boundary=" << model_parallel_boundary << std::endl;
+    }
     std::vector<bool> model;
     std::vector<bool> data;
+    
+    // Fix: If break_dimension returns -1, enable first dimension for model parallel
+    if (model_parallel_boundary == -1) {
+      model_parallel_boundary = 0;  // Enable at least the first dimension
+    }
+    
     for (int i = 0; i <= model_parallel_boundary; i++) {
       model.push_back(true);
       data.push_back(false);
@@ -1125,6 +1135,13 @@ std::map<std::string, std::vector<bool>> Workload::decode_involved_dimensions(
     for (int i = model_parallel_boundary + 1; i < 10; i++) {
       model.push_back(false);
       data.push_back(true);
+    }
+    if (generator->id == 0) {
+      std::cout << "DEBUG_POLICY: model dimensions: ";
+      for (int i = 0; i < model.size(); i++) {
+        std::cout << (model[i] ? "1" : "0") << " ";
+      }
+      std::cout << std::endl;
     }
     result["fwd"] = model;
     result["ig"] = model;

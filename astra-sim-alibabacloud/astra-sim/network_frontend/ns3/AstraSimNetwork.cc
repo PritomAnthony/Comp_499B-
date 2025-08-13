@@ -27,6 +27,7 @@
 #include <execinfo.h>
 #include <fstream>
 #include <iostream>
+#include <map>
 #include <queue>
 #include <stdio.h>
 #include <string>
@@ -72,25 +73,30 @@ public:
   ~ASTRASimNetwork() {}
   int sim_comm_size(AstraSim::sim_comm comm, int *size) { return 0; }
   int sim_finish() {
-    std::cout << "Debug: Entering sim_finish()" << std::endl;
-    for (auto it = nodeHash.begin(); it != nodeHash.end(); it++) {
-      pair<int, int> p = it->first;
-      if (p.second == 0) {
-        std::cout << "sim_finish on sent, " << " Thread id: " << pthread_self() << std::endl;
-        cout << "All data sent from node " << p.first << " is " << it->second
-             << "\n";
-      } else {
-        std::cout << "sim_finish on received, " << " Thread id: " << pthread_self() << std::endl;
-        cout << "All data received by node " << p.first << " is " << it->second
-             << "\n";
+    std::cout << "DEBUG_SIM_FINISH: Entering sim_finish() for rank " << rank << std::endl;
+    std::cout << "DEBUG_SIM_FINISH: nodeHash size: " << nodeHash.size() << std::endl;
+    
+    if (nodeHash.empty()) {
+      std::cout << "DEBUG_SIM_FINISH: WARNING - nodeHash is EMPTY! No per-node statistics available." << std::endl;
+    } else {
+      std::cout << "DEBUG_SIM_FINISH: Printing per-node statistics:" << std::endl;
+      for (auto it = nodeHash.begin(); it != nodeHash.end(); it++) {
+        pair<int, int> p = it->first;
+        if (p.second == 0) {
+          cout << "All data sent from node " << p.first << " is " << it->second << "\n";
+        } else {
+          cout << "All data received by node " << p.first << " is " << it->second << "\n";
+        }
       }
     }
-    std::cout << "Debug: Completed processing in sim_finish(), about to exit" << std::endl;
-    exit(0);
+    std::cout << "DEBUG_SIM_FINISH: Completed processing in sim_finish(), returning normally" << std::endl;
     return 0;
   }
   double sim_time_resolution() { return 1e-9; }  // 1 nanosecond resolution
   int sim_init(AstraSim::AstraMemoryAPI *MEM) { return 0; }
+  virtual AstraSim::AstraNetworkAPI::BackendType get_backend_type() override {
+    return AstraSim::AstraNetworkAPI::BackendType::NS3;
+  }
   AstraSim::timespec_t sim_get_time() {
     AstraSim::timespec_t timeSpec;
     timeSpec.time_val = Simulator::Now().GetNanoSeconds();
@@ -393,6 +399,19 @@ int main(int argc, char *argv[]) {
 
   Simulator::Run();
   std::cout << "Debug: Simulator::Run() completed" << std::endl;
+  
+  // TODO: Per-node statistics temporarily disabled due to segfault
+  // Print per-node data transfer statistics
+  // std::cout << "DEBUG_SIM_FINISH: Printing per-node statistics" << std::endl;
+  // std::cout << "DEBUG_SIM_FINISH: nodeHash size: " << nodeHash.size() << std::endl;
+  // for (auto it = nodeHash.begin(); it != nodeHash.end(); it++) {
+  //   pair<int, int> p = it->first;
+  //   if (p.second == 0) {
+  //     std::cout << "All data sent from node " << p.first << " is " << it->second << std::endl;
+  //   } else {
+  //     std::cout << "All data received by node " << p.first << " is " << it->second << std::endl;
+  //   }
+  // }
   
   Simulator::Stop(Seconds(2000000000));
   std::cout << "Debug: Simulator stopped" << std::endl;

@@ -67,7 +67,9 @@ Sys::~Sys() {
               << "Total streams finished: " << streams_finished << std::endl
               << "Percentage of finished streams: "
               << (((double)streams_finished) / streams_injected) * 100 << " %"
-              << std::endl
+              << std::endl;
+    if(id == 0) std::cout << "DEBUG_FINAL_COUNT: Node 0 final stream_counter value: " << stream_counter << std::endl;
+    std::cout << std::endl
               << "*****" << std::endl;
   }
   #ifndef PHY_MTP
@@ -258,7 +260,16 @@ Sys::Sys(
       max_running,
       active_first_phase,
       concurrent_streams);
-  vLevels = new QueueLevels(queues_per_dim, 0, NI->get_backend_type());
+  
+  // Debug: Log the backend type being used
+  AstraNetworkAPI::BackendType backend_type = NI->get_backend_type();
+  std::cout << "DEBUG_BACKEND: Node " << id << " detected backend type: " 
+            << (backend_type == AstraNetworkAPI::BackendType::NS3 ? "NS3" :
+                backend_type == AstraNetworkAPI::BackendType::Analytical ? "Analytical" :
+                backend_type == AstraNetworkAPI::BackendType::Garnet ? "Garnet" : "NotSpecified")
+            << std::endl;
+  
+  vLevels = new QueueLevels(queues_per_dim, 0, backend_type);
 
   logical_topologies["AllReduce"] = new GeneralComplexTopology(
       id, physical_dims, all_reduce_implementation_per_dimension);
@@ -1030,6 +1041,7 @@ std::vector<std::string> Sys::split_string(std::string str, std::string sep) {
 }
 uint64_t Sys::determine_chunk_size(uint64_t size, ComType type) {
   uint64_t chunk_size = size / preferred_dataset_splits;
+  if(id == 0) std::cout << "DEBUG_CHUNK_SIZE: size=" << size << ", preferred_dataset_splits=" << preferred_dataset_splits << ", resulting chunk_size=" << chunk_size << std::endl;
   return chunk_size;
 }
 DataSet* Sys::generate_all_reduce(
@@ -1463,7 +1475,14 @@ DataSet* Sys::generate_collective(
     EventType event,
     Callable* layer_ptr ) {
   uint64_t chunk_size = determine_chunk_size(size, collective_type);
-  if(id == 0) std::cout << "chunk size is: " << chunk_size << " , size is: " << size << " , layer_num is: " << layer_num << " , node: " << id << std::endl;
+  if(id == 0) {
+    std::string event_name = "UNKNOWN";
+    if(event == EventType::Fwd_Comm_Finished) event_name = "FORWARD_PASS";
+    else if(event == EventType::Input_Grad_Comm_Finished) event_name = "INPUT_GRAD";
+    else if(event == EventType::Wight_Grad_Comm_Finished) event_name = "WEIGHT_GRAD";
+    std::cout << "DEBUG_COLLECTIVE_TYPE: layer=" << layer_num << ", event=" << event_name << " (raw=" << (int)event << "), size=" << size << ", chunk_size=" << chunk_size << std::endl;
+  }
+  if(id == 0) std::cout << "DEBUG_STREAM_COUNT: chunk size is: " << chunk_size << " , size is: " << size << " , layer_num is: " << layer_num << " , node: " << id << std::endl;
   uint64_t recommended_chunk_size = chunk_size;
   int streams = ceil(((double)size) / chunk_size);
   int64_t tmp;
@@ -1487,6 +1506,7 @@ DataSet* Sys::generate_collective(
 
   while (size > 0) {
     count++;
+    if(id == 0) //std::cout << "DEBUG_STREAM_COUNT: Loop iteration " << count << ", remaining size: " << size << ", chunk_size: " << chunk_size << std::endl;
     chunk_size=std::min(chunk_size,size); 
     std::vector<int> dim_mapper(topology->get_num_of_dimensions());
     std::iota(std::begin(dim_mapper), std::end(dim_mapper), 0);
@@ -1513,7 +1533,7 @@ DataSet* Sys::generate_collective(
       dim_mapper = offline_greedy->get_chunk_scheduling(
           stream_counter,
           size,
-          recommended_chunk_size,
+          chunk_size,
           dimensions_involved,
           inter_dimension_scheduling,
           collective_type);
@@ -1680,6 +1700,7 @@ DataSet* Sys::generate_collective(
       }
     }
     if (vect.size() > 0) {
+      if(id == 0) std::cout << "DEBUG_STREAM_CREATE: Creating stream #" << stream_counter << " for dataset id: " << dataset->my_id << " (total_streams=" << dataset->total_streams << ")" << std::endl;
       StreamBaseline* newStream =
           new StreamBaseline(this, dataset, stream_counter++, vect, pri);
       newStream->current_queue_id = -1;
@@ -1697,6 +1718,14 @@ DataSet* Sys::generate_collective(
   if (dataset->active) {
     streams_injected += count;
     dataset->total_streams = count;
+    //if(id == 0) std::cout << "DEBUG_STREAM_COUNT: Generated " << count << " streams for layer " << layer_num << ", total injected: " << streams_injected << std::endl;
+    if(id == 0) {
+      std::string event_name = "UNKNOWN";
+      if(event == EventType::Fwd_Comm_Finished) event_name = "FORWARD_PASS";
+      else if(event == EventType::Input_Grad_Comm_Finished) event_name = "INPUT_GRAD";
+      else if(event == EventType::Wight_Grad_Comm_Finished) event_name = "WEIGHT_GRAD";
+      std::cout << "DEBUG_STREAM_COUNT: Generated " << count << " streams for layer " << layer_num << " (" << event_name << "), total injected: " << streams_injected << std::endl;
+    }
   }
   return dataset;
 }
@@ -1721,9 +1750,23 @@ void Sys::call_events() {
   event_queue.erase(Sys::boostedTick());
   cs.ExitSection();
   }
-  FINISH_CHECK: if ((finished_workloads == 1 && event_queue.size() == 0 && pending_sends.size() == 0) ||
+  FINISH_CHECK: 
+  static int debug_counter = 0;
+  if (id == 0 && (debug_counter++ % 1000 == 0)) {
+    std::cout << "DEBUG_SIM_END: Node " << id << " checking finish condition: finished_workloads=" << finished_workloads << ", event_queue.size()=" << event_queue.size() << ", pending_sends.size()=" << pending_sends.size() << ", initialized=" << initialized << std::endl;
+  }
+  if ((finished_workloads == 1 && event_queue.size() == 0 && pending_sends.size() == 0) ||
       initialized == false) {
+    if (id == 0) {
+      std::cout << "DEBUG_SIM_END: Node " << id << " FINISH CONDITION MET - calling sim_finish!" << std::endl;
+      std::cout << "Simulation completed: all workloads finished" << std::endl;
+    }
+    // Call sim_finish on ALL nodes to get per-node statistics
+    std::cout << "DEBUG_SIM_END: Node " << id << " calling NI->sim_finish()" << std::endl;
+    NI->sim_finish();
     delete this;
+  } else if (id == 0 && (debug_counter % 1000 == 0)) {
+    std::cout << "DEBUG_SIM_END: Node " << id << " FINISH CONDITION NOT MET - continuing simulation" << std::endl;
   }
 
 }
