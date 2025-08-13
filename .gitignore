@@ -6,5 +6,16 @@ bin/
 results/
 test/log/
 *.log
+# Allow important simulation result files
+!*Simulation_result.txt
+!*Simulation_Result.txt
+!ub_output.log
+!ub_latest_output.log
+!ub_complete_output.log
+!ub_detailed_output.log
+!latest_ub32_run.log
+!Fat_tree_32Gpus_Simulation_result.txt
+!UB_*_Simulation_Result.txt
+!HPN_*_Simulation_Result.txt
 .cur*
 .DS_Store
