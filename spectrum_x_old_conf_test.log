@@ -1,0 +1,115 @@
+maxRtt=150 maxBdp=54000
+Running Simulation.
+The final active chunks per dimension 1 after allocating to queues is: 4
+DEBUG_BACKEND: Node 0 detected backend type: NS3
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+total nodes: 2
+Success in opening workload file
+model_parallel_NPU_group is 8
+checkpoints layers are: 
+layers initiating fwd_in_bckwd are: 
+pp_commize:0
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+type: HYBRID_TRANSFORMER_FWD_IN_BCKWD ,num passes: 1 ,lines: 2 compute scale: 1 ,comm scale: 1
+stat path: ./ncclFlowModel_ ,total rows: 1 ,stat row: 0
+CSV path and filename: ./ncclFlowModel_detailed_2.csv
+CSV path and filename: ./ncclFlowModel_EndToEnd.csv
+DEBUG_BACKEND: Node 1 detected backend type: NS3
+DEBUG_BACKEND: Node 2 detected backend type: NS3
+DEBUG_BACKEND: Node 3 detected backend type: NS3
+DEBUG_BACKEND: Node 4 detected backend type: NS3
+DEBUG_BACKEND: Node 5 detected backend type: NS3
+DEBUG_BACKEND: Node 6 detected backend type: NS3
+DEBUG_BACKEND: Node 7 detected backend type: NS3
+DEBUG_BACKEND: Node 8 detected backend type: NS3
+Debug: Before firing workloads
+Debug: Firing workload for system 0
+Debug: Firing workload for system 1
+Debug: Firing workload for system 2
+Debug: Firing workload for system 3
+Debug: Firing workload for system 4
+Debug: Firing workload for system 5
+Debug: Firing workload for system 6
+Debug: Firing workload for system 7
+Debug: Firing workload for system 8
+Debug: All workloads fired, starting simulator
+DEBUG_LAYER_COLLECTIVE: FORWARD_PASS AllReduce layer=0 size=16777216
+DEBUG_CHUNK_SIZE: size=16777216, preferred_dataset_splits=1, resulting chunk_size=16777216
+DEBUG_COLLECTIVE_TYPE: layer=0, event=UNKNOWN (raw=0), size=16777216, chunk_size=16777216
+DEBUG_STREAM_COUNT: chunk size is: 16777216 , size is: 16777216 , layer_num is: 0 , node: 0
+info: all dims disabled, no forward pass collective for layer: embedding_layer
+DEBUG_LAYER_COLLECTIVE: FORWARD_PASS AllReduce layer=1 size=67108864
+DEBUG_CHUNK_SIZE: size=67108864, preferred_dataset_splits=1, resulting chunk_size=67108864
+DEBUG_COLLECTIVE_TYPE: layer=1, event=UNKNOWN (raw=0), size=67108864, chunk_size=67108864
+DEBUG_STREAM_COUNT: chunk size is: 67108864 , size is: 67108864 , layer_num is: 1 , node: 0
+info: all dims disabled, no forward pass collective for layer: embedding_layer
+info: no input grad collective for layer: embedding_layer
+info: no weight grad collective for layer: embedding_layer
+info: no input grad collective for layer: embedding_layer
+info: no weight grad collective for layer: embedding_layer
+pass: 0 finished at time: 1112009
+workload stats for the job scheduled at NPU offset: 0
+*******************
+Layer id: embedding_layer
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* embedding_layer
+id: embedding_layer ,Total cycles spent on fwd pass compute: 556000
+id: embedding_layer ,Total cycles spent on weight grad compute: 1
+id: embedding_layer ,Total cycles spent on input grad compute: 1
+id: embedding_layer ,Total cycles spent idle waiting for fwd finish: 0
+id: embedding_layer ,Total cycles spent idle waiting for weight grad finish: 0
+id: embedding_layer ,Total cycles spent idle waiting for input grad finish: 0
+id: embedding_layer ,Total cycles spent on fwd pass comm: 0
+id: embedding_layer ,Total cycles spent on weight grad comm: 0
+id: embedding_layer ,Total cycles spent on input grad comm: 0
+*******************
+Layer id: embedding_layer
+Total collectives issued for this layer: 0
+*************************  Workload stats  ************************* embedding_layer
+id: embedding_layer ,Total cycles spent on fwd pass compute: 556000
+id: embedding_layer ,Total cycles spent on weight grad compute: 1
+id: embedding_layer ,Total cycles spent on input grad compute: 1
+id: embedding_layer ,Total cycles spent idle waiting for fwd finish: 0
+id: embedding_layer ,Total cycles spent idle waiting for weight grad finish: 0
+id: embedding_layer ,Total cycles spent idle waiting for input grad finish: 0
+id: embedding_layer ,Total cycles spent on fwd pass comm: 0
+id: embedding_layer ,Total cycles spent on weight grad comm: 0
+id: embedding_layer ,Total cycles spent on input grad comm: 0
+*************************
+all passes finished at time: 1112010, id of first layer: embedding_layer
+path to create csvs is: ./ncclFlowModel_
+success in openning file
+DEBUG_SIM_END: Node 0 workload finished, finished_workloads=1
+*****
+Time to exit: Wed Aug 13 18:05:18 2025
+all-reduce Collective implementation: NcclFlowModel
+reduce-scatter Collective implementation: NcclFlowModel
+all-gather Collective implementation: NcclFlowModel
+all-to-all Collective implementation: NcclFlowModel
+Collective optimization: baseline
+Total sim duration: 0:0 hours
+Total streams injected: 0
+Total streams finished: 0
+Percentage of finished streams: -nan %
+DEBUG_FINAL_COUNT: Node 0 final stream_counter value: 0
+
+*****
+DEBUG_SIM_FINISH: Entering sim_finish() for rank 5
+DEBUG_SIM_FINISH: nodeHash size: 0
+DEBUG_SIM_FINISH: Completed processing in sim_finish(), returning normally
+DEBUG_SIM_FINISH: Entering sim_finish() for rank 6
+DEBUG_SIM_FINISH: nodeHash size: 0
+DEBUG_SIM_FINISH: Completed processing in sim_finish(), returning normally
+DEBUG_SIM_FINISH: Entering sim_finish() for rank 7
+DEBUG_SIM_FINISH: nodeHash size: 0
+DEBUG_SIM_FINISH: Completed processing in sim_finish(), returning normally
+DEBUG_SIM_FINISH: Entering sim_finish() for rank 8
+DEBUG_SIM_FINISH: nodeHash size: 0
+DEBUG_SIM_FINISH: Completed processing in sim_finish(), returning normally
+Debug: Simulator::Run() completed
+Debug: Simulator stopped
+Debug: Simulator destroyed

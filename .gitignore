@@ -7,8 +7,6 @@ results/
 test/log/
 
 # Log files (general patterns)
-*.log
-*_output.log
 *_debug.log
 *_run.log
 *debug_output.log
