@@ -1,50 +1,62 @@
 # Simulation results with various types of topology: 
 |Name | maxRtt | maxBdp|
 |:---:|:------:|:-----:|
-|fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 | 8160 | 204000|
+|fat_tree_server_32g_8gps_nvs4_edge4_k2_proper_200Gbps_H100 | 5440|136000|
 |AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 | 5080 | 127000 |
-|UB_AI_32g_8gps_1D-FM-B_200Gbps_H100 | 4080 | 102000 |
-|UB_AI_32g_8gps_2D-FM_200Gbps_H100 | 4080 | 102000 |
-|UB_AI_32g_8gps_4D_200Gbps_H100 | 4080 | 102000| 
+|UB_32 nd-full mesh 1000Gbps_H100| 2012 | 251500 |
+
+
+**Note:** For UB mesh and full mesh topologies, please refer to the `feature/ub-mesh-routing-dump` branch.
 
 
 
 # Commands to Run Simulation
 ```bash
 
+# 1. Fat Tree simulation command: 
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./fat_tree_server_32g_8gps_nvs4_edge4_k2_proper_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+# 2. Alibaba HPN:
+
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+
+# Note: For UB mesh topology commands, please refer to the feature/ub-mesh-routing-dump branch
+```
+```bash
+
 # 1. fat tree simulation command : 
 
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
 # 2. UB Mesh 4D: 
 
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_4D_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_4D_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
 # 3. UB mesh 1D-FM-B:
 
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_1D-FM-B_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_1D-FM-B_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
 # 4. UB mesh 2D-FM:
 
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./UB_AI_32g_8gps_2D-FM_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./UB_AI_32g_8gps_2D-FM_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
 # 5. Alibaba HPN:
 
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
-```
+AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
 ## Simulation Result files and location
 
 ```bash 
 # workload files:
 
-./SimAI/aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt
+./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt
 
 # Fat tree Server level topology: 
 
 ./SimAI/Fat_tree_32Gpus_Simulation_result.txt
 
-# UB Mesh topology variants:
+# UB Mesh topology variants (used NVswitches and edge or core switches)
 
 ./SimAi/UB_Mesh (1D FM B)_32Gpu_Simulation_result.txt
 
