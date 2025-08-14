@@ -8,6 +8,9 @@
 |UB_AI_32g_8gps_4D_200Gbps_H100 | 4080 | 102000|
 |UB_32 nd-full mesh 1000Gbps_H100| 2012 | 251500 |
 
+
+**Before running simulation please copy these two files (rdma-copy/rdma-hw-copy.cc, rdma-copy/rdma-hw-copy.h) and put them inside "/home/parozario/newSimAI/Comp_499B-/ns-3-alibabacloud/simulation/src/point-to-point/model" and rename these two files to "rdma-hw-copy.cc to rdma-hw.cc" and "rdma-hw-copy.h to rdma-hw.h" respectively.
+
 ## Recent Improvements: UB Mesh Topology Support
 
 **Successfully implemented complete UB mesh topology simulation with per-node statistics generation.**
