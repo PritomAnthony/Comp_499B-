@@ -1,4 +1,30 @@
 
+
+## Proper Ub mesh topolgy simulation commands
+
+
+./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_32_new -c astra-sim-alibabacloud/inputs/config/SimAI.conf|tee ub_NewOutput.log
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## 4D UB mesh topology: 
 
 python3 ./astra-sim-alibabacloud/inputs/topo/gen_Topo_Template.py -topo UB -g 32 -gps 8 --fm_variant=4D -bw 200Gbps -gt H100

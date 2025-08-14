@@ -5,17 +5,42 @@ astra-sim-alibabacloud/extern/
 bin/
 results/
 test/log/
+
+# Log files (general patterns)
 *.log
+*_output.log
+*_debug.log
+*_run.log
+*debug_output.log
+*run_debug.log
+*flowmodel_debug*.log
+build_*.log
+sim_*.log
+latest_*.log
+final_*.log
+rebuild_*.log
+
 # Allow important simulation result files
 !*Simulation_result.txt
 !*Simulation_Result.txt
+!Fat_tree_32Gpus_Simulation_result.txt
+!UB_*_Simulation_Result.txt
+!UB_Mesh*_Simulation_Result.txt
+!HPN_*_Simulation_Result.txt
+
+# Keep specific important debug/output logs for analysis
 !ub_output.log
 !ub_latest_output.log
 !ub_complete_output.log
 !ub_detailed_output.log
 !latest_ub32_run.log
-!Fat_tree_32Gpus_Simulation_result.txt
-!UB_*_Simulation_Result.txt
-!HPN_*_Simulation_Result.txt
+!flowmodel_debug_output.log
+!latest_flowmodel_debug.log
+
+# Temporary and system files
 .cur*
 .DS_Store
+*.tmp
+*.swp
+*.bak
+*~
