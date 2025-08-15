@@ -479,7 +479,7 @@ def UB_Optimized_AI_Topology(parameters):
     NPS  = parameters['nv_switch_per_server']
     NVBW = parameters['nvlink_bw']
     NVLT = parameters['nv_latency']
-    BW  = parameters['bandwidth']
+    BW  = '1600Gbps'  # UB mesh bandwidth - hardcoded to 200GB/s
     LT = parameters['latency']
     ERR  = parameters['error_rate']
     gpu_type = parameters['gpu_type']
@@ -573,7 +573,7 @@ def UB_2D_FM_Direct(parameters):
     NPS      = parameters['nv_switch_per_server']
     NVBW     = parameters['nvlink_bw']
     NVLT     = parameters['nv_latency']
-    BW       = parameters['bandwidth']
+    BW       = '1600Gbps'  # UB mesh bandwidth - hardcoded to 200GB/s
     LT       = parameters['latency']
     ERR      = parameters['error_rate']
     gpu_type = parameters['gpu_type']
@@ -852,20 +852,20 @@ def ub_mesh_topology(parameters):
         print(f"  - {servers_per_rack} servers per rack")
         print(f"  - {G_P_S} NPUs per server")
     
-    # Bandwidth parameters
-    intra_server_bw = parameters.get('ub_intra_bw', '7200Gbps')  # UB I/O bandwidth
+    # Bandwidth parameters - ALL HARDCODED
+    intra_server_bw = '7200Gbps'  # UB I/O bandwidth - hardcoded
     gpu_lrs_bw = '1600Gbps'  # GPU to LRS bandwidth - 200GB/s (fixed value for UB mesh)
-    inter_server_bw = parameters.get('ub_inter_bw', '2800Gbps')  # Inter-server GPU bandwidth
+    inter_server_bw = '2800Gbps'  # Inter-server GPU bandwidth - hardcoded
     lrs_lrs_bw = '1600Gbps'  # LRS to LRS bandwidth - 200GB/s (fixed value for UB mesh)
     
     # For UB-Mesh-Pod, use UB x128 IO for rack-to-rack connections
     if is_ub_mesh_pod:
-        rack_to_rack_bw = parameters.get('rack_bw', '3200Gbps')  # UB x128 IO bandwidth
+        rack_to_rack_bw = '3200Gbps'  # UB x128 IO bandwidth - hardcoded
     
-    # Latency parameters
-    intra_server_lat = parameters.get('ub_intra_lat', '0.000025ms')
-    gpu_lrs_lat = parameters.get('latency', '0.0005ms')
-    inter_server_lat = parameters.get('latency', '0.0005ms')
+    # Latency parameters - ALL HARDCODED
+    intra_server_lat = '0.000025ms'  # Intra-server latency - hardcoded
+    gpu_lrs_lat = '0.0005ms'  # GPU to LRS latency - hardcoded
+    inter_server_lat = '0.0005ms'  # Inter-server latency - hardcoded
     lrs_lrs_lat = '0.0001ms'  # LRS-to-LRS latency (switch-to-switch)
     
     error_rate = parameters['error_rate']
