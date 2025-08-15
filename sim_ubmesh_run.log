@@ -1,0 +1,1493 @@
+[RdmaHw::DumpRoutingTables] Node 0 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184551425 ports: 8
+    dip=184551169 ports: 7
+    dip=184550913 ports: 6
+    dip=184553985 ports: 18
+    dip=184550657 ports: 5
+    dip=184553729 ports: 17
+    dip=184550401 ports: 4
+    dip=184550145 ports: 3
+    dip=184549889 ports: 2
+    dip=184549633 ports: 1
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+    dip=184556801 ports: 29
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 1 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184551425 ports: 8
+    dip=184551169 ports: 7
+    dip=184550913 ports: 6
+    dip=184553985 ports: 18
+    dip=184550657 ports: 5
+    dip=184553729 ports: 17
+    dip=184550401 ports: 4
+    dip=184550145 ports: 3
+    dip=184549889 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 2 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184551425 ports: 8
+    dip=184551169 ports: 7
+    dip=184550913 ports: 6
+    dip=184553985 ports: 18
+    dip=184550657 ports: 5
+    dip=184553729 ports: 17
+    dip=184550401 ports: 4
+    dip=184550145 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 3 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184551425 ports: 8
+    dip=184551169 ports: 7
+    dip=184550913 ports: 6
+    dip=184553985 ports: 18
+    dip=184550657 ports: 5
+    dip=184553729 ports: 17
+    dip=184550401 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 4 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184553729 ports: 17
+    dip=184551425 ports: 8
+    dip=184551169 ports: 7
+    dip=184550913 ports: 6
+    dip=184553985 ports: 18
+    dip=184550657 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 5 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184553985 ports: 18
+    dip=184551425 ports: 8
+    dip=184551169 ports: 7
+    dip=184550913 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 6 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184551425 ports: 8
+    dip=184551169 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 7 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184551425 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 8 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551681 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 9 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551937 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 10 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 11 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 12 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552705 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 13 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552961 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 14 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184553217 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 15 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553473 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 16 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184553729 ports: 17
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 17 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 12
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 18
+    dip=184550657 ports: 6
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 18 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184552193 ports: 12
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 19
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 19 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554497 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 20 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554753 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 21 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184555009 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 22 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555265 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 23 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555521 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 24 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555777 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 25 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555521 ports: 25
+    dip=184556033 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 26 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555521 ports: 25
+    dip=184555777 ports: 26
+    dip=184556289 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 27 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555521 ports: 25
+    dip=184555777 ports: 26
+    dip=184556033 ports: 27
+    dip=184556545 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 28 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184556801 ports: 29
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555521 ports: 25
+    dip=184555777 ports: 26
+    dip=184556033 ports: 27
+    dip=184556289 ports: 28
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 29 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184557057 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555521 ports: 25
+    dip=184555777 ports: 26
+    dip=184556033 ports: 27
+    dip=184556289 ports: 28
+    dip=184556545 ports: 29
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 30 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557313 ports: 31
+    dip=184556801 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555521 ports: 25
+    dip=184555777 ports: 26
+    dip=184556033 ports: 27
+    dip=184556289 ports: 28
+    dip=184556545 ports: 29
+  Table nvswitch entries=0
+[RdmaHw::DumpRoutingTables] Node 31 GPUsPerServer=8 nvls_enable=0 enable_ub_mesh=0
+  Table host entries=31
+    dip=184557057 ports: 31
+    dip=184556801 ports: 30
+    dip=184551937 ports: 11
+    dip=184551681 ports: 10
+    dip=184551425 ports: 9
+    dip=184551169 ports: 8
+    dip=184550913 ports: 7
+    dip=184553985 ports: 19
+    dip=184550657 ports: 6
+    dip=184553729 ports: 18
+    dip=184550401 ports: 5
+    dip=184550145 ports: 4
+    dip=184549889 ports: 3
+    dip=184549633 ports: 2
+    dip=184549377 ports: 1
+    dip=184552193 ports: 12
+    dip=184552449 ports: 13
+    dip=184552705 ports: 14
+    dip=184552961 ports: 15
+    dip=184553217 ports: 16
+    dip=184553473 ports: 17
+    dip=184554241 ports: 20
+    dip=184554497 ports: 21
+    dip=184554753 ports: 22
+    dip=184555009 ports: 23
+    dip=184555265 ports: 24
+    dip=184555521 ports: 25
+    dip=184555777 ports: 26
+    dip=184556033 ports: 27
+    dip=184556289 ports: 28
+    dip=184556545 ports: 29
+  Table nvswitch entries=0
+maxRtt=2120 maxBdp=26500
+Running Simulation.
+[UBMESH] Sys::Sys ctor id=0 ngpus_per_node=8 all_gpus_vec_size=32
+The final active chunks per dimension 1 after allocating to queues is: 1
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+total nodes: 32
+Success in opening workload file
+model_parallel_NPU_group is 2
+checkpoints layers are: 
+layers initiating fwd_in_bckwd are: 
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+pp_commize:0
+id: grad_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: final_column , depen: -1 , wg_comp_time: 1
+id: embedding_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: a , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+id:  , depen: 0 , wg_comp_time: 1
+type: HYBRID_TRANSFORMER_FWD_IN_BCKWD ,num passes: 1 ,lines: 308 compute scale: 1 ,comm scale: 1
+stat path: ./ncclFlowModel_ ,total rows: 1 ,stat row: 0
+CSV path and filename: ./ncclFlowModel_detailed_32.csv
+CSV path and filename: ./ncclFlowModel_EndToEnd.csv
+[UBMESH] mock_nccl_grobal_group_init: total_nodes=32 TP_size=2 DP_size=16 EP_size=16 DP_EP_size=1 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=1 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=2 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=3 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=4 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=5 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=6 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=7 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=8 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=9 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=10 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=11 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=12 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=13 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=14 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=15 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=16 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=17 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=18 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=19 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=20 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=21 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=22 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=23 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=24 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=25 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=26 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=27 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=28 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=29 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=30 ngpus_per_node=8 all_gpus_vec_size=32
+[UBMESH] Sys::Sys ctor id=31 ngpus_per_node=8 all_gpus_vec_size=32
+Debug: Before firing workloads
+Debug: Firing workload for system 0
+Debug: Firing workload for system 1
+Debug: Firing workload for system 2
+Debug: Firing workload for system 3
+Debug: Firing workload for system 4
+Debug: Firing workload for system 5
+Debug: Firing workload for system 6
+Debug: Firing workload for system 7
+Debug: Firing workload for system 8
+Debug: Firing workload for system 9
+Debug: Firing workload for system 10
+Debug: Firing workload for system 11
+Debug: Firing workload for system 12
+Debug: Firing workload for system 13
+Debug: Firing workload for system 14
+Debug: Firing workload for system 15
+Debug: Firing workload for system 16
+Debug: Firing workload for system 17
+Debug: Firing workload for system 18
+Debug: Firing workload for system 19
+Debug: Firing workload for system 20
+Debug: Firing workload for system 21
+Debug: Firing workload for system 22
+Debug: Firing workload for system 23
+Debug: Firing workload for system 24
+Debug: Firing workload for system 25
+Debug: Firing workload for system 26
+Debug: Firing workload for system 27
+Debug: Firing workload for system 28
+Debug: Firing workload for system 29
+Debug: Firing workload for system 30
+Debug: Firing workload for system 31
+Debug: All workloads fired, starting simulator
+chunk size is: 4381900800 , size is: 4381900800 , layer_num is: 0 , node: 0
+info: all-gather forward pass collective issued for layer: grad_norm, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+Debug: Simulator::Run() completed
+Debug: Simulator stopped
+Debug: Simulator destroyed

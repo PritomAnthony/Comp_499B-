@@ -6,17 +6,7 @@ bin/
 results/
 test/log/
 
-# Log files (general patterns)
-*_debug.log
-*_run.log
-*debug_output.log
-*run_debug.log
-*flowmodel_debug*.log
-build_*.log
-sim_*.log
-latest_*.log
-final_*.log
-rebuild_*.log
+
 
 # Allow important simulation result files
 !*Simulation_result.txt

@@ -812,6 +812,245 @@ def fat_tree_server_level(parameters):
     print(f"Wrote server-level fat-tree (k={k}, NVSwitch={nv_switch_num}) to {fname}")
 
 
+def ub_mesh_topology(parameters):
+    """
+    Generate UB mesh topology without NVSwitches.
+    Uses UB I/O for intra-server connections and LRS switches for inter-server communication.
+    
+    Architecture variants:
+    1. Basic UB Mesh: Server-level mesh connectivity
+    2. UB-Mesh-Pod (4D-FullMesh): Rack-level organization with 2D intra-rack + 2D inter-rack mesh
+       - Intra-rack: 64 NPUs in 8 servers (8 NPUs/server) forming 2D full-mesh
+       - Inter-rack: 16 racks in 4x4 arrangement with LRS-to-LRS full mesh
+       - Total: 1024 NPUs in UB-Mesh-Pod
+    """
+    
+    G = parameters['gpu']
+    G_P_S = parameters['gpu_per_server']
+    servers = G // G_P_S
+    
+    # Check if this is UB-Mesh-Pod configuration (1024 GPUs)
+    is_ub_mesh_pod = (G == 1024 and G_P_S == 8)
+    
+    # Only LRS switches (no NVSwitches in true UB mesh)
+    lrs_per_server = 1
+    total_lrs = servers * lrs_per_server
+    
+    # UB-Mesh-Pod specific parameters
+    if is_ub_mesh_pod:
+        # 1024 NPUs = 128 servers = 16 racks (8 servers/rack, 8 NPUs/server)
+        servers_per_rack = 8
+        racks = servers // servers_per_rack
+        
+        # Ensure proper 4x4 rack arrangement for 2D mesh
+        if racks != 16:
+            print(f"Warning: Expected 16 racks for UB-Mesh-Pod, got {racks}")
+        
+        print(f"UB-Mesh-Pod Configuration:")
+        print(f"  - {G} NPUs total")
+        print(f"  - {racks} racks in 4x4 arrangement")
+        print(f"  - {servers_per_rack} servers per rack")
+        print(f"  - {G_P_S} NPUs per server")
+    
+    # Bandwidth parameters
+    intra_server_bw = parameters.get('ub_intra_bw', '7200Gbps')  # UB I/O bandwidth
+    gpu_lrs_bw = '1600Gbps'  # GPU to LRS bandwidth - 200GB/s (fixed value for UB mesh)
+    inter_server_bw = parameters.get('ub_inter_bw', '2800Gbps')  # Inter-server GPU bandwidth
+    lrs_lrs_bw = '1600Gbps'  # LRS to LRS bandwidth - 200GB/s (fixed value for UB mesh)
+    
+    # For UB-Mesh-Pod, use UB x128 IO for rack-to-rack connections
+    if is_ub_mesh_pod:
+        rack_to_rack_bw = parameters.get('rack_bw', '3200Gbps')  # UB x128 IO bandwidth
+    
+    # Latency parameters
+    intra_server_lat = parameters.get('ub_intra_lat', '0.000025ms')
+    gpu_lrs_lat = parameters.get('latency', '0.0005ms')
+    inter_server_lat = parameters.get('latency', '0.0005ms')
+    lrs_lrs_lat = '0.0001ms'  # LRS-to-LRS latency (switch-to-switch)
+    
+    error_rate = parameters['error_rate']
+    
+    # Node ID allocation
+    gpu_ids = list(range(0, G))
+    lrs_start = G
+    lrs_ids = list(range(lrs_start, lrs_start + total_lrs))
+    
+    links = []
+    
+    # 1. Intra-server GPU-to-GPU full mesh (UB I/O connections)
+    for server in range(servers):
+        base_gpu = server * G_P_S
+        server_gpus = list(range(base_gpu, base_gpu + G_P_S))
+        
+        # Full mesh within server via UB I/O
+        for i in range(len(server_gpus)):
+            for j in range(i + 1, len(server_gpus)):
+                links.append((server_gpus[i], server_gpus[j], 
+                            intra_server_bw, intra_server_lat, error_rate))
+    
+    # 2. GPU to local LRS connections
+    for server in range(servers):
+        base_gpu = server * G_P_S
+        server_lrs = lrs_ids[server]
+        
+        for gpu in range(base_gpu, base_gpu + G_P_S):
+            links.append((gpu, server_lrs, gpu_lrs_bw, gpu_lrs_lat, error_rate))
+    
+    # 3. Rack-based 2D-FullMesh GPU connections
+    enhanced_mesh = parameters.get('enhanced_mesh', False)
+    
+    # Determine rack organization
+    servers_per_rack = 8  # Standard rack has 8 servers for 2D-FullMesh
+    racks = max(1, servers // servers_per_rack)
+    
+    print(f"Implementing 2D-FullMesh architecture:")
+    print(f"  - {servers} servers organized in {racks} rack(s)")
+    print(f"  - {servers_per_rack} servers per rack (64 GPUs per rack)")
+    
+    if is_ub_mesh_pod:
+        # UB-Mesh-Pod 4D-FullMesh architecture
+        print("  - UB-Mesh-Pod 4D-FullMesh connectivity...")
+        
+        # 3a. Intra-rack 2D full-mesh: Connect all NPUs within each rack
+        for rack in range(racks):
+            rack_servers = list(range(rack * servers_per_rack, min((rack + 1) * servers_per_rack, servers)))
+            rack_gpus = []
+            
+            # Collect all GPUs in this rack
+            for server in rack_servers:
+                base_gpu = server * G_P_S
+                rack_gpus.extend(range(base_gpu, base_gpu + G_P_S))
+            
+            # 2D full-mesh within rack (64 NPUs)
+            for i in range(len(rack_gpus)):
+                for j in range(i + 1, len(rack_gpus)):
+                    # Skip intra-server connections (already handled by UB I/O)
+                    gpu1_server = rack_gpus[i] // G_P_S
+                    gpu2_server = rack_gpus[j] // G_P_S
+                    if gpu1_server != gpu2_server:
+                        links.append((rack_gpus[i], rack_gpus[j], 
+                                    inter_server_bw, inter_server_lat, error_rate))
+        
+        # 3b. Inter-rack 2D full-mesh: Connect racks in 4x4 arrangement
+        rack_grid_size = 4  # 4x4 = 16 racks
+        
+        # Connect adjacent racks in rows and columns
+        for row in range(rack_grid_size):
+            for col in range(rack_grid_size):
+                rack1 = row * rack_grid_size + col
+                if rack1 >= racks:
+                    continue
+                    
+                # Connect to right neighbor
+                if col < rack_grid_size - 1:
+                    rack2 = row * rack_grid_size + (col + 1)
+                    if rack2 < racks:
+                        lrs1 = lrs_ids[rack1 * servers_per_rack] if rack1 * servers_per_rack < len(lrs_ids) else lrs_ids[-1]
+                        lrs2 = lrs_ids[rack2 * servers_per_rack] if rack2 * servers_per_rack < len(lrs_ids) else lrs_ids[-1]
+                        links.append((lrs1, lrs2, rack_to_rack_bw, lrs_lrs_lat, error_rate))
+                
+                # Connect to bottom neighbor
+                if row < rack_grid_size - 1:
+                    rack2 = (row + 1) * rack_grid_size + col
+                    if rack2 < racks:
+                        lrs1 = lrs_ids[rack1 * servers_per_rack] if rack1 * servers_per_rack < len(lrs_ids) else lrs_ids[-1]
+                        lrs2 = lrs_ids[rack2 * servers_per_rack] if rack2 * servers_per_rack < len(lrs_ids) else lrs_ids[-1]
+                        links.append((lrs1, lrs2, rack_to_rack_bw, lrs_lrs_lat, error_rate))
+    
+    else:
+        # Standard 2D-FullMesh for smaller configurations (like 128 GPUs)
+        if servers >= servers_per_rack:
+            # Multi-rack: Full mesh within each rack
+            for rack in range(racks):
+                rack_start_server = rack * servers_per_rack
+                rack_end_server = min(rack_start_server + servers_per_rack, servers)
+                rack_start_gpu = rack_start_server * G_P_S
+                rack_end_gpu = rack_end_server * G_P_S
+                
+                print(f"  - Rack {rack}: GPUs {rack_start_gpu}-{rack_end_gpu-1} (servers {rack_start_server}-{rack_end_server-1})")
+                
+                # Intra-rack GPU full mesh: all GPUs within rack connected
+                for i in range(rack_start_gpu, rack_end_gpu):
+                    for j in range(i + 1, rack_end_gpu):
+                        # Skip intra-server connections (already handled by UB I/O)
+                        gpu1_server = i // G_P_S
+                        gpu2_server = j // G_P_S
+                        if gpu1_server != gpu2_server:
+                            links.append((i, j, inter_server_bw, inter_server_lat, error_rate))
+            
+            # Inter-rack connections via LRS switches
+            print(f"  - Inter-rack connectivity via LRS switches")
+            
+        else:
+            # Single rack: All GPUs in full mesh
+            print(f"  - Single rack: Full mesh between all {G} GPUs")
+            for i in range(G):
+                for j in range(i + 1, G):
+                    # Skip intra-server connections (already handled by UB I/O)
+                    gpu1_server = i // G_P_S
+                    gpu2_server = j // G_P_S
+                    if gpu1_server != gpu2_server:
+                        links.append((i, j, inter_server_bw, inter_server_lat, error_rate))
+    
+    # 4. LRS to LRS full mesh connections
+    if is_ub_mesh_pod:
+        # UB-Mesh-Pod: LRS connections within racks + inter-rack connections
+        # 4a. LRS-to-LRS connections within each rack
+        for rack in range(racks):
+            rack_lrs_start = rack * servers_per_rack
+            rack_lrs_end = min((rack + 1) * servers_per_rack, len(lrs_ids))
+            rack_lrs = lrs_ids[rack_lrs_start:rack_lrs_end]
+            
+            # Full mesh between LRS switches within the same rack
+            for i in range(len(rack_lrs)):
+                for j in range(i + 1, len(rack_lrs)):
+                    links.append((rack_lrs[i], rack_lrs[j], lrs_lrs_bw, lrs_lrs_lat, error_rate))
+    else:
+        # Standard configuration: Full mesh between ALL LRS switches
+        print(f"  - LRS full mesh: {len(lrs_ids)} switches connected")
+        for i in range(len(lrs_ids)):
+            for j in range(i + 1, len(lrs_ids)):
+                links.append((lrs_ids[i], lrs_ids[j], lrs_lrs_bw, lrs_lrs_lat, error_rate))
+    
+    # Generate topology file
+    total_nodes = G + total_lrs
+    total_switches = total_lrs  # Only LRS switches
+    total_links = len(links)
+    
+    if is_ub_mesh_pod:
+        fname = f"UB_Mesh_Pod_4D_FullMesh_{G}g_{G_P_S}gps_{racks}racks_{parameters['gpu_type']}"
+    else:
+        fname = f"UB_Mesh_{G}g_{G_P_S}gps_LRS{total_lrs}_{parameters['gpu_type']}"
+    
+    with open(fname, 'w') as f:
+        # Header: total_nodes, gpus_per_server, nv_switches(0), switches, links, gpu_type
+        f.write(f"{total_nodes} {G_P_S} 0 {total_switches} {total_links} {parameters['gpu_type']}\n")
+        
+        # Switch IDs (only LRS)
+        f.write(' '.join(str(lrs_id) for lrs_id in lrs_ids) + "\n")
+        
+        # Links
+        for src, dst, bw, lat, err in links:
+            f.write(f"{src} {dst} {bw} {lat} {err}\n")
+    
+    print(f"Generated UB mesh topology: {fname}")
+    if is_ub_mesh_pod:
+        print(f"  - UB-Mesh-Pod 4D-FullMesh architecture")
+        print(f"  - {G} NPUs in {racks} racks (4x4 arrangement)")
+        print(f"  - Intra-rack: 2D full-mesh (64 NPUs per rack)")
+        print(f"  - Inter-rack: 2D full-mesh via LRS connections")
+        print(f"  - Rack-to-rack: {rack_to_rack_bw} UB x128 IO")
+    else:
+        print(f"  - {G} GPUs in {servers} servers ({G_P_S} GPUs/server)")
+        print(f"  - {total_lrs} LRS switches (no NVSwitches)")
+        print(f"  - Intra-server: {intra_server_bw} UB I/O")
+        print(f"  - Inter-server: {inter_server_bw} direct GPU connections")
+    
+    print(f"  - {total_links} total links")
+    
+    return fname
+
+
 
 
 def main():
@@ -845,8 +1084,11 @@ def main():
     # parser.add_argument('--ocs_degree', type=int, default=4, help='Degree of OCS connectivity per GPU')
     ##############
 
-    parser.add_argument('--ub_intra_bw', type=str, default='600Gbps', help='Intra-board GPU-GPU bandwidth')
+    parser.add_argument('--ub_intra_bw', type=str, default='7200Gbps', help='UB I/O intra-server GPU-GPU bandwidth')
+    parser.add_argument('--ub_inter_bw', type=str, default='2800Gbps', help='Inter-server direct GPU-GPU bandwidth')
     parser.add_argument('--ub_intra_lat', type=str, default='0.000025ms', help='Intra-board GPU-GPU latency')
+    parser.add_argument('--rack_bw', type=str, default='3200Gbps', help='UB x128 IO rack-to-rack bandwidth for UB-Mesh-Pod')
+    parser.add_argument('--enhanced_mesh', action='store_true', help='Enable full inter-server GPU mesh for lower RTT')
     parser.add_argument('--fm_variant', choices=['1D-FM-B','4D', '2D-FM', '2D-FM-Direct'], default='1D-FM-B', help='Which fat-mesh variant to generate (1D-FM-B, 4D or 2D-FM / 2D-FM-Direct).')
 
 
@@ -882,6 +1124,10 @@ def main():
             UB_2D_FM_Direct(parameters)
         else:
             UB_Optimized_AI_Topology(parameters)
+        return
+
+    if args.topology == 'UB_mesh':
+        ub_mesh_topology(parameters)
         return
 
     if not parameters['rail_optimized']:
@@ -977,10 +1223,11 @@ def analysis_template(args, default_parameters):
     parameter_keys = [
         'gpu', 'error_rate', 'gpu_per_server', 'gpu_type', 'nv_switch_per_server',
         'nvlink_bw', 'nv_latency', 'latency', 'bandwidth', 'asw_switch_num',
-        'nics_per_aswitch', 'psw_switch_num', 'ap_bandwidth','asw_per_psw','ub_intra_bw', 'ub_intra_lat' 
+        'nics_per_aswitch', 'psw_switch_num', 'ap_bandwidth','asw_per_psw',
+        'ub_intra_bw', 'ub_inter_bw', 'ub_intra_lat', 'rack_bw', 'enhanced_mesh' 
     ]
     for key in parameter_keys:
-        parameters[key] = getattr(args, key, None) if getattr(args, key, None) is not None else default_parameters[key]
+        parameters[key] = getattr(args, key, None) if getattr(args, key, None) is not None else default_parameters.get(key, False)
     # for key, value in parameters.items():
     #     print(f'{key}: {value}')
     # print("==================================")

@@ -1,0 +1,469 @@
+maxRtt=2120 maxBdp=26500
+Running Simulation.
+[UBMESH-AUTO] Detected complete graph (32 GPUs, 496 links). Enabling UB mesh mode. Set DISABLE_AUTO_UB_MESH=1 to suppress this.
+[UBMESH] Using physical_dims={32} queues_per_dim={1} (was {8,4})
+[UBMESH-INSTRUMENT] ENTER Sys::Sys (astra-sim/system/Sys.cc) build-id=A  enable_ub_mesh=1 ngpus_per_node=8
+The final active chunks per dimension 1 after allocating to queues is: 1
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+ring of node 0, id: 0 dimension: local total nodes in ring: 32 index in ring: 0 offset: 1total nodes in ring: 32
+total nodes: 32
+Success in opening workload file
+model_parallel_NPU_group is 2
+checkpoints layers are: 
+layers initiating fwd_in_bckwd are: 
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 16 index in ring: 0 offset: 2total nodes in ring: 16
+pp_commize:0
+id: grad_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: final_column , depen: -1 , wg_comp_time: 1
+id: embedding_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: final_column , depen: -1 , wg_comp_time: 1
+id: embedding_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: final_column , depen: -1 , wg_comp_time: 1
+id: embedding_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: final_column , depen: -1 , wg_comp_time: 1
+id: embedding_norm , depen: -1 , wg_comp_time: 1
+id: cross_entropy1 , depen: -1 , wg_comp_time: 0
+id: cross_entropy2 , depen: -1 , wg_comp_time: 0
+id: cross_entropy3 , depen: -1 , wg_comp_time: 0
+id: optimizer1 , depen: -1 , wg_comp_time: 0
+id: optimizer2 , depen: -1 , wg_comp_time: 0
+id: optimizer3 , depen: -1 , wg_comp_time: 0
+id: optimizer4 , depen: -1 , wg_comp_time: 0
+type: HYBRID_TRANSFORMER_FWD_IN_BCKWD ,num passes: 1 ,lines: 308 compute scale: 1 ,comm scale: 1
+stat path: ./ncclFlowModel_ ,total rows: 1 ,stat row: 0
+CSV path and filename: ./ncclFlowModel_detailed_32.csv
+CSV path and filename: ./ncclFlowModel_EndToEnd.csv
+[UBMESH-INSTRUMENT] mock_nccl_grobal_group_init enter total_nodes=32 TP_size=2 ngpus_per_node=8 all_gpus.size()=1 all_gpus[0]=32 enable_ub_mesh=1
+[UBMESH-INSTRUMENT] creating MockNcclGroup(UB) total_gpus=32 TP=2 DP=16 EP=16 DP_EP=1 nv_switches=32
+[UBMESH-INSTRUMENT] MockNcclGroup ctor start (astra-sim/system) ngpus=32 gpus_per_node=1 TP=2 DP=16 PP=1 EP=16 DP_EP=1 enable_ub_mesh=1 NVSize=32
+[UBMESH-INSTRUMENT] mock_nccl_comms_init using GlobalGroup sizes TP=2 DP=16 EP=16 DP_EP=1 total_nodes=32
+[UBMESH-INSTRUMENT] TP comm created size=2
+[UBMESH-INSTRUMENT] DP comm created size=16
+[UBMESH-INSTRUMENT] EP comm created size=16
+Debug: Before firing workloads
+Debug: Firing workload for system 0
+Debug: Firing workload for system 1
+Debug: Firing workload for system 2
+Debug: Firing workload for system 3
+Debug: Firing workload for system 4
+Debug: Firing workload for system 5
+Debug: Firing workload for system 6
+Debug: Firing workload for system 7
+Debug: Firing workload for system 8
+Debug: Firing workload for system 9
+Debug: Firing workload for system 10
+Debug: Firing workload for system 11
+Debug: Firing workload for system 12
+Debug: Firing workload for system 13
+Debug: Firing workload for system 14
+Debug: Firing workload for system 15
+Debug: Firing workload for system 16
+Debug: Firing workload for system 17
+Debug: Firing workload for system 18
+Debug: Firing workload for system 19
+Debug: Firing workload for system 20
+Debug: Firing workload for system 21
+Debug: Firing workload for system 22
+Debug: Firing workload for system 23
+Debug: Firing workload for system 24
+Debug: Firing workload for system 25
+Debug: Firing workload for system 26
+Debug: Firing workload for system 27
+Debug: Firing workload for system 28
+Debug: Firing workload for system 29
+Debug: Firing workload for system 30
+Debug: Firing workload for system 31
+Debug: All workloads fired, starting simulator
+chunk size is: 4381900800 , size is: 4381900800 , layer_num is: 0 , node: 0
+[UBMESH-INSTRUMENT] NcclTreeFlowModel ctor layer=0 flows_total=2 send_flows=1 recv_flows=1 m_channels=2
+[UBMESH-INSTRUMENT] _stream_count[channel=0]= 1
+[UBMESH-INSTRUMENT] free_packets[(ch=0,src=1]=1
+[UBMESH-INSTRUMENT] StreamBaseline::init stream_num=0 phases_remaining=0 current_queue_id=0 comm_type=2
+[UBMESH-INSTRUMENT] insert_packets zero_latency channel=0 flow_id=0 remaining_zero=1
+info: all-gather forward pass collective issued for layer: grad_norm, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+[UBMESH-INSTRUMENT] PacketBundle::call event=24 channel=0 flow_id=0 needs_processing=0 send_back=0 size=2190950400
+[UBMESH-INSTRUMENT] ready() proceed channel=0 flow_id=0 packet_size=2190950400 preferred_dest=1 _stream_count[ch]=1
+[UBMESH-INSTRUMENT] scheduling simulated recv from prev=1 channel=0 flow_id=0 tag=0
+[UBMESH-INSTRUMENT] scheduled send to dest=1 channel=0 flow_id=0
+Debug: Simulator::Run() completed
+Debug: Simulator stopped
+Debug: Simulator destroyed
+*****
+Time to exit: Sun Aug 10 15:14:55 2025
+all-reduce Collective implementation: NcclFlowModel
+reduce-scatter Collective implementation: NcclFlowModel
+all-gather Collective implementation: NcclFlowModel
+all-to-all Collective implementation: NcclFlowModel
+Collective optimization: baseline
+Total sim duration: 0:0 hours
+Total streams injected: 1
+Total streams finished: 0
+Percentage of finished streams: 0 %
+*****
+Debug: Entering sim_finish()
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 0 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 1 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 2 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 3 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 4 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 5 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 6 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 7 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 8 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 9 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 10 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 11 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 12 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 13 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 14 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 15 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 16 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 17 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 18 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 19 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 20 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 21 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 22 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 23 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 24 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 25 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 26 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 27 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 28 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 29 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 30 is 8192
+sim_finish on received,  Thread id: 123448547684032
+All data received by node 31 is 8192
+Debug: Completed processing in sim_finish(), about to exit

@@ -1,0 +1,20 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+std::__atomic_base<unsigned int>::load (__m=std::memory_order_acquire, this=0x13) at /usr/include/c++/11/bits/atomic_base.h:488
+488		return __atomic_load_n(&_M_i, int(__m));
+#0  std::__atomic_base<unsigned int>::load (__m=std::memory_order_acquire, this=0x13) at /usr/include/c++/11/bits/atomic_base.h:488
+#1  ns3::AtomicCounter::operator unsigned int (this=0x13) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/build/include/ns3/atomic-counter.h:24
+#2  0x00005555555a8b45 in ns3::SimpleRefCount<ns3::Object, ns3::ObjectBase, ns3::ObjectDeleter>::Ref (this=0xb) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/build/include/ns3/simple-ref-count.h:105
+#3  0x00005555555a0187 in ns3::Ptr<ns3::Node>::Acquire (this=0x7fffffffccc8) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/build/include/ns3/ptr.h:579
+#4  0x000055555559802b in ns3::Ptr<ns3::Node>::Ptr (this=0x7fffffffccc8, o=...) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/build/include/ns3/ptr.h:609
+#5  0x00007ffff6b6eb0b in ns3::NodeContainer::Get (this=0x5555555fb170 <n>, i=33) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/src/network/helper/node-container.cc:95
+#6  0x00005555555866fb in SetupNetwork (qp_finish=0x55555558dea6 <qp_finish(_IO_FILE*, ns3::Ptr<ns3::RdmaQueuePair>)>, send_finish=0x55555558e8ed <send_finish(_IO_FILE*, ns3::Ptr<ns3::RdmaQueuePair>)>) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/scratch/common.h:820
+#7  0x000055555558eedb in main1 (network_topo="./ub_test_topo", network_conf="astra-sim-alibabacloud/inputs/config/SimAI.conf") at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/scratch/entry.h:381
+#8  0x000055555558f527 in main (argc=9, argv=0x7fffffffd5c8) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/scratch/AstraSimNetwork.cc:291
+A debugging session is active.
+
+	Inferior 1 [process 282735] will be killed.
+
+Quit anyway? (y or n) [answered Y; input not from terminal]
