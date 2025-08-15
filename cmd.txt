@@ -21,6 +21,19 @@ python3 ./astra-sim-alibabacloud/inputs/topo/gen_Topo_Template.py -topo fat_tree
 
 
 
+## 128Gpus
+1. Fat tree topology generation:
+
+AS_SEND_LAT=1 AS_NVLS_ENABLE=1 gdb --batch --ex run --ex bt --ex quit --args ./bin/SimAI_simulator -t 16 -w ./workload/G13B-M1-C01_GPT13B_megatron_tp8_pp1_mbs1_A100.txt -n ./fat_tree_server_128g_8gps_nvs16_k4_400Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf 2>&1 | tee FatTree_128_output.log
+
+
+2. 
+
+python3 ./astra-sim-alibabacloud/inputs/topo/gen_Topo_Template.py -topo DCN+ --dt -g 128 -asn 2 -psn 8
+
+
+
+
 ## Simulation commands (32 Gpus and 200Gbps bandwidth): 
 1. fat tree simulation command : 
 
