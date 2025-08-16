@@ -27,16 +27,12 @@ namespace MockNccl {
   MockNcclGroup::MockNcclGroup(int _ngpus,int _gpus_per_nodes,int _TP_size,int _DP_size,int _PP_size,int _EP_size,int _DP_EP_size,std::vector<int>_NVSwitch,GPUType _gpu_type):g_flow_id(0),gpu_type(_gpu_type){
     MockNcclLog *NcclLog = MockNcclLog::getInstance();
     if (enable_ub_mesh) {
-      // UB mesh: treat all nodes as GPUs, one group, no NVSwitchs or switches
-      int all_group_idx = 0;
-      std::vector<int> ranks(_ngpus);
-      for (int i = 0; i < _ngpus; ++i) ranks[i] = i;
-      std::vector<int> emptyNVSwitchs;
-      GroupIndex[std::make_pair(0, TP)] = all_group_idx;
-      AllGroups[all_group_idx] = GroupInfo(all_group_idx, TP, _ngpus, _ngpus, ranks, emptyNVSwitchs);
-      return;
+      // BUGFIX: UB mesh should still respect TP/DP group structure
+      // Don't create one massive TP group - use proper parallelism dimensions
+      // Fall through to normal group construction logic
+      NcclLog->writeLog(NcclLogLevel::INFO, "UB mesh enabled - using normal group construction with TP=%d, DP=%d", _TP_size, _DP_size);
     }
-    // ...existing code for non-UB mesh topologies...
+    // ...existing code for group construction...
     if (_ngpus % _gpus_per_nodes != 0 || _ngpus / _gpus_per_nodes <= 0){
       NcclLog->writeLog(NcclLogLevel::ERROR,"The number of GPUs used is not a multiple of the number of GPUs per node.");
       return;

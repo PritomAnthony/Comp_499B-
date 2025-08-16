@@ -29,6 +29,7 @@
 #include <iostream>
 #include <map>
 #include <queue>
+#include <sstream>
 #include <stdio.h>
 #include <string>
 #include <thread>
@@ -289,15 +290,37 @@ int main(int argc, char *argv[]) {
   #endif
   
   main1(user_param.network_topo,user_param.network_conf);
-  int nodes_num = node_num - switch_num;
-  int gpu_num = node_num - nvswitch_num - switch_num;
+  int nodes_num = node_num - switch_num;  // Total compute nodes (should be 128)
+  int gpu_num = nodes_num;  // Use nodes_num directly for GPU count
+  
+  // Dynamic TP detection from workload file
+  int tp_size = 8;  // Default TP size, will be detected from workload
+  std::ifstream workload_file(user_param.workload);
+  std::string line;
+  if (workload_file.is_open() && std::getline(workload_file, line)) {
+    std::istringstream iss(line);
+    std::string token;
+    while (iss >> token) {
+      if (token == "model_parallel_NPU_group:") {
+        iss >> tp_size;
+        break;
+      }
+    }
+    workload_file.close();
+  }
+  
+  std::cout << "DEBUG: Detected configuration:" << std::endl;
+  std::cout << "  Total nodes from topology: " << node_num << std::endl;
+  std::cout << "  Switch nodes: " << switch_num << std::endl;
+  std::cout << "  GPU nodes: " << gpu_num << std::endl;
+  std::cout << "  TP size: " << tp_size << std::endl;
 
   std::map<int, int> node2nvswitch;
   std::map<int, std::vector<int>> tp_groups;
   
-  // Setup topology for tensor parallel groups
+  // Setup topology for tensor parallel groups with dynamic TP size
   for(int i = 0; i < gpu_num; ++i) {
-    int group_id = i / 2;  // Group ID for tensor parallelism
+    int group_id = i / tp_size;  // Group ID based on actual TP size
     node2nvswitch[i] = group_id;  // Map each GPU to its group
     
     // Add GPU to its tensor parallel group
@@ -307,7 +330,7 @@ int main(int argc, char *argv[]) {
     tp_groups[group_id].push_back(i);
     
     // Create virtual switches for each tensor parallel group
-    if (i % 2 == 0) {
+    if (i % tp_size == 0) {
       int switch_id = gpu_num + group_id;
       NVswitchs.push_back(switch_id);
     }
@@ -351,9 +374,8 @@ int main(int argc, char *argv[]) {
   for (int j = 0; j < nodes_num; j++) {
     networks[j] = new ASTRASimNetwork(j, 0);
     
-    // Calculate the group ID for this node
-    int group_id = j / 2;
-    int group_size = 2;  // Size of tensor parallel groups
+    // Calculate the group ID for this node based on actual TP size
+    int group_id = j / tp_size;
     
     systems[j] = new AstraSim::Sys(
         networks[j],
@@ -361,8 +383,8 @@ int main(int argc, char *argv[]) {
         j,
         group_id,  // Pass group_id for tensor parallel awareness
         1,
-        {group_size},  // Tensor parallel size is 2 (tp2)
-        {gpu_num/group_size},  // Number of TP groups
+        {gpu_num},  // Pass total GPU count for initial ring setup
+        {1},  // Single dimension initially
         "",
         user_param.workload,
         1,
@@ -386,8 +408,7 @@ int main(int argc, char *argv[]) {
     
     // UB mesh specific parameters are handled through topology configuration
     if (enable_ub_mesh) {
-        // The topology file and virtual switches handle the mesh configuration
-        NcclLog->writeLog(NcclLogLevel::INFO, "Setting up UB mesh configuration for node %d in group %d", j, group_id);
+        NcclLog->writeLog(NcclLogLevel::INFO, "Setting up UB mesh configuration for node %d in group %d (TP size: %d)", j, group_id, tp_size);
     }
   }
   std::cout << "Debug: Before firing workloads" << std::endl;

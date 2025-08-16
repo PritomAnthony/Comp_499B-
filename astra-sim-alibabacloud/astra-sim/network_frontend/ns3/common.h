@@ -737,6 +737,11 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
   tracef >> trace_num;
 
   // Handle UB mesh topology
+  // BUGFIX: Comment out UB mesh override that ignores topology file
+  // The original code assumed UB mesh = flat fully-connected mesh with no switches
+  // But we have a 2-rack UB mesh topology with 16 switches for inter-rack communication
+  // Commenting out this override allows the topology file to be parsed correctly
+  /*
   if (enable_ub_mesh) {
     nvswitch_num = 0;  // No NVSwitches in UB mesh
     switch_num = 0;    // No switches in UB mesh
@@ -747,6 +752,7 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
   // Force gpus_per_server to 1 so RdmaHw treats every GPU independently.
   gpus_per_server = 1;
   }
+  */
   
   if(gpu_type_str == "A100"){
     gpu_type = GPUType::A100;
