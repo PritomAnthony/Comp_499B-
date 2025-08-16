@@ -1,3 +1,10 @@
+Warning: 'set logging on', an alias for the command 'set logging enabled', is deprecated.
+Use 'set logging enabled on'.
+
+Function "Workload::iterate_hybrid_parallel_Transformer_fwd_in_bckwd" not defined.
+Function "Workload::check_for_sim_end" not defined.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
 [TOPOLOGY_DEBUG] Setting up network topology:
 [TOPOLOGY_DEBUG]   node_num=32 gpus_per_server=8
 [TOPOLOGY_DEBUG]   nvswitch_num=0 switch_num=0
@@ -1939,6 +1946,9 @@ Debug: Firing workload for system 29
 Debug: Firing workload for system 30
 Debug: Firing workload for system 31
 Debug: All workloads fired, starting simulator
+[New Thread 0x7ffff5c0a640 (LWP 144909)]
+[New Thread 0x7ffff5409640 (LWP 144910)]
+[New Thread 0x7ffff4c08640 (LWP 144911)]
 DEBUG_CHUNK_SIZE: size=3039723520, preferred_dataset_splits=1, resulting chunk_size=3039723520
 DEBUG_COLLECTIVE_TYPE: layer=0, event=UNKNOWN (raw=0), size=3039723520, chunk_size=3039723520
 DEBUG_STREAM_COUNT: chunk size is: 3039723520 , size is: 3039723520 , layer_num is: 0 , node: 0
@@ -1962,46 +1972,65 @@ DEBUG_SIM_END: Node 0 checking finish condition: finished_workloads=0, event_que
 [FLOW_DEBUG] Initiating flow from node=26 to node=27 maxPacketCount=3039723520 tag=0 flow_id=13 at time=11
 [FLOW_DEBUG] Initiating flow from node=28 to node=29 maxPacketCount=3039723520 tag=0 flow_id=14 at time=11
 [FLOW_DEBUG] Initiating flow from node=30 to node=31 maxPacketCount=3039723520 tag=0 flow_id=15 at time=11
-[FLOW_DEBUG] Initiating flow from node=31 to node=30 maxPacketCount=3039723520 tag=0 flow_id=17 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=7 to node=6 maxPacketCount=3039723520 tag=0 flow_id=16 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=15 to node=14 maxPacketCount=3039723520 tag=0 flow_id=19 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=29 to node=28 maxPacketCount=3039723520 tag=0 flow_id=20 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=23 to node=22 maxPacketCount=3039723520 tag=0 flow_id=18 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=27 to node=26 maxPacketCount=3039723520 tag=0 flow_id=23 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=[FLOW_DEBUG] Initiating flow from node=21 to node=20 maxPacketCount=3039723520 tag=0 flow_id=24 at time=3379571
-13 to node=12 maxPacketCount=3039723520 tag=0 flow_id=21 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=5 to node=4 maxPacketCount=3039723520 tag=0 flow_id=22 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=25 to node=24 maxPacketCount=3039723520 tag=0 flow_id=25 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=11 to node=10 maxPacketCount=3039723520 tag=0 flow_id=27 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=31 to node=30 maxPacketCount=41943040 tag=1 flow_id=28 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=19 to node=18 maxPacketCount=3039723520 tag=0 flow_id=26 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=3 to node=2 maxPacketCount=3039723520 tag=0 flow_id=29 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=9[FLOW_DEBUG] Initiating flow from node= to node=29 to node=[FLOW_DEBUG] Initiating flow from node=8 maxPacketCount=2817 to node=163039723520 tag=0 flow_id=30 at time=3379571
- maxPacketCount=3039723520 tag=0 flow_id=32 at time=3379571
- maxPacketCount=41943040 tag=1 flow_id=31 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=1 to node=0 maxPacketCount=3039723520 tag=0 flow_id=33 at time=3379571
-[FLOW_DEBUG] Initiating flow from node=27 to node=26 maxPacketCount=41943040 tag=1 flow_id=34 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=23 to node=22 maxPacketCount=41943040 tag=1 flow_id=35 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=25 to node=24 maxPacketCount=41943040 tag=1 flow_id=36 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=15 to node=14 maxPacketCount=41943040 tag=1 flow_id=37 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=21 to node=20 maxPacketCount=41943040 tag=1 flow_id=38 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=19 to node=18 maxPacketCount=41943040 tag=1 flow_id=39 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=17 to node=16 maxPacketCount=41943040 tag=1 flow_id=40 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=13 to node=12 maxPacketCount=41943040 tag=1 flow_id=41 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=11 to node=10 maxPacketCount=41943040 tag=1 flow_id=42 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=9 to node=8 maxPacketCount=41943040 tag=1 flow_id=43 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=7 to node=6 maxPacketCount=41943040 tag=1 flow_id=44 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=5 to node=4 maxPacketCount=41943040 tag=1 flow_id=45 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=3 to node=2 maxPacketCount=41943040 tag=1 flow_id=46 at time=3379685
-[FLOW_DEBUG] Initiating flow from node=1 to node=0 maxPacketCount=41943040 tag=1 flow_id=47 at time=3379685
+[FLOW_DEBUG] Initiating flow from node=15 to node=14 maxPacketCount=3039723520 tag=0 flow_id=16 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=31 to node=30 maxPacketCount=3039723520 tag=0 flow_id=17 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=23 to node=22 maxPacketCount=3039723520 tag=0 flow_id=18 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=13 to node=12 maxPacketCount=3039723520 tag=0 flow_id=20 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=29 to node=28 maxPacketCount=3039723520 tag=0 flow_id=21 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=21 to node=20 maxPacketCount=3039723520 tag=0 flow_id=19 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=27 to node=26 maxPacketCount=3039723520 tag=0 flow_id=23 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=11 to node=10 maxPacketCount=3039723520 tag=0 flow_id=24 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=7 to node=6 maxPacketCount=3039723520 tag=0 flow_id=22 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=19 to node=18 maxPacketCount=3039723520 tag=0 flow_id=25 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=25 to node=24 maxPacketCount=3039723520 tag=0 flow_id=26 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=9 to node=8 maxPacketCount=3039723520 tag=0 flow_id=27 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=17 to node=16 maxPacketCount=3039723520 tag=0 flow_id=28 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=5 to node=4 maxPacketCount=3039723520 tag=0 flow_id=29 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=3 to node=2 maxPacketCount=3039723520 tag=0 flow_id=30 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=31 to node=30 maxPacketCount=41943040 tag=1 flow_id=32 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=1 to node=0 maxPacketCount=3039723520 tag=0 flow_id=33 at time=9377571
+[FLOW_DEBUG] Initiating flow from node=15 to node=14 maxPacketCount=41943040 tag=1 flow_id=31 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=29 to node=28 maxPacketCount=41943040 tag=1 flow_id=35 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=23 to node=22 maxPacketCount=41943040 tag=1 flow_id=34 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=13 to node=12 maxPacketCount=41943040 tag=1 flow_id=36 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=27 to node=26 maxPacketCount=41943040 tag=1 flow_id=37 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=7 to node=6 maxPacketCount=41943040 tag=1 flow_id=38 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=[FLOW_DEBUG] Initiating flow from node=11 to node=10 maxPacketCount=41943040 tag=1 flow_id=40 at time=9377685
+25 to node=24 maxPacketCount=41943040 tag=1 flow_id=39 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=21 to node=20 maxPacketCount=41943040 tag=1 flow_id=41 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=[FLOW_DEBUG] Initiating flow from node=9 to node=8 maxPacketCount=41943040 tag=1 flow_id=43 at time=9377685
+5 to node=4 maxPacketCount=41943040 tag=1 flow_id=42 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=19 to node=18 maxPacketCount=41943040 tag=1 flow_id=44 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=3 to node=2 maxPacketCount=41943040 tag=1 flow_id=45 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=17 to node=16 maxPacketCount=41943040 tag=1 flow_id=46 at time=9377685
+[FLOW_DEBUG] Initiating flow from node=1 to node=0 maxPacketCount=41943040 tag=1 flow_id=47 at time=9377685
 ***** info: fwd pass comm collective for layer: grad_norm is finished************
 info: no forward pass collective for layer: embedding_layer
 DEBUG_CHUNK_SIZE: size=41943040, preferred_dataset_splits=1, resulting chunk_size=41943040
 DEBUG_COLLECTIVE_TYPE: layer=2, event=UNKNOWN (raw=0), size=41943040, chunk_size=41943040
 DEBUG_STREAM_COUNT: chunk size is: 41943040 , size is: 41943040 , layer_num is: 2 , node: 0
-DEBUG_STREAM_CREATE: Creating stream #1 for dataset id: 59 (total_streams=1)
+DEBUG_STREAM_CREATE: Creating stream #1 for dataset id: 63 (total_streams=1)
 DEBUG_STREAM_COUNT: Generated 1 streams for layer 2 (UNKNOWN), total injected: 2
 info: all-gather forward pass collective issued for layer: attention_column, involved dimensions:  1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
 Debug: Simulator::Run() completed
 Debug: Simulator stopped
+[Thread 0x7ffff4c08640 (LWP 144911) exited]
+[Thread 0x7ffff5409640 (LWP 144910) exited]
+[Thread 0x7ffff5c0a640 (LWP 144909) exited]
 Debug: Simulator destroyed
+[Inferior 1 (process 144890) exited normally]
+The program is not being run.
+No symbol "current_state" in current context.
+$1 = {<text gnu-indirect-function variable, no debug info>} 0x7ffff5ea8260 <strchr_ifunc>
+No symbol "pass_counter" in current context.
+No symbol "TOTAL_PASS" in current context.
+The program is not being run.
+No symbol "current_state" in current context.
+$2 = {<text gnu-indirect-function variable, no debug info>} 0x7ffff5ea8260 <strchr_ifunc>
+No symbol "pass_counter" in current context.
+No symbol "TOTAL_PASS" in current context.
+The program is not being run.
+No symbol "current_state" in current context.
+$3 = {<text gnu-indirect-function variable, no debug info>} 0x7ffff5ea8260 <strchr_ifunc>
+No symbol "pass_counter" in current context.
+No symbol "TOTAL_PASS" in current context.

@@ -385,7 +385,7 @@ int main(int argc, char *argv[]) {
         1,
         {gpu_num},  // Pass total GPU count for initial ring setup
         {1},  // Single dimension initially
-        "",
+        "/home/parozario/newSimAI/Comp_499B-/UB_mesh_system_input.txt",
         user_param.workload,
         1,
         1,

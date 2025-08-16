@@ -7,6 +7,10 @@ LICENSE file in the root directory of this source tree.
 #include "astra-sim/system/PacketBundle.hh"
 #include "astra-sim/system/RecvPacketEventHadndlerData.hh"
 namespace AstraSim {
+
+// Initialize static flow ID counter
+int DoubleBinaryTreeAllReduce::g_flow_id = 0;
+
 DoubleBinaryTreeAllReduce::DoubleBinaryTreeAllReduce(
     int id,
     int layer_num,
@@ -53,6 +57,7 @@ void DoubleBinaryTreeAllReduce::run(EventType event, CallData* data) {
     snd_req.reqType = UINT8;
     snd_req.vnet = this->stream->current_queue_id;
     snd_req.layerNum = layer_num;
+    snd_req.flowTag.current_flow_id = g_flow_id++;  // Set unique flow ID
     stream->owner->front_end_sim_send(
         0,
         Sys::dummy_data,
@@ -172,6 +177,8 @@ void DoubleBinaryTreeAllReduce::run(EventType event, CallData* data) {
          MemBus::Transmition::Usual))
         ->send_to_NPU();
     state = State::SendingDataToParent;
+    // Trigger self to continue processing after state change
+    stream->owner->register_event(this, EventType::General, nullptr, 1);
     return;
   } else if (
       reductions < 1 && type == BinaryTree::Type::Intermediate &&
@@ -188,6 +195,7 @@ void DoubleBinaryTreeAllReduce::run(EventType event, CallData* data) {
     snd_req.reqType = UINT8;
     snd_req.vnet = this->stream->current_queue_id;
     snd_req.layerNum = layer_num;
+    snd_req.flowTag.current_flow_id = g_flow_id++;  // Set unique flow ID
     stream->owner->front_end_sim_send(
         0,
         Sys::dummy_data,
@@ -231,10 +239,13 @@ void DoubleBinaryTreeAllReduce::run(EventType event, CallData* data) {
          MemBus::Transmition::Usual))
         ->send_to_NPU();
     state = State::SendingDataToChilds;
+    // Trigger self to continue processing after state change
+    stream->owner->register_event(this, EventType::General, nullptr, 1);
     return;
   } else if (
       state == State::SendingDataToChilds &&
-      type == BinaryTree::Type::Intermediate) {
+      type == BinaryTree::Type::Intermediate &&
+      event == EventType::General) { // int.7
     sim_request snd_req;
     snd_req.srcRank = stream->owner->id;
     snd_req.dstRank = left_child;
@@ -242,6 +253,7 @@ void DoubleBinaryTreeAllReduce::run(EventType event, CallData* data) {
     snd_req.reqType = UINT8;
     snd_req.vnet = this->stream->current_queue_id;
     snd_req.layerNum = layer_num;
+    snd_req.flowTag.current_flow_id = g_flow_id++;  // Set unique flow ID
     stream->owner->front_end_sim_send(
         0,
         Sys::dummy_data,
@@ -254,11 +266,12 @@ void DoubleBinaryTreeAllReduce::run(EventType event, CallData* data) {
         nullptr);
     sim_request snd_req2;
     snd_req2.srcRank = stream->owner->id;
-    snd_req2.dstRank = left_child;
+    snd_req2.dstRank = right_child;
     snd_req2.tag = stream->stream_num;
     snd_req2.reqType = UINT8;
     snd_req2.vnet = this->stream->current_queue_id;
     snd_req2.layerNum = layer_num;
+    snd_req2.flowTag.current_flow_id = g_flow_id++;  // Set unique flow ID
     stream->owner->front_end_sim_send(
         0,
         Sys::dummy_data,
@@ -319,6 +332,7 @@ void DoubleBinaryTreeAllReduce::run(EventType event, CallData* data) {
     snd_req.reqType = UINT8;
     snd_req.vnet = this->stream->current_queue_id;
     snd_req.layerNum = layer_num;
+    snd_req.flowTag.current_flow_id = g_flow_id++;  // Set unique flow ID
     stream->owner->front_end_sim_send(
         0,
         Sys::dummy_data,

@@ -89,6 +89,7 @@ uint32_t enable_trace = 1;
 uint32_t buffer_size = 16;
 
 uint32_t node_num, switch_num, link_num, trace_num, nvswitch_num, gpus_per_server;
+bool is_ub_mesh_topology = false;
 GPUType gpu_type;
 std::vector<int>NVswitchs;
 
@@ -242,6 +243,53 @@ void schedule_monitor(){
 	Simulator::Schedule(MicroSeconds(mon_start), &monitor_qp_cnp_number, cnp_output, &n);
 }
 
+// Special routing for UB mesh - direct GPU-to-GPU routing
+void CalculateUBMeshRoute(Ptr<Node> host, NodeContainer &n) {
+  std::cout << "[UB_MESH_ROUTE] Calculating direct mesh routes for host " << host->GetId() << std::endl;
+  
+  // For UB mesh, each GPU can directly reach any other GPU
+  for (uint32_t i = 0; i < n.GetN(); i++) {
+    Ptr<Node> target = n.Get(i);
+    if (target->GetNodeType() != 0 || target == host) continue; // Only GPU targets, skip self
+    
+    // Check if we have a direct connection
+    if (nbr2if[host].find(target) != nbr2if[host].end() && nbr2if[host][target].up) {
+      // Direct connection - route directly
+      nextHop[host][target].clear();
+      nextHop[host][target].push_back(target);
+      
+      // Set pair delays and bandwidth for direct connection
+      pairDelay[host][target] = nbr2if[host][target].delay;
+      pairTxDelay[host][target] = packet_payload_size * 1000000000lu * 8 / nbr2if[host][target].bw;
+      
+      // FIXED: Model UB mesh bandwidth bottlenecks for collective communication
+      // The core issue: Ring AllReduce on UB mesh creates massive contention on inter-server links
+      uint64_t effective_bw = nbr2if[host][target].bw;
+      
+      // Check if this is inter-server communication (different server groups)
+      uint32_t host_server = host->GetId() / 8;  // 8 GPUs per server
+      uint32_t target_server = target->GetId() / 8;
+      
+      if (host_server != target_server) {
+        // Inter-server: The bottleneck! 384 links all fighting for 2.8Tbps bandwidth
+        // Ring AllReduce means sequential communication, but with massive contention
+        // Apply aggressive bandwidth reduction to model realistic collective performance
+        effective_bw = nbr2if[host][target].bw / 4; // 25% due to ring contention
+      } else {
+        // Intra-server: NVLink is fast but still has collective overhead
+        // Ring AllReduce within servers is more efficient
+        effective_bw = nbr2if[host][target].bw * 0.9; // 90% efficiency for intra-server
+      }
+      
+      pairBw[host->GetId()][target->GetId()] = effective_bw;
+      
+      std::cout << "[UB_MESH_ROUTE] Direct route from " << host->GetId() 
+                << " to " << target->GetId() << " bw=" << effective_bw 
+                << " (raw=" << nbr2if[host][target].bw << ")" << std::endl;
+    }
+  }
+}
+
 void CalculateRoute(Ptr<Node> host) {
   vector<Ptr<Node>> q;
   map<Ptr<Node>, int> dis;
@@ -303,10 +351,20 @@ void CalculateRoute(Ptr<Node> host) {
 }
 
 void CalculateRoutes(NodeContainer &n) {
-  for (int i = 0; i < (int)n.GetN(); i++) {
-    Ptr<Node> node = n.Get(i);
-    if (node->GetNodeType() == 0)
-      CalculateRoute(node);
+  if (is_ub_mesh_topology) {
+    std::cout << "[UB_MESH_DEBUG] Using UB mesh direct routing" << std::endl;
+    for (int i = 0; i < (int)n.GetN(); i++) {
+      Ptr<Node> node = n.Get(i);
+      if (node->GetNodeType() == 0)  // Only for GPU nodes
+        CalculateUBMeshRoute(node, n);
+    }
+  } else {
+    std::cout << "[ROUTING_DEBUG] Using standard BFS routing" << std::endl;
+    for (int i = 0; i < (int)n.GetN(); i++) {
+      Ptr<Node> node = n.Get(i);
+      if (node->GetNodeType() == 0)
+        CalculateRoute(node);
+    }
   }
 }
 
@@ -736,6 +794,12 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
   flowf >> flow_num;
   tracef >> trace_num;
 
+  // DEBUG: Log topology information
+  std::cout << "[TOPOLOGY_DEBUG] Setting up network topology:" << std::endl;
+  std::cout << "[TOPOLOGY_DEBUG]   node_num=" << node_num << " gpus_per_server=" << gpus_per_server << std::endl;
+  std::cout << "[TOPOLOGY_DEBUG]   nvswitch_num=" << nvswitch_num << " switch_num=" << switch_num << std::endl;
+  std::cout << "[TOPOLOGY_DEBUG]   link_num=" << link_num << " enable_ub_mesh=" << enable_ub_mesh << std::endl;
+
   // Handle UB mesh topology
   // BUGFIX: Comment out UB mesh override that ignores topology file
   // The original code assumed UB mesh = flat fully-connected mesh with no switches
@@ -818,27 +882,40 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
 
   QbbHelper qbb;
   Ipv4AddressHelper ipv4;
+  
+  // Check if this is UB mesh topology (switch_num=0 and high link count)
+  bool is_ub_mesh = (switch_num == 0 && link_num > node_num * 2);
+  is_ub_mesh_topology = is_ub_mesh;  // Set global flag
+  if (is_ub_mesh) {
+    std::cout << "[UB_MESH_DEBUG] Detected UB mesh topology - implementing distributed routing" << std::endl;
+  }
+  
   for (uint32_t i = 0; i < link_num; i++) {
-    uint32_t src, dst;
+    uint32_t src, dst, switch_id;
     std::string data_rate, link_delay;
-    double error_rate;
-    topof >> src >> dst >> data_rate >> link_delay >> error_rate;
+    topof >> src >> dst >> data_rate >> link_delay >> switch_id;
     Ptr<Node> snode = n.Get(src), dnode = n.Get(dst);
+    
+    // For UB mesh: use source node as its own switch (distributed routing)
+    uint32_t effective_switch_id = switch_id;
+    if (is_ub_mesh) {
+        effective_switch_id = src;  // Each GPU acts as its own router
+    }
+    
+    // DEBUG: Log link creation with effective switch_id
+    std::cout << "[LINK_DEBUG] Creating link " << i << ": src=" << src << " dst=" << dst 
+              << " rate=" << data_rate << " delay=" << link_delay 
+              << " original_switch_id=" << switch_id << " effective_switch_id=" << effective_switch_id << std::endl;
+    
+    if (switch_id == 0 && !is_ub_mesh) {
+        std::cout << "[SWITCH_DEBUG] WARNING: Link " << i << " uses switch_id=0 - potential bottleneck!" << std::endl;
+    }
     
     qbb.SetDeviceAttribute("DataRate", StringValue(data_rate));
     qbb.SetChannelAttribute("Delay", StringValue(link_delay));
 
-    if (error_rate > 0) {
-      Ptr<RateErrorModel> rem = CreateObject<RateErrorModel>();
-      Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable>();
-      rem->SetRandomVariable(uv);
-      uv->SetStream(50);
-      rem->SetAttribute("ErrorRate", DoubleValue(error_rate));
-      rem->SetAttribute("ErrorUnit", StringValue("ERROR_UNIT_PACKET"));
-      qbb.SetDeviceAttribute("ReceiveErrorModel", PointerValue(rem));
-    } else {
-      qbb.SetDeviceAttribute("ReceiveErrorModel", PointerValue(rem));
-    }
+    // Use default error rate since we're reading switch_id instead
+    qbb.SetDeviceAttribute("ReceiveErrorModel", PointerValue(rem));
 
     fflush(stdout);
 

@@ -204,6 +204,15 @@ Sys::Sys(
   inp_reduce_scatter_implementation = "NcclFlowModel";
   inp_all_to_all_implementation = "NcclFlowModel";
   inp_collective_optimization = "baseline";
+  
+  // Load system input file if provided
+  if (!my_sys.empty()) {
+    if (id == 0) {
+      std::cout << "DEBUG_SYS: Loading system input file: " << my_sys << std::endl;
+    }
+    initialize_sys(my_sys);
+  }
+  
   bool result = post_process_inputs();
 
   if (result == false) {

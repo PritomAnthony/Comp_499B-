@@ -43,6 +43,7 @@ class DoubleBinaryTreeAllReduce : public Algorithm {
   int right_child;
   BinaryTree::Type type;
   State state;
+  static int g_flow_id;  // Global flow ID counter for tracking
   DoubleBinaryTreeAllReduce(
       int id,
       int layer_num,

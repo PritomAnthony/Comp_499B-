@@ -1,0 +1,51 @@
+Breakpoint 1 at 0x2a480
+Function "Sys::finish_sys" not defined.
+Function "Sys::finalize_sys" not defined.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, 0x000055555557e480 in ns3::Simulator::Run()@plt ()
+
+Breakpoint 1, ns3::Simulator::Run () at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/src/core/model/simulator.cc:174
+174	  NS_LOG_FUNCTION_NOARGS ();
+#0  ns3::Simulator::Run () at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/src/core/model/simulator.cc:174
+#1  0x0000555555590b31 in main (argc=9, argv=0x7fffffffd548) at /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/scratch/AstraSimNetwork.cc:421
+__FUNCTION__ = "Run"
+[New Thread 0x7ffff5c0a640 (LWP 144347)]
+[New Thread 0x7ffff5409640 (LWP 144348)]
+[New Thread 0x7ffff4c08640 (LWP 144349)]
+[Thread 0x7ffff4c08640 (LWP 144349) exited]
+[Thread 0x7ffff5409640 (LWP 144348) exited]
+[Thread 0x7ffff5c0a640 (LWP 144347) exited]
+[Inferior 1 (process 144322) exited normally]
+No stack.
+No frame selected.
+The program is not being run.
+No stack.
+No frame selected.
+Function "Workload::iterate_hybrid_parallel_Transformer_fwd_in_bckwd" not defined.
+Function "Workload::check_for_sim_end" not defined.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff5c0a640 (LWP 144909)]
+[New Thread 0x7ffff5409640 (LWP 144910)]
+[New Thread 0x7ffff4c08640 (LWP 144911)]
+[Thread 0x7ffff4c08640 (LWP 144911) exited]
+[Thread 0x7ffff5409640 (LWP 144910) exited]
+[Thread 0x7ffff5c0a640 (LWP 144909) exited]
+[Inferior 1 (process 144890) exited normally]
+The program is not being run.
+No symbol "current_state" in current context.
+$1 = {<text gnu-indirect-function variable, no debug info>} 0x7ffff5ea8260 <strchr_ifunc>
+No symbol "pass_counter" in current context.
+No symbol "TOTAL_PASS" in current context.
+The program is not being run.
+No symbol "current_state" in current context.
+$2 = {<text gnu-indirect-function variable, no debug info>} 0x7ffff5ea8260 <strchr_ifunc>
+No symbol "pass_counter" in current context.
+No symbol "TOTAL_PASS" in current context.
+The program is not being run.
+No symbol "current_state" in current context.
+$3 = {<text gnu-indirect-function variable, no debug info>} 0x7ffff5ea8260 <strchr_ifunc>
+No symbol "pass_counter" in current context.
+No symbol "TOTAL_PASS" in current context.

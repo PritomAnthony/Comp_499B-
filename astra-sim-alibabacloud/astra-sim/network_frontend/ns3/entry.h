@@ -109,6 +109,13 @@ void SendFlow(int src, int dst, uint64_t maxPacketCount,
   MockNcclLog*NcclLog = MockNcclLog::getInstance();
   uint64_t PacketCount=((maxPacketCount+_QPS_PER_CONNECTION_-1)/_QPS_PER_CONNECTION_);
   uint64_t leftPacketCount = maxPacketCount;
+  
+  // DEBUG: Log flow initiation
+  std::cout << "[FLOW_DEBUG] Initiating flow from node=" << src << " to node=" << dst 
+            << " maxPacketCount=" << maxPacketCount << " tag=" << tag 
+            << " flow_id=" << request->flowTag.current_flow_id 
+            << " at time=" << AstraSim::Sys::boostedTick() << std::endl;
+  
   for(int index = 0 ;index<_QPS_PER_CONNECTION_;index++){
   uint64_t real_PacketCount = min(PacketCount,leftPacketCount);
   leftPacketCount-=real_PacketCount;
