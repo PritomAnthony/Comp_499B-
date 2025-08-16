@@ -786,14 +786,6 @@ def fat_tree_server_level(parameters):
                           parameters['bandwidth'],
                           parameters['latency'],
                           parameters['error_rate']))
-            
-    # 5) **GPU -> edge NIC** (one 400 Gbps port per GPU into leaf fabric)
-    for g in range(G):
-        sw = edge_ids[g % len(edge_ids)]
-        links.append((g, sw,
-                      parameters['bandwidth'],
-                      parameters['latency'],
-                      parameters['error_rate']))
 
     # write topology file
     fname = f"fat_tree_server_{G}g_{G_P_S}gps_nvs{nv_switch_num}_k{k}_{parameters['bandwidth']}_{parameters['gpu_type']}"
