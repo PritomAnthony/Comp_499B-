@@ -43,6 +43,8 @@
 #include <ns3/nvswitch-node.h>
 #include <atomic>
 
+#include "astra-sim/system/Common.hh"
+
 using namespace ns3;
 using namespace std;
 
@@ -307,6 +309,44 @@ void CalculateRoutes(NodeContainer &n) {
   }
 }
 
+void PrintPathDebug() {
+  std::cout << "\n[PATH_DEBUG] ========== ROUTING PATHS ==========\n";
+  for (auto i = nextHop.begin(); i != nextHop.end(); i++) {
+    Ptr<Node> src = i->first;
+    if (src->GetNodeType() != 0) continue; // Only show paths from hosts
+    
+    auto &table = i->second;
+    for (auto j = table.begin(); j != table.end(); j++) {
+      Ptr<Node> dst = j->first;
+      if (dst->GetNodeType() != 0) continue; // Only show paths to hosts
+      if (src->GetId() >= dst->GetId()) continue; // Avoid duplicates
+      
+      // Trace the full path
+      vector<uint32_t> path;
+      Ptr<Node> current = src;
+      path.push_back(current->GetId());
+      
+      while (current->GetId() != dst->GetId()) {
+        if (nextHop[current].find(dst) == nextHop[current].end() || nextHop[current][dst].empty()) {
+          break;
+        }
+        current = nextHop[current][dst][0]; // Take first next hop
+        path.push_back(current->GetId());
+        if (path.size() > 10) break; // Prevent infinite loops
+      }
+      
+      std::cout << "[PATH_DEBUG] Host " << src->GetId() << " -> Host " << dst->GetId() 
+                << " (hops: " << (path.size() - 1) << ") Path: ";
+      for (size_t p = 0; p < path.size(); p++) {
+        std::cout << path[p];
+        if (p < path.size() - 1) std::cout << " -> ";
+      }
+      std::cout << std::endl;
+    }
+  }
+  std::cout << "[PATH_DEBUG] ========== END PATHS ==========\n\n";
+}
+
 void SetRoutingEntries() {
   for (auto i = nextHop.begin(); i != nextHop.end(); i++) {
     Ptr<Node> node = i->first;
@@ -318,6 +358,10 @@ void SetRoutingEntries() {
       for (int k = 0; k < (int)nexts.size(); k++) {
         Ptr<Node> next = nexts[k];
         uint32_t interface = nbr2if[node][next].idx;
+        
+        // DEBUG: Log routing table entries
+        std::cout << "[ROUTE_DEBUG] Node " << node->GetId() << " to Node " << dst->GetId() 
+                  << " via Node " << next->GetId() << " (interface " << interface << ")" << std::endl;
         if (node->GetNodeType() == 1) {
           DynamicCast<SwitchNode>(node)->AddTableEntry(dstAddr, interface);
         } else if(node->GetNodeType() == 2){
@@ -773,6 +817,10 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
     topof >> src >> dst >> data_rate >> link_delay >> error_rate;
     Ptr<Node> snode = n.Get(src), dnode = n.Get(dst);
     
+    // DEBUG: Log link creation
+    std::cout << "[LINK_DEBUG] Creating link " << i << ": src=" << src << " dst=" << dst 
+              << " rate=" << data_rate << " delay=" << link_delay << std::endl;
+    
     qbb.SetDeviceAttribute("DataRate", StringValue(data_rate));
     qbb.SetChannelAttribute("Delay", StringValue(link_delay));
 
@@ -949,6 +997,7 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
 
   CalculateRoutes(n);
   SetRoutingEntries();
+  PrintPathDebug();
 
   maxRtt = maxBdp = 0;
   for (uint32_t i = 0; i < node_num; i++) {

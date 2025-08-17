@@ -16,8 +16,9 @@
 #ifndef __ASTRASIMNETWORK_HH__
 #define __ASTRASIMNETWORK_HH__
 #include <iostream>
+#include "astra-sim/system/AstraNetworkAPI.hh" // Add this include for AstraNetworkAPI
 using namespace std;
-class ASTRASimNetwork: AstraSim::AstraNetworkAPI{
+class ASTRASimNetwork: public AstraSim::AstraNetworkAPI{
     public:
         ASTRASimNetwork(int rank):AstraNetworkAPI(rank){
         }
