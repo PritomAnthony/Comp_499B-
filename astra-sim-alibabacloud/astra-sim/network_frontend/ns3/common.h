@@ -883,8 +883,8 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
   QbbHelper qbb;
   Ipv4AddressHelper ipv4;
   
-  // Check if this is UB mesh topology (switch_num=0 and high link count)
-  bool is_ub_mesh = (switch_num == 0 && link_num > node_num * 2);
+  // Check if this is UB mesh topology (no NVSwitches and high link count)
+  bool is_ub_mesh = (nvswitch_num == 0 && link_num > node_num * 2);
   is_ub_mesh_topology = is_ub_mesh;  // Set global flag
   if (is_ub_mesh) {
     std::cout << "[UB_MESH_DEBUG] Detected UB mesh topology - implementing distributed routing" << std::endl;
