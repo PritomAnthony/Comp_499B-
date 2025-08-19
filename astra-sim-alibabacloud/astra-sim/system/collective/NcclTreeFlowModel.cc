@@ -350,6 +350,10 @@ bool NcclTreeFlowModel::recv_ready(int channel_id, int flow_id) {
     ehd->flowTag.child_flow_id = -1;
     ehd->flowTag.current_flow_id = -1;
     ehd->flowTag.channel_id = channel_id;
+    ehd->flowTag.chunk_id = flow_model.chunk_id;
+    ehd->flowTag.sender_node = recv_prev;
+    ehd->flowTag.receiver_node = id;
+    ehd->flowTag.flow_size = flow_model.flow_size;
     ehd->flowTag.tag_id =layer_num*flow_model.chunk_count*m_channels+ flow_model.chunk_count*flow_model.channel_id;
       stream->owner->front_end_sim_recv(
           0,
@@ -547,6 +551,10 @@ bool NcclTreeFlowModel::ready(int channel_id, int flow_id) {
       ehd->flowTag.tag_id = layer_num*flow_model.chunk_count*m_channels + flow_model.chunk_count*flow_model.channel_id+flow_model.chunk_id+1;
     }
     ehd->flowTag.channel_id = packet.channel_id;
+    ehd->flowTag.chunk_id = flow_model.chunk_id;
+    ehd->flowTag.sender_node = recv_prev;
+    ehd->flowTag.receiver_node = id;
+    ehd->flowTag.flow_size = flow_model.flow_size;
     if (free_packets[std::make_pair(channel_id, recv_prev)] > 0) {
       stream->owner->front_end_sim_recv(
           0,
@@ -679,6 +687,10 @@ bool NcclTreeFlowModel::phy_ready(int channel_id,int flow_id) {
       ehd->flowTag.tag_id = layer_num*flow_model.chunk_count*m_channels + flow_model.chunk_count*flow_model.channel_id+flow_model.chunk_id+1;
     }
     ehd->flowTag.channel_id = flow.channel_id;
+    ehd->flowTag.chunk_id = flow_model.chunk_id;
+    ehd->flowTag.sender_node = recv_prev;
+    ehd->flowTag.receiver_node = id;
+    ehd->flowTag.flow_size = flow_model.flow_size;
     if (free_packets[std::make_pair(channel_id, recv_prev)] > 0) {
       stream->owner->front_end_sim_recv(
           0,

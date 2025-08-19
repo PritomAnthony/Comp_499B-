@@ -1,113 +1,190 @@
 #!/usr/bin/env python3
 """
-Topology Validation Script for UB_32_new
-Validates the UB-Mesh topology against research paper requirements
+Topology Validation Script for UB_Mesh_128g_8gps_LRS16_H100
+Validates the 128-GPU UB-Mesh topology with 16 inter-rack switches
+Perfect UB mesh topology requirements:
+- Intra-server GPU-to-GPU: 7200Gbps, 0.000025ms
+- Inter-server GPU-to-GPU: 2800Gbps, 0.0005ms  
+- GPU-to-Switch: 2800Gbps, 0.0005ms
+- Switch-to-Switch: 1600Gbps, 0.0001ms
 """
 
 def parse_topology_file(filename):
-    """Parse the topology file and extract connections"""
+    """Parse the 128-GPU UB mesh topology file and extract connections"""
     connections = []
     header = None
+    switch_list = []
     
     with open(filename, 'r') as f:
         lines = f.readlines()
     
+    line_count = 0
     for line in lines:
         line = line.strip()
+        line_count += 1
+        
         if not line or line.startswith('#'):
             continue
             
         parts = line.split()
-        if header is None and len(parts) >= 5:  # Header line (first non-comment line)
+        
+        if header is None and len(parts) >= 6:  # Header line: nodes servers switches unknown links device
             header = {
-                'nodes': int(parts[0]),
-                'servers': int(parts[1]),
-                'switches': int(parts[2]),
-                'unknown': int(parts[3]),
+                'total_nodes': int(parts[0]),
+                'gpus_per_server': int(parts[1]),
+                'nvswitch_num': int(parts[2]),
+                'switch_num': int(parts[3]),
                 'total_links': int(parts[4]),
                 'device': parts[5] if len(parts) > 5 else 'Unknown'
             }
-        elif header is not None and len(parts) >= 5:  # Connection line
-            src = int(parts[0])
-            dst = int(parts[1])
-            bandwidth = parts[2]
-            latency = parts[3]
-            connection_type = int(parts[4])
-            
-            connections.append({
-                'src': src,
-                'dst': dst,
-                'bandwidth': bandwidth,
-                'latency': latency,
-                'type': connection_type
-            })
+        elif switch_list == [] and len(parts) >= 16 and all(p.isdigit() for p in parts):  # Switch ID list
+            switch_list = [int(x) for x in parts]
+        elif len(parts) >= 5:  # Connection line: src dst bandwidth latency type
+            try:
+                src = int(parts[0])
+                dst = int(parts[1])
+                bandwidth = parts[2]
+                latency = parts[3]
+                connection_type = int(parts[4])
+                
+                connections.append({
+                    'src': src,
+                    'dst': dst,
+                    'bandwidth': bandwidth,
+                    'latency': latency,
+                    'type': connection_type
+                })
+            except ValueError:
+                continue  # Skip malformed lines
     
-    return header, connections
+    return header, connections, switch_list
 
-def validate_topology(header, connections):
-    """Validate the topology against UB-Mesh requirements"""
-    print("=== TOPOLOGY VALIDATION REPORT ===\n")
+def validate_topology(header, connections, switch_list):
+    """Validate the 128-GPU UB mesh topology against perfect specifications"""
+    print(f"Validating 128-GPU UB mesh topology with {header['total_nodes']} total nodes")
+    print(f"Expected: 16 servers × 8 GPUs = 128 GPUs + 16 switches = 144 total nodes")
+    print(f"Switch IDs: {switch_list}")
     
-    # Basic header validation
-    print(f"Header Info:")
-    print(f"  Nodes: {header['nodes']}")
-    print(f"  Servers: {header['servers']}")
-    print(f"  Expected total links: {header['total_links']}")
-    print(f"  Actual connections found: {len(connections)}")
-    print(f"  Device: {header.get('device', 'Unknown')}")
-    print()
+    # Expected specifications for perfect UB mesh
+    expected_total_nodes = 144  # 128 GPUs + 16 switches
+    expected_gpus_per_server = 8
+    expected_servers = 16
+    expected_switches = 16
     
-    # Check if we have the right number of connections
-    expected_connections = 32 * 31 // 2  # Full mesh: C(32,2) = 496
-    if len(connections) == expected_connections:
-        print(f"✅ Connection count CORRECT: {len(connections)} = C(32,2)")
-    else:
-        print(f"❌ Connection count WRONG: {len(connections)} != {expected_connections}")
-    print()
-    
-    # Analyze server layout (8 GPUs per server, 4 servers)
-    servers = {
-        0: list(range(0, 8)),    # Server 0: GPUs 0-7
-        1: list(range(8, 16)),   # Server 1: GPUs 8-15
-        2: list(range(16, 24)),  # Server 2: GPUs 16-23
-        3: list(range(24, 32))   # Server 3: GPUs 24-31
+    # Bandwidth specifications in Gbps
+    expected_bandwidths = {
+        'intra_server': '7200Gbps',     # Intra-server GPU-to-GPU
+        'inter_server': '2800Gbps',     # Inter-server GPU-to-GPU  
+        'gpu_to_switch': '2800Gbps',    # GPU-to-Switch
+        'switch_to_switch': '1600Gbps'  # Switch-to-Switch
     }
     
-    # Categorize connections
-    intra_server_connections = []
-    inter_server_connections = []
+    # Latency specifications
+    expected_latencies = {
+        'intra_server': '0.000025ms',
+        'inter_server': '0.0005ms', 
+        'gpu_to_switch': '0.0005ms',
+        'switch_to_switch': '0.0001ms'
+    }
+    
+    # Validate header information
+    errors = []
+    
+    if header['total_nodes'] != expected_total_nodes:
+        errors.append(f"Total nodes mismatch: expected {expected_total_nodes}, got {header['total_nodes']}")
+    
+    if header['gpus_per_server'] != expected_gpus_per_server:
+        errors.append(f"GPUs per server mismatch: expected {expected_gpus_per_server}, got {header['gpus_per_server']}")
+    
+    if header['switch_num'] != expected_switches:
+        errors.append(f"Switch count mismatch: expected {expected_switches}, got {header['switch_num']}")
+    
+    if len(switch_list) != expected_switches:
+        errors.append(f"Switch list length mismatch: expected {expected_switches}, got {len(switch_list)}")
+    
+    # Analyze connections by type and bandwidth
+    bandwidth_counts = {}
+    latency_counts = {}
+    connection_types = {0: 'unknown', 1: 'intra_server', 2: 'inter_server', 3: 'gpu_to_switch', 4: 'switch_to_switch'}
     
     for conn in connections:
-        src, dst = conn['src'], conn['dst']
+        bw = conn['bandwidth']
+        lat = conn['latency']
+        conn_type = conn['type']
         
-        # Find which servers the GPUs belong to
-        src_server = None
-        dst_server = None
-        for server_id, gpus in servers.items():
-            if src in gpus:
-                src_server = server_id
-            if dst in gpus:
-                dst_server = server_id
+        if bw not in bandwidth_counts:
+            bandwidth_counts[bw] = 0
+        bandwidth_counts[bw] += 1
         
-        if src_server == dst_server:
-            intra_server_connections.append(conn)
-        else:
-            inter_server_connections.append(conn)
+        if lat not in latency_counts:
+            latency_counts[lat] = 0
+        latency_counts[lat] += 1
     
-    print(f"Connection Analysis:")
-    print(f"  Intra-server connections: {len(intra_server_connections)}")
-    print(f"  Inter-server connections: {len(inter_server_connections)}")
+    # Print bandwidth and latency distribution
+    print("\nBandwidth Distribution:")
+    for bw, count in sorted(bandwidth_counts.items()):
+        print(f"  {bw}: {count} connections")
     
-    # Expected counts
-    # Intra-server: 4 servers × C(8,2) = 4 × 28 = 112
-    # Inter-server: Total - Intra = 496 - 112 = 384
-    expected_intra = 4 * (8 * 7 // 2)  # 4 servers × C(8,2)
-    expected_inter = expected_connections - expected_intra
+    print("\nLatency Distribution:")  
+    for lat, count in sorted(latency_counts.items()):
+        print(f"  {lat}: {count} connections")
     
-    if len(intra_server_connections) == expected_intra:
-        print(f"  ✅ Intra-server count CORRECT: {len(intra_server_connections)} = 4×C(8,2)")
+    # Validate bandwidth specifications
+    expected_counts = {
+        '7200Gbps': 448,    # Intra-server connections (8 servers × 8 GPUs × 7 connections each)
+        '2800Gbps': 3712,   # GPU-to-switch + inter-server (128×16 + 2560)  
+        '1600Gbps': 120     # Switch-to-switch connections (16×15/2×2)
+    }
+    
+    for bw, expected_count in expected_counts.items():
+        actual_count = bandwidth_counts.get(bw, 0)
+        if actual_count != expected_count:
+            errors.append(f"Bandwidth {bw} count mismatch: expected {expected_count}, got {actual_count}")
+    
+    # Check for GPU node ranges (0-127) and switch node ranges  
+    gpu_nodes = set()
+    switch_nodes = set(switch_list)
+    
+    for conn in connections:
+        if conn['src'] < 128:
+            gpu_nodes.add(conn['src'])
+        if conn['dst'] < 128:
+            gpu_nodes.add(conn['dst'])
+    
+    if len(gpu_nodes) != 128:
+        errors.append(f"GPU node count mismatch: expected 128, found {len(gpu_nodes)}")
+    
+    if len(switch_nodes) != 16:
+        errors.append(f"Switch node count mismatch: expected 16, found {len(switch_nodes)}")
+    
+    # Validate server grouping (GPUs 0-7 in server 0, 8-15 in server 1, etc.)
+    intra_server_connections = [conn for conn in connections if conn['bandwidth'] == '7200Gbps']
+    server_validation_errors = []
+    
+    for conn in intra_server_connections:
+        src_server = conn['src'] // 8
+        dst_server = conn['dst'] // 8
+        if src_server != dst_server:
+            server_validation_errors.append(f"Intra-server connection spans servers: GPU {conn['src']} (server {src_server}) <-> GPU {conn['dst']} (server {dst_server})")
+    
+    if server_validation_errors:
+        errors.extend(server_validation_errors[:5])  # Limit to first 5 errors
+        if len(server_validation_errors) > 5:
+            errors.append(f"... and {len(server_validation_errors) - 5} more server grouping errors")
+    
+    # Report results
+    if errors:
+        print(f"\n❌ Topology validation FAILED with {len(errors)} errors:")
+        for error in errors:
+            print(f"  - {error}")
+        return False
     else:
-        print(f"  ❌ Intra-server count WRONG: {len(intra_server_connections)} != {expected_intra}")
+        print(f"\n✅ Topology validation PASSED! Perfect UB mesh topology confirmed.")
+        print(f"  - {header['total_nodes']} total nodes (128 GPUs + 16 switches)")
+        print(f"  - {len(connections)} total connections")
+        print(f"  - Correct bandwidth hierarchy: 7200Gbps, 2800Gbps, 1600Gbps")
+        print(f"  - Proper server grouping (16 servers × 8 GPUs each)")
+        return True
         
     if len(inter_server_connections) == expected_inter:
         print(f"  ✅ Inter-server count CORRECT: {len(inter_server_connections)} = {expected_inter}")

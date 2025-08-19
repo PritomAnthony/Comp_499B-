@@ -243,49 +243,112 @@ void schedule_monitor(){
 	Simulator::Schedule(MicroSeconds(mon_start), &monitor_qp_cnp_number, cnp_output, &n);
 }
 
-// Special routing for UB mesh - direct GPU-to-GPU routing
+// Enhanced UB mesh routing - handles both direct GPU connections and switch-based inter-rack paths
 void CalculateUBMeshRoute(Ptr<Node> host, NodeContainer &n) {
-  std::cout << "[UB_MESH_ROUTE] Calculating direct mesh routes for host " << host->GetId() << std::endl;
+  std::cout << "[UB_MESH_ROUTE] Calculating UB mesh routes for host " << host->GetId() << std::endl;
   
-  // For UB mesh, each GPU can directly reach any other GPU
-  for (uint32_t i = 0; i < n.GetN(); i++) {
-    Ptr<Node> target = n.Get(i);
-    if (target->GetNodeType() != 0 || target == host) continue; // Only GPU targets, skip self
+  // Use BFS to find routes to all destinations, preferring direct connections when available
+  vector<Ptr<Node>> q;
+  map<Ptr<Node>, int> dis;
+  map<Ptr<Node>, uint64_t> delay;
+  map<Ptr<Node>, uint64_t> txDelay;
+  map<Ptr<Node>, uint64_t> bw;
+  
+  q.push_back(host);
+  dis[host] = 0;
+  delay[host] = 0;
+  txDelay[host] = 0;
+  bw[host] = 0xfffffffffffffffflu;
+  
+  for (int i = 0; i < (int)q.size(); i++) {
+    Ptr<Node> now = q[i];
+    int d = dis[now];
     
-    // Check if we have a direct connection
-    if (nbr2if[host].find(target) != nbr2if[host].end() && nbr2if[host][target].up) {
-      // Direct connection - route directly
-      nextHop[host][target].clear();
-      nextHop[host][target].push_back(target);
+    for (auto it = nbr2if[now].begin(); it != nbr2if[now].end(); it++) {
+      if (!it->second.up) continue;
       
-      // Set pair delays and bandwidth for direct connection
-      pairDelay[host][target] = nbr2if[host][target].delay;
-      pairTxDelay[host][target] = packet_payload_size * 1000000000lu * 8 / nbr2if[host][target].bw;
+      Ptr<Node> next = it->first;
+      uint64_t link_delay = it->second.delay;
+      uint64_t link_tx_delay = packet_payload_size * 1000000000lu * 8 / it->second.bw;
+      uint64_t link_bw = it->second.bw;
       
-      // FIXED: Model UB mesh bandwidth bottlenecks for collective communication
-      // The core issue: Ring AllReduce on UB mesh creates massive contention on inter-server links
-      uint64_t effective_bw = nbr2if[host][target].bw;
-      
-      // Check if this is inter-server communication (different server groups)
+      // If this node hasn't been visited yet
+      if (dis.find(next) == dis.end()) {
+        dis[next] = d + 1;
+        delay[next] = delay[now] + link_delay;
+        txDelay[next] = txDelay[now] + link_tx_delay;
+        bw[next] = std::min(bw[now], link_bw);
+        
+        // Add switches to queue for further exploration, but not GPUs (end points)
+        if (next->GetNodeType() == 1) { // Regular switches for inter-rack
+          q.push_back(next);
+        }
+        
+        // Set up next hop for this new path
+        nextHop[next][host].clear();
+        nextHop[next][host].push_back(now);
+      }
+      // If we found an equal-length path
+      else if (d + 1 == dis[next]) {
+        // For UB mesh, prefer direct GPU-to-GPU paths over switch paths
+        bool current_via_switch = false;
+        bool new_via_switch = (now->GetNodeType() == 1);
+        
+        for (auto x : nextHop[next][host]) {
+          if (x->GetNodeType() == 1) {
+            current_via_switch = true;
+            break;
+          }
+        }
+        
+        // If current path uses switches but new path is direct, replace it
+        if (current_via_switch && !new_via_switch) {
+          nextHop[next][host].clear();
+          nextHop[next][host].push_back(now);
+        }
+        // If both are switch paths or both are direct, add as alternate path
+        else if (current_via_switch == new_via_switch) {
+          nextHop[next][host].push_back(now);
+        }
+        // If current is direct but new is via switch, keep current (don't add)
+      }
+    }
+  }
+  
+  // Set up routing information for all discovered destinations
+  for (auto it : delay) {
+    Ptr<Node> target = it.first;
+    if (target == host) continue; // Skip self
+    
+    pairDelay[target][host] = it.second;
+    pairTxDelay[target][host] = txDelay[target];
+    pairBw[target->GetId()][host->GetId()] = bw[target];
+    
+    // For GPU targets, also set up the reverse routing info
+    if (target->GetNodeType() == 0) {
       uint32_t host_server = host->GetId() / 8;  // 8 GPUs per server
       uint32_t target_server = target->GetId() / 8;
+      uint64_t effective_bw = bw[target];
       
+      // Apply UB mesh bandwidth modeling for collective communication
       if (host_server != target_server) {
-        // Inter-server: The bottleneck! 384 links all fighting for 2.8Tbps bandwidth
-        // Ring AllReduce means sequential communication, but with massive contention
-        // Apply aggressive bandwidth reduction to model realistic collective performance
-        effective_bw = nbr2if[host][target].bw / 4; // 25% due to ring contention
+        // Inter-rack: bandwidth reduced due to switch contention and longer paths
+        effective_bw = effective_bw / 4; // 25% due to inter-rack contention
       } else {
-        // Intra-server: NVLink is fast but still has collective overhead
-        // Ring AllReduce within servers is more efficient
-        effective_bw = nbr2if[host][target].bw * 0.9; // 90% efficiency for intra-server
+        // Intra-rack: high efficiency for direct GPU connections
+        effective_bw = effective_bw * 0.9; // 90% efficiency for intra-rack
       }
       
       pairBw[host->GetId()][target->GetId()] = effective_bw;
       
-      std::cout << "[UB_MESH_ROUTE] Direct route from " << host->GetId() 
-                << " to " << target->GetId() << " bw=" << effective_bw 
-                << " (raw=" << nbr2if[host][target].bw << ")" << std::endl;
+      // Debug output for routing decisions
+      bool direct_path = (nextHop[target][host].size() == 1 && 
+                         nextHop[target][host][0]->GetNodeType() == 0);
+      std::cout << "[UB_MESH_ROUTE] Route from " << host->GetId() 
+                << " to " << target->GetId() << " via " 
+                << (direct_path ? "DIRECT" : "SWITCH") 
+                << " bw=" << effective_bw 
+                << " hops=" << dis[target] << std::endl;
     }
   }
 }
@@ -352,11 +415,20 @@ void CalculateRoute(Ptr<Node> host) {
 
 void CalculateRoutes(NodeContainer &n) {
   if (is_ub_mesh_topology) {
-    std::cout << "[UB_MESH_DEBUG] Using UB mesh direct routing" << std::endl;
+    std::cout << "[UB_MESH_DEBUG] Using UB mesh routing with switch support" << std::endl;
+    
+    // Calculate routes for all nodes in UB mesh topology
     for (int i = 0; i < (int)n.GetN(); i++) {
       Ptr<Node> node = n.Get(i);
-      if (node->GetNodeType() == 0)  // Only for GPU nodes
+      if (node->GetNodeType() == 0) {
+        // GPU nodes: use enhanced UB mesh routing
         CalculateUBMeshRoute(node, n);
+      } else if (node->GetNodeType() == 1) {
+        // Regular switches: use standard BFS for inter-rack forwarding
+        std::cout << "[UB_MESH_ROUTE] Calculating switch routes for switch " << node->GetId() << std::endl;
+        CalculateRoute(node);
+      }
+      // Note: No NVSwitches in UB mesh (nvswitch_num should be 0)
     }
   } else {
     std::cout << "[ROUTING_DEBUG] Using standard BFS routing" << std::endl;
@@ -883,11 +955,16 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
   QbbHelper qbb;
   Ipv4AddressHelper ipv4;
   
-  // Check if this is UB mesh topology (no NVSwitches and high link count)
+  // Check if this is UB mesh topology
+  // UB mesh characteristics:
+  // 1. No NVSwitches (nvswitch_num == 0) - GPUs connect directly within racks
+  // 2. High link density indicates mesh connectivity (link_num > node_num * 2)
+  // 3. May have regular switches for inter-rack communication (switch_num >= 0)
   bool is_ub_mesh = (nvswitch_num == 0 && link_num > node_num * 2);
   is_ub_mesh_topology = is_ub_mesh;  // Set global flag
   if (is_ub_mesh) {
-    std::cout << "[UB_MESH_DEBUG] Detected UB mesh topology - implementing distributed routing" << std::endl;
+    std::cout << "[UB_MESH_DEBUG] Detected UB mesh topology with " << switch_num 
+              << " inter-rack switches and " << link_num << " mesh links" << std::endl;
   }
   
   for (uint32_t i = 0; i < link_num; i++) {
@@ -903,9 +980,9 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
     }
     
     // DEBUG: Log link creation with effective switch_id
-    std::cout << "[LINK_DEBUG] Creating link " << i << ": src=" << src << " dst=" << dst 
-              << " rate=" << data_rate << " delay=" << link_delay 
-              << " original_switch_id=" << switch_id << " effective_switch_id=" << effective_switch_id << std::endl;
+    // std::cout << "[LINK_DEBUG] Creating link " << i << ": src=" << src << " dst=" << dst 
+    //           << " rate=" << data_rate << " delay=" << link_delay 
+    //           << " original_switch_id=" << switch_id << " effective_switch_id=" << effective_switch_id << std::endl;
     
     if (switch_id == 0 && !is_ub_mesh) {
         std::cout << "[SWITCH_DEBUG] WARNING: Link " << i << " uses switch_id=0 - potential bottleneck!" << std::endl;

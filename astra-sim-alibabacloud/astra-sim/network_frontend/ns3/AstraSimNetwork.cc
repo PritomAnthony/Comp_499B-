@@ -413,7 +413,7 @@ int main(int argc, char *argv[]) {
   }
   std::cout << "Debug: Before firing workloads" << std::endl;
   for (int i = 0; i < nodes_num; i++) {
-    std::cout << "Debug: Firing workload for system " << i << std::endl;
+    // std::cout << "Debug: Firing workload for system " << i << std::endl;
     systems[i]->workload->fire();
   }
   std::cout << "Debug: All workloads fired, starting simulator" << std::endl;
