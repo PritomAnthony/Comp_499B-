@@ -7,10 +7,8 @@ This document details all the changes made to the ASTRA-Sim codebase to enable U
 ## Project Context
 
 - **Repository:** Comp_499B- (PritomAnthony/Comp_499B-)
-- **Branch:** feature/ub-mesh-routing-dump
-- **Simulation Framework:** ASTRA-Sim with NS-3 backend
-- **Workload:** MOE (Mixture of Experts) transformer with TP=2, EP=16, PP=1, GA=4 (32 GPUs total)
-- **Topology:** UB_32 full mesh with 496 direct GPU-to-GPU connections at 1000Gbps
+- **Branch:** feature/ub-mesh-routing
+
 
 ## Problem Statement
 
