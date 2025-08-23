@@ -548,6 +548,44 @@ void printRoutingEntries() {
 
 }
 
+void PrintPathDebug() {
+  std::cout << "\n[PATH_DEBUG] ========== ROUTING PATHS ==========\n";
+  for (auto i = nextHop.begin(); i != nextHop.end(); i++) {
+    Ptr<Node> src = i->first;
+    if (src->GetNodeType() != 0) continue; // Only show paths from hosts
+    
+    auto &table = i->second;
+    for (auto j = table.begin(); j != table.end(); j++) {
+      Ptr<Node> dst = j->first;
+      if (dst->GetNodeType() != 0) continue; // Only show paths to hosts
+      if (src->GetId() >= dst->GetId()) continue; // Avoid duplicates
+      
+      // Trace the full path
+      vector<uint32_t> path;
+      Ptr<Node> current = src;
+      path.push_back(current->GetId());
+      
+      while (current->GetId() != dst->GetId()) {
+        if (nextHop[current].find(dst) == nextHop[current].end() || nextHop[current][dst].empty()) {
+          break;
+        }
+        current = nextHop[current][dst][0]; // Take first next hop
+        path.push_back(current->GetId());
+        if (path.size() > 10) break; // Prevent infinite loops
+      }
+      
+      std::cout << "[PATH_DEBUG] Host " << src->GetId() << " -> Host " << dst->GetId() 
+                << " (hops: " << (path.size() - 1) << ") Path: ";
+      for (size_t p = 0; p < path.size(); p++) {
+        std::cout << path[p];
+        if (p < path.size() - 1) std::cout << " -> ";
+      }
+      std::cout << std::endl;
+    }
+  }
+  std::cout << "[PATH_DEBUG] ========== END PATHS ==========\n\n";
+}
+
 bool validateRoutingEntries() {
   return false;
 }
@@ -1155,6 +1193,9 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
 
   CalculateRoutes(n);
   SetRoutingEntries();
+  
+  // Print routing paths for debug analysis
+  PrintPathDebug();
 
   maxRtt = maxBdp = 0;
   for (uint32_t i = 0; i < node_num; i++) {

@@ -1,84 +1,49 @@
-# Simulation results with various types of topology: 
-|Name | maxRtt | maxBdp|
-|:---:|:------:|:-----:|
-|fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 | 8160 | 204000|
-|AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 | 5080 | 127000 |
-|UB_AI_32g_8gps_1D-FM-B_200Gbps_H100 | 4080 | 102000 |
-|UB_AI_32g_8gps_2D-FM_200Gbps_H100 | 4080 | 102000 |
-|UB_AI_32g_8gps_4D_200Gbps_H100 | 4080 | 102000|
-|UB_32 nd-full mesh 1000Gbps_H100| 2012 | 251500 |
 
-
-**Before running simulation please copy these two files (rdma-copy/rdma-hw-copy.cc, rdma-copy/rdma-hw-copy.h) and put them inside "/home/parozario/newSimAI/Comp_499B-/ns-3-alibabacloud/simulation/src/point-to-point/model" and rename these two files to "rdma-hw-copy.cc to rdma-hw.cc" and "rdma-hw-copy.h to rdma-hw.h" respectively.
-
-## Recent Improvements: UB Mesh Topology Support
-
-**Successfully implemented complete UB mesh topology simulation with per-node statistics generation.**
-
-### Key Achievements:
-- ✅ **Fixed Backend Detection:** Resolved NS-3 backend type identification
-- ✅ **Statistics Generation:** Implemented complete per-node data transfer statistics
-- ✅ **MOE Workload Support:** Enhanced dimension configuration for Mixture of Experts models
-- ✅ **Performance Validation:** Comprehensive comparison between UB mesh and Fat tree topologies
-
-### Performance Results:
-| Topology | Total Data Transfer | Simulation Time | Streams | Efficiency |
-|:--------:|:------------------:|:---------------:|:-------:|:-----------:|
-| **UB_32 Mesh** | **96.9 GB** | **10 minutes** | 528 | **5.18x better** |
-| Fat Tree | 502.5 GB | 30 minutes | 165 | baseline |
-
-**UB mesh demonstrates 5.18x better data efficiency and 3x faster completion for MOE workloads.**
-
-### Documentation:
-- Complete implementation details in `CHANGES.md`
-- Simulation output logs: `ub_output.log`, `ub_latest_output.log`
-- Performance comparison data available in repository
-
-# Commands to Run Simulation
-```bash
-
-# 1. fat tree simulation command : 
-
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./fat_tree_server_32g_8gps_nvs4_k4_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
-
-# 2. UB Mesh 4D: 
-
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_4D_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
-
-# 3. UB mesh 1D-FM-B:
-
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_AI_32g_8gps_1D-FM-B_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
-
-# 4. UB mesh 2D-FM:
-
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./UB_AI_32g_8gps_2D-FM_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
-
-# 5. Alibaba HPN:
-
-AS_SEND_LAT=2 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./AlibabaHPN_32g_8gps_DualToR_DualPlane_200Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
-```
 
 ## Simulation Result files and location
 
 ```bash 
 # workload files:
 
-./SimAI/aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt
+  # 32 Gpus simulation workload file, communication node only
+./workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt
 
-# Fat tree Server level topology: 
 
-./SimAI/Fat_tree_32Gpus_Simulation_result.txt
+# 128 gpus simulation workload file
+./workload/G13B-M1-C02_GPT13B_megatron_tp8_pp1_mbs1_sp_A100.txt
 
-# UB Mesh topology variants:
 
-./SimAi/UB_Mesh (1D FM B)_32Gpu_Simulation_result.txt
 
-./SimAI/UB_Mesh (2D-FM)_32Gpus_Simulation_Result.txt
+# Fat tree 32gpus topolgy, simulation detailed information, log file
 
-./SimAI/UB_Mesh (4D)_32Gpu_Simulation Result.txt
+  # topolgy:
 
-# AlibabaHPN topology:
-./SimAI/HPN_32Gpus_Simulation_Result.txt
+      fat_tree_server_32g_New
+
+  # Simulation detailed information
+
+    FatTree_32_final_ncclFlowModel_EndToEnd.csv
+
+  # Simulation log file
+
+    FatTree_32_final_output.log
+
+
+
+# Fat tree 128gpus topolgy, simulation detailed information, log file
+
+  # topolgy:
+
+      fat_tree_server_32g_New
+
+  # Simulation detailed information
+
+    FatTree_32_final_ncclFlowModel_EndToEnd.csv
+
+  # Simulation log file
+
+    FatTree_32_final_output.log
+
 ```
 
 
