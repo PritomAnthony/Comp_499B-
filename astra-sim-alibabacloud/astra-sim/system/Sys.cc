@@ -186,12 +186,14 @@ Sys::Sys(
   }
   all_generators[id+npu_offset] = this;
 
-  // UB mesh: skip NVSwitch/switch logic, all nodes are GPUs
+  // UB mesh: Hybrid architecture with GPU switching + dedicated regular switches
+  // - GPU nodes (0-127) have computation AND intra-rack switching capability
+  // - Regular switches (128-143) handle inter-rack communication (NOT NVSwitches)
   if (MockNccl::MockNcclGroup::enable_ub_mesh) {
-    // In UB mesh, treat all nodes as GPUs, skip switch/NVSwitch logic
-    this->NVSwitchs.clear();
-    this->ngpus_per_node = 1;
-    // all_gpus should already be set to all node IDs
+    // UB mesh has both GPU nodes with switching AND regular inter-rack switches
+    // No NVSwitches in UB mesh - only regular switches for inter-rack
+    this->NVSwitchs.clear();  // UB mesh uses regular switches, not NVSwitches
+    this->ngpus_per_node = 1;  // Each GPU node has switching capability
   }
 
   inp_scheduling_policy = "LIFO";
@@ -271,14 +273,14 @@ Sys::Sys(
       concurrent_streams);
   
   // Debug: Log the backend type being used
-  AstraNetworkAPI::BackendType backend_type = NI->get_backend_type();
-  std::cout << "DEBUG_BACKEND: Node " << id << " detected backend type: " 
-            << (backend_type == AstraNetworkAPI::BackendType::NS3 ? "NS3" :
-                backend_type == AstraNetworkAPI::BackendType::Analytical ? "Analytical" :
-                backend_type == AstraNetworkAPI::BackendType::Garnet ? "Garnet" : "NotSpecified")
-            << std::endl;
+  // AstraNetworkAPI::BackendType backend_type = NI->get_backend_type();
+  // std::cout << "DEBUG_BACKEND: Node " << id << " detected backend type: " 
+  //           << (backend_type == AstraNetworkAPI::BackendType::NS3 ? "NS3" :
+  //               backend_type == AstraNetworkAPI::BackendType::Analytical ? "Analytical" :
+  //               backend_type == AstraNetworkAPI::BackendType::Garnet ? "Garnet" : "NotSpecified")
+  //           << std::endl;
   
-  vLevels = new QueueLevels(queues_per_dim, 0, backend_type);
+  vLevels = new QueueLevels(queues_per_dim, 0, NI->get_backend_type());
 
   logical_topologies["AllReduce"] = new GeneralComplexTopology(
       id, physical_dims, all_reduce_implementation_per_dimension);
@@ -1394,30 +1396,32 @@ bool Sys::mock_nccl_grobal_group_init(){
         : workload->model_parallel_npu_group;
     int PP_size = 1;
     
-    // For UB mesh, adjust size calculations since all nodes are GPUs
+    // UB mesh vs Fat Tree: Different architectural approaches
     int DP_size;
     if (MockNccl::MockNcclGroup::enable_ub_mesh) {
-      DP_size = total_nodes / (TP_size * PP_size);  // All nodes are GPUs
+      // UB mesh: 128 GPU nodes + 16 dedicated inter-rack switches
+      // Each GPU node has computation + intra-rack switching capability
+      DP_size = 128 / (TP_size * PP_size);  // Only count GPU nodes for DP
     } else {
+      // Fat Tree: Traditional GPU + separate switch hierarchy
       DP_size = all_gpus[0] / (TP_size * PP_size);
     }
     
     int EP_size = workload->expert_parallel_npu_group;
     int DP_EP_size = DP_size / EP_size;
+    
     if (MockNccl::MockNcclGroup::enable_ub_mesh) {
-      // In UB mesh, all nodes are GPUs, no NVSwitchs
-      std::vector<int> empty_nv;
+      // UB mesh: 128 GPU nodes with switching + 16 regular switches (not NVSwitches)
+      // Use empty NVSwitch vector since UB mesh uses regular switches
+      std::vector<int> empty_nvswitches;  // UB mesh has no NVSwitches
       GlobalGroup = new MockNccl::MockNcclGroup(
-        all_gpus.size(), // total_gpus = total nodes
-        1,               // ngpus_per_node = 1
-        TP_size,
-        DP_size,
-        PP_size,
-        EP_size,
-        DP_EP_size,
-        empty_nv,
+        128,             // 128 GPU nodes (not total_nodes which includes switches)
+        1,               // 1 GPU per node with switching capability
+        TP_size, DP_size, PP_size, EP_size, DP_EP_size,
+        empty_nvswitches,// No NVSwitches - UB mesh uses regular switches
         gpu_type);
     } else {
+      // Fat Tree: Traditional separate GPU and switch nodes with NVSwitches
       GlobalGroup = new MockNccl::MockNcclGroup(all_gpus[0],ngpus_per_node,TP_size,DP_size,PP_size,EP_size,DP_EP_size,NVSwitchs,gpu_type);
     }
     return true;

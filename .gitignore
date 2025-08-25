@@ -2,8 +2,10 @@
 astra-sim-alibabacloud/build/simai_analytical/build/
 astra-sim-alibabacloud/build/astra_ns3/build/
 astra-sim-alibabacloud/extern/
+astra-sim-alibabacloud/inputs/output/
 bin/
 results/
+
 
 
 

@@ -26,13 +26,15 @@ namespace MockNccl {
   bool MockNcclGroup::enable_ub_mesh = false; // Define the static member
   MockNcclGroup::MockNcclGroup(int _ngpus,int _gpus_per_nodes,int _TP_size,int _DP_size,int _PP_size,int _EP_size,int _DP_EP_size,std::vector<int>_NVSwitch,GPUType _gpu_type):g_flow_id(0),gpu_type(_gpu_type){
     MockNcclLog *NcclLog = MockNcclLog::getInstance();
+    
     if (enable_ub_mesh) {
-      // BUGFIX: UB mesh should still respect TP/DP group structure
-      // Don't create one massive TP group - use proper parallelism dimensions
-      // Fall through to normal group construction logic
-      NcclLog->writeLog(NcclLogLevel::INFO, "UB mesh enabled - using normal group construction with TP=%d, DP=%d", _TP_size, _DP_size);
+      // UB mesh: Hybrid architecture with regular switches (not NVSwitches)
+      // - 128 GPU nodes (0-127) with computation + intra-rack switching capability  
+      // - 16 regular switches (128-143) for inter-rack communication
+      // - No NVSwitches used in UB mesh architecture
+      NcclLog->writeLog(NcclLogLevel::INFO, "UB mesh hybrid architecture - GPU nodes with switching + regular inter-rack switches, TP=%d, DP=%d", _TP_size, _DP_size);
     }
-    // ...existing code for group construction...
+    
     if (_ngpus % _gpus_per_nodes != 0 || _ngpus / _gpus_per_nodes <= 0){
       NcclLog->writeLog(NcclLogLevel::ERROR,"The number of GPUs used is not a multiple of the number of GPUs per node.");
       return;

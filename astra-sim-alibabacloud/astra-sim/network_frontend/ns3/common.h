@@ -331,6 +331,8 @@ void CalculateUBMeshRoute(Ptr<Node> host, NodeContainer &n) {
       uint64_t effective_bw = bw[target];
       
       // Apply UB mesh bandwidth modeling for collective communication
+      // DISABLED: Use pure topology bandwidth values for fair comparison
+      /*
       if (host_server != target_server) {
         // Inter-rack: bandwidth reduced due to switch contention and longer paths
         effective_bw = effective_bw / 4; // 25% due to inter-rack contention
@@ -338,6 +340,7 @@ void CalculateUBMeshRoute(Ptr<Node> host, NodeContainer &n) {
         // Intra-rack: high efficiency for direct GPU connections
         effective_bw = effective_bw * 0.9; // 90% efficiency for intra-rack
       }
+      */
       
       pairBw[host->GetId()][target->GetId()] = effective_bw;
       
@@ -413,30 +416,41 @@ void CalculateRoute(Ptr<Node> host) {
   }
 }
 
-void CalculateRoutes(NodeContainer &n) {
-  if (is_ub_mesh_topology) {
-    std::cout << "[UB_MESH_DEBUG] Using UB mesh routing with switch support" << std::endl;
+
+
+// void CalculateRoutes(NodeContainer &n) {
+//   if (is_ub_mesh_topology) {
+//     std::cout << "[UB_MESH_DEBUG] Using UB mesh routing with switch support" << std::endl;
     
-    // Calculate routes for all nodes in UB mesh topology
-    for (int i = 0; i < (int)n.GetN(); i++) {
-      Ptr<Node> node = n.Get(i);
-      if (node->GetNodeType() == 0) {
-        // GPU nodes: use enhanced UB mesh routing
-        CalculateUBMeshRoute(node, n);
-      } else if (node->GetNodeType() == 1) {
-        // Regular switches: use standard BFS for inter-rack forwarding
-        std::cout << "[UB_MESH_ROUTE] Calculating switch routes for switch " << node->GetId() << std::endl;
-        CalculateRoute(node);
-      }
-      // Note: No NVSwitches in UB mesh (nvswitch_num should be 0)
-    }
-  } else {
-    std::cout << "[ROUTING_DEBUG] Using standard BFS routing" << std::endl;
-    for (int i = 0; i < (int)n.GetN(); i++) {
-      Ptr<Node> node = n.Get(i);
-      if (node->GetNodeType() == 0)
-        CalculateRoute(node);
-    }
+//     // Calculate routes for all nodes in UB mesh topology
+//     for (int i = 0; i < (int)n.GetN(); i++) {
+//       Ptr<Node> node = n.Get(i);
+//       if (node->GetNodeType() == 0) {
+//         // GPU nodes: use enhanced UB mesh routing
+//         CalculateUBMeshRoute(node, n);
+//       } else if (node->GetNodeType() == 1) {
+//         // Regular switches: use standard BFS for inter-rack forwarding
+//         std::cout << "[UB_MESH_ROUTE] Calculating switch routes for switch " << node->GetId() << std::endl;
+//         CalculateRoute(node);
+//       }
+//       // Note: No NVSwitches in UB mesh (nvswitch_num should be 0)
+//     }
+//   } else {
+//     std::cout << "[ROUTING_DEBUG] Using standard BFS routing" << std::endl;
+//     for (int i = 0; i < (int)n.GetN(); i++) {
+//       Ptr<Node> node = n.Get(i);
+//       if (node->GetNodeType() == 0)
+//         CalculateRoute(node);
+//     }
+//   }
+
+void CalculateRoutes(NodeContainer &n) {
+  // Use standard routing for all topologies for fair comparison
+  std::cout << "[ROUTING_DEBUG] Using standard BFS routing for fair comparison" << std::endl;
+  for (int i = 0; i < (int)n.GetN(); i++) {
+    Ptr<Node> node = n.Get(i);
+    if (node->GetNodeType() == 0)
+      CalculateRoute(node);
   }
 }
 
