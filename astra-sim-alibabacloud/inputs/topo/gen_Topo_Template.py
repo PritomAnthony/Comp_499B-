@@ -611,10 +611,10 @@ def main():
     # parser.add_argument('--ocs_degree', type=int, default=4, help='Degree of OCS connectivity per GPU')
     ##############
 
-    parser.add_argument('--ub_intra_bw', type=str, default='7200Gbps', help='UB I/O intra-server GPU-GPU bandwidth')
-    parser.add_argument('--ub_inter_bw', type=str, default='2800Gbps', help='Inter-server direct GPU-GPU bandwidth')
+    parser.add_argument('--ub_intra_bw', type=str, default='900Gbps', help='UB I/O intra-server GPU-GPU bandwidth')
+    parser.add_argument('--ub_inter_bw', type=str, default='350Gbps', help='Inter-server direct GPU-GPU bandwidth')
     parser.add_argument('--ub_intra_lat', type=str, default='0.000025ms', help='Intra-board GPU-GPU latency')
-    parser.add_argument('--rack_bw', type=str, default='3200Gbps', help='UB x128 IO rack-to-rack bandwidth for UB-Mesh-Pod')
+    parser.add_argument('--rack_bw', type=str, default='300Gbps', help='UB x128 IO rack-to-rack bandwidth for UB-Mesh-Pod')
     parser.add_argument('--enhanced_mesh', action='store_true', help='Enable full inter-server GPU mesh for lower RTT')
     parser.add_argument('--fm_variant', choices=['1D-FM-B','4D', '2D-FM', '2D-FM-Direct'], default='1D-FM-B', help='Which fat-mesh variant to generate (1D-FM-B, 4D or 2D-FM / 2D-FM-Direct).')
 
