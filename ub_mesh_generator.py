@@ -12,6 +12,12 @@ This script generates UB mesh topology files for GPU clusters with the following
 import argparse
 import math
 
+# intra_bandwidth="900Gbps", intra_latency="0.000025ms",
+#                              inter_bandwidth="350Gbps", inter_latency="0.0005ms",
+#                              switch_bandwidth="300Gbps", switch_latency="0.0005ms",
+
+
+
 def generate_ub_mesh_topology(total_gpus, gpus_per_server, output_file, 
                              intra_bandwidth="900Gbps", intra_latency="0.000025ms",
                              inter_bandwidth="350Gbps", inter_latency="0.0005ms",

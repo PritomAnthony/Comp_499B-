@@ -1,12 +1,14 @@
 
 
-## Proper Ub mesh topolgy simulation commands
+## Proper Ub mesh and FatTree topolgy simulation commands
 
 
-./bin/SimAI_simulator -t 16 -w ./aicb/results/workload/None-None-world_size32-tp2-pp1-ep16-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n  ./UB_32_new -c astra-sim-alibabacloud/inputs/config/SimAI.conf|tee ub_NewOutput.log
+AS_SEND_LAT=1 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/G13B-M1-C02_GPT13B_megatron_tp8_pp1_mbs1_sp_A100.txt -n ./UB_MESH_128_Realistic_BW -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
 
 
+
+AS_SEND_LAT=1 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/G13B-M1-C02_GPT13B_megatron_tp8_pp1_mbs1_sp_A100.txt -n ./fat_tree_server_128g_8gps_nvs16_k4_400Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf
 
 
 
