@@ -1,0 +1,2384 @@
+[TOPOLOGY_DEBUG] Setting up network topology:
+[TOPOLOGY_DEBUG]   node_num=86 gpus_per_server=8
+[TOPOLOGY_DEBUG]   nvswitch_num=8 switch_num=14
+[TOPOLOGY_DEBUG]   link_num=160 enable_ub_mesh=0
+[SWITCH_DEBUG] WARNING: Link 0 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 1 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 2 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 3 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 4 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 5 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 6 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 7 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 8 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 9 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 10 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 11 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 12 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 13 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 14 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 15 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 16 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 17 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 18 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 19 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 20 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 21 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 22 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 23 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 24 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 25 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 26 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 27 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 28 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 29 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 30 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 31 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 32 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 33 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 34 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 35 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 36 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 37 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 38 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 39 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 40 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 41 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 42 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 43 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 44 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 45 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 46 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 47 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 48 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 49 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 50 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 51 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 52 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 53 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 54 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 55 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 56 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 57 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 58 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 59 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 60 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 61 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 62 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 63 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 64 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 65 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 66 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 67 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 68 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 69 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 70 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 71 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 72 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 73 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 74 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 75 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 76 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 77 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 78 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 79 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 80 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 81 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 82 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 83 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 84 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 85 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 86 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 87 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 88 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 89 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 90 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 91 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 92 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 93 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 94 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 95 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 96 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 97 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 98 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 99 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 100 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 101 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 102 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 103 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 104 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 105 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 106 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 107 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 108 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 109 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 110 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 111 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 112 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 113 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 114 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 115 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 116 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 117 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 118 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 119 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 120 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 121 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 122 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 123 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 124 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 125 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 126 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 127 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 128 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 129 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 130 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 131 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 132 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 133 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 134 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 135 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 136 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 137 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 138 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 139 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 140 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 141 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 142 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 143 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 144 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 145 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 146 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 147 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 148 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 149 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 150 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 151 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 152 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 153 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 154 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 155 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 156 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 157 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 158 uses switch_id=0 - potential bottleneck!
+[SWITCH_DEBUG] WARNING: Link 159 uses switch_id=0 - potential bottleneck!
+[ROUTING_DEBUG] Using standard BFS routing for fair comparison
+
+[PATH_DEBUG] ========== ROUTING PATHS ==========
+[PATH_DEBUG] Host 16 -> Host 19 (hops: 2) Path: 16 -> 66 -> 19
+[PATH_DEBUG] Host 16 -> Host 20 (hops: 2) Path: 16 -> 66 -> 20
+[PATH_DEBUG] Host 16 -> Host 21 (hops: 2) Path: 16 -> 66 -> 21
+[PATH_DEBUG] Host 16 -> Host 22 (hops: 2) Path: 16 -> 66 -> 22
+[PATH_DEBUG] Host 16 -> Host 23 (hops: 2) Path: 16 -> 66 -> 23
+[PATH_DEBUG] Host 16 -> Host 24 (hops: 2) Path: 16 -> 72 -> 24
+[PATH_DEBUG] Host 16 -> Host 25 (hops: 4) Path: 16 -> 72 -> 81 -> 73 -> 25
+[PATH_DEBUG] Host 16 -> Host 26 (hops: 3) Path: 16 -> 66 -> 74 -> 26
+[PATH_DEBUG] Host 16 -> Host 27 (hops: 4) Path: 16 -> 72 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 16 -> Host 28 (hops: 4) Path: 16 -> 72 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 16 -> Host 29 (hops: 4) Path: 16 -> 72 -> 81 -> 77 -> 29
+[PATH_DEBUG] Host 16 -> Host 30 (hops: 5) Path: 16 -> 66 -> 74 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 16 -> Host 31 (hops: 4) Path: 16 -> 72 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 16 -> Host 32 (hops: 2) Path: 16 -> 72 -> 32
+[PATH_DEBUG] Host 16 -> Host 33 (hops: 4) Path: 16 -> 72 -> 81 -> 73 -> 33
+[PATH_DEBUG] Host 16 -> Host 34 (hops: 3) Path: 16 -> 66 -> 74 -> 34
+[PATH_DEBUG] Host 16 -> Host 35 (hops: 4) Path: 16 -> 72 -> 80 -> 75 -> 35
+[PATH_DEBUG] Host 16 -> Host 36 (hops: 4) Path: 16 -> 72 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 16 -> Host 37 (hops: 4) Path: 16 -> 72 -> 81 -> 77 -> 37
+[PATH_DEBUG] Host 16 -> Host 38 (hops: 5) Path: 16 -> 66 -> 74 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 16 -> Host 39 (hops: 4) Path: 16 -> 72 -> 80 -> 79 -> 39
+[PATH_DEBUG] Host 16 -> Host 40 (hops: 2) Path: 16 -> 72 -> 40
+[PATH_DEBUG] Host 16 -> Host 41 (hops: 4) Path: 16 -> 72 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 16 -> Host 42 (hops: 3) Path: 16 -> 66 -> 74 -> 42
+[PATH_DEBUG] Host 16 -> Host 43 (hops: 4) Path: 16 -> 72 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 16 -> Host 44 (hops: 4) Path: 16 -> 72 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 16 -> Host 45 (hops: 4) Path: 16 -> 72 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 16 -> Host 46 (hops: 5) Path: 16 -> 66 -> 74 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 16 -> Host 47 (hops: 4) Path: 16 -> 72 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 16 -> Host 48 (hops: 2) Path: 16 -> 72 -> 48
+[PATH_DEBUG] Host 16 -> Host 49 (hops: 4) Path: 16 -> 72 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 16 -> Host 50 (hops: 3) Path: 16 -> 66 -> 74 -> 50
+[PATH_DEBUG] Host 16 -> Host 51 (hops: 4) Path: 16 -> 72 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 16 -> Host 52 (hops: 4) Path: 16 -> 72 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 16 -> Host 53 (hops: 4) Path: 16 -> 72 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 16 -> Host 54 (hops: 5) Path: 16 -> 66 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 16 -> Host 55 (hops: 4) Path: 16 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 16 -> Host 56 (hops: 2) Path: 16 -> 72 -> 56
+[PATH_DEBUG] Host 16 -> Host 57 (hops: 4) Path: 16 -> 72 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 16 -> Host 58 (hops: 3) Path: 16 -> 66 -> 74 -> 58
+[PATH_DEBUG] Host 16 -> Host 59 (hops: 4) Path: 16 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 16 -> Host 60 (hops: 4) Path: 16 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 16 -> Host 61 (hops: 4) Path: 16 -> 72 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 16 -> Host 62 (hops: 5) Path: 16 -> 66 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 16 -> Host 63 (hops: 4) Path: 16 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 16 -> Host 18 (hops: 2) Path: 16 -> 66 -> 18
+[PATH_DEBUG] Host 16 -> Host 17 (hops: 2) Path: 16 -> 66 -> 17
+[PATH_DEBUG] Host 19 -> Host 20 (hops: 2) Path: 19 -> 66 -> 20
+[PATH_DEBUG] Host 19 -> Host 21 (hops: 2) Path: 19 -> 66 -> 21
+[PATH_DEBUG] Host 19 -> Host 22 (hops: 2) Path: 19 -> 66 -> 22
+[PATH_DEBUG] Host 19 -> Host 23 (hops: 2) Path: 19 -> 66 -> 23
+[PATH_DEBUG] Host 19 -> Host 24 (hops: 3) Path: 19 -> 75 -> 67 -> 24
+[PATH_DEBUG] Host 19 -> Host 25 (hops: 3) Path: 19 -> 75 -> 67 -> 25
+[PATH_DEBUG] Host 19 -> Host 26 (hops: 3) Path: 19 -> 66 -> 74 -> 26
+[PATH_DEBUG] Host 19 -> Host 27 (hops: 2) Path: 19 -> 75 -> 27
+[PATH_DEBUG] Host 19 -> Host 28 (hops: 3) Path: 19 -> 75 -> 67 -> 28
+[PATH_DEBUG] Host 19 -> Host 29 (hops: 3) Path: 19 -> 75 -> 67 -> 29
+[PATH_DEBUG] Host 19 -> Host 30 (hops: 3) Path: 19 -> 75 -> 67 -> 30
+[PATH_DEBUG] Host 19 -> Host 31 (hops: 3) Path: 19 -> 75 -> 67 -> 31
+[PATH_DEBUG] Host 19 -> Host 32 (hops: 4) Path: 19 -> 75 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 19 -> Host 33 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 19 -> Host 34 (hops: 3) Path: 19 -> 66 -> 74 -> 34
+[PATH_DEBUG] Host 19 -> Host 35 (hops: 2) Path: 19 -> 75 -> 35
+[PATH_DEBUG] Host 19 -> Host 36 (hops: 4) Path: 19 -> 75 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 19 -> Host 37 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 19 -> Host 38 (hops: 4) Path: 19 -> 75 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 19 -> Host 39 (hops: 4) Path: 19 -> 75 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 19 -> Host 40 (hops: 4) Path: 19 -> 75 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 19 -> Host 41 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 19 -> Host 42 (hops: 3) Path: 19 -> 66 -> 74 -> 42
+[PATH_DEBUG] Host 19 -> Host 43 (hops: 2) Path: 19 -> 75 -> 43
+[PATH_DEBUG] Host 19 -> Host 44 (hops: 4) Path: 19 -> 75 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 19 -> Host 45 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 19 -> Host 46 (hops: 4) Path: 19 -> 75 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 19 -> Host 47 (hops: 4) Path: 19 -> 75 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 19 -> Host 48 (hops: 4) Path: 19 -> 75 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 19 -> Host 49 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 19 -> Host 50 (hops: 3) Path: 19 -> 66 -> 74 -> 50
+[PATH_DEBUG] Host 19 -> Host 51 (hops: 2) Path: 19 -> 75 -> 51
+[PATH_DEBUG] Host 19 -> Host 52 (hops: 4) Path: 19 -> 75 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 19 -> Host 53 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 19 -> Host 54 (hops: 4) Path: 19 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 19 -> Host 55 (hops: 4) Path: 19 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 19 -> Host 56 (hops: 4) Path: 19 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 19 -> Host 57 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 19 -> Host 58 (hops: 3) Path: 19 -> 66 -> 74 -> 58
+[PATH_DEBUG] Host 19 -> Host 59 (hops: 2) Path: 19 -> 75 -> 59
+[PATH_DEBUG] Host 19 -> Host 60 (hops: 4) Path: 19 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 19 -> Host 61 (hops: 5) Path: 19 -> 66 -> 74 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 19 -> Host 62 (hops: 4) Path: 19 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 19 -> Host 63 (hops: 4) Path: 19 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 20 -> Host 21 (hops: 2) Path: 20 -> 66 -> 21
+[PATH_DEBUG] Host 20 -> Host 22 (hops: 2) Path: 20 -> 66 -> 22
+[PATH_DEBUG] Host 20 -> Host 23 (hops: 2) Path: 20 -> 66 -> 23
+[PATH_DEBUG] Host 20 -> Host 24 (hops: 4) Path: 20 -> 76 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 20 -> Host 25 (hops: 4) Path: 20 -> 76 -> 81 -> 73 -> 25
+[PATH_DEBUG] Host 20 -> Host 26 (hops: 3) Path: 20 -> 66 -> 74 -> 26
+[PATH_DEBUG] Host 20 -> Host 27 (hops: 4) Path: 20 -> 76 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 20 -> Host 28 (hops: 2) Path: 20 -> 76 -> 28
+[PATH_DEBUG] Host 20 -> Host 29 (hops: 4) Path: 20 -> 76 -> 81 -> 77 -> 29
+[PATH_DEBUG] Host 20 -> Host 30 (hops: 5) Path: 20 -> 66 -> 74 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 20 -> Host 31 (hops: 4) Path: 20 -> 76 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 20 -> Host 32 (hops: 3) Path: 20 -> 76 -> 68 -> 32
+[PATH_DEBUG] Host 20 -> Host 33 (hops: 3) Path: 20 -> 76 -> 68 -> 33
+[PATH_DEBUG] Host 20 -> Host 34 (hops: 3) Path: 20 -> 66 -> 74 -> 34
+[PATH_DEBUG] Host 20 -> Host 35 (hops: 3) Path: 20 -> 76 -> 68 -> 35
+[PATH_DEBUG] Host 20 -> Host 36 (hops: 2) Path: 20 -> 76 -> 36
+[PATH_DEBUG] Host 20 -> Host 37 (hops: 3) Path: 20 -> 76 -> 68 -> 37
+[PATH_DEBUG] Host 20 -> Host 38 (hops: 3) Path: 20 -> 76 -> 68 -> 38
+[PATH_DEBUG] Host 20 -> Host 39 (hops: 3) Path: 20 -> 76 -> 68 -> 39
+[PATH_DEBUG] Host 20 -> Host 40 (hops: 4) Path: 20 -> 76 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 20 -> Host 41 (hops: 4) Path: 20 -> 76 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 20 -> Host 42 (hops: 3) Path: 20 -> 66 -> 74 -> 42
+[PATH_DEBUG] Host 20 -> Host 43 (hops: 4) Path: 20 -> 76 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 20 -> Host 44 (hops: 2) Path: 20 -> 76 -> 44
+[PATH_DEBUG] Host 20 -> Host 45 (hops: 4) Path: 20 -> 76 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 20 -> Host 46 (hops: 5) Path: 20 -> 66 -> 74 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 20 -> Host 47 (hops: 4) Path: 20 -> 76 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 20 -> Host 48 (hops: 4) Path: 20 -> 76 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 20 -> Host 49 (hops: 4) Path: 20 -> 76 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 20 -> Host 50 (hops: 3) Path: 20 -> 66 -> 74 -> 50
+[PATH_DEBUG] Host 20 -> Host 51 (hops: 4) Path: 20 -> 76 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 20 -> Host 52 (hops: 2) Path: 20 -> 76 -> 52
+[PATH_DEBUG] Host 20 -> Host 53 (hops: 4) Path: 20 -> 76 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 20 -> Host 54 (hops: 5) Path: 20 -> 66 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 20 -> Host 55 (hops: 4) Path: 20 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 20 -> Host 56 (hops: 4) Path: 20 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 20 -> Host 57 (hops: 4) Path: 20 -> 76 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 20 -> Host 58 (hops: 3) Path: 20 -> 66 -> 74 -> 58
+[PATH_DEBUG] Host 20 -> Host 59 (hops: 4) Path: 20 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 20 -> Host 60 (hops: 2) Path: 20 -> 76 -> 60
+[PATH_DEBUG] Host 20 -> Host 61 (hops: 4) Path: 20 -> 76 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 20 -> Host 62 (hops: 5) Path: 20 -> 66 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 20 -> Host 63 (hops: 4) Path: 20 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 21 -> Host 22 (hops: 2) Path: 21 -> 66 -> 22
+[PATH_DEBUG] Host 21 -> Host 23 (hops: 2) Path: 21 -> 66 -> 23
+[PATH_DEBUG] Host 21 -> Host 24 (hops: 4) Path: 21 -> 77 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 21 -> Host 25 (hops: 4) Path: 21 -> 77 -> 82 -> 73 -> 25
+[PATH_DEBUG] Host 21 -> Host 26 (hops: 3) Path: 21 -> 66 -> 74 -> 26
+[PATH_DEBUG] Host 21 -> Host 27 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 21 -> Host 28 (hops: 4) Path: 21 -> 77 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 21 -> Host 29 (hops: 2) Path: 21 -> 77 -> 29
+[PATH_DEBUG] Host 21 -> Host 30 (hops: 4) Path: 21 -> 77 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 21 -> Host 31 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 21 -> Host 32 (hops: 4) Path: 21 -> 77 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 21 -> Host 33 (hops: 4) Path: 21 -> 77 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 21 -> Host 34 (hops: 3) Path: 21 -> 66 -> 74 -> 34
+[PATH_DEBUG] Host 21 -> Host 35 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 21 -> Host 36 (hops: 4) Path: 21 -> 77 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 21 -> Host 37 (hops: 2) Path: 21 -> 77 -> 37
+[PATH_DEBUG] Host 21 -> Host 38 (hops: 4) Path: 21 -> 77 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 21 -> Host 39 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 21 -> Host 40 (hops: 3) Path: 21 -> 77 -> 69 -> 40
+[PATH_DEBUG] Host 21 -> Host 41 (hops: 3) Path: 21 -> 77 -> 69 -> 41
+[PATH_DEBUG] Host 21 -> Host 42 (hops: 3) Path: 21 -> 66 -> 74 -> 42
+[PATH_DEBUG] Host 21 -> Host 43 (hops: 3) Path: 21 -> 77 -> 69 -> 43
+[PATH_DEBUG] Host 21 -> Host 44 (hops: 3) Path: 21 -> 77 -> 69 -> 44
+[PATH_DEBUG] Host 21 -> Host 45 (hops: 2) Path: 21 -> 77 -> 45
+[PATH_DEBUG] Host 21 -> Host 46 (hops: 3) Path: 21 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 21 -> Host 47 (hops: 3) Path: 21 -> 77 -> 69 -> 47
+[PATH_DEBUG] Host 21 -> Host 48 (hops: 4) Path: 21 -> 77 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 21 -> Host 49 (hops: 4) Path: 21 -> 77 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 21 -> Host 50 (hops: 3) Path: 21 -> 66 -> 74 -> 50
+[PATH_DEBUG] Host 21 -> Host 51 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 21 -> Host 52 (hops: 4) Path: 21 -> 77 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 21 -> Host 53 (hops: 2) Path: 21 -> 77 -> 53
+[PATH_DEBUG] Host 21 -> Host 54 (hops: 4) Path: 21 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 21 -> Host 55 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 21 -> Host 56 (hops: 4) Path: 21 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 21 -> Host 57 (hops: 4) Path: 21 -> 77 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 21 -> Host 58 (hops: 3) Path: 21 -> 66 -> 74 -> 58
+[PATH_DEBUG] Host 21 -> Host 59 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 21 -> Host 60 (hops: 4) Path: 21 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 21 -> Host 61 (hops: 2) Path: 21 -> 77 -> 61
+[PATH_DEBUG] Host 21 -> Host 62 (hops: 4) Path: 21 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 21 -> Host 63 (hops: 5) Path: 21 -> 66 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 22 -> Host 23 (hops: 2) Path: 22 -> 66 -> 23
+[PATH_DEBUG] Host 22 -> Host 24 (hops: 5) Path: 22 -> 78 -> 83 -> 75 -> 67 -> 24
+[PATH_DEBUG] Host 22 -> Host 25 (hops: 4) Path: 22 -> 78 -> 82 -> 73 -> 25
+[PATH_DEBUG] Host 22 -> Host 26 (hops: 3) Path: 22 -> 66 -> 74 -> 26
+[PATH_DEBUG] Host 22 -> Host 27 (hops: 4) Path: 22 -> 78 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 22 -> Host 28 (hops: 5) Path: 22 -> 78 -> 83 -> 75 -> 67 -> 28
+[PATH_DEBUG] Host 22 -> Host 29 (hops: 4) Path: 22 -> 78 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 22 -> Host 30 (hops: 2) Path: 22 -> 78 -> 30
+[PATH_DEBUG] Host 22 -> Host 31 (hops: 4) Path: 22 -> 78 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 22 -> Host 32 (hops: 6) Path: 22 -> 78 -> 83 -> 85 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 22 -> Host 33 (hops: 4) Path: 22 -> 78 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 22 -> Host 34 (hops: 3) Path: 22 -> 66 -> 74 -> 34
+[PATH_DEBUG] Host 22 -> Host 35 (hops: 4) Path: 22 -> 78 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 22 -> Host 36 (hops: 6) Path: 22 -> 78 -> 83 -> 85 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 22 -> Host 37 (hops: 4) Path: 22 -> 78 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 22 -> Host 38 (hops: 2) Path: 22 -> 78 -> 38
+[PATH_DEBUG] Host 22 -> Host 39 (hops: 4) Path: 22 -> 78 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 22 -> Host 40 (hops: 5) Path: 22 -> 78 -> 82 -> 77 -> 69 -> 40
+[PATH_DEBUG] Host 22 -> Host 41 (hops: 4) Path: 22 -> 78 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 22 -> Host 42 (hops: 3) Path: 22 -> 66 -> 74 -> 42
+[PATH_DEBUG] Host 22 -> Host 43 (hops: 4) Path: 22 -> 78 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 22 -> Host 44 (hops: 5) Path: 22 -> 78 -> 82 -> 77 -> 69 -> 44
+[PATH_DEBUG] Host 22 -> Host 45 (hops: 4) Path: 22 -> 78 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 22 -> Host 46 (hops: 2) Path: 22 -> 78 -> 46
+[PATH_DEBUG] Host 22 -> Host 47 (hops: 4) Path: 22 -> 78 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 22 -> Host 48 (hops: 3) Path: 22 -> 78 -> 70 -> 48
+[PATH_DEBUG] Host 22 -> Host 49 (hops: 3) Path: 22 -> 78 -> 70 -> 49
+[PATH_DEBUG] Host 22 -> Host 50 (hops: 3) Path: 22 -> 66 -> 74 -> 50
+[PATH_DEBUG] Host 22 -> Host 51 (hops: 3) Path: 22 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 22 -> Host 52 (hops: 3) Path: 22 -> 78 -> 70 -> 52
+[PATH_DEBUG] Host 22 -> Host 53 (hops: 3) Path: 22 -> 78 -> 70 -> 53
+[PATH_DEBUG] Host 22 -> Host 54 (hops: 2) Path: 22 -> 78 -> 54
+[PATH_DEBUG] Host 22 -> Host 55 (hops: 3) Path: 22 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 22 -> Host 56 (hops: 5) Path: 22 -> 78 -> 83 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 22 -> Host 57 (hops: 4) Path: 22 -> 78 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 22 -> Host 58 (hops: 3) Path: 22 -> 66 -> 74 -> 58
+[PATH_DEBUG] Host 22 -> Host 59 (hops: 4) Path: 22 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 22 -> Host 60 (hops: 5) Path: 22 -> 78 -> 83 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 22 -> Host 61 (hops: 4) Path: 22 -> 78 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 22 -> Host 62 (hops: 2) Path: 22 -> 78 -> 62
+[PATH_DEBUG] Host 22 -> Host 63 (hops: 4) Path: 22 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 23 -> Host 24 (hops: 4) Path: 23 -> 79 -> 80 -> 72 -> 24
+[PATH_DEBUG] Host 23 -> Host 25 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 73 -> 25
+[PATH_DEBUG] Host 23 -> Host 26 (hops: 3) Path: 23 -> 66 -> 74 -> 26
+[PATH_DEBUG] Host 23 -> Host 27 (hops: 4) Path: 23 -> 79 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 23 -> Host 28 (hops: 4) Path: 23 -> 79 -> 80 -> 76 -> 28
+[PATH_DEBUG] Host 23 -> Host 29 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 23 -> Host 30 (hops: 4) Path: 23 -> 79 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 23 -> Host 31 (hops: 2) Path: 23 -> 79 -> 31
+[PATH_DEBUG] Host 23 -> Host 32 (hops: 4) Path: 23 -> 79 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 23 -> Host 33 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 23 -> Host 34 (hops: 3) Path: 23 -> 66 -> 74 -> 34
+[PATH_DEBUG] Host 23 -> Host 35 (hops: 4) Path: 23 -> 79 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 23 -> Host 36 (hops: 4) Path: 23 -> 79 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 23 -> Host 37 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 23 -> Host 38 (hops: 4) Path: 23 -> 79 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 23 -> Host 39 (hops: 2) Path: 23 -> 79 -> 39
+[PATH_DEBUG] Host 23 -> Host 40 (hops: 4) Path: 23 -> 79 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 23 -> Host 41 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 23 -> Host 42 (hops: 3) Path: 23 -> 66 -> 74 -> 42
+[PATH_DEBUG] Host 23 -> Host 43 (hops: 4) Path: 23 -> 79 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 23 -> Host 44 (hops: 4) Path: 23 -> 79 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 23 -> Host 45 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 23 -> Host 46 (hops: 4) Path: 23 -> 79 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 23 -> Host 47 (hops: 2) Path: 23 -> 79 -> 47
+[PATH_DEBUG] Host 23 -> Host 48 (hops: 4) Path: 23 -> 79 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 23 -> Host 49 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 23 -> Host 50 (hops: 3) Path: 23 -> 66 -> 74 -> 50
+[PATH_DEBUG] Host 23 -> Host 51 (hops: 4) Path: 23 -> 79 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 23 -> Host 52 (hops: 4) Path: 23 -> 79 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 23 -> Host 53 (hops: 5) Path: 23 -> 66 -> 74 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 23 -> Host 54 (hops: 4) Path: 23 -> 79 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 23 -> Host 55 (hops: 2) Path: 23 -> 79 -> 55
+[PATH_DEBUG] Host 23 -> Host 56 (hops: 3) Path: 23 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 23 -> Host 57 (hops: 3) Path: 23 -> 79 -> 71 -> 57
+[PATH_DEBUG] Host 23 -> Host 58 (hops: 3) Path: 23 -> 66 -> 74 -> 58
+[PATH_DEBUG] Host 23 -> Host 59 (hops: 3) Path: 23 -> 79 -> 71 -> 59
+[PATH_DEBUG] Host 23 -> Host 60 (hops: 3) Path: 23 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 23 -> Host 61 (hops: 3) Path: 23 -> 79 -> 71 -> 61
+[PATH_DEBUG] Host 23 -> Host 62 (hops: 3) Path: 23 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 23 -> Host 63 (hops: 2) Path: 23 -> 79 -> 63
+[PATH_DEBUG] Host 24 -> Host 25 (hops: 2) Path: 24 -> 67 -> 25
+[PATH_DEBUG] Host 24 -> Host 26 (hops: 2) Path: 24 -> 67 -> 26
+[PATH_DEBUG] Host 24 -> Host 27 (hops: 2) Path: 24 -> 67 -> 27
+[PATH_DEBUG] Host 24 -> Host 28 (hops: 2) Path: 24 -> 67 -> 28
+[PATH_DEBUG] Host 24 -> Host 29 (hops: 2) Path: 24 -> 67 -> 29
+[PATH_DEBUG] Host 24 -> Host 30 (hops: 2) Path: 24 -> 67 -> 30
+[PATH_DEBUG] Host 24 -> Host 31 (hops: 2) Path: 24 -> 67 -> 31
+[PATH_DEBUG] Host 24 -> Host 32 (hops: 2) Path: 24 -> 72 -> 32
+[PATH_DEBUG] Host 24 -> Host 33 (hops: 4) Path: 24 -> 72 -> 81 -> 73 -> 33
+[PATH_DEBUG] Host 24 -> Host 34 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 24 -> Host 35 (hops: 3) Path: 24 -> 67 -> 75 -> 35
+[PATH_DEBUG] Host 24 -> Host 36 (hops: 4) Path: 24 -> 72 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 24 -> Host 37 (hops: 4) Path: 24 -> 72 -> 81 -> 77 -> 37
+[PATH_DEBUG] Host 24 -> Host 38 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 24 -> Host 39 (hops: 4) Path: 24 -> 72 -> 80 -> 79 -> 39
+[PATH_DEBUG] Host 24 -> Host 40 (hops: 2) Path: 24 -> 72 -> 40
+[PATH_DEBUG] Host 24 -> Host 41 (hops: 4) Path: 24 -> 72 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 24 -> Host 42 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 24 -> Host 43 (hops: 3) Path: 24 -> 67 -> 75 -> 43
+[PATH_DEBUG] Host 24 -> Host 44 (hops: 4) Path: 24 -> 72 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 24 -> Host 45 (hops: 4) Path: 24 -> 72 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 24 -> Host 46 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 24 -> Host 47 (hops: 4) Path: 24 -> 72 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 24 -> Host 48 (hops: 2) Path: 24 -> 72 -> 48
+[PATH_DEBUG] Host 24 -> Host 49 (hops: 4) Path: 24 -> 72 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 24 -> Host 50 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 24 -> Host 51 (hops: 3) Path: 24 -> 67 -> 75 -> 51
+[PATH_DEBUG] Host 24 -> Host 52 (hops: 4) Path: 24 -> 72 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 24 -> Host 53 (hops: 4) Path: 24 -> 72 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 24 -> Host 54 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 24 -> Host 55 (hops: 4) Path: 24 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 24 -> Host 56 (hops: 2) Path: 24 -> 72 -> 56
+[PATH_DEBUG] Host 24 -> Host 57 (hops: 4) Path: 24 -> 72 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 24 -> Host 58 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 24 -> Host 59 (hops: 3) Path: 24 -> 67 -> 75 -> 59
+[PATH_DEBUG] Host 24 -> Host 60 (hops: 4) Path: 24 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 24 -> Host 61 (hops: 4) Path: 24 -> 72 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 24 -> Host 62 (hops: 5) Path: 24 -> 67 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 24 -> Host 63 (hops: 4) Path: 24 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 25 -> Host 26 (hops: 2) Path: 25 -> 67 -> 26
+[PATH_DEBUG] Host 25 -> Host 27 (hops: 2) Path: 25 -> 67 -> 27
+[PATH_DEBUG] Host 25 -> Host 28 (hops: 2) Path: 25 -> 67 -> 28
+[PATH_DEBUG] Host 25 -> Host 29 (hops: 2) Path: 25 -> 67 -> 29
+[PATH_DEBUG] Host 25 -> Host 30 (hops: 2) Path: 25 -> 67 -> 30
+[PATH_DEBUG] Host 25 -> Host 31 (hops: 2) Path: 25 -> 67 -> 31
+[PATH_DEBUG] Host 25 -> Host 32 (hops: 4) Path: 25 -> 73 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 25 -> Host 33 (hops: 2) Path: 25 -> 73 -> 33
+[PATH_DEBUG] Host 25 -> Host 34 (hops: 4) Path: 25 -> 73 -> 82 -> 74 -> 34
+[PATH_DEBUG] Host 25 -> Host 35 (hops: 3) Path: 25 -> 67 -> 75 -> 35
+[PATH_DEBUG] Host 25 -> Host 36 (hops: 4) Path: 25 -> 73 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 25 -> Host 37 (hops: 4) Path: 25 -> 73 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 25 -> Host 38 (hops: 4) Path: 25 -> 73 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 25 -> Host 39 (hops: 5) Path: 25 -> 67 -> 75 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 25 -> Host 40 (hops: 4) Path: 25 -> 73 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 25 -> Host 41 (hops: 2) Path: 25 -> 73 -> 41
+[PATH_DEBUG] Host 25 -> Host 42 (hops: 4) Path: 25 -> 73 -> 82 -> 74 -> 42
+[PATH_DEBUG] Host 25 -> Host 43 (hops: 3) Path: 25 -> 67 -> 75 -> 43
+[PATH_DEBUG] Host 25 -> Host 44 (hops: 4) Path: 25 -> 73 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 25 -> Host 45 (hops: 4) Path: 25 -> 73 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 25 -> Host 46 (hops: 4) Path: 25 -> 73 -> 82 -> 78 -> 46
+[PATH_DEBUG] Host 25 -> Host 47 (hops: 5) Path: 25 -> 67 -> 75 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 25 -> Host 48 (hops: 4) Path: 25 -> 73 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 25 -> Host 49 (hops: 2) Path: 25 -> 73 -> 49
+[PATH_DEBUG] Host 25 -> Host 50 (hops: 4) Path: 25 -> 73 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 25 -> Host 51 (hops: 3) Path: 25 -> 67 -> 75 -> 51
+[PATH_DEBUG] Host 25 -> Host 52 (hops: 4) Path: 25 -> 73 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 25 -> Host 53 (hops: 4) Path: 25 -> 73 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 25 -> Host 54 (hops: 4) Path: 25 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 25 -> Host 55 (hops: 5) Path: 25 -> 67 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 25 -> Host 56 (hops: 4) Path: 25 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 25 -> Host 57 (hops: 2) Path: 25 -> 73 -> 57
+[PATH_DEBUG] Host 25 -> Host 58 (hops: 4) Path: 25 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 25 -> Host 59 (hops: 3) Path: 25 -> 67 -> 75 -> 59
+[PATH_DEBUG] Host 25 -> Host 60 (hops: 4) Path: 25 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 25 -> Host 61 (hops: 4) Path: 25 -> 73 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 25 -> Host 62 (hops: 4) Path: 25 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 25 -> Host 63 (hops: 5) Path: 25 -> 67 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 26 -> Host 27 (hops: 2) Path: 26 -> 67 -> 27
+[PATH_DEBUG] Host 26 -> Host 28 (hops: 2) Path: 26 -> 67 -> 28
+[PATH_DEBUG] Host 26 -> Host 29 (hops: 2) Path: 26 -> 67 -> 29
+[PATH_DEBUG] Host 26 -> Host 30 (hops: 2) Path: 26 -> 67 -> 30
+[PATH_DEBUG] Host 26 -> Host 31 (hops: 2) Path: 26 -> 67 -> 31
+[PATH_DEBUG] Host 26 -> Host 32 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 26 -> Host 33 (hops: 4) Path: 26 -> 74 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 26 -> Host 34 (hops: 2) Path: 26 -> 74 -> 34
+[PATH_DEBUG] Host 26 -> Host 35 (hops: 3) Path: 26 -> 67 -> 75 -> 35
+[PATH_DEBUG] Host 26 -> Host 36 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 26 -> Host 37 (hops: 4) Path: 26 -> 74 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 26 -> Host 38 (hops: 4) Path: 26 -> 74 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 26 -> Host 39 (hops: 4) Path: 26 -> 74 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 26 -> Host 40 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 26 -> Host 41 (hops: 4) Path: 26 -> 74 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 26 -> Host 42 (hops: 2) Path: 26 -> 74 -> 42
+[PATH_DEBUG] Host 26 -> Host 43 (hops: 3) Path: 26 -> 67 -> 75 -> 43
+[PATH_DEBUG] Host 26 -> Host 44 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 26 -> Host 45 (hops: 4) Path: 26 -> 74 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 26 -> Host 46 (hops: 4) Path: 26 -> 74 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 26 -> Host 47 (hops: 4) Path: 26 -> 74 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 26 -> Host 48 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 26 -> Host 49 (hops: 4) Path: 26 -> 74 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 26 -> Host 50 (hops: 2) Path: 26 -> 74 -> 50
+[PATH_DEBUG] Host 26 -> Host 51 (hops: 3) Path: 26 -> 67 -> 75 -> 51
+[PATH_DEBUG] Host 26 -> Host 52 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 26 -> Host 53 (hops: 4) Path: 26 -> 74 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 26 -> Host 54 (hops: 4) Path: 26 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 26 -> Host 55 (hops: 4) Path: 26 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 26 -> Host 56 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 26 -> Host 57 (hops: 4) Path: 26 -> 74 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 26 -> Host 58 (hops: 2) Path: 26 -> 74 -> 58
+[PATH_DEBUG] Host 26 -> Host 59 (hops: 3) Path: 26 -> 67 -> 75 -> 59
+[PATH_DEBUG] Host 26 -> Host 60 (hops: 5) Path: 26 -> 67 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 26 -> Host 61 (hops: 4) Path: 26 -> 74 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 26 -> Host 62 (hops: 4) Path: 26 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 26 -> Host 63 (hops: 4) Path: 26 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 27 -> Host 28 (hops: 2) Path: 27 -> 67 -> 28
+[PATH_DEBUG] Host 27 -> Host 29 (hops: 2) Path: 27 -> 67 -> 29
+[PATH_DEBUG] Host 27 -> Host 30 (hops: 2) Path: 27 -> 67 -> 30
+[PATH_DEBUG] Host 27 -> Host 31 (hops: 2) Path: 27 -> 67 -> 31
+[PATH_DEBUG] Host 27 -> Host 32 (hops: 4) Path: 27 -> 75 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 27 -> Host 33 (hops: 5) Path: 27 -> 75 -> 80 -> 76 -> 68 -> 33
+[PATH_DEBUG] Host 27 -> Host 34 (hops: 4) Path: 27 -> 75 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 27 -> Host 35 (hops: 2) Path: 27 -> 75 -> 35
+[PATH_DEBUG] Host 27 -> Host 36 (hops: 4) Path: 27 -> 75 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 27 -> Host 37 (hops: 5) Path: 27 -> 75 -> 80 -> 76 -> 68 -> 37
+[PATH_DEBUG] Host 27 -> Host 38 (hops: 4) Path: 27 -> 75 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 27 -> Host 39 (hops: 4) Path: 27 -> 75 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 27 -> Host 40 (hops: 4) Path: 27 -> 75 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 27 -> Host 41 (hops: 6) Path: 27 -> 75 -> 83 -> 85 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 27 -> Host 42 (hops: 4) Path: 27 -> 75 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 27 -> Host 43 (hops: 2) Path: 27 -> 75 -> 43
+[PATH_DEBUG] Host 27 -> Host 44 (hops: 4) Path: 27 -> 75 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 27 -> Host 45 (hops: 6) Path: 27 -> 75 -> 83 -> 85 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 27 -> Host 46 (hops: 4) Path: 27 -> 75 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 27 -> Host 47 (hops: 4) Path: 27 -> 75 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 27 -> Host 48 (hops: 4) Path: 27 -> 75 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 27 -> Host 49 (hops: 5) Path: 27 -> 75 -> 83 -> 78 -> 70 -> 49
+[PATH_DEBUG] Host 27 -> Host 50 (hops: 4) Path: 27 -> 75 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 27 -> Host 51 (hops: 2) Path: 27 -> 75 -> 51
+[PATH_DEBUG] Host 27 -> Host 52 (hops: 4) Path: 27 -> 75 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 27 -> Host 53 (hops: 5) Path: 27 -> 75 -> 83 -> 78 -> 70 -> 53
+[PATH_DEBUG] Host 27 -> Host 54 (hops: 4) Path: 27 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 27 -> Host 55 (hops: 4) Path: 27 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 27 -> Host 56 (hops: 4) Path: 27 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 27 -> Host 57 (hops: 5) Path: 27 -> 75 -> 83 -> 79 -> 71 -> 57
+[PATH_DEBUG] Host 27 -> Host 58 (hops: 4) Path: 27 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 27 -> Host 59 (hops: 2) Path: 27 -> 75 -> 59
+[PATH_DEBUG] Host 27 -> Host 60 (hops: 4) Path: 27 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 27 -> Host 61 (hops: 5) Path: 27 -> 75 -> 83 -> 79 -> 71 -> 61
+[PATH_DEBUG] Host 27 -> Host 62 (hops: 4) Path: 27 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 27 -> Host 63 (hops: 4) Path: 27 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 28 -> Host 29 (hops: 2) Path: 28 -> 67 -> 29
+[PATH_DEBUG] Host 28 -> Host 30 (hops: 2) Path: 28 -> 67 -> 30
+[PATH_DEBUG] Host 28 -> Host 31 (hops: 2) Path: 28 -> 67 -> 31
+[PATH_DEBUG] Host 28 -> Host 32 (hops: 3) Path: 28 -> 76 -> 68 -> 32
+[PATH_DEBUG] Host 28 -> Host 33 (hops: 3) Path: 28 -> 76 -> 68 -> 33
+[PATH_DEBUG] Host 28 -> Host 34 (hops: 3) Path: 28 -> 76 -> 68 -> 34
+[PATH_DEBUG] Host 28 -> Host 35 (hops: 3) Path: 28 -> 67 -> 75 -> 35
+[PATH_DEBUG] Host 28 -> Host 36 (hops: 2) Path: 28 -> 76 -> 36
+[PATH_DEBUG] Host 28 -> Host 37 (hops: 3) Path: 28 -> 76 -> 68 -> 37
+[PATH_DEBUG] Host 28 -> Host 38 (hops: 3) Path: 28 -> 76 -> 68 -> 38
+[PATH_DEBUG] Host 28 -> Host 39 (hops: 3) Path: 28 -> 76 -> 68 -> 39
+[PATH_DEBUG] Host 28 -> Host 40 (hops: 4) Path: 28 -> 76 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 28 -> Host 41 (hops: 4) Path: 28 -> 76 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 28 -> Host 42 (hops: 5) Path: 28 -> 67 -> 75 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 28 -> Host 43 (hops: 3) Path: 28 -> 67 -> 75 -> 43
+[PATH_DEBUG] Host 28 -> Host 44 (hops: 2) Path: 28 -> 76 -> 44
+[PATH_DEBUG] Host 28 -> Host 45 (hops: 4) Path: 28 -> 76 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 28 -> Host 46 (hops: 5) Path: 28 -> 67 -> 75 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 28 -> Host 47 (hops: 4) Path: 28 -> 76 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 28 -> Host 48 (hops: 4) Path: 28 -> 76 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 28 -> Host 49 (hops: 4) Path: 28 -> 76 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 28 -> Host 50 (hops: 5) Path: 28 -> 67 -> 75 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 28 -> Host 51 (hops: 3) Path: 28 -> 67 -> 75 -> 51
+[PATH_DEBUG] Host 28 -> Host 52 (hops: 2) Path: 28 -> 76 -> 52
+[PATH_DEBUG] Host 28 -> Host 53 (hops: 4) Path: 28 -> 76 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 28 -> Host 54 (hops: 5) Path: 28 -> 67 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 28 -> Host 55 (hops: 4) Path: 28 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 28 -> Host 56 (hops: 4) Path: 28 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 28 -> Host 57 (hops: 4) Path: 28 -> 76 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 28 -> Host 58 (hops: 5) Path: 28 -> 67 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 28 -> Host 59 (hops: 3) Path: 28 -> 67 -> 75 -> 59
+[PATH_DEBUG] Host 28 -> Host 60 (hops: 2) Path: 28 -> 76 -> 60
+[PATH_DEBUG] Host 28 -> Host 61 (hops: 4) Path: 28 -> 76 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 28 -> Host 62 (hops: 5) Path: 28 -> 67 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 28 -> Host 63 (hops: 4) Path: 28 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 29 -> Host 30 (hops: 2) Path: 29 -> 67 -> 30
+[PATH_DEBUG] Host 29 -> Host 31 (hops: 2) Path: 29 -> 67 -> 31
+[PATH_DEBUG] Host 29 -> Host 32 (hops: 4) Path: 29 -> 77 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 29 -> Host 33 (hops: 4) Path: 29 -> 77 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 29 -> Host 34 (hops: 4) Path: 29 -> 77 -> 82 -> 74 -> 34
+[PATH_DEBUG] Host 29 -> Host 35 (hops: 3) Path: 29 -> 67 -> 75 -> 35
+[PATH_DEBUG] Host 29 -> Host 36 (hops: 4) Path: 29 -> 77 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 29 -> Host 37 (hops: 2) Path: 29 -> 77 -> 37
+[PATH_DEBUG] Host 29 -> Host 38 (hops: 4) Path: 29 -> 77 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 29 -> Host 39 (hops: 5) Path: 29 -> 67 -> 75 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 29 -> Host 40 (hops: 3) Path: 29 -> 77 -> 69 -> 40
+[PATH_DEBUG] Host 29 -> Host 41 (hops: 3) Path: 29 -> 77 -> 69 -> 41
+[PATH_DEBUG] Host 29 -> Host 42 (hops: 3) Path: 29 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 29 -> Host 43 (hops: 3) Path: 29 -> 67 -> 75 -> 43
+[PATH_DEBUG] Host 29 -> Host 44 (hops: 3) Path: 29 -> 77 -> 69 -> 44
+[PATH_DEBUG] Host 29 -> Host 45 (hops: 2) Path: 29 -> 77 -> 45
+[PATH_DEBUG] Host 29 -> Host 46 (hops: 3) Path: 29 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 29 -> Host 47 (hops: 3) Path: 29 -> 77 -> 69 -> 47
+[PATH_DEBUG] Host 29 -> Host 48 (hops: 4) Path: 29 -> 77 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 29 -> Host 49 (hops: 4) Path: 29 -> 77 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 29 -> Host 50 (hops: 4) Path: 29 -> 77 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 29 -> Host 51 (hops: 3) Path: 29 -> 67 -> 75 -> 51
+[PATH_DEBUG] Host 29 -> Host 52 (hops: 4) Path: 29 -> 77 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 29 -> Host 53 (hops: 2) Path: 29 -> 77 -> 53
+[PATH_DEBUG] Host 29 -> Host 54 (hops: 4) Path: 29 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 29 -> Host 55 (hops: 5) Path: 29 -> 67 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 29 -> Host 56 (hops: 4) Path: 29 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 29 -> Host 57 (hops: 4) Path: 29 -> 77 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 29 -> Host 58 (hops: 4) Path: 29 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 29 -> Host 59 (hops: 3) Path: 29 -> 67 -> 75 -> 59
+[PATH_DEBUG] Host 29 -> Host 60 (hops: 4) Path: 29 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 29 -> Host 61 (hops: 2) Path: 29 -> 77 -> 61
+[PATH_DEBUG] Host 29 -> Host 62 (hops: 4) Path: 29 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 29 -> Host 63 (hops: 5) Path: 29 -> 67 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 30 -> Host 31 (hops: 2) Path: 30 -> 67 -> 31
+[PATH_DEBUG] Host 30 -> Host 32 (hops: 5) Path: 30 -> 67 -> 75 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 30 -> Host 33 (hops: 4) Path: 30 -> 78 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 30 -> Host 34 (hops: 4) Path: 30 -> 78 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 30 -> Host 35 (hops: 3) Path: 30 -> 67 -> 75 -> 35
+[PATH_DEBUG] Host 30 -> Host 36 (hops: 5) Path: 30 -> 67 -> 75 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 30 -> Host 37 (hops: 4) Path: 30 -> 78 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 30 -> Host 38 (hops: 2) Path: 30 -> 78 -> 38
+[PATH_DEBUG] Host 30 -> Host 39 (hops: 4) Path: 30 -> 78 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 30 -> Host 40 (hops: 5) Path: 30 -> 67 -> 75 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 30 -> Host 41 (hops: 4) Path: 30 -> 78 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 30 -> Host 42 (hops: 4) Path: 30 -> 78 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 30 -> Host 43 (hops: 3) Path: 30 -> 67 -> 75 -> 43
+[PATH_DEBUG] Host 30 -> Host 44 (hops: 5) Path: 30 -> 67 -> 75 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 30 -> Host 45 (hops: 4) Path: 30 -> 78 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 30 -> Host 46 (hops: 2) Path: 30 -> 78 -> 46
+[PATH_DEBUG] Host 30 -> Host 47 (hops: 4) Path: 30 -> 78 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 30 -> Host 48 (hops: 3) Path: 30 -> 78 -> 70 -> 48
+[PATH_DEBUG] Host 30 -> Host 49 (hops: 3) Path: 30 -> 78 -> 70 -> 49
+[PATH_DEBUG] Host 30 -> Host 50 (hops: 3) Path: 30 -> 78 -> 70 -> 50
+[PATH_DEBUG] Host 30 -> Host 51 (hops: 3) Path: 30 -> 67 -> 75 -> 51
+[PATH_DEBUG] Host 30 -> Host 52 (hops: 3) Path: 30 -> 78 -> 70 -> 52
+[PATH_DEBUG] Host 30 -> Host 53 (hops: 3) Path: 30 -> 78 -> 70 -> 53
+[PATH_DEBUG] Host 30 -> Host 54 (hops: 2) Path: 30 -> 78 -> 54
+[PATH_DEBUG] Host 30 -> Host 55 (hops: 3) Path: 30 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 30 -> Host 56 (hops: 5) Path: 30 -> 67 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 30 -> Host 57 (hops: 4) Path: 30 -> 78 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 30 -> Host 58 (hops: 4) Path: 30 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 30 -> Host 59 (hops: 3) Path: 30 -> 67 -> 75 -> 59
+[PATH_DEBUG] Host 30 -> Host 60 (hops: 5) Path: 30 -> 67 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 30 -> Host 61 (hops: 4) Path: 30 -> 78 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 30 -> Host 62 (hops: 2) Path: 30 -> 78 -> 62
+[PATH_DEBUG] Host 30 -> Host 63 (hops: 4) Path: 30 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 31 -> Host 32 (hops: 4) Path: 31 -> 79 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 31 -> Host 33 (hops: 5) Path: 31 -> 79 -> 80 -> 76 -> 68 -> 33
+[PATH_DEBUG] Host 31 -> Host 34 (hops: 4) Path: 31 -> 79 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 31 -> Host 35 (hops: 3) Path: 31 -> 67 -> 75 -> 35
+[PATH_DEBUG] Host 31 -> Host 36 (hops: 4) Path: 31 -> 79 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 31 -> Host 37 (hops: 5) Path: 31 -> 79 -> 80 -> 76 -> 68 -> 37
+[PATH_DEBUG] Host 31 -> Host 38 (hops: 4) Path: 31 -> 79 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 31 -> Host 39 (hops: 2) Path: 31 -> 79 -> 39
+[PATH_DEBUG] Host 31 -> Host 40 (hops: 4) Path: 31 -> 79 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 31 -> Host 41 (hops: 6) Path: 31 -> 79 -> 83 -> 85 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 31 -> Host 42 (hops: 4) Path: 31 -> 79 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 31 -> Host 43 (hops: 3) Path: 31 -> 67 -> 75 -> 43
+[PATH_DEBUG] Host 31 -> Host 44 (hops: 4) Path: 31 -> 79 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 31 -> Host 45 (hops: 6) Path: 31 -> 79 -> 83 -> 85 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 31 -> Host 46 (hops: 4) Path: 31 -> 79 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 31 -> Host 47 (hops: 2) Path: 31 -> 79 -> 47
+[PATH_DEBUG] Host 31 -> Host 48 (hops: 4) Path: 31 -> 79 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 31 -> Host 49 (hops: 5) Path: 31 -> 79 -> 83 -> 78 -> 70 -> 49
+[PATH_DEBUG] Host 31 -> Host 50 (hops: 4) Path: 31 -> 79 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 31 -> Host 51 (hops: 3) Path: 31 -> 67 -> 75 -> 51
+[PATH_DEBUG] Host 31 -> Host 52 (hops: 4) Path: 31 -> 79 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 31 -> Host 53 (hops: 5) Path: 31 -> 79 -> 83 -> 78 -> 70 -> 53
+[PATH_DEBUG] Host 31 -> Host 54 (hops: 4) Path: 31 -> 79 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 31 -> Host 55 (hops: 2) Path: 31 -> 79 -> 55
+[PATH_DEBUG] Host 31 -> Host 56 (hops: 3) Path: 31 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 31 -> Host 57 (hops: 3) Path: 31 -> 79 -> 71 -> 57
+[PATH_DEBUG] Host 31 -> Host 58 (hops: 3) Path: 31 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 31 -> Host 59 (hops: 3) Path: 31 -> 67 -> 75 -> 59
+[PATH_DEBUG] Host 31 -> Host 60 (hops: 3) Path: 31 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 31 -> Host 61 (hops: 3) Path: 31 -> 79 -> 71 -> 61
+[PATH_DEBUG] Host 31 -> Host 62 (hops: 3) Path: 31 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 31 -> Host 63 (hops: 2) Path: 31 -> 79 -> 63
+[PATH_DEBUG] Host 32 -> Host 33 (hops: 2) Path: 32 -> 68 -> 33
+[PATH_DEBUG] Host 32 -> Host 34 (hops: 2) Path: 32 -> 68 -> 34
+[PATH_DEBUG] Host 32 -> Host 35 (hops: 2) Path: 32 -> 68 -> 35
+[PATH_DEBUG] Host 32 -> Host 36 (hops: 2) Path: 32 -> 68 -> 36
+[PATH_DEBUG] Host 32 -> Host 37 (hops: 2) Path: 32 -> 68 -> 37
+[PATH_DEBUG] Host 32 -> Host 38 (hops: 2) Path: 32 -> 68 -> 38
+[PATH_DEBUG] Host 32 -> Host 39 (hops: 2) Path: 32 -> 68 -> 39
+[PATH_DEBUG] Host 32 -> Host 40 (hops: 2) Path: 32 -> 72 -> 40
+[PATH_DEBUG] Host 32 -> Host 41 (hops: 4) Path: 32 -> 72 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 32 -> Host 42 (hops: 5) Path: 32 -> 72 -> 81 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 32 -> Host 43 (hops: 4) Path: 32 -> 72 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 32 -> Host 44 (hops: 3) Path: 32 -> 68 -> 76 -> 44
+[PATH_DEBUG] Host 32 -> Host 45 (hops: 4) Path: 32 -> 72 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 32 -> Host 46 (hops: 5) Path: 32 -> 72 -> 81 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 32 -> Host 47 (hops: 4) Path: 32 -> 72 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 32 -> Host 48 (hops: 2) Path: 32 -> 72 -> 48
+[PATH_DEBUG] Host 32 -> Host 49 (hops: 4) Path: 32 -> 72 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 32 -> Host 50 (hops: 6) Path: 32 -> 72 -> 81 -> 85 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 32 -> Host 51 (hops: 4) Path: 32 -> 72 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 32 -> Host 52 (hops: 3) Path: 32 -> 68 -> 76 -> 52
+[PATH_DEBUG] Host 32 -> Host 53 (hops: 4) Path: 32 -> 72 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 32 -> Host 54 (hops: 6) Path: 32 -> 72 -> 81 -> 85 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 32 -> Host 55 (hops: 4) Path: 32 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 32 -> Host 56 (hops: 2) Path: 32 -> 72 -> 56
+[PATH_DEBUG] Host 32 -> Host 57 (hops: 4) Path: 32 -> 72 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 32 -> Host 58 (hops: 5) Path: 32 -> 72 -> 80 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 32 -> Host 59 (hops: 4) Path: 32 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 32 -> Host 60 (hops: 3) Path: 32 -> 68 -> 76 -> 60
+[PATH_DEBUG] Host 32 -> Host 61 (hops: 4) Path: 32 -> 72 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 32 -> Host 62 (hops: 5) Path: 32 -> 72 -> 80 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 32 -> Host 63 (hops: 4) Path: 32 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 33 -> Host 34 (hops: 2) Path: 33 -> 68 -> 34
+[PATH_DEBUG] Host 33 -> Host 35 (hops: 2) Path: 33 -> 68 -> 35
+[PATH_DEBUG] Host 33 -> Host 36 (hops: 2) Path: 33 -> 68 -> 36
+[PATH_DEBUG] Host 33 -> Host 37 (hops: 2) Path: 33 -> 68 -> 37
+[PATH_DEBUG] Host 33 -> Host 38 (hops: 2) Path: 33 -> 68 -> 38
+[PATH_DEBUG] Host 33 -> Host 39 (hops: 2) Path: 33 -> 68 -> 39
+[PATH_DEBUG] Host 33 -> Host 40 (hops: 4) Path: 33 -> 73 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 33 -> Host 41 (hops: 2) Path: 33 -> 73 -> 41
+[PATH_DEBUG] Host 33 -> Host 42 (hops: 4) Path: 33 -> 73 -> 82 -> 74 -> 42
+[PATH_DEBUG] Host 33 -> Host 43 (hops: 5) Path: 33 -> 68 -> 76 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 33 -> Host 44 (hops: 3) Path: 33 -> 68 -> 76 -> 44
+[PATH_DEBUG] Host 33 -> Host 45 (hops: 4) Path: 33 -> 73 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 33 -> Host 46 (hops: 4) Path: 33 -> 73 -> 82 -> 78 -> 46
+[PATH_DEBUG] Host 33 -> Host 47 (hops: 5) Path: 33 -> 68 -> 76 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 33 -> Host 48 (hops: 4) Path: 33 -> 73 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 33 -> Host 49 (hops: 2) Path: 33 -> 73 -> 49
+[PATH_DEBUG] Host 33 -> Host 50 (hops: 4) Path: 33 -> 73 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 33 -> Host 51 (hops: 5) Path: 33 -> 68 -> 76 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 33 -> Host 52 (hops: 3) Path: 33 -> 68 -> 76 -> 52
+[PATH_DEBUG] Host 33 -> Host 53 (hops: 4) Path: 33 -> 73 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 33 -> Host 54 (hops: 4) Path: 33 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 33 -> Host 55 (hops: 5) Path: 33 -> 68 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 33 -> Host 56 (hops: 4) Path: 33 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 33 -> Host 57 (hops: 2) Path: 33 -> 73 -> 57
+[PATH_DEBUG] Host 33 -> Host 58 (hops: 4) Path: 33 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 33 -> Host 59 (hops: 5) Path: 33 -> 68 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 33 -> Host 60 (hops: 3) Path: 33 -> 68 -> 76 -> 60
+[PATH_DEBUG] Host 33 -> Host 61 (hops: 4) Path: 33 -> 73 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 33 -> Host 62 (hops: 4) Path: 33 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 33 -> Host 63 (hops: 5) Path: 33 -> 68 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 34 -> Host 35 (hops: 2) Path: 34 -> 68 -> 35
+[PATH_DEBUG] Host 34 -> Host 36 (hops: 2) Path: 34 -> 68 -> 36
+[PATH_DEBUG] Host 34 -> Host 37 (hops: 2) Path: 34 -> 68 -> 37
+[PATH_DEBUG] Host 34 -> Host 38 (hops: 2) Path: 34 -> 68 -> 38
+[PATH_DEBUG] Host 34 -> Host 39 (hops: 2) Path: 34 -> 68 -> 39
+[PATH_DEBUG] Host 34 -> Host 40 (hops: 5) Path: 34 -> 68 -> 76 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 34 -> Host 41 (hops: 4) Path: 34 -> 74 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 34 -> Host 42 (hops: 2) Path: 34 -> 74 -> 42
+[PATH_DEBUG] Host 34 -> Host 43 (hops: 4) Path: 34 -> 74 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 34 -> Host 44 (hops: 3) Path: 34 -> 68 -> 76 -> 44
+[PATH_DEBUG] Host 34 -> Host 45 (hops: 4) Path: 34 -> 74 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 34 -> Host 46 (hops: 4) Path: 34 -> 74 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 34 -> Host 47 (hops: 4) Path: 34 -> 74 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 34 -> Host 48 (hops: 5) Path: 34 -> 68 -> 76 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 34 -> Host 49 (hops: 4) Path: 34 -> 74 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 34 -> Host 50 (hops: 2) Path: 34 -> 74 -> 50
+[PATH_DEBUG] Host 34 -> Host 51 (hops: 4) Path: 34 -> 74 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 34 -> Host 52 (hops: 3) Path: 34 -> 68 -> 76 -> 52
+[PATH_DEBUG] Host 34 -> Host 53 (hops: 4) Path: 34 -> 74 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 34 -> Host 54 (hops: 4) Path: 34 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 34 -> Host 55 (hops: 4) Path: 34 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 34 -> Host 56 (hops: 5) Path: 34 -> 68 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 34 -> Host 57 (hops: 4) Path: 34 -> 74 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 34 -> Host 58 (hops: 2) Path: 34 -> 74 -> 58
+[PATH_DEBUG] Host 34 -> Host 59 (hops: 4) Path: 34 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 34 -> Host 60 (hops: 3) Path: 34 -> 68 -> 76 -> 60
+[PATH_DEBUG] Host 34 -> Host 61 (hops: 4) Path: 34 -> 74 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 34 -> Host 62 (hops: 4) Path: 34 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 34 -> Host 63 (hops: 4) Path: 34 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 35 -> Host 36 (hops: 2) Path: 35 -> 68 -> 36
+[PATH_DEBUG] Host 35 -> Host 37 (hops: 2) Path: 35 -> 68 -> 37
+[PATH_DEBUG] Host 35 -> Host 38 (hops: 2) Path: 35 -> 68 -> 38
+[PATH_DEBUG] Host 35 -> Host 39 (hops: 2) Path: 35 -> 68 -> 39
+[PATH_DEBUG] Host 35 -> Host 40 (hops: 4) Path: 35 -> 75 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 35 -> Host 41 (hops: 5) Path: 35 -> 68 -> 76 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 35 -> Host 42 (hops: 4) Path: 35 -> 75 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 35 -> Host 43 (hops: 2) Path: 35 -> 75 -> 43
+[PATH_DEBUG] Host 35 -> Host 44 (hops: 3) Path: 35 -> 68 -> 76 -> 44
+[PATH_DEBUG] Host 35 -> Host 45 (hops: 5) Path: 35 -> 68 -> 76 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 35 -> Host 46 (hops: 4) Path: 35 -> 75 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 35 -> Host 47 (hops: 4) Path: 35 -> 75 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 35 -> Host 48 (hops: 4) Path: 35 -> 75 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 35 -> Host 49 (hops: 5) Path: 35 -> 68 -> 76 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 35 -> Host 50 (hops: 4) Path: 35 -> 75 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 35 -> Host 51 (hops: 2) Path: 35 -> 75 -> 51
+[PATH_DEBUG] Host 35 -> Host 52 (hops: 3) Path: 35 -> 68 -> 76 -> 52
+[PATH_DEBUG] Host 35 -> Host 53 (hops: 5) Path: 35 -> 68 -> 76 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 35 -> Host 54 (hops: 4) Path: 35 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 35 -> Host 55 (hops: 4) Path: 35 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 35 -> Host 56 (hops: 4) Path: 35 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 35 -> Host 57 (hops: 5) Path: 35 -> 68 -> 76 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 35 -> Host 58 (hops: 4) Path: 35 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 35 -> Host 59 (hops: 2) Path: 35 -> 75 -> 59
+[PATH_DEBUG] Host 35 -> Host 60 (hops: 3) Path: 35 -> 68 -> 76 -> 60
+[PATH_DEBUG] Host 35 -> Host 61 (hops: 5) Path: 35 -> 68 -> 76 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 35 -> Host 62 (hops: 4) Path: 35 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 35 -> Host 63 (hops: 4) Path: 35 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 36 -> Host 37 (hops: 2) Path: 36 -> 68 -> 37
+[PATH_DEBUG] Host 36 -> Host 38 (hops: 2) Path: 36 -> 68 -> 38
+[PATH_DEBUG] Host 36 -> Host 39 (hops: 2) Path: 36 -> 68 -> 39
+[PATH_DEBUG] Host 36 -> Host 40 (hops: 4) Path: 36 -> 76 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 36 -> Host 41 (hops: 4) Path: 36 -> 76 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 36 -> Host 42 (hops: 5) Path: 36 -> 76 -> 81 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 36 -> Host 43 (hops: 4) Path: 36 -> 76 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 36 -> Host 44 (hops: 2) Path: 36 -> 76 -> 44
+[PATH_DEBUG] Host 36 -> Host 45 (hops: 4) Path: 36 -> 76 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 36 -> Host 46 (hops: 5) Path: 36 -> 76 -> 81 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 36 -> Host 47 (hops: 4) Path: 36 -> 76 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 36 -> Host 48 (hops: 4) Path: 36 -> 76 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 36 -> Host 49 (hops: 4) Path: 36 -> 76 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 36 -> Host 50 (hops: 6) Path: 36 -> 76 -> 81 -> 85 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 36 -> Host 51 (hops: 4) Path: 36 -> 76 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 36 -> Host 52 (hops: 2) Path: 36 -> 76 -> 52
+[PATH_DEBUG] Host 36 -> Host 53 (hops: 4) Path: 36 -> 76 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 36 -> Host 54 (hops: 6) Path: 36 -> 76 -> 81 -> 85 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 36 -> Host 55 (hops: 4) Path: 36 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 36 -> Host 56 (hops: 4) Path: 36 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 36 -> Host 57 (hops: 4) Path: 36 -> 76 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 36 -> Host 58 (hops: 5) Path: 36 -> 76 -> 80 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 36 -> Host 59 (hops: 4) Path: 36 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 36 -> Host 60 (hops: 2) Path: 36 -> 76 -> 60
+[PATH_DEBUG] Host 36 -> Host 61 (hops: 4) Path: 36 -> 76 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 36 -> Host 62 (hops: 5) Path: 36 -> 76 -> 80 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 36 -> Host 63 (hops: 4) Path: 36 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 37 -> Host 38 (hops: 2) Path: 37 -> 68 -> 38
+[PATH_DEBUG] Host 37 -> Host 39 (hops: 2) Path: 37 -> 68 -> 39
+[PATH_DEBUG] Host 37 -> Host 40 (hops: 3) Path: 37 -> 77 -> 69 -> 40
+[PATH_DEBUG] Host 37 -> Host 41 (hops: 3) Path: 37 -> 77 -> 69 -> 41
+[PATH_DEBUG] Host 37 -> Host 42 (hops: 3) Path: 37 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 37 -> Host 43 (hops: 3) Path: 37 -> 77 -> 69 -> 43
+[PATH_DEBUG] Host 37 -> Host 44 (hops: 3) Path: 37 -> 68 -> 76 -> 44
+[PATH_DEBUG] Host 37 -> Host 45 (hops: 2) Path: 37 -> 77 -> 45
+[PATH_DEBUG] Host 37 -> Host 46 (hops: 3) Path: 37 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 37 -> Host 47 (hops: 3) Path: 37 -> 77 -> 69 -> 47
+[PATH_DEBUG] Host 37 -> Host 48 (hops: 4) Path: 37 -> 77 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 37 -> Host 49 (hops: 4) Path: 37 -> 77 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 37 -> Host 50 (hops: 4) Path: 37 -> 77 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 37 -> Host 51 (hops: 5) Path: 37 -> 68 -> 76 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 37 -> Host 52 (hops: 3) Path: 37 -> 68 -> 76 -> 52
+[PATH_DEBUG] Host 37 -> Host 53 (hops: 2) Path: 37 -> 77 -> 53
+[PATH_DEBUG] Host 37 -> Host 54 (hops: 4) Path: 37 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 37 -> Host 55 (hops: 5) Path: 37 -> 68 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 37 -> Host 56 (hops: 4) Path: 37 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 37 -> Host 57 (hops: 4) Path: 37 -> 77 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 37 -> Host 58 (hops: 4) Path: 37 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 37 -> Host 59 (hops: 5) Path: 37 -> 68 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 37 -> Host 60 (hops: 3) Path: 37 -> 68 -> 76 -> 60
+[PATH_DEBUG] Host 37 -> Host 61 (hops: 2) Path: 37 -> 77 -> 61
+[PATH_DEBUG] Host 37 -> Host 62 (hops: 4) Path: 37 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 37 -> Host 63 (hops: 5) Path: 37 -> 68 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 38 -> Host 39 (hops: 2) Path: 38 -> 68 -> 39
+[PATH_DEBUG] Host 38 -> Host 40 (hops: 5) Path: 38 -> 68 -> 76 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 38 -> Host 41 (hops: 4) Path: 38 -> 78 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 38 -> Host 42 (hops: 4) Path: 38 -> 78 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 38 -> Host 43 (hops: 4) Path: 38 -> 78 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 38 -> Host 44 (hops: 3) Path: 38 -> 68 -> 76 -> 44
+[PATH_DEBUG] Host 38 -> Host 45 (hops: 4) Path: 38 -> 78 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 38 -> Host 46 (hops: 2) Path: 38 -> 78 -> 46
+[PATH_DEBUG] Host 38 -> Host 47 (hops: 4) Path: 38 -> 78 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 38 -> Host 48 (hops: 3) Path: 38 -> 78 -> 70 -> 48
+[PATH_DEBUG] Host 38 -> Host 49 (hops: 3) Path: 38 -> 78 -> 70 -> 49
+[PATH_DEBUG] Host 38 -> Host 50 (hops: 3) Path: 38 -> 78 -> 70 -> 50
+[PATH_DEBUG] Host 38 -> Host 51 (hops: 3) Path: 38 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 38 -> Host 52 (hops: 3) Path: 38 -> 68 -> 76 -> 52
+[PATH_DEBUG] Host 38 -> Host 53 (hops: 3) Path: 38 -> 78 -> 70 -> 53
+[PATH_DEBUG] Host 38 -> Host 54 (hops: 2) Path: 38 -> 78 -> 54
+[PATH_DEBUG] Host 38 -> Host 55 (hops: 3) Path: 38 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 38 -> Host 56 (hops: 5) Path: 38 -> 68 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 38 -> Host 57 (hops: 4) Path: 38 -> 78 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 38 -> Host 58 (hops: 4) Path: 38 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 38 -> Host 59 (hops: 4) Path: 38 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 38 -> Host 60 (hops: 3) Path: 38 -> 68 -> 76 -> 60
+[PATH_DEBUG] Host 38 -> Host 61 (hops: 4) Path: 38 -> 78 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 38 -> Host 62 (hops: 2) Path: 38 -> 78 -> 62
+[PATH_DEBUG] Host 38 -> Host 63 (hops: 4) Path: 38 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 39 -> Host 40 (hops: 4) Path: 39 -> 79 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 39 -> Host 41 (hops: 5) Path: 39 -> 68 -> 76 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 39 -> Host 42 (hops: 4) Path: 39 -> 79 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 39 -> Host 43 (hops: 4) Path: 39 -> 79 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 39 -> Host 44 (hops: 3) Path: 39 -> 68 -> 76 -> 44
+[PATH_DEBUG] Host 39 -> Host 45 (hops: 5) Path: 39 -> 68 -> 76 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 39 -> Host 46 (hops: 4) Path: 39 -> 79 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 39 -> Host 47 (hops: 2) Path: 39 -> 79 -> 47
+[PATH_DEBUG] Host 39 -> Host 48 (hops: 4) Path: 39 -> 79 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 39 -> Host 49 (hops: 5) Path: 39 -> 68 -> 76 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 39 -> Host 50 (hops: 4) Path: 39 -> 79 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 39 -> Host 51 (hops: 4) Path: 39 -> 79 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 39 -> Host 52 (hops: 3) Path: 39 -> 68 -> 76 -> 52
+[PATH_DEBUG] Host 39 -> Host 53 (hops: 5) Path: 39 -> 68 -> 76 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 39 -> Host 54 (hops: 4) Path: 39 -> 79 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 39 -> Host 55 (hops: 2) Path: 39 -> 79 -> 55
+[PATH_DEBUG] Host 39 -> Host 56 (hops: 3) Path: 39 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 39 -> Host 57 (hops: 3) Path: 39 -> 79 -> 71 -> 57
+[PATH_DEBUG] Host 39 -> Host 58 (hops: 3) Path: 39 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 39 -> Host 59 (hops: 3) Path: 39 -> 79 -> 71 -> 59
+[PATH_DEBUG] Host 39 -> Host 60 (hops: 3) Path: 39 -> 68 -> 76 -> 60
+[PATH_DEBUG] Host 39 -> Host 61 (hops: 3) Path: 39 -> 79 -> 71 -> 61
+[PATH_DEBUG] Host 39 -> Host 62 (hops: 3) Path: 39 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 39 -> Host 63 (hops: 2) Path: 39 -> 79 -> 63
+[PATH_DEBUG] Host 40 -> Host 41 (hops: 2) Path: 40 -> 69 -> 41
+[PATH_DEBUG] Host 40 -> Host 42 (hops: 2) Path: 40 -> 69 -> 42
+[PATH_DEBUG] Host 40 -> Host 43 (hops: 2) Path: 40 -> 69 -> 43
+[PATH_DEBUG] Host 40 -> Host 44 (hops: 2) Path: 40 -> 69 -> 44
+[PATH_DEBUG] Host 40 -> Host 45 (hops: 2) Path: 40 -> 69 -> 45
+[PATH_DEBUG] Host 40 -> Host 46 (hops: 2) Path: 40 -> 69 -> 46
+[PATH_DEBUG] Host 40 -> Host 47 (hops: 2) Path: 40 -> 69 -> 47
+[PATH_DEBUG] Host 40 -> Host 48 (hops: 2) Path: 40 -> 72 -> 48
+[PATH_DEBUG] Host 40 -> Host 49 (hops: 4) Path: 40 -> 72 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 40 -> Host 50 (hops: 5) Path: 40 -> 69 -> 77 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 40 -> Host 51 (hops: 4) Path: 40 -> 72 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 40 -> Host 52 (hops: 4) Path: 40 -> 72 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 40 -> Host 53 (hops: 3) Path: 40 -> 69 -> 77 -> 53
+[PATH_DEBUG] Host 40 -> Host 54 (hops: 5) Path: 40 -> 69 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 40 -> Host 55 (hops: 4) Path: 40 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 40 -> Host 56 (hops: 2) Path: 40 -> 72 -> 56
+[PATH_DEBUG] Host 40 -> Host 57 (hops: 4) Path: 40 -> 72 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 40 -> Host 58 (hops: 5) Path: 40 -> 69 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 40 -> Host 59 (hops: 4) Path: 40 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 40 -> Host 60 (hops: 4) Path: 40 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 40 -> Host 61 (hops: 3) Path: 40 -> 69 -> 77 -> 61
+[PATH_DEBUG] Host 40 -> Host 62 (hops: 5) Path: 40 -> 69 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 40 -> Host 63 (hops: 4) Path: 40 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 41 -> Host 42 (hops: 2) Path: 41 -> 69 -> 42
+[PATH_DEBUG] Host 41 -> Host 43 (hops: 2) Path: 41 -> 69 -> 43
+[PATH_DEBUG] Host 41 -> Host 44 (hops: 2) Path: 41 -> 69 -> 44
+[PATH_DEBUG] Host 41 -> Host 45 (hops: 2) Path: 41 -> 69 -> 45
+[PATH_DEBUG] Host 41 -> Host 46 (hops: 2) Path: 41 -> 69 -> 46
+[PATH_DEBUG] Host 41 -> Host 47 (hops: 2) Path: 41 -> 69 -> 47
+[PATH_DEBUG] Host 41 -> Host 48 (hops: 4) Path: 41 -> 73 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 41 -> Host 49 (hops: 2) Path: 41 -> 73 -> 49
+[PATH_DEBUG] Host 41 -> Host 50 (hops: 4) Path: 41 -> 73 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 41 -> Host 51 (hops: 5) Path: 41 -> 73 -> 82 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 41 -> Host 52 (hops: 4) Path: 41 -> 73 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 41 -> Host 53 (hops: 3) Path: 41 -> 69 -> 77 -> 53
+[PATH_DEBUG] Host 41 -> Host 54 (hops: 4) Path: 41 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 41 -> Host 55 (hops: 5) Path: 41 -> 73 -> 82 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 41 -> Host 56 (hops: 4) Path: 41 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 41 -> Host 57 (hops: 2) Path: 41 -> 73 -> 57
+[PATH_DEBUG] Host 41 -> Host 58 (hops: 4) Path: 41 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 41 -> Host 59 (hops: 6) Path: 41 -> 73 -> 82 -> 85 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 41 -> Host 60 (hops: 4) Path: 41 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 41 -> Host 61 (hops: 3) Path: 41 -> 69 -> 77 -> 61
+[PATH_DEBUG] Host 41 -> Host 62 (hops: 4) Path: 41 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 41 -> Host 63 (hops: 6) Path: 41 -> 73 -> 82 -> 85 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 42 -> Host 43 (hops: 2) Path: 42 -> 69 -> 43
+[PATH_DEBUG] Host 42 -> Host 44 (hops: 2) Path: 42 -> 69 -> 44
+[PATH_DEBUG] Host 42 -> Host 45 (hops: 2) Path: 42 -> 69 -> 45
+[PATH_DEBUG] Host 42 -> Host 46 (hops: 2) Path: 42 -> 69 -> 46
+[PATH_DEBUG] Host 42 -> Host 47 (hops: 2) Path: 42 -> 69 -> 47
+[PATH_DEBUG] Host 42 -> Host 48 (hops: 5) Path: 42 -> 69 -> 77 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 42 -> Host 49 (hops: 4) Path: 42 -> 74 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 42 -> Host 50 (hops: 2) Path: 42 -> 74 -> 50
+[PATH_DEBUG] Host 42 -> Host 51 (hops: 4) Path: 42 -> 74 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 42 -> Host 52 (hops: 5) Path: 42 -> 69 -> 77 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 42 -> Host 53 (hops: 3) Path: 42 -> 69 -> 77 -> 53
+[PATH_DEBUG] Host 42 -> Host 54 (hops: 4) Path: 42 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 42 -> Host 55 (hops: 4) Path: 42 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 42 -> Host 56 (hops: 5) Path: 42 -> 69 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 42 -> Host 57 (hops: 4) Path: 42 -> 74 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 42 -> Host 58 (hops: 2) Path: 42 -> 74 -> 58
+[PATH_DEBUG] Host 42 -> Host 59 (hops: 4) Path: 42 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 42 -> Host 60 (hops: 5) Path: 42 -> 69 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 42 -> Host 61 (hops: 3) Path: 42 -> 69 -> 77 -> 61
+[PATH_DEBUG] Host 42 -> Host 62 (hops: 4) Path: 42 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 42 -> Host 63 (hops: 4) Path: 42 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 43 -> Host 44 (hops: 2) Path: 43 -> 69 -> 44
+[PATH_DEBUG] Host 43 -> Host 45 (hops: 2) Path: 43 -> 69 -> 45
+[PATH_DEBUG] Host 43 -> Host 46 (hops: 2) Path: 43 -> 69 -> 46
+[PATH_DEBUG] Host 43 -> Host 47 (hops: 2) Path: 43 -> 69 -> 47
+[PATH_DEBUG] Host 43 -> Host 48 (hops: 4) Path: 43 -> 75 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 43 -> Host 49 (hops: 5) Path: 43 -> 69 -> 77 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 43 -> Host 50 (hops: 4) Path: 43 -> 75 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 43 -> Host 51 (hops: 2) Path: 43 -> 75 -> 51
+[PATH_DEBUG] Host 43 -> Host 52 (hops: 4) Path: 43 -> 75 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 43 -> Host 53 (hops: 3) Path: 43 -> 69 -> 77 -> 53
+[PATH_DEBUG] Host 43 -> Host 54 (hops: 4) Path: 43 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 43 -> Host 55 (hops: 4) Path: 43 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 43 -> Host 56 (hops: 4) Path: 43 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 43 -> Host 57 (hops: 5) Path: 43 -> 69 -> 77 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 43 -> Host 58 (hops: 4) Path: 43 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 43 -> Host 59 (hops: 2) Path: 43 -> 75 -> 59
+[PATH_DEBUG] Host 43 -> Host 60 (hops: 4) Path: 43 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 43 -> Host 61 (hops: 3) Path: 43 -> 69 -> 77 -> 61
+[PATH_DEBUG] Host 43 -> Host 62 (hops: 4) Path: 43 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 43 -> Host 63 (hops: 4) Path: 43 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 44 -> Host 45 (hops: 2) Path: 44 -> 69 -> 45
+[PATH_DEBUG] Host 44 -> Host 46 (hops: 2) Path: 44 -> 69 -> 46
+[PATH_DEBUG] Host 44 -> Host 47 (hops: 2) Path: 44 -> 69 -> 47
+[PATH_DEBUG] Host 44 -> Host 48 (hops: 4) Path: 44 -> 76 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 44 -> Host 49 (hops: 4) Path: 44 -> 76 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 44 -> Host 50 (hops: 5) Path: 44 -> 69 -> 77 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 44 -> Host 51 (hops: 4) Path: 44 -> 76 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 44 -> Host 52 (hops: 2) Path: 44 -> 76 -> 52
+[PATH_DEBUG] Host 44 -> Host 53 (hops: 3) Path: 44 -> 69 -> 77 -> 53
+[PATH_DEBUG] Host 44 -> Host 54 (hops: 5) Path: 44 -> 69 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 44 -> Host 55 (hops: 4) Path: 44 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 44 -> Host 56 (hops: 4) Path: 44 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 44 -> Host 57 (hops: 4) Path: 44 -> 76 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 44 -> Host 58 (hops: 5) Path: 44 -> 69 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 44 -> Host 59 (hops: 4) Path: 44 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 44 -> Host 60 (hops: 2) Path: 44 -> 76 -> 60
+[PATH_DEBUG] Host 44 -> Host 61 (hops: 3) Path: 44 -> 69 -> 77 -> 61
+[PATH_DEBUG] Host 44 -> Host 62 (hops: 5) Path: 44 -> 69 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 44 -> Host 63 (hops: 4) Path: 44 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 45 -> Host 46 (hops: 2) Path: 45 -> 69 -> 46
+[PATH_DEBUG] Host 45 -> Host 47 (hops: 2) Path: 45 -> 69 -> 47
+[PATH_DEBUG] Host 45 -> Host 48 (hops: 4) Path: 45 -> 77 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 45 -> Host 49 (hops: 4) Path: 45 -> 77 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 45 -> Host 50 (hops: 4) Path: 45 -> 77 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 45 -> Host 51 (hops: 5) Path: 45 -> 77 -> 82 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 45 -> Host 52 (hops: 4) Path: 45 -> 77 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 45 -> Host 53 (hops: 2) Path: 45 -> 77 -> 53
+[PATH_DEBUG] Host 45 -> Host 54 (hops: 4) Path: 45 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 45 -> Host 55 (hops: 5) Path: 45 -> 77 -> 82 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 45 -> Host 56 (hops: 4) Path: 45 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 45 -> Host 57 (hops: 4) Path: 45 -> 77 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 45 -> Host 58 (hops: 4) Path: 45 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 45 -> Host 59 (hops: 6) Path: 45 -> 77 -> 82 -> 85 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 45 -> Host 60 (hops: 4) Path: 45 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 45 -> Host 61 (hops: 2) Path: 45 -> 77 -> 61
+[PATH_DEBUG] Host 45 -> Host 62 (hops: 4) Path: 45 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 45 -> Host 63 (hops: 6) Path: 45 -> 77 -> 82 -> 85 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 46 -> Host 47 (hops: 2) Path: 46 -> 69 -> 47
+[PATH_DEBUG] Host 46 -> Host 48 (hops: 3) Path: 46 -> 78 -> 70 -> 48
+[PATH_DEBUG] Host 46 -> Host 49 (hops: 3) Path: 46 -> 78 -> 70 -> 49
+[PATH_DEBUG] Host 46 -> Host 50 (hops: 3) Path: 46 -> 78 -> 70 -> 50
+[PATH_DEBUG] Host 46 -> Host 51 (hops: 3) Path: 46 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 46 -> Host 52 (hops: 3) Path: 46 -> 78 -> 70 -> 52
+[PATH_DEBUG] Host 46 -> Host 53 (hops: 3) Path: 46 -> 69 -> 77 -> 53
+[PATH_DEBUG] Host 46 -> Host 54 (hops: 2) Path: 46 -> 78 -> 54
+[PATH_DEBUG] Host 46 -> Host 55 (hops: 3) Path: 46 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 46 -> Host 56 (hops: 5) Path: 46 -> 69 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 46 -> Host 57 (hops: 4) Path: 46 -> 78 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 46 -> Host 58 (hops: 4) Path: 46 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 46 -> Host 59 (hops: 4) Path: 46 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 46 -> Host 60 (hops: 5) Path: 46 -> 69 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 46 -> Host 61 (hops: 3) Path: 46 -> 69 -> 77 -> 61
+[PATH_DEBUG] Host 46 -> Host 62 (hops: 2) Path: 46 -> 78 -> 62
+[PATH_DEBUG] Host 46 -> Host 63 (hops: 4) Path: 46 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 47 -> Host 48 (hops: 4) Path: 47 -> 79 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 47 -> Host 49 (hops: 5) Path: 47 -> 69 -> 77 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 47 -> Host 50 (hops: 4) Path: 47 -> 79 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 47 -> Host 51 (hops: 4) Path: 47 -> 79 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 47 -> Host 52 (hops: 4) Path: 47 -> 79 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 47 -> Host 53 (hops: 3) Path: 47 -> 69 -> 77 -> 53
+[PATH_DEBUG] Host 47 -> Host 54 (hops: 4) Path: 47 -> 79 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 47 -> Host 55 (hops: 2) Path: 47 -> 79 -> 55
+[PATH_DEBUG] Host 47 -> Host 56 (hops: 3) Path: 47 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 47 -> Host 57 (hops: 3) Path: 47 -> 79 -> 71 -> 57
+[PATH_DEBUG] Host 47 -> Host 58 (hops: 3) Path: 47 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 47 -> Host 59 (hops: 3) Path: 47 -> 79 -> 71 -> 59
+[PATH_DEBUG] Host 47 -> Host 60 (hops: 3) Path: 47 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 47 -> Host 61 (hops: 3) Path: 47 -> 69 -> 77 -> 61
+[PATH_DEBUG] Host 47 -> Host 62 (hops: 3) Path: 47 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 47 -> Host 63 (hops: 2) Path: 47 -> 79 -> 63
+[PATH_DEBUG] Host 48 -> Host 49 (hops: 2) Path: 48 -> 70 -> 49
+[PATH_DEBUG] Host 48 -> Host 50 (hops: 2) Path: 48 -> 70 -> 50
+[PATH_DEBUG] Host 48 -> Host 51 (hops: 2) Path: 48 -> 70 -> 51
+[PATH_DEBUG] Host 48 -> Host 52 (hops: 2) Path: 48 -> 70 -> 52
+[PATH_DEBUG] Host 48 -> Host 53 (hops: 2) Path: 48 -> 70 -> 53
+[PATH_DEBUG] Host 48 -> Host 54 (hops: 2) Path: 48 -> 70 -> 54
+[PATH_DEBUG] Host 48 -> Host 55 (hops: 2) Path: 48 -> 70 -> 55
+[PATH_DEBUG] Host 48 -> Host 56 (hops: 2) Path: 48 -> 72 -> 56
+[PATH_DEBUG] Host 48 -> Host 57 (hops: 4) Path: 48 -> 72 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 48 -> Host 58 (hops: 5) Path: 48 -> 70 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 48 -> Host 59 (hops: 4) Path: 48 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 48 -> Host 60 (hops: 4) Path: 48 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 48 -> Host 61 (hops: 4) Path: 48 -> 72 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 48 -> Host 62 (hops: 3) Path: 48 -> 70 -> 78 -> 62
+[PATH_DEBUG] Host 48 -> Host 63 (hops: 4) Path: 48 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 49 -> Host 50 (hops: 2) Path: 49 -> 70 -> 50
+[PATH_DEBUG] Host 49 -> Host 51 (hops: 2) Path: 49 -> 70 -> 51
+[PATH_DEBUG] Host 49 -> Host 52 (hops: 2) Path: 49 -> 70 -> 52
+[PATH_DEBUG] Host 49 -> Host 53 (hops: 2) Path: 49 -> 70 -> 53
+[PATH_DEBUG] Host 49 -> Host 54 (hops: 2) Path: 49 -> 70 -> 54
+[PATH_DEBUG] Host 49 -> Host 55 (hops: 2) Path: 49 -> 70 -> 55
+[PATH_DEBUG] Host 49 -> Host 56 (hops: 4) Path: 49 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 49 -> Host 57 (hops: 2) Path: 49 -> 73 -> 57
+[PATH_DEBUG] Host 49 -> Host 58 (hops: 4) Path: 49 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 49 -> Host 59 (hops: 5) Path: 49 -> 70 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 49 -> Host 60 (hops: 4) Path: 49 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 49 -> Host 61 (hops: 4) Path: 49 -> 73 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 49 -> Host 62 (hops: 3) Path: 49 -> 70 -> 78 -> 62
+[PATH_DEBUG] Host 49 -> Host 63 (hops: 5) Path: 49 -> 70 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 50 -> Host 51 (hops: 2) Path: 50 -> 70 -> 51
+[PATH_DEBUG] Host 50 -> Host 52 (hops: 2) Path: 50 -> 70 -> 52
+[PATH_DEBUG] Host 50 -> Host 53 (hops: 2) Path: 50 -> 70 -> 53
+[PATH_DEBUG] Host 50 -> Host 54 (hops: 2) Path: 50 -> 70 -> 54
+[PATH_DEBUG] Host 50 -> Host 55 (hops: 2) Path: 50 -> 70 -> 55
+[PATH_DEBUG] Host 50 -> Host 56 (hops: 5) Path: 50 -> 74 -> 83 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 50 -> Host 57 (hops: 4) Path: 50 -> 74 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 50 -> Host 58 (hops: 2) Path: 50 -> 74 -> 58
+[PATH_DEBUG] Host 50 -> Host 59 (hops: 4) Path: 50 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 50 -> Host 60 (hops: 5) Path: 50 -> 74 -> 83 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 50 -> Host 61 (hops: 4) Path: 50 -> 74 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 50 -> Host 62 (hops: 3) Path: 50 -> 70 -> 78 -> 62
+[PATH_DEBUG] Host 50 -> Host 63 (hops: 4) Path: 50 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 51 -> Host 52 (hops: 2) Path: 51 -> 70 -> 52
+[PATH_DEBUG] Host 51 -> Host 53 (hops: 2) Path: 51 -> 70 -> 53
+[PATH_DEBUG] Host 51 -> Host 54 (hops: 2) Path: 51 -> 70 -> 54
+[PATH_DEBUG] Host 51 -> Host 55 (hops: 2) Path: 51 -> 70 -> 55
+[PATH_DEBUG] Host 51 -> Host 56 (hops: 4) Path: 51 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 51 -> Host 57 (hops: 5) Path: 51 -> 70 -> 78 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 51 -> Host 58 (hops: 4) Path: 51 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 51 -> Host 59 (hops: 2) Path: 51 -> 75 -> 59
+[PATH_DEBUG] Host 51 -> Host 60 (hops: 4) Path: 51 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 51 -> Host 61 (hops: 5) Path: 51 -> 70 -> 78 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 51 -> Host 62 (hops: 3) Path: 51 -> 70 -> 78 -> 62
+[PATH_DEBUG] Host 51 -> Host 63 (hops: 4) Path: 51 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 52 -> Host 53 (hops: 2) Path: 52 -> 70 -> 53
+[PATH_DEBUG] Host 52 -> Host 54 (hops: 2) Path: 52 -> 70 -> 54
+[PATH_DEBUG] Host 52 -> Host 55 (hops: 2) Path: 52 -> 70 -> 55
+[PATH_DEBUG] Host 52 -> Host 56 (hops: 4) Path: 52 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 52 -> Host 57 (hops: 4) Path: 52 -> 76 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 52 -> Host 58 (hops: 5) Path: 52 -> 70 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 52 -> Host 59 (hops: 4) Path: 52 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 52 -> Host 60 (hops: 2) Path: 52 -> 76 -> 60
+[PATH_DEBUG] Host 52 -> Host 61 (hops: 4) Path: 52 -> 76 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 52 -> Host 62 (hops: 3) Path: 52 -> 70 -> 78 -> 62
+[PATH_DEBUG] Host 52 -> Host 63 (hops: 4) Path: 52 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 53 -> Host 54 (hops: 2) Path: 53 -> 70 -> 54
+[PATH_DEBUG] Host 53 -> Host 55 (hops: 2) Path: 53 -> 70 -> 55
+[PATH_DEBUG] Host 53 -> Host 56 (hops: 4) Path: 53 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 53 -> Host 57 (hops: 4) Path: 53 -> 77 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 53 -> Host 58 (hops: 4) Path: 53 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 53 -> Host 59 (hops: 5) Path: 53 -> 70 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 53 -> Host 60 (hops: 4) Path: 53 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 53 -> Host 61 (hops: 2) Path: 53 -> 77 -> 61
+[PATH_DEBUG] Host 53 -> Host 62 (hops: 3) Path: 53 -> 70 -> 78 -> 62
+[PATH_DEBUG] Host 53 -> Host 63 (hops: 5) Path: 53 -> 70 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 54 -> Host 55 (hops: 2) Path: 54 -> 70 -> 55
+[PATH_DEBUG] Host 54 -> Host 56 (hops: 5) Path: 54 -> 78 -> 83 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 54 -> Host 57 (hops: 4) Path: 54 -> 78 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 54 -> Host 58 (hops: 4) Path: 54 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 54 -> Host 59 (hops: 4) Path: 54 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 54 -> Host 60 (hops: 5) Path: 54 -> 78 -> 83 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 54 -> Host 61 (hops: 4) Path: 54 -> 78 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 54 -> Host 62 (hops: 2) Path: 54 -> 78 -> 62
+[PATH_DEBUG] Host 54 -> Host 63 (hops: 4) Path: 54 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 55 -> Host 56 (hops: 3) Path: 55 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 55 -> Host 57 (hops: 3) Path: 55 -> 79 -> 71 -> 57
+[PATH_DEBUG] Host 55 -> Host 58 (hops: 3) Path: 55 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 55 -> Host 59 (hops: 3) Path: 55 -> 79 -> 71 -> 59
+[PATH_DEBUG] Host 55 -> Host 60 (hops: 3) Path: 55 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 55 -> Host 61 (hops: 3) Path: 55 -> 79 -> 71 -> 61
+[PATH_DEBUG] Host 55 -> Host 62 (hops: 3) Path: 55 -> 70 -> 78 -> 62
+[PATH_DEBUG] Host 55 -> Host 63 (hops: 2) Path: 55 -> 79 -> 63
+[PATH_DEBUG] Host 56 -> Host 57 (hops: 2) Path: 56 -> 71 -> 57
+[PATH_DEBUG] Host 56 -> Host 58 (hops: 2) Path: 56 -> 71 -> 58
+[PATH_DEBUG] Host 56 -> Host 59 (hops: 2) Path: 56 -> 71 -> 59
+[PATH_DEBUG] Host 56 -> Host 60 (hops: 2) Path: 56 -> 71 -> 60
+[PATH_DEBUG] Host 56 -> Host 61 (hops: 2) Path: 56 -> 71 -> 61
+[PATH_DEBUG] Host 56 -> Host 62 (hops: 2) Path: 56 -> 71 -> 62
+[PATH_DEBUG] Host 56 -> Host 63 (hops: 2) Path: 56 -> 71 -> 63
+[PATH_DEBUG] Host 57 -> Host 58 (hops: 2) Path: 57 -> 71 -> 58
+[PATH_DEBUG] Host 57 -> Host 59 (hops: 2) Path: 57 -> 71 -> 59
+[PATH_DEBUG] Host 57 -> Host 60 (hops: 2) Path: 57 -> 71 -> 60
+[PATH_DEBUG] Host 57 -> Host 61 (hops: 2) Path: 57 -> 71 -> 61
+[PATH_DEBUG] Host 57 -> Host 62 (hops: 2) Path: 57 -> 71 -> 62
+[PATH_DEBUG] Host 57 -> Host 63 (hops: 2) Path: 57 -> 71 -> 63
+[PATH_DEBUG] Host 58 -> Host 59 (hops: 2) Path: 58 -> 71 -> 59
+[PATH_DEBUG] Host 58 -> Host 60 (hops: 2) Path: 58 -> 71 -> 60
+[PATH_DEBUG] Host 58 -> Host 61 (hops: 2) Path: 58 -> 71 -> 61
+[PATH_DEBUG] Host 58 -> Host 62 (hops: 2) Path: 58 -> 71 -> 62
+[PATH_DEBUG] Host 58 -> Host 63 (hops: 2) Path: 58 -> 71 -> 63
+[PATH_DEBUG] Host 59 -> Host 60 (hops: 2) Path: 59 -> 71 -> 60
+[PATH_DEBUG] Host 59 -> Host 61 (hops: 2) Path: 59 -> 71 -> 61
+[PATH_DEBUG] Host 59 -> Host 62 (hops: 2) Path: 59 -> 71 -> 62
+[PATH_DEBUG] Host 59 -> Host 63 (hops: 2) Path: 59 -> 71 -> 63
+[PATH_DEBUG] Host 60 -> Host 61 (hops: 2) Path: 60 -> 71 -> 61
+[PATH_DEBUG] Host 60 -> Host 62 (hops: 2) Path: 60 -> 71 -> 62
+[PATH_DEBUG] Host 60 -> Host 63 (hops: 2) Path: 60 -> 71 -> 63
+[PATH_DEBUG] Host 61 -> Host 62 (hops: 2) Path: 61 -> 71 -> 62
+[PATH_DEBUG] Host 61 -> Host 63 (hops: 2) Path: 61 -> 71 -> 63
+[PATH_DEBUG] Host 62 -> Host 63 (hops: 2) Path: 62 -> 71 -> 63
+[PATH_DEBUG] Host 0 -> Host 16 (hops: 2) Path: 0 -> 72 -> 16
+[PATH_DEBUG] Host 0 -> Host 19 (hops: 4) Path: 0 -> 72 -> 80 -> 75 -> 19
+[PATH_DEBUG] Host 0 -> Host 20 (hops: 4) Path: 0 -> 72 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 0 -> Host 21 (hops: 4) Path: 0 -> 72 -> 81 -> 77 -> 21
+[PATH_DEBUG] Host 0 -> Host 22 (hops: 6) Path: 0 -> 72 -> 81 -> 85 -> 83 -> 78 -> 22
+[PATH_DEBUG] Host 0 -> Host 23 (hops: 4) Path: 0 -> 72 -> 80 -> 79 -> 23
+[PATH_DEBUG] Host 0 -> Host 24 (hops: 2) Path: 0 -> 72 -> 24
+[PATH_DEBUG] Host 0 -> Host 25 (hops: 4) Path: 0 -> 72 -> 81 -> 73 -> 25
+[PATH_DEBUG] Host 0 -> Host 26 (hops: 5) Path: 0 -> 72 -> 80 -> 75 -> 67 -> 26
+[PATH_DEBUG] Host 0 -> Host 27 (hops: 4) Path: 0 -> 72 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 0 -> Host 28 (hops: 4) Path: 0 -> 72 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 0 -> Host 29 (hops: 4) Path: 0 -> 72 -> 81 -> 77 -> 29
+[PATH_DEBUG] Host 0 -> Host 30 (hops: 5) Path: 0 -> 72 -> 80 -> 75 -> 67 -> 30
+[PATH_DEBUG] Host 0 -> Host 31 (hops: 4) Path: 0 -> 72 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 0 -> Host 32 (hops: 2) Path: 0 -> 72 -> 32
+[PATH_DEBUG] Host 0 -> Host 33 (hops: 4) Path: 0 -> 72 -> 81 -> 73 -> 33
+[PATH_DEBUG] Host 0 -> Host 34 (hops: 5) Path: 0 -> 72 -> 81 -> 76 -> 68 -> 34
+[PATH_DEBUG] Host 0 -> Host 35 (hops: 4) Path: 0 -> 72 -> 80 -> 75 -> 35
+[PATH_DEBUG] Host 0 -> Host 36 (hops: 4) Path: 0 -> 72 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 0 -> Host 37 (hops: 4) Path: 0 -> 72 -> 81 -> 77 -> 37
+[PATH_DEBUG] Host 0 -> Host 38 (hops: 5) Path: 0 -> 72 -> 81 -> 76 -> 68 -> 38
+[PATH_DEBUG] Host 0 -> Host 39 (hops: 4) Path: 0 -> 72 -> 80 -> 79 -> 39
+[PATH_DEBUG] Host 0 -> Host 40 (hops: 2) Path: 0 -> 72 -> 40
+[PATH_DEBUG] Host 0 -> Host 41 (hops: 4) Path: 0 -> 72 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 0 -> Host 42 (hops: 5) Path: 0 -> 72 -> 81 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 0 -> Host 43 (hops: 4) Path: 0 -> 72 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 0 -> Host 44 (hops: 4) Path: 0 -> 72 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 0 -> Host 45 (hops: 4) Path: 0 -> 72 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 0 -> Host 46 (hops: 5) Path: 0 -> 72 -> 81 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 0 -> Host 47 (hops: 4) Path: 0 -> 72 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 0 -> Host 48 (hops: 2) Path: 0 -> 72 -> 48
+[PATH_DEBUG] Host 0 -> Host 49 (hops: 4) Path: 0 -> 72 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 0 -> Host 50 (hops: 6) Path: 0 -> 72 -> 81 -> 85 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 0 -> Host 51 (hops: 4) Path: 0 -> 72 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 0 -> Host 52 (hops: 4) Path: 0 -> 72 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 0 -> Host 53 (hops: 4) Path: 0 -> 72 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 0 -> Host 54 (hops: 6) Path: 0 -> 72 -> 81 -> 85 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 0 -> Host 55 (hops: 4) Path: 0 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 0 -> Host 56 (hops: 2) Path: 0 -> 72 -> 56
+[PATH_DEBUG] Host 0 -> Host 57 (hops: 4) Path: 0 -> 72 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 0 -> Host 58 (hops: 5) Path: 0 -> 72 -> 80 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 0 -> Host 59 (hops: 4) Path: 0 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 0 -> Host 60 (hops: 4) Path: 0 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 0 -> Host 61 (hops: 4) Path: 0 -> 72 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 0 -> Host 62 (hops: 5) Path: 0 -> 72 -> 80 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 0 -> Host 63 (hops: 4) Path: 0 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 0 -> Host 1 (hops: 2) Path: 0 -> 64 -> 1
+[PATH_DEBUG] Host 0 -> Host 2 (hops: 2) Path: 0 -> 64 -> 2
+[PATH_DEBUG] Host 0 -> Host 3 (hops: 2) Path: 0 -> 64 -> 3
+[PATH_DEBUG] Host 0 -> Host 4 (hops: 2) Path: 0 -> 64 -> 4
+[PATH_DEBUG] Host 0 -> Host 5 (hops: 2) Path: 0 -> 64 -> 5
+[PATH_DEBUG] Host 0 -> Host 6 (hops: 2) Path: 0 -> 64 -> 6
+[PATH_DEBUG] Host 0 -> Host 7 (hops: 2) Path: 0 -> 64 -> 7
+[PATH_DEBUG] Host 0 -> Host 8 (hops: 2) Path: 0 -> 72 -> 8
+[PATH_DEBUG] Host 0 -> Host 18 (hops: 6) Path: 0 -> 72 -> 81 -> 85 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 0 -> Host 17 (hops: 4) Path: 0 -> 72 -> 81 -> 73 -> 17
+[PATH_DEBUG] Host 0 -> Host 9 (hops: 4) Path: 0 -> 72 -> 81 -> 73 -> 9
+[PATH_DEBUG] Host 0 -> Host 10 (hops: 5) Path: 0 -> 72 -> 81 -> 73 -> 65 -> 10
+[PATH_DEBUG] Host 0 -> Host 11 (hops: 4) Path: 0 -> 72 -> 80 -> 75 -> 11
+[PATH_DEBUG] Host 0 -> Host 12 (hops: 4) Path: 0 -> 72 -> 81 -> 76 -> 12
+[PATH_DEBUG] Host 0 -> Host 13 (hops: 4) Path: 0 -> 72 -> 81 -> 77 -> 13
+[PATH_DEBUG] Host 0 -> Host 14 (hops: 5) Path: 0 -> 72 -> 81 -> 73 -> 65 -> 14
+[PATH_DEBUG] Host 0 -> Host 15 (hops: 4) Path: 0 -> 72 -> 80 -> 79 -> 15
+[PATH_DEBUG] Host 1 -> Host 16 (hops: 3) Path: 1 -> 64 -> 72 -> 16
+[PATH_DEBUG] Host 1 -> Host 19 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 75 -> 19
+[PATH_DEBUG] Host 1 -> Host 20 (hops: 4) Path: 1 -> 73 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 1 -> Host 21 (hops: 4) Path: 1 -> 73 -> 82 -> 77 -> 21
+[PATH_DEBUG] Host 1 -> Host 22 (hops: 4) Path: 1 -> 73 -> 82 -> 78 -> 22
+[PATH_DEBUG] Host 1 -> Host 23 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 79 -> 23
+[PATH_DEBUG] Host 1 -> Host 24 (hops: 3) Path: 1 -> 64 -> 72 -> 24
+[PATH_DEBUG] Host 1 -> Host 25 (hops: 2) Path: 1 -> 73 -> 25
+[PATH_DEBUG] Host 1 -> Host 26 (hops: 4) Path: 1 -> 73 -> 82 -> 74 -> 26
+[PATH_DEBUG] Host 1 -> Host 27 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 1 -> Host 28 (hops: 4) Path: 1 -> 73 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 1 -> Host 29 (hops: 4) Path: 1 -> 73 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 1 -> Host 30 (hops: 4) Path: 1 -> 73 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 1 -> Host 31 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 1 -> Host 32 (hops: 3) Path: 1 -> 64 -> 72 -> 32
+[PATH_DEBUG] Host 1 -> Host 33 (hops: 2) Path: 1 -> 73 -> 33
+[PATH_DEBUG] Host 1 -> Host 34 (hops: 4) Path: 1 -> 73 -> 82 -> 74 -> 34
+[PATH_DEBUG] Host 1 -> Host 35 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 75 -> 35
+[PATH_DEBUG] Host 1 -> Host 36 (hops: 4) Path: 1 -> 73 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 1 -> Host 37 (hops: 4) Path: 1 -> 73 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 1 -> Host 38 (hops: 4) Path: 1 -> 73 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 1 -> Host 39 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 79 -> 39
+[PATH_DEBUG] Host 1 -> Host 40 (hops: 3) Path: 1 -> 64 -> 72 -> 40
+[PATH_DEBUG] Host 1 -> Host 41 (hops: 2) Path: 1 -> 73 -> 41
+[PATH_DEBUG] Host 1 -> Host 42 (hops: 4) Path: 1 -> 73 -> 82 -> 74 -> 42
+[PATH_DEBUG] Host 1 -> Host 43 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 1 -> Host 44 (hops: 4) Path: 1 -> 73 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 1 -> Host 45 (hops: 4) Path: 1 -> 73 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 1 -> Host 46 (hops: 4) Path: 1 -> 73 -> 82 -> 78 -> 46
+[PATH_DEBUG] Host 1 -> Host 47 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 1 -> Host 48 (hops: 3) Path: 1 -> 64 -> 72 -> 48
+[PATH_DEBUG] Host 1 -> Host 49 (hops: 2) Path: 1 -> 73 -> 49
+[PATH_DEBUG] Host 1 -> Host 50 (hops: 4) Path: 1 -> 73 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 1 -> Host 51 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 1 -> Host 52 (hops: 4) Path: 1 -> 73 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 1 -> Host 53 (hops: 4) Path: 1 -> 73 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 1 -> Host 54 (hops: 4) Path: 1 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 1 -> Host 55 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 1 -> Host 56 (hops: 3) Path: 1 -> 64 -> 72 -> 56
+[PATH_DEBUG] Host 1 -> Host 57 (hops: 2) Path: 1 -> 73 -> 57
+[PATH_DEBUG] Host 1 -> Host 58 (hops: 4) Path: 1 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 1 -> Host 59 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 1 -> Host 60 (hops: 4) Path: 1 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 1 -> Host 61 (hops: 4) Path: 1 -> 73 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 1 -> Host 62 (hops: 4) Path: 1 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 1 -> Host 63 (hops: 5) Path: 1 -> 64 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 1 -> Host 2 (hops: 2) Path: 1 -> 64 -> 2
+[PATH_DEBUG] Host 1 -> Host 3 (hops: 2) Path: 1 -> 64 -> 3
+[PATH_DEBUG] Host 1 -> Host 4 (hops: 2) Path: 1 -> 64 -> 4
+[PATH_DEBUG] Host 1 -> Host 5 (hops: 2) Path: 1 -> 64 -> 5
+[PATH_DEBUG] Host 1 -> Host 6 (hops: 2) Path: 1 -> 64 -> 6
+[PATH_DEBUG] Host 1 -> Host 7 (hops: 2) Path: 1 -> 64 -> 7
+[PATH_DEBUG] Host 1 -> Host 8 (hops: 3) Path: 1 -> 64 -> 72 -> 8
+[PATH_DEBUG] Host 1 -> Host 18 (hops: 4) Path: 1 -> 73 -> 82 -> 74 -> 18
+[PATH_DEBUG] Host 1 -> Host 17 (hops: 2) Path: 1 -> 73 -> 17
+[PATH_DEBUG] Host 1 -> Host 9 (hops: 2) Path: 1 -> 73 -> 9
+[PATH_DEBUG] Host 1 -> Host 10 (hops: 3) Path: 1 -> 73 -> 65 -> 10
+[PATH_DEBUG] Host 1 -> Host 11 (hops: 3) Path: 1 -> 73 -> 65 -> 11
+[PATH_DEBUG] Host 1 -> Host 12 (hops: 3) Path: 1 -> 73 -> 65 -> 12
+[PATH_DEBUG] Host 1 -> Host 13 (hops: 3) Path: 1 -> 73 -> 65 -> 13
+[PATH_DEBUG] Host 1 -> Host 14 (hops: 3) Path: 1 -> 73 -> 65 -> 14
+[PATH_DEBUG] Host 1 -> Host 15 (hops: 3) Path: 1 -> 73 -> 65 -> 15
+[PATH_DEBUG] Host 2 -> Host 16 (hops: 3) Path: 2 -> 64 -> 72 -> 16
+[PATH_DEBUG] Host 2 -> Host 19 (hops: 3) Path: 2 -> 74 -> 66 -> 19
+[PATH_DEBUG] Host 2 -> Host 20 (hops: 3) Path: 2 -> 74 -> 66 -> 20
+[PATH_DEBUG] Host 2 -> Host 21 (hops: 3) Path: 2 -> 74 -> 66 -> 21
+[PATH_DEBUG] Host 2 -> Host 22 (hops: 3) Path: 2 -> 74 -> 66 -> 22
+[PATH_DEBUG] Host 2 -> Host 23 (hops: 3) Path: 2 -> 74 -> 66 -> 23
+[PATH_DEBUG] Host 2 -> Host 24 (hops: 3) Path: 2 -> 64 -> 72 -> 24
+[PATH_DEBUG] Host 2 -> Host 25 (hops: 4) Path: 2 -> 74 -> 82 -> 73 -> 25
+[PATH_DEBUG] Host 2 -> Host 26 (hops: 2) Path: 2 -> 74 -> 26
+[PATH_DEBUG] Host 2 -> Host 27 (hops: 4) Path: 2 -> 74 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 2 -> Host 28 (hops: 5) Path: 2 -> 64 -> 72 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 2 -> Host 29 (hops: 4) Path: 2 -> 74 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 2 -> Host 30 (hops: 4) Path: 2 -> 74 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 2 -> Host 31 (hops: 4) Path: 2 -> 74 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 2 -> Host 32 (hops: 3) Path: 2 -> 64 -> 72 -> 32
+[PATH_DEBUG] Host 2 -> Host 33 (hops: 4) Path: 2 -> 74 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 2 -> Host 34 (hops: 2) Path: 2 -> 74 -> 34
+[PATH_DEBUG] Host 2 -> Host 35 (hops: 4) Path: 2 -> 74 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 2 -> Host 36 (hops: 5) Path: 2 -> 64 -> 72 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 2 -> Host 37 (hops: 4) Path: 2 -> 74 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 2 -> Host 38 (hops: 4) Path: 2 -> 74 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 2 -> Host 39 (hops: 4) Path: 2 -> 74 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 2 -> Host 40 (hops: 3) Path: 2 -> 64 -> 72 -> 40
+[PATH_DEBUG] Host 2 -> Host 41 (hops: 4) Path: 2 -> 74 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 2 -> Host 42 (hops: 2) Path: 2 -> 74 -> 42
+[PATH_DEBUG] Host 2 -> Host 43 (hops: 4) Path: 2 -> 74 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 2 -> Host 44 (hops: 5) Path: 2 -> 64 -> 72 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 2 -> Host 45 (hops: 4) Path: 2 -> 74 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 2 -> Host 46 (hops: 4) Path: 2 -> 74 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 2 -> Host 47 (hops: 4) Path: 2 -> 74 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 2 -> Host 48 (hops: 3) Path: 2 -> 64 -> 72 -> 48
+[PATH_DEBUG] Host 2 -> Host 49 (hops: 4) Path: 2 -> 74 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 2 -> Host 50 (hops: 2) Path: 2 -> 74 -> 50
+[PATH_DEBUG] Host 2 -> Host 51 (hops: 4) Path: 2 -> 74 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 2 -> Host 52 (hops: 5) Path: 2 -> 64 -> 72 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 2 -> Host 53 (hops: 4) Path: 2 -> 74 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 2 -> Host 54 (hops: 4) Path: 2 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 2 -> Host 55 (hops: 4) Path: 2 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 2 -> Host 56 (hops: 3) Path: 2 -> 64 -> 72 -> 56
+[PATH_DEBUG] Host 2 -> Host 57 (hops: 4) Path: 2 -> 74 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 2 -> Host 58 (hops: 2) Path: 2 -> 74 -> 58
+[PATH_DEBUG] Host 2 -> Host 59 (hops: 4) Path: 2 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 2 -> Host 60 (hops: 5) Path: 2 -> 64 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 2 -> Host 61 (hops: 4) Path: 2 -> 74 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 2 -> Host 62 (hops: 4) Path: 2 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 2 -> Host 63 (hops: 4) Path: 2 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 2 -> Host 3 (hops: 2) Path: 2 -> 64 -> 3
+[PATH_DEBUG] Host 2 -> Host 4 (hops: 2) Path: 2 -> 64 -> 4
+[PATH_DEBUG] Host 2 -> Host 5 (hops: 2) Path: 2 -> 64 -> 5
+[PATH_DEBUG] Host 2 -> Host 6 (hops: 2) Path: 2 -> 64 -> 6
+[PATH_DEBUG] Host 2 -> Host 7 (hops: 2) Path: 2 -> 64 -> 7
+[PATH_DEBUG] Host 2 -> Host 8 (hops: 3) Path: 2 -> 64 -> 72 -> 8
+[PATH_DEBUG] Host 2 -> Host 18 (hops: 2) Path: 2 -> 74 -> 18
+[PATH_DEBUG] Host 2 -> Host 17 (hops: 3) Path: 2 -> 74 -> 66 -> 17
+[PATH_DEBUG] Host 2 -> Host 9 (hops: 4) Path: 2 -> 74 -> 82 -> 73 -> 9
+[PATH_DEBUG] Host 2 -> Host 10 (hops: 2) Path: 2 -> 74 -> 10
+[PATH_DEBUG] Host 2 -> Host 11 (hops: 4) Path: 2 -> 74 -> 83 -> 75 -> 11
+[PATH_DEBUG] Host 2 -> Host 12 (hops: 5) Path: 2 -> 64 -> 72 -> 81 -> 76 -> 12
+[PATH_DEBUG] Host 2 -> Host 13 (hops: 4) Path: 2 -> 74 -> 82 -> 77 -> 13
+[PATH_DEBUG] Host 2 -> Host 14 (hops: 4) Path: 2 -> 74 -> 83 -> 78 -> 14
+[PATH_DEBUG] Host 2 -> Host 15 (hops: 4) Path: 2 -> 74 -> 83 -> 79 -> 15
+[PATH_DEBUG] Host 3 -> Host 16 (hops: 3) Path: 3 -> 64 -> 72 -> 16
+[PATH_DEBUG] Host 3 -> Host 19 (hops: 2) Path: 3 -> 75 -> 19
+[PATH_DEBUG] Host 3 -> Host 20 (hops: 4) Path: 3 -> 75 -> 80 -> 76 -> 20
+[PATH_DEBUG] Host 3 -> Host 21 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 77 -> 21
+[PATH_DEBUG] Host 3 -> Host 22 (hops: 4) Path: 3 -> 75 -> 83 -> 78 -> 22
+[PATH_DEBUG] Host 3 -> Host 23 (hops: 4) Path: 3 -> 75 -> 83 -> 79 -> 23
+[PATH_DEBUG] Host 3 -> Host 24 (hops: 3) Path: 3 -> 64 -> 72 -> 24
+[PATH_DEBUG] Host 3 -> Host 25 (hops: 3) Path: 3 -> 75 -> 67 -> 25
+[PATH_DEBUG] Host 3 -> Host 26 (hops: 3) Path: 3 -> 75 -> 67 -> 26
+[PATH_DEBUG] Host 3 -> Host 27 (hops: 2) Path: 3 -> 75 -> 27
+[PATH_DEBUG] Host 3 -> Host 28 (hops: 3) Path: 3 -> 75 -> 67 -> 28
+[PATH_DEBUG] Host 3 -> Host 29 (hops: 3) Path: 3 -> 75 -> 67 -> 29
+[PATH_DEBUG] Host 3 -> Host 30 (hops: 3) Path: 3 -> 75 -> 67 -> 30
+[PATH_DEBUG] Host 3 -> Host 31 (hops: 3) Path: 3 -> 75 -> 67 -> 31
+[PATH_DEBUG] Host 3 -> Host 32 (hops: 3) Path: 3 -> 64 -> 72 -> 32
+[PATH_DEBUG] Host 3 -> Host 33 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 73 -> 33
+[PATH_DEBUG] Host 3 -> Host 34 (hops: 4) Path: 3 -> 75 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 3 -> Host 35 (hops: 2) Path: 3 -> 75 -> 35
+[PATH_DEBUG] Host 3 -> Host 36 (hops: 4) Path: 3 -> 75 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 3 -> Host 37 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 77 -> 37
+[PATH_DEBUG] Host 3 -> Host 38 (hops: 4) Path: 3 -> 75 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 3 -> Host 39 (hops: 4) Path: 3 -> 75 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 3 -> Host 40 (hops: 3) Path: 3 -> 64 -> 72 -> 40
+[PATH_DEBUG] Host 3 -> Host 41 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 3 -> Host 42 (hops: 4) Path: 3 -> 75 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 3 -> Host 43 (hops: 2) Path: 3 -> 75 -> 43
+[PATH_DEBUG] Host 3 -> Host 44 (hops: 4) Path: 3 -> 75 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 3 -> Host 45 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 3 -> Host 46 (hops: 4) Path: 3 -> 75 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 3 -> Host 47 (hops: 4) Path: 3 -> 75 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 3 -> Host 48 (hops: 3) Path: 3 -> 64 -> 72 -> 48
+[PATH_DEBUG] Host 3 -> Host 49 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 3 -> Host 50 (hops: 4) Path: 3 -> 75 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 3 -> Host 51 (hops: 2) Path: 3 -> 75 -> 51
+[PATH_DEBUG] Host 3 -> Host 52 (hops: 4) Path: 3 -> 75 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 3 -> Host 53 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 3 -> Host 54 (hops: 4) Path: 3 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 3 -> Host 55 (hops: 4) Path: 3 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 3 -> Host 56 (hops: 3) Path: 3 -> 64 -> 72 -> 56
+[PATH_DEBUG] Host 3 -> Host 57 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 3 -> Host 58 (hops: 4) Path: 3 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 3 -> Host 59 (hops: 2) Path: 3 -> 75 -> 59
+[PATH_DEBUG] Host 3 -> Host 60 (hops: 4) Path: 3 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 3 -> Host 61 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 3 -> Host 62 (hops: 4) Path: 3 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 3 -> Host 63 (hops: 4) Path: 3 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 3 -> Host 4 (hops: 2) Path: 3 -> 64 -> 4
+[PATH_DEBUG] Host 3 -> Host 5 (hops: 2) Path: 3 -> 64 -> 5
+[PATH_DEBUG] Host 3 -> Host 6 (hops: 2) Path: 3 -> 64 -> 6
+[PATH_DEBUG] Host 3 -> Host 7 (hops: 2) Path: 3 -> 64 -> 7
+[PATH_DEBUG] Host 3 -> Host 8 (hops: 3) Path: 3 -> 64 -> 72 -> 8
+[PATH_DEBUG] Host 3 -> Host 18 (hops: 4) Path: 3 -> 75 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 3 -> Host 17 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 73 -> 17
+[PATH_DEBUG] Host 3 -> Host 9 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 73 -> 9
+[PATH_DEBUG] Host 3 -> Host 10 (hops: 4) Path: 3 -> 75 -> 83 -> 74 -> 10
+[PATH_DEBUG] Host 3 -> Host 11 (hops: 2) Path: 3 -> 75 -> 11
+[PATH_DEBUG] Host 3 -> Host 12 (hops: 4) Path: 3 -> 75 -> 80 -> 76 -> 12
+[PATH_DEBUG] Host 3 -> Host 13 (hops: 5) Path: 3 -> 64 -> 72 -> 81 -> 77 -> 13
+[PATH_DEBUG] Host 3 -> Host 14 (hops: 4) Path: 3 -> 75 -> 83 -> 78 -> 14
+[PATH_DEBUG] Host 3 -> Host 15 (hops: 4) Path: 3 -> 75 -> 83 -> 79 -> 15
+[PATH_DEBUG] Host 4 -> Host 16 (hops: 3) Path: 4 -> 64 -> 72 -> 16
+[PATH_DEBUG] Host 4 -> Host 19 (hops: 4) Path: 4 -> 76 -> 80 -> 75 -> 19
+[PATH_DEBUG] Host 4 -> Host 20 (hops: 2) Path: 4 -> 76 -> 20
+[PATH_DEBUG] Host 4 -> Host 21 (hops: 4) Path: 4 -> 76 -> 81 -> 77 -> 21
+[PATH_DEBUG] Host 4 -> Host 22 (hops: 6) Path: 4 -> 76 -> 81 -> 85 -> 83 -> 78 -> 22
+[PATH_DEBUG] Host 4 -> Host 23 (hops: 4) Path: 4 -> 76 -> 80 -> 79 -> 23
+[PATH_DEBUG] Host 4 -> Host 24 (hops: 3) Path: 4 -> 64 -> 72 -> 24
+[PATH_DEBUG] Host 4 -> Host 25 (hops: 4) Path: 4 -> 76 -> 81 -> 73 -> 25
+[PATH_DEBUG] Host 4 -> Host 26 (hops: 5) Path: 4 -> 76 -> 80 -> 75 -> 67 -> 26
+[PATH_DEBUG] Host 4 -> Host 27 (hops: 4) Path: 4 -> 76 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 4 -> Host 28 (hops: 2) Path: 4 -> 76 -> 28
+[PATH_DEBUG] Host 4 -> Host 29 (hops: 4) Path: 4 -> 76 -> 81 -> 77 -> 29
+[PATH_DEBUG] Host 4 -> Host 30 (hops: 5) Path: 4 -> 76 -> 80 -> 75 -> 67 -> 30
+[PATH_DEBUG] Host 4 -> Host 31 (hops: 4) Path: 4 -> 76 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 4 -> Host 32 (hops: 3) Path: 4 -> 64 -> 72 -> 32
+[PATH_DEBUG] Host 4 -> Host 33 (hops: 3) Path: 4 -> 76 -> 68 -> 33
+[PATH_DEBUG] Host 4 -> Host 34 (hops: 3) Path: 4 -> 76 -> 68 -> 34
+[PATH_DEBUG] Host 4 -> Host 35 (hops: 3) Path: 4 -> 76 -> 68 -> 35
+[PATH_DEBUG] Host 4 -> Host 36 (hops: 2) Path: 4 -> 76 -> 36
+[PATH_DEBUG] Host 4 -> Host 37 (hops: 3) Path: 4 -> 76 -> 68 -> 37
+[PATH_DEBUG] Host 4 -> Host 38 (hops: 3) Path: 4 -> 76 -> 68 -> 38
+[PATH_DEBUG] Host 4 -> Host 39 (hops: 3) Path: 4 -> 76 -> 68 -> 39
+[PATH_DEBUG] Host 4 -> Host 40 (hops: 3) Path: 4 -> 64 -> 72 -> 40
+[PATH_DEBUG] Host 4 -> Host 41 (hops: 4) Path: 4 -> 76 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 4 -> Host 42 (hops: 5) Path: 4 -> 76 -> 81 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 4 -> Host 43 (hops: 4) Path: 4 -> 76 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 4 -> Host 44 (hops: 2) Path: 4 -> 76 -> 44
+[PATH_DEBUG] Host 4 -> Host 45 (hops: 4) Path: 4 -> 76 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 4 -> Host 46 (hops: 5) Path: 4 -> 76 -> 81 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 4 -> Host 47 (hops: 4) Path: 4 -> 76 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 4 -> Host 48 (hops: 3) Path: 4 -> 64 -> 72 -> 48
+[PATH_DEBUG] Host 4 -> Host 49 (hops: 4) Path: 4 -> 76 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 4 -> Host 50 (hops: 6) Path: 4 -> 76 -> 81 -> 85 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 4 -> Host 51 (hops: 4) Path: 4 -> 76 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 4 -> Host 52 (hops: 2) Path: 4 -> 76 -> 52
+[PATH_DEBUG] Host 4 -> Host 53 (hops: 4) Path: 4 -> 76 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 4 -> Host 54 (hops: 6) Path: 4 -> 76 -> 81 -> 85 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 4 -> Host 55 (hops: 4) Path: 4 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 4 -> Host 56 (hops: 3) Path: 4 -> 64 -> 72 -> 56
+[PATH_DEBUG] Host 4 -> Host 57 (hops: 4) Path: 4 -> 76 -> 81 -> 73 -> 57
+[PATH_DEBUG] Host 4 -> Host 58 (hops: 5) Path: 4 -> 76 -> 80 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 4 -> Host 59 (hops: 4) Path: 4 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 4 -> Host 60 (hops: 2) Path: 4 -> 76 -> 60
+[PATH_DEBUG] Host 4 -> Host 61 (hops: 4) Path: 4 -> 76 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 4 -> Host 62 (hops: 5) Path: 4 -> 76 -> 80 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 4 -> Host 63 (hops: 4) Path: 4 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 4 -> Host 5 (hops: 2) Path: 4 -> 64 -> 5
+[PATH_DEBUG] Host 4 -> Host 6 (hops: 2) Path: 4 -> 64 -> 6
+[PATH_DEBUG] Host 4 -> Host 7 (hops: 2) Path: 4 -> 64 -> 7
+[PATH_DEBUG] Host 4 -> Host 8 (hops: 3) Path: 4 -> 64 -> 72 -> 8
+[PATH_DEBUG] Host 4 -> Host 18 (hops: 6) Path: 4 -> 76 -> 81 -> 85 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 4 -> Host 17 (hops: 4) Path: 4 -> 76 -> 81 -> 73 -> 17
+[PATH_DEBUG] Host 4 -> Host 9 (hops: 4) Path: 4 -> 76 -> 81 -> 73 -> 9
+[PATH_DEBUG] Host 4 -> Host 10 (hops: 5) Path: 4 -> 76 -> 81 -> 73 -> 65 -> 10
+[PATH_DEBUG] Host 4 -> Host 11 (hops: 4) Path: 4 -> 76 -> 80 -> 75 -> 11
+[PATH_DEBUG] Host 4 -> Host 12 (hops: 2) Path: 4 -> 76 -> 12
+[PATH_DEBUG] Host 4 -> Host 13 (hops: 4) Path: 4 -> 76 -> 81 -> 77 -> 13
+[PATH_DEBUG] Host 4 -> Host 14 (hops: 5) Path: 4 -> 76 -> 81 -> 73 -> 65 -> 14
+[PATH_DEBUG] Host 4 -> Host 15 (hops: 4) Path: 4 -> 76 -> 80 -> 79 -> 15
+[PATH_DEBUG] Host 5 -> Host 16 (hops: 3) Path: 5 -> 64 -> 72 -> 16
+[PATH_DEBUG] Host 5 -> Host 19 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 75 -> 19
+[PATH_DEBUG] Host 5 -> Host 20 (hops: 4) Path: 5 -> 77 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 5 -> Host 21 (hops: 2) Path: 5 -> 77 -> 21
+[PATH_DEBUG] Host 5 -> Host 22 (hops: 4) Path: 5 -> 77 -> 82 -> 78 -> 22
+[PATH_DEBUG] Host 5 -> Host 23 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 79 -> 23
+[PATH_DEBUG] Host 5 -> Host 24 (hops: 3) Path: 5 -> 64 -> 72 -> 24
+[PATH_DEBUG] Host 5 -> Host 25 (hops: 4) Path: 5 -> 77 -> 82 -> 73 -> 25
+[PATH_DEBUG] Host 5 -> Host 26 (hops: 4) Path: 5 -> 77 -> 82 -> 74 -> 26
+[PATH_DEBUG] Host 5 -> Host 27 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 5 -> Host 28 (hops: 4) Path: 5 -> 77 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 5 -> Host 29 (hops: 2) Path: 5 -> 77 -> 29
+[PATH_DEBUG] Host 5 -> Host 30 (hops: 4) Path: 5 -> 77 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 5 -> Host 31 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 5 -> Host 32 (hops: 3) Path: 5 -> 64 -> 72 -> 32
+[PATH_DEBUG] Host 5 -> Host 33 (hops: 4) Path: 5 -> 77 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 5 -> Host 34 (hops: 4) Path: 5 -> 77 -> 82 -> 74 -> 34
+[PATH_DEBUG] Host 5 -> Host 35 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 75 -> 35
+[PATH_DEBUG] Host 5 -> Host 36 (hops: 4) Path: 5 -> 77 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 5 -> Host 37 (hops: 2) Path: 5 -> 77 -> 37
+[PATH_DEBUG] Host 5 -> Host 38 (hops: 4) Path: 5 -> 77 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 5 -> Host 39 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 79 -> 39
+[PATH_DEBUG] Host 5 -> Host 40 (hops: 3) Path: 5 -> 64 -> 72 -> 40
+[PATH_DEBUG] Host 5 -> Host 41 (hops: 3) Path: 5 -> 77 -> 69 -> 41
+[PATH_DEBUG] Host 5 -> Host 42 (hops: 3) Path: 5 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 5 -> Host 43 (hops: 3) Path: 5 -> 77 -> 69 -> 43
+[PATH_DEBUG] Host 5 -> Host 44 (hops: 3) Path: 5 -> 77 -> 69 -> 44
+[PATH_DEBUG] Host 5 -> Host 45 (hops: 2) Path: 5 -> 77 -> 45
+[PATH_DEBUG] Host 5 -> Host 46 (hops: 3) Path: 5 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 5 -> Host 47 (hops: 3) Path: 5 -> 77 -> 69 -> 47
+[PATH_DEBUG] Host 5 -> Host 48 (hops: 3) Path: 5 -> 64 -> 72 -> 48
+[PATH_DEBUG] Host 5 -> Host 49 (hops: 4) Path: 5 -> 77 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 5 -> Host 50 (hops: 4) Path: 5 -> 77 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 5 -> Host 51 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 5 -> Host 52 (hops: 4) Path: 5 -> 77 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 5 -> Host 53 (hops: 2) Path: 5 -> 77 -> 53
+[PATH_DEBUG] Host 5 -> Host 54 (hops: 4) Path: 5 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 5 -> Host 55 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 5 -> Host 56 (hops: 3) Path: 5 -> 64 -> 72 -> 56
+[PATH_DEBUG] Host 5 -> Host 57 (hops: 4) Path: 5 -> 77 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 5 -> Host 58 (hops: 4) Path: 5 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 5 -> Host 59 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 5 -> Host 60 (hops: 4) Path: 5 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 5 -> Host 61 (hops: 2) Path: 5 -> 77 -> 61
+[PATH_DEBUG] Host 5 -> Host 62 (hops: 4) Path: 5 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 5 -> Host 63 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 5 -> Host 6 (hops: 2) Path: 5 -> 64 -> 6
+[PATH_DEBUG] Host 5 -> Host 7 (hops: 2) Path: 5 -> 64 -> 7
+[PATH_DEBUG] Host 5 -> Host 8 (hops: 3) Path: 5 -> 64 -> 72 -> 8
+[PATH_DEBUG] Host 5 -> Host 18 (hops: 4) Path: 5 -> 77 -> 82 -> 74 -> 18
+[PATH_DEBUG] Host 5 -> Host 17 (hops: 4) Path: 5 -> 77 -> 82 -> 73 -> 17
+[PATH_DEBUG] Host 5 -> Host 9 (hops: 4) Path: 5 -> 77 -> 82 -> 73 -> 9
+[PATH_DEBUG] Host 5 -> Host 10 (hops: 4) Path: 5 -> 77 -> 82 -> 74 -> 10
+[PATH_DEBUG] Host 5 -> Host 11 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 75 -> 11
+[PATH_DEBUG] Host 5 -> Host 12 (hops: 4) Path: 5 -> 77 -> 81 -> 76 -> 12
+[PATH_DEBUG] Host 5 -> Host 13 (hops: 2) Path: 5 -> 77 -> 13
+[PATH_DEBUG] Host 5 -> Host 14 (hops: 4) Path: 5 -> 77 -> 82 -> 78 -> 14
+[PATH_DEBUG] Host 5 -> Host 15 (hops: 5) Path: 5 -> 64 -> 72 -> 80 -> 79 -> 15
+[PATH_DEBUG] Host 6 -> Host 16 (hops: 3) Path: 6 -> 64 -> 72 -> 16
+[PATH_DEBUG] Host 6 -> Host 19 (hops: 4) Path: 6 -> 78 -> 83 -> 75 -> 19
+[PATH_DEBUG] Host 6 -> Host 20 (hops: 5) Path: 6 -> 64 -> 72 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 6 -> Host 21 (hops: 4) Path: 6 -> 78 -> 82 -> 77 -> 21
+[PATH_DEBUG] Host 6 -> Host 22 (hops: 2) Path: 6 -> 78 -> 22
+[PATH_DEBUG] Host 6 -> Host 23 (hops: 4) Path: 6 -> 78 -> 83 -> 79 -> 23
+[PATH_DEBUG] Host 6 -> Host 24 (hops: 3) Path: 6 -> 64 -> 72 -> 24
+[PATH_DEBUG] Host 6 -> Host 25 (hops: 4) Path: 6 -> 78 -> 82 -> 73 -> 25
+[PATH_DEBUG] Host 6 -> Host 26 (hops: 4) Path: 6 -> 78 -> 83 -> 74 -> 26
+[PATH_DEBUG] Host 6 -> Host 27 (hops: 4) Path: 6 -> 78 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 6 -> Host 28 (hops: 5) Path: 6 -> 64 -> 72 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 6 -> Host 29 (hops: 4) Path: 6 -> 78 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 6 -> Host 30 (hops: 2) Path: 6 -> 78 -> 30
+[PATH_DEBUG] Host 6 -> Host 31 (hops: 4) Path: 6 -> 78 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 6 -> Host 32 (hops: 3) Path: 6 -> 64 -> 72 -> 32
+[PATH_DEBUG] Host 6 -> Host 33 (hops: 4) Path: 6 -> 78 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 6 -> Host 34 (hops: 4) Path: 6 -> 78 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 6 -> Host 35 (hops: 4) Path: 6 -> 78 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 6 -> Host 36 (hops: 5) Path: 6 -> 64 -> 72 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 6 -> Host 37 (hops: 4) Path: 6 -> 78 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 6 -> Host 38 (hops: 2) Path: 6 -> 78 -> 38
+[PATH_DEBUG] Host 6 -> Host 39 (hops: 4) Path: 6 -> 78 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 6 -> Host 40 (hops: 3) Path: 6 -> 64 -> 72 -> 40
+[PATH_DEBUG] Host 6 -> Host 41 (hops: 4) Path: 6 -> 78 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 6 -> Host 42 (hops: 4) Path: 6 -> 78 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 6 -> Host 43 (hops: 4) Path: 6 -> 78 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 6 -> Host 44 (hops: 5) Path: 6 -> 64 -> 72 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 6 -> Host 45 (hops: 4) Path: 6 -> 78 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 6 -> Host 46 (hops: 2) Path: 6 -> 78 -> 46
+[PATH_DEBUG] Host 6 -> Host 47 (hops: 4) Path: 6 -> 78 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 6 -> Host 48 (hops: 3) Path: 6 -> 64 -> 72 -> 48
+[PATH_DEBUG] Host 6 -> Host 49 (hops: 3) Path: 6 -> 78 -> 70 -> 49
+[PATH_DEBUG] Host 6 -> Host 50 (hops: 3) Path: 6 -> 78 -> 70 -> 50
+[PATH_DEBUG] Host 6 -> Host 51 (hops: 3) Path: 6 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 6 -> Host 52 (hops: 3) Path: 6 -> 78 -> 70 -> 52
+[PATH_DEBUG] Host 6 -> Host 53 (hops: 3) Path: 6 -> 78 -> 70 -> 53
+[PATH_DEBUG] Host 6 -> Host 54 (hops: 2) Path: 6 -> 78 -> 54
+[PATH_DEBUG] Host 6 -> Host 55 (hops: 3) Path: 6 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 6 -> Host 56 (hops: 3) Path: 6 -> 64 -> 72 -> 56
+[PATH_DEBUG] Host 6 -> Host 57 (hops: 4) Path: 6 -> 78 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 6 -> Host 58 (hops: 4) Path: 6 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 6 -> Host 59 (hops: 4) Path: 6 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 6 -> Host 60 (hops: 5) Path: 6 -> 64 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 6 -> Host 61 (hops: 4) Path: 6 -> 78 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 6 -> Host 62 (hops: 2) Path: 6 -> 78 -> 62
+[PATH_DEBUG] Host 6 -> Host 63 (hops: 4) Path: 6 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 6 -> Host 7 (hops: 2) Path: 6 -> 64 -> 7
+[PATH_DEBUG] Host 6 -> Host 8 (hops: 3) Path: 6 -> 64 -> 72 -> 8
+[PATH_DEBUG] Host 6 -> Host 18 (hops: 4) Path: 6 -> 78 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 6 -> Host 17 (hops: 4) Path: 6 -> 78 -> 82 -> 73 -> 17
+[PATH_DEBUG] Host 6 -> Host 9 (hops: 4) Path: 6 -> 78 -> 82 -> 73 -> 9
+[PATH_DEBUG] Host 6 -> Host 10 (hops: 4) Path: 6 -> 78 -> 83 -> 74 -> 10
+[PATH_DEBUG] Host 6 -> Host 11 (hops: 4) Path: 6 -> 78 -> 83 -> 75 -> 11
+[PATH_DEBUG] Host 6 -> Host 12 (hops: 5) Path: 6 -> 64 -> 72 -> 81 -> 76 -> 12
+[PATH_DEBUG] Host 6 -> Host 13 (hops: 4) Path: 6 -> 78 -> 82 -> 77 -> 13
+[PATH_DEBUG] Host 6 -> Host 14 (hops: 2) Path: 6 -> 78 -> 14
+[PATH_DEBUG] Host 6 -> Host 15 (hops: 4) Path: 6 -> 78 -> 83 -> 79 -> 15
+[PATH_DEBUG] Host 7 -> Host 16 (hops: 3) Path: 7 -> 64 -> 72 -> 16
+[PATH_DEBUG] Host 7 -> Host 19 (hops: 4) Path: 7 -> 79 -> 83 -> 75 -> 19
+[PATH_DEBUG] Host 7 -> Host 20 (hops: 4) Path: 7 -> 79 -> 80 -> 76 -> 20
+[PATH_DEBUG] Host 7 -> Host 21 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 77 -> 21
+[PATH_DEBUG] Host 7 -> Host 22 (hops: 4) Path: 7 -> 79 -> 83 -> 78 -> 22
+[PATH_DEBUG] Host 7 -> Host 23 (hops: 2) Path: 7 -> 79 -> 23
+[PATH_DEBUG] Host 7 -> Host 24 (hops: 3) Path: 7 -> 64 -> 72 -> 24
+[PATH_DEBUG] Host 7 -> Host 25 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 73 -> 25
+[PATH_DEBUG] Host 7 -> Host 26 (hops: 4) Path: 7 -> 79 -> 83 -> 74 -> 26
+[PATH_DEBUG] Host 7 -> Host 27 (hops: 4) Path: 7 -> 79 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 7 -> Host 28 (hops: 4) Path: 7 -> 79 -> 80 -> 76 -> 28
+[PATH_DEBUG] Host 7 -> Host 29 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 77 -> 29
+[PATH_DEBUG] Host 7 -> Host 30 (hops: 4) Path: 7 -> 79 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 7 -> Host 31 (hops: 2) Path: 7 -> 79 -> 31
+[PATH_DEBUG] Host 7 -> Host 32 (hops: 3) Path: 7 -> 64 -> 72 -> 32
+[PATH_DEBUG] Host 7 -> Host 33 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 73 -> 33
+[PATH_DEBUG] Host 7 -> Host 34 (hops: 4) Path: 7 -> 79 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 7 -> Host 35 (hops: 4) Path: 7 -> 79 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 7 -> Host 36 (hops: 4) Path: 7 -> 79 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 7 -> Host 37 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 77 -> 37
+[PATH_DEBUG] Host 7 -> Host 38 (hops: 4) Path: 7 -> 79 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 7 -> Host 39 (hops: 2) Path: 7 -> 79 -> 39
+[PATH_DEBUG] Host 7 -> Host 40 (hops: 3) Path: 7 -> 64 -> 72 -> 40
+[PATH_DEBUG] Host 7 -> Host 41 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 73 -> 41
+[PATH_DEBUG] Host 7 -> Host 42 (hops: 4) Path: 7 -> 79 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 7 -> Host 43 (hops: 4) Path: 7 -> 79 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 7 -> Host 44 (hops: 4) Path: 7 -> 79 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 7 -> Host 45 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 7 -> Host 46 (hops: 4) Path: 7 -> 79 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 7 -> Host 47 (hops: 2) Path: 7 -> 79 -> 47
+[PATH_DEBUG] Host 7 -> Host 48 (hops: 3) Path: 7 -> 64 -> 72 -> 48
+[PATH_DEBUG] Host 7 -> Host 49 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 73 -> 49
+[PATH_DEBUG] Host 7 -> Host 50 (hops: 4) Path: 7 -> 79 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 7 -> Host 51 (hops: 4) Path: 7 -> 79 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 7 -> Host 52 (hops: 4) Path: 7 -> 79 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 7 -> Host 53 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 7 -> Host 54 (hops: 4) Path: 7 -> 79 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 7 -> Host 55 (hops: 2) Path: 7 -> 79 -> 55
+[PATH_DEBUG] Host 7 -> Host 56 (hops: 3) Path: 7 -> 64 -> 72 -> 56
+[PATH_DEBUG] Host 7 -> Host 57 (hops: 3) Path: 7 -> 79 -> 71 -> 57
+[PATH_DEBUG] Host 7 -> Host 58 (hops: 3) Path: 7 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 7 -> Host 59 (hops: 3) Path: 7 -> 79 -> 71 -> 59
+[PATH_DEBUG] Host 7 -> Host 60 (hops: 3) Path: 7 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 7 -> Host 61 (hops: 3) Path: 7 -> 79 -> 71 -> 61
+[PATH_DEBUG] Host 7 -> Host 62 (hops: 3) Path: 7 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 7 -> Host 63 (hops: 2) Path: 7 -> 79 -> 63
+[PATH_DEBUG] Host 7 -> Host 8 (hops: 3) Path: 7 -> 64 -> 72 -> 8
+[PATH_DEBUG] Host 7 -> Host 18 (hops: 4) Path: 7 -> 79 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 7 -> Host 17 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 73 -> 17
+[PATH_DEBUG] Host 7 -> Host 9 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 73 -> 9
+[PATH_DEBUG] Host 7 -> Host 10 (hops: 4) Path: 7 -> 79 -> 83 -> 74 -> 10
+[PATH_DEBUG] Host 7 -> Host 11 (hops: 4) Path: 7 -> 79 -> 83 -> 75 -> 11
+[PATH_DEBUG] Host 7 -> Host 12 (hops: 4) Path: 7 -> 79 -> 80 -> 76 -> 12
+[PATH_DEBUG] Host 7 -> Host 13 (hops: 5) Path: 7 -> 64 -> 72 -> 81 -> 77 -> 13
+[PATH_DEBUG] Host 7 -> Host 14 (hops: 4) Path: 7 -> 79 -> 83 -> 78 -> 14
+[PATH_DEBUG] Host 7 -> Host 15 (hops: 2) Path: 7 -> 79 -> 15
+[PATH_DEBUG] Host 8 -> Host 16 (hops: 2) Path: 8 -> 72 -> 16
+[PATH_DEBUG] Host 8 -> Host 19 (hops: 4) Path: 8 -> 72 -> 80 -> 75 -> 19
+[PATH_DEBUG] Host 8 -> Host 20 (hops: 4) Path: 8 -> 72 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 8 -> Host 21 (hops: 4) Path: 8 -> 72 -> 81 -> 77 -> 21
+[PATH_DEBUG] Host 8 -> Host 22 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 78 -> 22
+[PATH_DEBUG] Host 8 -> Host 23 (hops: 4) Path: 8 -> 72 -> 80 -> 79 -> 23
+[PATH_DEBUG] Host 8 -> Host 24 (hops: 2) Path: 8 -> 72 -> 24
+[PATH_DEBUG] Host 8 -> Host 25 (hops: 3) Path: 8 -> 65 -> 73 -> 25
+[PATH_DEBUG] Host 8 -> Host 26 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 74 -> 26
+[PATH_DEBUG] Host 8 -> Host 27 (hops: 4) Path: 8 -> 72 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 8 -> Host 28 (hops: 4) Path: 8 -> 72 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 8 -> Host 29 (hops: 4) Path: 8 -> 72 -> 81 -> 77 -> 29
+[PATH_DEBUG] Host 8 -> Host 30 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 8 -> Host 31 (hops: 4) Path: 8 -> 72 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 8 -> Host 32 (hops: 2) Path: 8 -> 72 -> 32
+[PATH_DEBUG] Host 8 -> Host 33 (hops: 3) Path: 8 -> 65 -> 73 -> 33
+[PATH_DEBUG] Host 8 -> Host 34 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 74 -> 34
+[PATH_DEBUG] Host 8 -> Host 35 (hops: 4) Path: 8 -> 72 -> 80 -> 75 -> 35
+[PATH_DEBUG] Host 8 -> Host 36 (hops: 4) Path: 8 -> 72 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 8 -> Host 37 (hops: 4) Path: 8 -> 72 -> 81 -> 77 -> 37
+[PATH_DEBUG] Host 8 -> Host 38 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 8 -> Host 39 (hops: 4) Path: 8 -> 72 -> 80 -> 79 -> 39
+[PATH_DEBUG] Host 8 -> Host 40 (hops: 2) Path: 8 -> 72 -> 40
+[PATH_DEBUG] Host 8 -> Host 41 (hops: 3) Path: 8 -> 65 -> 73 -> 41
+[PATH_DEBUG] Host 8 -> Host 42 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 74 -> 42
+[PATH_DEBUG] Host 8 -> Host 43 (hops: 4) Path: 8 -> 72 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 8 -> Host 44 (hops: 4) Path: 8 -> 72 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 8 -> Host 45 (hops: 4) Path: 8 -> 72 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 8 -> Host 46 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 78 -> 46
+[PATH_DEBUG] Host 8 -> Host 47 (hops: 4) Path: 8 -> 72 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 8 -> Host 48 (hops: 2) Path: 8 -> 72 -> 48
+[PATH_DEBUG] Host 8 -> Host 49 (hops: 3) Path: 8 -> 65 -> 73 -> 49
+[PATH_DEBUG] Host 8 -> Host 50 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 8 -> Host 51 (hops: 4) Path: 8 -> 72 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 8 -> Host 52 (hops: 4) Path: 8 -> 72 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 8 -> Host 53 (hops: 4) Path: 8 -> 72 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 8 -> Host 54 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 8 -> Host 55 (hops: 4) Path: 8 -> 72 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 8 -> Host 56 (hops: 2) Path: 8 -> 72 -> 56
+[PATH_DEBUG] Host 8 -> Host 57 (hops: 3) Path: 8 -> 65 -> 73 -> 57
+[PATH_DEBUG] Host 8 -> Host 58 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 8 -> Host 59 (hops: 4) Path: 8 -> 72 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 8 -> Host 60 (hops: 4) Path: 8 -> 72 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 8 -> Host 61 (hops: 4) Path: 8 -> 72 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 8 -> Host 62 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 8 -> Host 63 (hops: 4) Path: 8 -> 72 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 8 -> Host 18 (hops: 5) Path: 8 -> 65 -> 73 -> 82 -> 74 -> 18
+[PATH_DEBUG] Host 8 -> Host 17 (hops: 3) Path: 8 -> 65 -> 73 -> 17
+[PATH_DEBUG] Host 8 -> Host 9 (hops: 2) Path: 8 -> 65 -> 9
+[PATH_DEBUG] Host 8 -> Host 10 (hops: 2) Path: 8 -> 65 -> 10
+[PATH_DEBUG] Host 8 -> Host 11 (hops: 2) Path: 8 -> 65 -> 11
+[PATH_DEBUG] Host 8 -> Host 12 (hops: 2) Path: 8 -> 65 -> 12
+[PATH_DEBUG] Host 8 -> Host 13 (hops: 2) Path: 8 -> 65 -> 13
+[PATH_DEBUG] Host 8 -> Host 14 (hops: 2) Path: 8 -> 65 -> 14
+[PATH_DEBUG] Host 8 -> Host 15 (hops: 2) Path: 8 -> 65 -> 15
+[PATH_DEBUG] Host 18 -> Host 19 (hops: 2) Path: 18 -> 66 -> 19
+[PATH_DEBUG] Host 18 -> Host 20 (hops: 2) Path: 18 -> 66 -> 20
+[PATH_DEBUG] Host 18 -> Host 21 (hops: 2) Path: 18 -> 66 -> 21
+[PATH_DEBUG] Host 18 -> Host 22 (hops: 2) Path: 18 -> 66 -> 22
+[PATH_DEBUG] Host 18 -> Host 23 (hops: 2) Path: 18 -> 66 -> 23
+[PATH_DEBUG] Host 18 -> Host 24 (hops: 5) Path: 18 -> 74 -> 83 -> 75 -> 67 -> 24
+[PATH_DEBUG] Host 18 -> Host 25 (hops: 4) Path: 18 -> 74 -> 82 -> 73 -> 25
+[PATH_DEBUG] Host 18 -> Host 26 (hops: 2) Path: 18 -> 74 -> 26
+[PATH_DEBUG] Host 18 -> Host 27 (hops: 4) Path: 18 -> 74 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 18 -> Host 28 (hops: 5) Path: 18 -> 74 -> 83 -> 75 -> 67 -> 28
+[PATH_DEBUG] Host 18 -> Host 29 (hops: 4) Path: 18 -> 74 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 18 -> Host 30 (hops: 4) Path: 18 -> 74 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 18 -> Host 31 (hops: 4) Path: 18 -> 74 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 18 -> Host 32 (hops: 6) Path: 18 -> 74 -> 83 -> 85 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 18 -> Host 33 (hops: 4) Path: 18 -> 74 -> 82 -> 73 -> 33
+[PATH_DEBUG] Host 18 -> Host 34 (hops: 2) Path: 18 -> 74 -> 34
+[PATH_DEBUG] Host 18 -> Host 35 (hops: 4) Path: 18 -> 74 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 18 -> Host 36 (hops: 6) Path: 18 -> 74 -> 83 -> 85 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 18 -> Host 37 (hops: 4) Path: 18 -> 74 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 18 -> Host 38 (hops: 4) Path: 18 -> 74 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 18 -> Host 39 (hops: 4) Path: 18 -> 74 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 18 -> Host 40 (hops: 5) Path: 18 -> 74 -> 82 -> 77 -> 69 -> 40
+[PATH_DEBUG] Host 18 -> Host 41 (hops: 4) Path: 18 -> 74 -> 82 -> 73 -> 41
+[PATH_DEBUG] Host 18 -> Host 42 (hops: 2) Path: 18 -> 74 -> 42
+[PATH_DEBUG] Host 18 -> Host 43 (hops: 4) Path: 18 -> 74 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 18 -> Host 44 (hops: 5) Path: 18 -> 74 -> 82 -> 77 -> 69 -> 44
+[PATH_DEBUG] Host 18 -> Host 45 (hops: 4) Path: 18 -> 74 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 18 -> Host 46 (hops: 4) Path: 18 -> 74 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 18 -> Host 47 (hops: 4) Path: 18 -> 74 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 18 -> Host 48 (hops: 5) Path: 18 -> 74 -> 83 -> 78 -> 70 -> 48
+[PATH_DEBUG] Host 18 -> Host 49 (hops: 4) Path: 18 -> 74 -> 82 -> 73 -> 49
+[PATH_DEBUG] Host 18 -> Host 50 (hops: 2) Path: 18 -> 74 -> 50
+[PATH_DEBUG] Host 18 -> Host 51 (hops: 4) Path: 18 -> 74 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 18 -> Host 52 (hops: 5) Path: 18 -> 74 -> 83 -> 78 -> 70 -> 52
+[PATH_DEBUG] Host 18 -> Host 53 (hops: 4) Path: 18 -> 74 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 18 -> Host 54 (hops: 4) Path: 18 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 18 -> Host 55 (hops: 4) Path: 18 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 18 -> Host 56 (hops: 5) Path: 18 -> 74 -> 83 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 18 -> Host 57 (hops: 4) Path: 18 -> 74 -> 82 -> 73 -> 57
+[PATH_DEBUG] Host 18 -> Host 58 (hops: 2) Path: 18 -> 74 -> 58
+[PATH_DEBUG] Host 18 -> Host 59 (hops: 4) Path: 18 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 18 -> Host 60 (hops: 5) Path: 18 -> 74 -> 83 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 18 -> Host 61 (hops: 4) Path: 18 -> 74 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 18 -> Host 62 (hops: 4) Path: 18 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 18 -> Host 63 (hops: 4) Path: 18 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 17 -> Host 19 (hops: 2) Path: 17 -> 66 -> 19
+[PATH_DEBUG] Host 17 -> Host 20 (hops: 2) Path: 17 -> 66 -> 20
+[PATH_DEBUG] Host 17 -> Host 21 (hops: 2) Path: 17 -> 66 -> 21
+[PATH_DEBUG] Host 17 -> Host 22 (hops: 2) Path: 17 -> 66 -> 22
+[PATH_DEBUG] Host 17 -> Host 23 (hops: 2) Path: 17 -> 66 -> 23
+[PATH_DEBUG] Host 17 -> Host 24 (hops: 4) Path: 17 -> 73 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 17 -> Host 25 (hops: 2) Path: 17 -> 73 -> 25
+[PATH_DEBUG] Host 17 -> Host 26 (hops: 3) Path: 17 -> 66 -> 74 -> 26
+[PATH_DEBUG] Host 17 -> Host 27 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 17 -> Host 28 (hops: 4) Path: 17 -> 73 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 17 -> Host 29 (hops: 4) Path: 17 -> 73 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 17 -> Host 30 (hops: 4) Path: 17 -> 73 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 17 -> Host 31 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 17 -> Host 32 (hops: 4) Path: 17 -> 73 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 17 -> Host 33 (hops: 2) Path: 17 -> 73 -> 33
+[PATH_DEBUG] Host 17 -> Host 34 (hops: 3) Path: 17 -> 66 -> 74 -> 34
+[PATH_DEBUG] Host 17 -> Host 35 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 17 -> Host 36 (hops: 4) Path: 17 -> 73 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 17 -> Host 37 (hops: 4) Path: 17 -> 73 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 17 -> Host 38 (hops: 4) Path: 17 -> 73 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 17 -> Host 39 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 17 -> Host 40 (hops: 4) Path: 17 -> 73 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 17 -> Host 41 (hops: 2) Path: 17 -> 73 -> 41
+[PATH_DEBUG] Host 17 -> Host 42 (hops: 3) Path: 17 -> 66 -> 74 -> 42
+[PATH_DEBUG] Host 17 -> Host 43 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 17 -> Host 44 (hops: 4) Path: 17 -> 73 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 17 -> Host 45 (hops: 4) Path: 17 -> 73 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 17 -> Host 46 (hops: 4) Path: 17 -> 73 -> 82 -> 78 -> 46
+[PATH_DEBUG] Host 17 -> Host 47 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 17 -> Host 48 (hops: 4) Path: 17 -> 73 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 17 -> Host 49 (hops: 2) Path: 17 -> 73 -> 49
+[PATH_DEBUG] Host 17 -> Host 50 (hops: 3) Path: 17 -> 66 -> 74 -> 50
+[PATH_DEBUG] Host 17 -> Host 51 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 17 -> Host 52 (hops: 4) Path: 17 -> 73 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 17 -> Host 53 (hops: 4) Path: 17 -> 73 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 17 -> Host 54 (hops: 4) Path: 17 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 17 -> Host 55 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 17 -> Host 56 (hops: 4) Path: 17 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 17 -> Host 57 (hops: 2) Path: 17 -> 73 -> 57
+[PATH_DEBUG] Host 17 -> Host 58 (hops: 3) Path: 17 -> 66 -> 74 -> 58
+[PATH_DEBUG] Host 17 -> Host 59 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 17 -> Host 60 (hops: 4) Path: 17 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 17 -> Host 61 (hops: 4) Path: 17 -> 73 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 17 -> Host 62 (hops: 4) Path: 17 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 17 -> Host 63 (hops: 5) Path: 17 -> 66 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 17 -> Host 18 (hops: 2) Path: 17 -> 66 -> 18
+[PATH_DEBUG] Host 9 -> Host 16 (hops: 4) Path: 9 -> 73 -> 81 -> 72 -> 16
+[PATH_DEBUG] Host 9 -> Host 19 (hops: 5) Path: 9 -> 73 -> 82 -> 74 -> 66 -> 19
+[PATH_DEBUG] Host 9 -> Host 20 (hops: 4) Path: 9 -> 73 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 9 -> Host 21 (hops: 4) Path: 9 -> 73 -> 82 -> 77 -> 21
+[PATH_DEBUG] Host 9 -> Host 22 (hops: 4) Path: 9 -> 73 -> 82 -> 78 -> 22
+[PATH_DEBUG] Host 9 -> Host 23 (hops: 5) Path: 9 -> 73 -> 82 -> 74 -> 66 -> 23
+[PATH_DEBUG] Host 9 -> Host 24 (hops: 4) Path: 9 -> 73 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 9 -> Host 25 (hops: 2) Path: 9 -> 73 -> 25
+[PATH_DEBUG] Host 9 -> Host 26 (hops: 4) Path: 9 -> 73 -> 82 -> 74 -> 26
+[PATH_DEBUG] Host 9 -> Host 27 (hops: 6) Path: 9 -> 73 -> 82 -> 85 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 9 -> Host 28 (hops: 4) Path: 9 -> 73 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 9 -> Host 29 (hops: 4) Path: 9 -> 73 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 9 -> Host 30 (hops: 4) Path: 9 -> 73 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 9 -> Host 31 (hops: 6) Path: 9 -> 73 -> 82 -> 85 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 9 -> Host 32 (hops: 4) Path: 9 -> 73 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 9 -> Host 33 (hops: 2) Path: 9 -> 73 -> 33
+[PATH_DEBUG] Host 9 -> Host 34 (hops: 4) Path: 9 -> 73 -> 82 -> 74 -> 34
+[PATH_DEBUG] Host 9 -> Host 35 (hops: 5) Path: 9 -> 73 -> 81 -> 76 -> 68 -> 35
+[PATH_DEBUG] Host 9 -> Host 36 (hops: 4) Path: 9 -> 73 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 9 -> Host 37 (hops: 4) Path: 9 -> 73 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 9 -> Host 38 (hops: 4) Path: 9 -> 73 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 9 -> Host 39 (hops: 5) Path: 9 -> 73 -> 81 -> 76 -> 68 -> 39
+[PATH_DEBUG] Host 9 -> Host 40 (hops: 4) Path: 9 -> 73 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 9 -> Host 41 (hops: 2) Path: 9 -> 73 -> 41
+[PATH_DEBUG] Host 9 -> Host 42 (hops: 4) Path: 9 -> 73 -> 82 -> 74 -> 42
+[PATH_DEBUG] Host 9 -> Host 43 (hops: 5) Path: 9 -> 73 -> 82 -> 77 -> 69 -> 43
+[PATH_DEBUG] Host 9 -> Host 44 (hops: 4) Path: 9 -> 73 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 9 -> Host 45 (hops: 4) Path: 9 -> 73 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 9 -> Host 46 (hops: 4) Path: 9 -> 73 -> 82 -> 78 -> 46
+[PATH_DEBUG] Host 9 -> Host 47 (hops: 5) Path: 9 -> 73 -> 82 -> 77 -> 69 -> 47
+[PATH_DEBUG] Host 9 -> Host 48 (hops: 4) Path: 9 -> 73 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 9 -> Host 49 (hops: 2) Path: 9 -> 73 -> 49
+[PATH_DEBUG] Host 9 -> Host 50 (hops: 4) Path: 9 -> 73 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 9 -> Host 51 (hops: 5) Path: 9 -> 73 -> 82 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 9 -> Host 52 (hops: 4) Path: 9 -> 73 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 9 -> Host 53 (hops: 4) Path: 9 -> 73 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 9 -> Host 54 (hops: 4) Path: 9 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 9 -> Host 55 (hops: 5) Path: 9 -> 73 -> 82 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 9 -> Host 56 (hops: 4) Path: 9 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 9 -> Host 57 (hops: 2) Path: 9 -> 73 -> 57
+[PATH_DEBUG] Host 9 -> Host 58 (hops: 4) Path: 9 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 9 -> Host 59 (hops: 6) Path: 9 -> 73 -> 82 -> 85 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 9 -> Host 60 (hops: 4) Path: 9 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 9 -> Host 61 (hops: 4) Path: 9 -> 73 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 9 -> Host 62 (hops: 4) Path: 9 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 9 -> Host 63 (hops: 6) Path: 9 -> 73 -> 82 -> 85 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 9 -> Host 18 (hops: 4) Path: 9 -> 73 -> 82 -> 74 -> 18
+[PATH_DEBUG] Host 9 -> Host 17 (hops: 2) Path: 9 -> 73 -> 17
+[PATH_DEBUG] Host 9 -> Host 10 (hops: 2) Path: 9 -> 65 -> 10
+[PATH_DEBUG] Host 9 -> Host 11 (hops: 2) Path: 9 -> 65 -> 11
+[PATH_DEBUG] Host 9 -> Host 12 (hops: 2) Path: 9 -> 65 -> 12
+[PATH_DEBUG] Host 9 -> Host 13 (hops: 2) Path: 9 -> 65 -> 13
+[PATH_DEBUG] Host 9 -> Host 14 (hops: 2) Path: 9 -> 65 -> 14
+[PATH_DEBUG] Host 9 -> Host 15 (hops: 2) Path: 9 -> 65 -> 15
+[PATH_DEBUG] Host 10 -> Host 16 (hops: 3) Path: 10 -> 74 -> 66 -> 16
+[PATH_DEBUG] Host 10 -> Host 19 (hops: 3) Path: 10 -> 74 -> 66 -> 19
+[PATH_DEBUG] Host 10 -> Host 20 (hops: 3) Path: 10 -> 74 -> 66 -> 20
+[PATH_DEBUG] Host 10 -> Host 21 (hops: 3) Path: 10 -> 74 -> 66 -> 21
+[PATH_DEBUG] Host 10 -> Host 22 (hops: 3) Path: 10 -> 74 -> 66 -> 22
+[PATH_DEBUG] Host 10 -> Host 23 (hops: 3) Path: 10 -> 74 -> 66 -> 23
+[PATH_DEBUG] Host 10 -> Host 24 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 10 -> Host 25 (hops: 3) Path: 10 -> 65 -> 73 -> 25
+[PATH_DEBUG] Host 10 -> Host 26 (hops: 2) Path: 10 -> 74 -> 26
+[PATH_DEBUG] Host 10 -> Host 27 (hops: 4) Path: 10 -> 74 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 10 -> Host 28 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 10 -> Host 29 (hops: 4) Path: 10 -> 74 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 10 -> Host 30 (hops: 4) Path: 10 -> 74 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 10 -> Host 31 (hops: 4) Path: 10 -> 74 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 10 -> Host 32 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 10 -> Host 33 (hops: 3) Path: 10 -> 65 -> 73 -> 33
+[PATH_DEBUG] Host 10 -> Host 34 (hops: 2) Path: 10 -> 74 -> 34
+[PATH_DEBUG] Host 10 -> Host 35 (hops: 4) Path: 10 -> 74 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 10 -> Host 36 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 10 -> Host 37 (hops: 4) Path: 10 -> 74 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 10 -> Host 38 (hops: 4) Path: 10 -> 74 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 10 -> Host 39 (hops: 4) Path: 10 -> 74 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 10 -> Host 40 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 10 -> Host 41 (hops: 3) Path: 10 -> 65 -> 73 -> 41
+[PATH_DEBUG] Host 10 -> Host 42 (hops: 2) Path: 10 -> 74 -> 42
+[PATH_DEBUG] Host 10 -> Host 43 (hops: 4) Path: 10 -> 74 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 10 -> Host 44 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 10 -> Host 45 (hops: 4) Path: 10 -> 74 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 10 -> Host 46 (hops: 4) Path: 10 -> 74 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 10 -> Host 47 (hops: 4) Path: 10 -> 74 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 10 -> Host 48 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 10 -> Host 49 (hops: 3) Path: 10 -> 65 -> 73 -> 49
+[PATH_DEBUG] Host 10 -> Host 50 (hops: 2) Path: 10 -> 74 -> 50
+[PATH_DEBUG] Host 10 -> Host 51 (hops: 4) Path: 10 -> 74 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 10 -> Host 52 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 10 -> Host 53 (hops: 4) Path: 10 -> 74 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 10 -> Host 54 (hops: 4) Path: 10 -> 74 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 10 -> Host 55 (hops: 4) Path: 10 -> 74 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 10 -> Host 56 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 10 -> Host 57 (hops: 3) Path: 10 -> 65 -> 73 -> 57
+[PATH_DEBUG] Host 10 -> Host 58 (hops: 2) Path: 10 -> 74 -> 58
+[PATH_DEBUG] Host 10 -> Host 59 (hops: 4) Path: 10 -> 74 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 10 -> Host 60 (hops: 5) Path: 10 -> 65 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 10 -> Host 61 (hops: 4) Path: 10 -> 74 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 10 -> Host 62 (hops: 4) Path: 10 -> 74 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 10 -> Host 63 (hops: 4) Path: 10 -> 74 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 10 -> Host 18 (hops: 2) Path: 10 -> 74 -> 18
+[PATH_DEBUG] Host 10 -> Host 17 (hops: 3) Path: 10 -> 65 -> 73 -> 17
+[PATH_DEBUG] Host 10 -> Host 11 (hops: 2) Path: 10 -> 65 -> 11
+[PATH_DEBUG] Host 10 -> Host 12 (hops: 2) Path: 10 -> 65 -> 12
+[PATH_DEBUG] Host 10 -> Host 13 (hops: 2) Path: 10 -> 65 -> 13
+[PATH_DEBUG] Host 10 -> Host 14 (hops: 2) Path: 10 -> 65 -> 14
+[PATH_DEBUG] Host 10 -> Host 15 (hops: 2) Path: 10 -> 65 -> 15
+[PATH_DEBUG] Host 11 -> Host 16 (hops: 4) Path: 11 -> 75 -> 80 -> 72 -> 16
+[PATH_DEBUG] Host 11 -> Host 19 (hops: 2) Path: 11 -> 75 -> 19
+[PATH_DEBUG] Host 11 -> Host 20 (hops: 4) Path: 11 -> 75 -> 80 -> 76 -> 20
+[PATH_DEBUG] Host 11 -> Host 21 (hops: 5) Path: 11 -> 65 -> 73 -> 82 -> 77 -> 21
+[PATH_DEBUG] Host 11 -> Host 22 (hops: 4) Path: 11 -> 75 -> 83 -> 78 -> 22
+[PATH_DEBUG] Host 11 -> Host 23 (hops: 4) Path: 11 -> 75 -> 83 -> 79 -> 23
+[PATH_DEBUG] Host 11 -> Host 24 (hops: 3) Path: 11 -> 75 -> 67 -> 24
+[PATH_DEBUG] Host 11 -> Host 25 (hops: 3) Path: 11 -> 65 -> 73 -> 25
+[PATH_DEBUG] Host 11 -> Host 26 (hops: 3) Path: 11 -> 75 -> 67 -> 26
+[PATH_DEBUG] Host 11 -> Host 27 (hops: 2) Path: 11 -> 75 -> 27
+[PATH_DEBUG] Host 11 -> Host 28 (hops: 3) Path: 11 -> 75 -> 67 -> 28
+[PATH_DEBUG] Host 11 -> Host 29 (hops: 3) Path: 11 -> 75 -> 67 -> 29
+[PATH_DEBUG] Host 11 -> Host 30 (hops: 3) Path: 11 -> 75 -> 67 -> 30
+[PATH_DEBUG] Host 11 -> Host 31 (hops: 3) Path: 11 -> 75 -> 67 -> 31
+[PATH_DEBUG] Host 11 -> Host 32 (hops: 4) Path: 11 -> 75 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 11 -> Host 33 (hops: 3) Path: 11 -> 65 -> 73 -> 33
+[PATH_DEBUG] Host 11 -> Host 34 (hops: 4) Path: 11 -> 75 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 11 -> Host 35 (hops: 2) Path: 11 -> 75 -> 35
+[PATH_DEBUG] Host 11 -> Host 36 (hops: 4) Path: 11 -> 75 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 11 -> Host 37 (hops: 5) Path: 11 -> 65 -> 73 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 11 -> Host 38 (hops: 4) Path: 11 -> 75 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 11 -> Host 39 (hops: 4) Path: 11 -> 75 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 11 -> Host 40 (hops: 4) Path: 11 -> 75 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 11 -> Host 41 (hops: 3) Path: 11 -> 65 -> 73 -> 41
+[PATH_DEBUG] Host 11 -> Host 42 (hops: 4) Path: 11 -> 75 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 11 -> Host 43 (hops: 2) Path: 11 -> 75 -> 43
+[PATH_DEBUG] Host 11 -> Host 44 (hops: 4) Path: 11 -> 75 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 11 -> Host 45 (hops: 5) Path: 11 -> 65 -> 73 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 11 -> Host 46 (hops: 4) Path: 11 -> 75 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 11 -> Host 47 (hops: 4) Path: 11 -> 75 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 11 -> Host 48 (hops: 4) Path: 11 -> 75 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 11 -> Host 49 (hops: 3) Path: 11 -> 65 -> 73 -> 49
+[PATH_DEBUG] Host 11 -> Host 50 (hops: 4) Path: 11 -> 75 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 11 -> Host 51 (hops: 2) Path: 11 -> 75 -> 51
+[PATH_DEBUG] Host 11 -> Host 52 (hops: 4) Path: 11 -> 75 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 11 -> Host 53 (hops: 5) Path: 11 -> 65 -> 73 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 11 -> Host 54 (hops: 4) Path: 11 -> 75 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 11 -> Host 55 (hops: 4) Path: 11 -> 75 -> 83 -> 79 -> 55
+[PATH_DEBUG] Host 11 -> Host 56 (hops: 4) Path: 11 -> 75 -> 80 -> 72 -> 56
+[PATH_DEBUG] Host 11 -> Host 57 (hops: 3) Path: 11 -> 65 -> 73 -> 57
+[PATH_DEBUG] Host 11 -> Host 58 (hops: 4) Path: 11 -> 75 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 11 -> Host 59 (hops: 2) Path: 11 -> 75 -> 59
+[PATH_DEBUG] Host 11 -> Host 60 (hops: 4) Path: 11 -> 75 -> 80 -> 76 -> 60
+[PATH_DEBUG] Host 11 -> Host 61 (hops: 5) Path: 11 -> 65 -> 73 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 11 -> Host 62 (hops: 4) Path: 11 -> 75 -> 83 -> 78 -> 62
+[PATH_DEBUG] Host 11 -> Host 63 (hops: 4) Path: 11 -> 75 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 11 -> Host 18 (hops: 4) Path: 11 -> 75 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 11 -> Host 17 (hops: 3) Path: 11 -> 65 -> 73 -> 17
+[PATH_DEBUG] Host 11 -> Host 12 (hops: 2) Path: 11 -> 65 -> 12
+[PATH_DEBUG] Host 11 -> Host 13 (hops: 2) Path: 11 -> 65 -> 13
+[PATH_DEBUG] Host 11 -> Host 14 (hops: 2) Path: 11 -> 65 -> 14
+[PATH_DEBUG] Host 11 -> Host 15 (hops: 2) Path: 11 -> 65 -> 15
+[PATH_DEBUG] Host 12 -> Host 16 (hops: 4) Path: 12 -> 76 -> 81 -> 72 -> 16
+[PATH_DEBUG] Host 12 -> Host 19 (hops: 4) Path: 12 -> 76 -> 80 -> 75 -> 19
+[PATH_DEBUG] Host 12 -> Host 20 (hops: 2) Path: 12 -> 76 -> 20
+[PATH_DEBUG] Host 12 -> Host 21 (hops: 4) Path: 12 -> 76 -> 81 -> 77 -> 21
+[PATH_DEBUG] Host 12 -> Host 22 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 78 -> 22
+[PATH_DEBUG] Host 12 -> Host 23 (hops: 4) Path: 12 -> 76 -> 80 -> 79 -> 23
+[PATH_DEBUG] Host 12 -> Host 24 (hops: 4) Path: 12 -> 76 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 12 -> Host 25 (hops: 3) Path: 12 -> 65 -> 73 -> 25
+[PATH_DEBUG] Host 12 -> Host 26 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 74 -> 26
+[PATH_DEBUG] Host 12 -> Host 27 (hops: 4) Path: 12 -> 76 -> 80 -> 75 -> 27
+[PATH_DEBUG] Host 12 -> Host 28 (hops: 2) Path: 12 -> 76 -> 28
+[PATH_DEBUG] Host 12 -> Host 29 (hops: 4) Path: 12 -> 76 -> 81 -> 77 -> 29
+[PATH_DEBUG] Host 12 -> Host 30 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 12 -> Host 31 (hops: 4) Path: 12 -> 76 -> 80 -> 79 -> 31
+[PATH_DEBUG] Host 12 -> Host 32 (hops: 3) Path: 12 -> 76 -> 68 -> 32
+[PATH_DEBUG] Host 12 -> Host 33 (hops: 3) Path: 12 -> 65 -> 73 -> 33
+[PATH_DEBUG] Host 12 -> Host 34 (hops: 3) Path: 12 -> 76 -> 68 -> 34
+[PATH_DEBUG] Host 12 -> Host 35 (hops: 3) Path: 12 -> 76 -> 68 -> 35
+[PATH_DEBUG] Host 12 -> Host 36 (hops: 2) Path: 12 -> 76 -> 36
+[PATH_DEBUG] Host 12 -> Host 37 (hops: 3) Path: 12 -> 76 -> 68 -> 37
+[PATH_DEBUG] Host 12 -> Host 38 (hops: 3) Path: 12 -> 76 -> 68 -> 38
+[PATH_DEBUG] Host 12 -> Host 39 (hops: 3) Path: 12 -> 76 -> 68 -> 39
+[PATH_DEBUG] Host 12 -> Host 40 (hops: 4) Path: 12 -> 76 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 12 -> Host 41 (hops: 3) Path: 12 -> 65 -> 73 -> 41
+[PATH_DEBUG] Host 12 -> Host 42 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 74 -> 42
+[PATH_DEBUG] Host 12 -> Host 43 (hops: 4) Path: 12 -> 76 -> 80 -> 75 -> 43
+[PATH_DEBUG] Host 12 -> Host 44 (hops: 2) Path: 12 -> 76 -> 44
+[PATH_DEBUG] Host 12 -> Host 45 (hops: 4) Path: 12 -> 76 -> 81 -> 77 -> 45
+[PATH_DEBUG] Host 12 -> Host 46 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 78 -> 46
+[PATH_DEBUG] Host 12 -> Host 47 (hops: 4) Path: 12 -> 76 -> 80 -> 79 -> 47
+[PATH_DEBUG] Host 12 -> Host 48 (hops: 4) Path: 12 -> 76 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 12 -> Host 49 (hops: 3) Path: 12 -> 65 -> 73 -> 49
+[PATH_DEBUG] Host 12 -> Host 50 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 12 -> Host 51 (hops: 4) Path: 12 -> 76 -> 80 -> 75 -> 51
+[PATH_DEBUG] Host 12 -> Host 52 (hops: 2) Path: 12 -> 76 -> 52
+[PATH_DEBUG] Host 12 -> Host 53 (hops: 4) Path: 12 -> 76 -> 81 -> 77 -> 53
+[PATH_DEBUG] Host 12 -> Host 54 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 12 -> Host 55 (hops: 4) Path: 12 -> 76 -> 80 -> 79 -> 55
+[PATH_DEBUG] Host 12 -> Host 56 (hops: 4) Path: 12 -> 76 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 12 -> Host 57 (hops: 3) Path: 12 -> 65 -> 73 -> 57
+[PATH_DEBUG] Host 12 -> Host 58 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 12 -> Host 59 (hops: 4) Path: 12 -> 76 -> 80 -> 75 -> 59
+[PATH_DEBUG] Host 12 -> Host 60 (hops: 2) Path: 12 -> 76 -> 60
+[PATH_DEBUG] Host 12 -> Host 61 (hops: 4) Path: 12 -> 76 -> 81 -> 77 -> 61
+[PATH_DEBUG] Host 12 -> Host 62 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 12 -> Host 63 (hops: 4) Path: 12 -> 76 -> 80 -> 79 -> 63
+[PATH_DEBUG] Host 12 -> Host 18 (hops: 5) Path: 12 -> 65 -> 73 -> 82 -> 74 -> 18
+[PATH_DEBUG] Host 12 -> Host 17 (hops: 3) Path: 12 -> 65 -> 73 -> 17
+[PATH_DEBUG] Host 12 -> Host 13 (hops: 2) Path: 12 -> 65 -> 13
+[PATH_DEBUG] Host 12 -> Host 14 (hops: 2) Path: 12 -> 65 -> 14
+[PATH_DEBUG] Host 12 -> Host 15 (hops: 2) Path: 12 -> 65 -> 15
+[PATH_DEBUG] Host 13 -> Host 16 (hops: 4) Path: 13 -> 77 -> 81 -> 72 -> 16
+[PATH_DEBUG] Host 13 -> Host 19 (hops: 5) Path: 13 -> 77 -> 82 -> 74 -> 66 -> 19
+[PATH_DEBUG] Host 13 -> Host 20 (hops: 4) Path: 13 -> 77 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 13 -> Host 21 (hops: 2) Path: 13 -> 77 -> 21
+[PATH_DEBUG] Host 13 -> Host 22 (hops: 4) Path: 13 -> 77 -> 82 -> 78 -> 22
+[PATH_DEBUG] Host 13 -> Host 23 (hops: 5) Path: 13 -> 77 -> 82 -> 74 -> 66 -> 23
+[PATH_DEBUG] Host 13 -> Host 24 (hops: 4) Path: 13 -> 77 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 13 -> Host 25 (hops: 3) Path: 13 -> 65 -> 73 -> 25
+[PATH_DEBUG] Host 13 -> Host 26 (hops: 4) Path: 13 -> 77 -> 82 -> 74 -> 26
+[PATH_DEBUG] Host 13 -> Host 27 (hops: 6) Path: 13 -> 77 -> 82 -> 85 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 13 -> Host 28 (hops: 4) Path: 13 -> 77 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 13 -> Host 29 (hops: 2) Path: 13 -> 77 -> 29
+[PATH_DEBUG] Host 13 -> Host 30 (hops: 4) Path: 13 -> 77 -> 82 -> 78 -> 30
+[PATH_DEBUG] Host 13 -> Host 31 (hops: 6) Path: 13 -> 77 -> 82 -> 85 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 13 -> Host 32 (hops: 4) Path: 13 -> 77 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 13 -> Host 33 (hops: 3) Path: 13 -> 65 -> 73 -> 33
+[PATH_DEBUG] Host 13 -> Host 34 (hops: 4) Path: 13 -> 77 -> 82 -> 74 -> 34
+[PATH_DEBUG] Host 13 -> Host 35 (hops: 5) Path: 13 -> 77 -> 81 -> 76 -> 68 -> 35
+[PATH_DEBUG] Host 13 -> Host 36 (hops: 4) Path: 13 -> 77 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 13 -> Host 37 (hops: 2) Path: 13 -> 77 -> 37
+[PATH_DEBUG] Host 13 -> Host 38 (hops: 4) Path: 13 -> 77 -> 82 -> 78 -> 38
+[PATH_DEBUG] Host 13 -> Host 39 (hops: 5) Path: 13 -> 77 -> 81 -> 76 -> 68 -> 39
+[PATH_DEBUG] Host 13 -> Host 40 (hops: 3) Path: 13 -> 77 -> 69 -> 40
+[PATH_DEBUG] Host 13 -> Host 41 (hops: 3) Path: 13 -> 65 -> 73 -> 41
+[PATH_DEBUG] Host 13 -> Host 42 (hops: 3) Path: 13 -> 77 -> 69 -> 42
+[PATH_DEBUG] Host 13 -> Host 43 (hops: 3) Path: 13 -> 77 -> 69 -> 43
+[PATH_DEBUG] Host 13 -> Host 44 (hops: 3) Path: 13 -> 77 -> 69 -> 44
+[PATH_DEBUG] Host 13 -> Host 45 (hops: 2) Path: 13 -> 77 -> 45
+[PATH_DEBUG] Host 13 -> Host 46 (hops: 3) Path: 13 -> 77 -> 69 -> 46
+[PATH_DEBUG] Host 13 -> Host 47 (hops: 3) Path: 13 -> 77 -> 69 -> 47
+[PATH_DEBUG] Host 13 -> Host 48 (hops: 4) Path: 13 -> 77 -> 81 -> 72 -> 48
+[PATH_DEBUG] Host 13 -> Host 49 (hops: 3) Path: 13 -> 65 -> 73 -> 49
+[PATH_DEBUG] Host 13 -> Host 50 (hops: 4) Path: 13 -> 77 -> 82 -> 74 -> 50
+[PATH_DEBUG] Host 13 -> Host 51 (hops: 5) Path: 13 -> 77 -> 82 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 13 -> Host 52 (hops: 4) Path: 13 -> 77 -> 81 -> 76 -> 52
+[PATH_DEBUG] Host 13 -> Host 53 (hops: 2) Path: 13 -> 77 -> 53
+[PATH_DEBUG] Host 13 -> Host 54 (hops: 4) Path: 13 -> 77 -> 82 -> 78 -> 54
+[PATH_DEBUG] Host 13 -> Host 55 (hops: 5) Path: 13 -> 77 -> 82 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 13 -> Host 56 (hops: 4) Path: 13 -> 77 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 13 -> Host 57 (hops: 3) Path: 13 -> 65 -> 73 -> 57
+[PATH_DEBUG] Host 13 -> Host 58 (hops: 4) Path: 13 -> 77 -> 82 -> 74 -> 58
+[PATH_DEBUG] Host 13 -> Host 59 (hops: 6) Path: 13 -> 77 -> 82 -> 85 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 13 -> Host 60 (hops: 4) Path: 13 -> 77 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 13 -> Host 61 (hops: 2) Path: 13 -> 77 -> 61
+[PATH_DEBUG] Host 13 -> Host 62 (hops: 4) Path: 13 -> 77 -> 82 -> 78 -> 62
+[PATH_DEBUG] Host 13 -> Host 63 (hops: 6) Path: 13 -> 77 -> 82 -> 85 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 13 -> Host 18 (hops: 4) Path: 13 -> 77 -> 82 -> 74 -> 18
+[PATH_DEBUG] Host 13 -> Host 17 (hops: 3) Path: 13 -> 65 -> 73 -> 17
+[PATH_DEBUG] Host 13 -> Host 14 (hops: 2) Path: 13 -> 65 -> 14
+[PATH_DEBUG] Host 13 -> Host 15 (hops: 2) Path: 13 -> 65 -> 15
+[PATH_DEBUG] Host 14 -> Host 16 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 72 -> 16
+[PATH_DEBUG] Host 14 -> Host 19 (hops: 4) Path: 14 -> 78 -> 83 -> 75 -> 19
+[PATH_DEBUG] Host 14 -> Host 20 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 76 -> 20
+[PATH_DEBUG] Host 14 -> Host 21 (hops: 4) Path: 14 -> 78 -> 82 -> 77 -> 21
+[PATH_DEBUG] Host 14 -> Host 22 (hops: 2) Path: 14 -> 78 -> 22
+[PATH_DEBUG] Host 14 -> Host 23 (hops: 4) Path: 14 -> 78 -> 83 -> 79 -> 23
+[PATH_DEBUG] Host 14 -> Host 24 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 72 -> 24
+[PATH_DEBUG] Host 14 -> Host 25 (hops: 3) Path: 14 -> 65 -> 73 -> 25
+[PATH_DEBUG] Host 14 -> Host 26 (hops: 4) Path: 14 -> 78 -> 83 -> 74 -> 26
+[PATH_DEBUG] Host 14 -> Host 27 (hops: 4) Path: 14 -> 78 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 14 -> Host 28 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 76 -> 28
+[PATH_DEBUG] Host 14 -> Host 29 (hops: 4) Path: 14 -> 78 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 14 -> Host 30 (hops: 2) Path: 14 -> 78 -> 30
+[PATH_DEBUG] Host 14 -> Host 31 (hops: 4) Path: 14 -> 78 -> 83 -> 79 -> 31
+[PATH_DEBUG] Host 14 -> Host 32 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 72 -> 32
+[PATH_DEBUG] Host 14 -> Host 33 (hops: 3) Path: 14 -> 65 -> 73 -> 33
+[PATH_DEBUG] Host 14 -> Host 34 (hops: 4) Path: 14 -> 78 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 14 -> Host 35 (hops: 4) Path: 14 -> 78 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 14 -> Host 36 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 76 -> 36
+[PATH_DEBUG] Host 14 -> Host 37 (hops: 4) Path: 14 -> 78 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 14 -> Host 38 (hops: 2) Path: 14 -> 78 -> 38
+[PATH_DEBUG] Host 14 -> Host 39 (hops: 4) Path: 14 -> 78 -> 83 -> 79 -> 39
+[PATH_DEBUG] Host 14 -> Host 40 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 72 -> 40
+[PATH_DEBUG] Host 14 -> Host 41 (hops: 3) Path: 14 -> 65 -> 73 -> 41
+[PATH_DEBUG] Host 14 -> Host 42 (hops: 4) Path: 14 -> 78 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 14 -> Host 43 (hops: 4) Path: 14 -> 78 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 14 -> Host 44 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 76 -> 44
+[PATH_DEBUG] Host 14 -> Host 45 (hops: 4) Path: 14 -> 78 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 14 -> Host 46 (hops: 2) Path: 14 -> 78 -> 46
+[PATH_DEBUG] Host 14 -> Host 47 (hops: 4) Path: 14 -> 78 -> 83 -> 79 -> 47
+[PATH_DEBUG] Host 14 -> Host 48 (hops: 3) Path: 14 -> 78 -> 70 -> 48
+[PATH_DEBUG] Host 14 -> Host 49 (hops: 3) Path: 14 -> 65 -> 73 -> 49
+[PATH_DEBUG] Host 14 -> Host 50 (hops: 3) Path: 14 -> 78 -> 70 -> 50
+[PATH_DEBUG] Host 14 -> Host 51 (hops: 3) Path: 14 -> 78 -> 70 -> 51
+[PATH_DEBUG] Host 14 -> Host 52 (hops: 3) Path: 14 -> 78 -> 70 -> 52
+[PATH_DEBUG] Host 14 -> Host 53 (hops: 3) Path: 14 -> 78 -> 70 -> 53
+[PATH_DEBUG] Host 14 -> Host 54 (hops: 2) Path: 14 -> 78 -> 54
+[PATH_DEBUG] Host 14 -> Host 55 (hops: 3) Path: 14 -> 78 -> 70 -> 55
+[PATH_DEBUG] Host 14 -> Host 56 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 72 -> 56
+[PATH_DEBUG] Host 14 -> Host 57 (hops: 3) Path: 14 -> 65 -> 73 -> 57
+[PATH_DEBUG] Host 14 -> Host 58 (hops: 4) Path: 14 -> 78 -> 83 -> 74 -> 58
+[PATH_DEBUG] Host 14 -> Host 59 (hops: 4) Path: 14 -> 78 -> 83 -> 75 -> 59
+[PATH_DEBUG] Host 14 -> Host 60 (hops: 5) Path: 14 -> 65 -> 73 -> 81 -> 76 -> 60
+[PATH_DEBUG] Host 14 -> Host 61 (hops: 4) Path: 14 -> 78 -> 82 -> 77 -> 61
+[PATH_DEBUG] Host 14 -> Host 62 (hops: 2) Path: 14 -> 78 -> 62
+[PATH_DEBUG] Host 14 -> Host 63 (hops: 4) Path: 14 -> 78 -> 83 -> 79 -> 63
+[PATH_DEBUG] Host 14 -> Host 18 (hops: 4) Path: 14 -> 78 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 14 -> Host 17 (hops: 3) Path: 14 -> 65 -> 73 -> 17
+[PATH_DEBUG] Host 14 -> Host 15 (hops: 2) Path: 14 -> 65 -> 15
+[PATH_DEBUG] Host 15 -> Host 16 (hops: 4) Path: 15 -> 79 -> 80 -> 72 -> 16
+[PATH_DEBUG] Host 15 -> Host 19 (hops: 4) Path: 15 -> 79 -> 83 -> 75 -> 19
+[PATH_DEBUG] Host 15 -> Host 20 (hops: 4) Path: 15 -> 79 -> 80 -> 76 -> 20
+[PATH_DEBUG] Host 15 -> Host 21 (hops: 5) Path: 15 -> 65 -> 73 -> 82 -> 77 -> 21
+[PATH_DEBUG] Host 15 -> Host 22 (hops: 4) Path: 15 -> 79 -> 83 -> 78 -> 22
+[PATH_DEBUG] Host 15 -> Host 23 (hops: 2) Path: 15 -> 79 -> 23
+[PATH_DEBUG] Host 15 -> Host 24 (hops: 4) Path: 15 -> 79 -> 80 -> 72 -> 24
+[PATH_DEBUG] Host 15 -> Host 25 (hops: 3) Path: 15 -> 65 -> 73 -> 25
+[PATH_DEBUG] Host 15 -> Host 26 (hops: 4) Path: 15 -> 79 -> 83 -> 74 -> 26
+[PATH_DEBUG] Host 15 -> Host 27 (hops: 4) Path: 15 -> 79 -> 83 -> 75 -> 27
+[PATH_DEBUG] Host 15 -> Host 28 (hops: 4) Path: 15 -> 79 -> 80 -> 76 -> 28
+[PATH_DEBUG] Host 15 -> Host 29 (hops: 5) Path: 15 -> 65 -> 73 -> 82 -> 77 -> 29
+[PATH_DEBUG] Host 15 -> Host 30 (hops: 4) Path: 15 -> 79 -> 83 -> 78 -> 30
+[PATH_DEBUG] Host 15 -> Host 31 (hops: 2) Path: 15 -> 79 -> 31
+[PATH_DEBUG] Host 15 -> Host 32 (hops: 4) Path: 15 -> 79 -> 80 -> 72 -> 32
+[PATH_DEBUG] Host 15 -> Host 33 (hops: 3) Path: 15 -> 65 -> 73 -> 33
+[PATH_DEBUG] Host 15 -> Host 34 (hops: 4) Path: 15 -> 79 -> 83 -> 74 -> 34
+[PATH_DEBUG] Host 15 -> Host 35 (hops: 4) Path: 15 -> 79 -> 83 -> 75 -> 35
+[PATH_DEBUG] Host 15 -> Host 36 (hops: 4) Path: 15 -> 79 -> 80 -> 76 -> 36
+[PATH_DEBUG] Host 15 -> Host 37 (hops: 5) Path: 15 -> 65 -> 73 -> 82 -> 77 -> 37
+[PATH_DEBUG] Host 15 -> Host 38 (hops: 4) Path: 15 -> 79 -> 83 -> 78 -> 38
+[PATH_DEBUG] Host 15 -> Host 39 (hops: 2) Path: 15 -> 79 -> 39
+[PATH_DEBUG] Host 15 -> Host 40 (hops: 4) Path: 15 -> 79 -> 80 -> 72 -> 40
+[PATH_DEBUG] Host 15 -> Host 41 (hops: 3) Path: 15 -> 65 -> 73 -> 41
+[PATH_DEBUG] Host 15 -> Host 42 (hops: 4) Path: 15 -> 79 -> 83 -> 74 -> 42
+[PATH_DEBUG] Host 15 -> Host 43 (hops: 4) Path: 15 -> 79 -> 83 -> 75 -> 43
+[PATH_DEBUG] Host 15 -> Host 44 (hops: 4) Path: 15 -> 79 -> 80 -> 76 -> 44
+[PATH_DEBUG] Host 15 -> Host 45 (hops: 5) Path: 15 -> 65 -> 73 -> 82 -> 77 -> 45
+[PATH_DEBUG] Host 15 -> Host 46 (hops: 4) Path: 15 -> 79 -> 83 -> 78 -> 46
+[PATH_DEBUG] Host 15 -> Host 47 (hops: 2) Path: 15 -> 79 -> 47
+[PATH_DEBUG] Host 15 -> Host 48 (hops: 4) Path: 15 -> 79 -> 80 -> 72 -> 48
+[PATH_DEBUG] Host 15 -> Host 49 (hops: 3) Path: 15 -> 65 -> 73 -> 49
+[PATH_DEBUG] Host 15 -> Host 50 (hops: 4) Path: 15 -> 79 -> 83 -> 74 -> 50
+[PATH_DEBUG] Host 15 -> Host 51 (hops: 4) Path: 15 -> 79 -> 83 -> 75 -> 51
+[PATH_DEBUG] Host 15 -> Host 52 (hops: 4) Path: 15 -> 79 -> 80 -> 76 -> 52
+[PATH_DEBUG] Host 15 -> Host 53 (hops: 5) Path: 15 -> 65 -> 73 -> 82 -> 77 -> 53
+[PATH_DEBUG] Host 15 -> Host 54 (hops: 4) Path: 15 -> 79 -> 83 -> 78 -> 54
+[PATH_DEBUG] Host 15 -> Host 55 (hops: 2) Path: 15 -> 79 -> 55
+[PATH_DEBUG] Host 15 -> Host 56 (hops: 3) Path: 15 -> 79 -> 71 -> 56
+[PATH_DEBUG] Host 15 -> Host 57 (hops: 3) Path: 15 -> 65 -> 73 -> 57
+[PATH_DEBUG] Host 15 -> Host 58 (hops: 3) Path: 15 -> 79 -> 71 -> 58
+[PATH_DEBUG] Host 15 -> Host 59 (hops: 3) Path: 15 -> 79 -> 71 -> 59
+[PATH_DEBUG] Host 15 -> Host 60 (hops: 3) Path: 15 -> 79 -> 71 -> 60
+[PATH_DEBUG] Host 15 -> Host 61 (hops: 3) Path: 15 -> 79 -> 71 -> 61
+[PATH_DEBUG] Host 15 -> Host 62 (hops: 3) Path: 15 -> 79 -> 71 -> 62
+[PATH_DEBUG] Host 15 -> Host 63 (hops: 2) Path: 15 -> 79 -> 63
+[PATH_DEBUG] Host 15 -> Host 18 (hops: 4) Path: 15 -> 79 -> 83 -> 74 -> 18
+[PATH_DEBUG] Host 15 -> Host 17 (hops: 3) Path: 15 -> 65 -> 73 -> 17
+[PATH_DEBUG] ========== END PATHS ==========
+
+maxRtt=7080 maxBdp=354000
+Running Simulation.
+DEBUG: Detected configuration:
+  Total nodes from topology: 86
+  Switch nodes: 14
+  GPU nodes: 72
+  TP size: 2
+DEBUG_SYS: Loading system input file: /home/parozario/newSimAI/Comp_499B-/UB_mesh_system_input.txt
+Success in opening system file
+Var is: all-reduce-implementation: ,val is: NcclFlowModel
+Var is: reduce-scatter-implementation: ,val is: NcclFlowModel
+Var is: all-gather-implementation: ,val is: NcclFlowModel
+Var is: all-to-all-implementation: ,val is: NcclFlowModel
+Var is: scheduling-policy: ,val is: LIFO
+Var is: collective-optimization: ,val is: baseline
+Var is:  ,val is: baseline
+The final active chunks per dimension 1 after allocating to queues is: 1
+ring of node 0, id: 0 dimension: local total nodes in ring: 72 index in ring: 0 offset: 1total nodes in ring: 72
+ring of node 0, id: 0 dimension: local total nodes in ring: 72 index in ring: 0 offset: 1total nodes in ring: 72
+ring of node 0, id: 0 dimension: local total nodes in ring: 72 index in ring: 0 offset: 1total nodes in ring: 72
+ring of node 0, id: 0 dimension: local total nodes in ring: 72 index in ring: 0 offset: 1total nodes in ring: 72
+total nodes: 72
+Success in opening workload file
+model_parallel_NPU_group is 2
+checkpoints layers are: 
+layers initiating fwd_in_bckwd are: 
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 36 index in ring: 0 offset: 2total nodes in ring: 36
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 36 index in ring: 0 offset: 2total nodes in ring: 36
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 36 index in ring: 0 offset: 2total nodes in ring: 36
+ring of node 0, id: 0 dimension: local total nodes in ring: 2 index in ring: 0 offset: 1total nodes in ring: 2
+ring of node 0, id: 0 dimension: local total nodes in ring: 36 index in ring: 0 offset: 2total nodes in ring: 36
+DEBUG_POLICY: TransformerFwdInBckwd, model_parallel_npu_group=2, model_parallel_boundary=0
+DEBUG_POLICY: model dimensions: 1 0 0 0 0 0 0 0 0 0 
+pp_commize:0
+id: grad_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: final_column , depen: -1 , wg_comp_time: 1
+id: embedding_norm , depen: -1 , wg_comp_time: 1
+id: embedding_layer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: attention_column , depen: -1 , wg_comp_time: 1
+id: attention_row , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: mlp_moelayer , depen: -1 , wg_comp_time: 1
+id: final_column , depen: -1 , wg_comp_time: 1
+id: embedding_norm , depen: -1 , wg_comp_time: 1
+id: cross_entropy1 , depen: -1 , wg_comp_time: 0
+id: cross_entropy2 , depen: -1 , wg_comp_time: 0
+id: cross_entropy3 , depen: -1 , wg_comp_time: 0
+id: optimizer1 , depen: -1 , wg_comp_time: 0
+id: optimizer2 , depen: -1 , wg_comp_time: 0
+id: optimizer3 , depen: -1 , wg_comp_time: 0
+id: optimizer4 , depen: -1 , wg_comp_time: 0
+type: HYBRID_TRANSFORMER_FWD_IN_BCKWD ,num passes: 1 ,lines: 158 compute scale: 1 ,comm scale: 1
+stat path: ./ncclFlowModel_ ,total rows: 1 ,stat row: 0
+CSV path and filename: ./ncclFlowModel_detailed_72.csv
+CSV path and filename: ./ncclFlowModel_EndToEnd.csv
