@@ -29,6 +29,9 @@
 #include "ns3/error-model.h"
 #include "ns3/global-route-manager.h"
 #include "ns3/internet-module.h"
+
+// Include AstraSim headers for UB mesh configuration
+#include "astra-sim/system/MockNcclGroup.h"
 #include "ns3/ipv4-static-routing-helper.h"
 #include "ns3/packet.h"
 #include "ns3/point-to-point-helper.h"
@@ -380,28 +383,30 @@ void CalculateRoute(Ptr<Node> host) {
         txDelay[next] = txDelay[now] +
                         packet_payload_size * 1000000000lu * 8 / it->second.bw;
         bw[next] = std::min(bw[now], it->second.bw);
-        if (next->GetNodeType() == 1 || next->GetNodeType() == 2) {
+        // For UB mesh: allow multi-hop routing through GPU nodes
+        // For other topologies: only route through switches/NVSwitches
+        if (next->GetNodeType() == 1 || next->GetNodeType() == 2 || 
+            (is_ub_mesh_topology && next->GetNodeType() == 0)) {
           q.push_back(next);
         }
-          
+        // Set up next hop for this newly discovered node
+        nextHop[next][host].push_back(now);
       }
-      bool via_nvswitch = false;
-      if (d + 1 == dis[next]) {
+      else if (d + 1 == dis[next]) {
+        // Found an alternate equal-length path
+        bool via_nvswitch = false;
         for(auto x : nextHop[next][host]) {
           if(x->GetNodeType() == 2) via_nvswitch = true;
         }
         if(via_nvswitch == false) {
           if(now->GetNodeType() == 2) {
+            // Prefer NVSwitch paths - clear non-NVSwitch paths
             while(nextHop[next][host].size() != 0) 
             nextHop[next][host].pop_back();
           }
           nextHop[next][host].push_back(now);
         } else if(via_nvswitch == true && now->GetNodeType() == 2) {
           nextHop[next][host].push_back(now);
-        }
-        if(next->GetNodeType() == 0 && nextHop[next][now].size() == 0) {
-          nextHop[next][now].push_back(now);
-          pairBw[next->GetId()][now->GetId()] = pairBw[now->GetId()][next->GetId()] = it->second.bw;
         }
       }
     }
@@ -445,8 +450,8 @@ void CalculateRoute(Ptr<Node> host) {
 //   }
 
 void CalculateRoutes(NodeContainer &n) {
-  // Use standard routing for all topologies for fair comparison
-  std::cout << "[ROUTING_DEBUG] Using standard BFS routing for fair comparison" << std::endl;
+  // Use enhanced routing that supports multi-hop paths in UB mesh topologies
+  std::cout << "[ROUTING_DEBUG] Using enhanced BFS routing with multi-hop support for UB mesh" << std::endl;
   for (int i = 0; i < (int)n.GetN(); i++) {
     Ptr<Node> node = n.Get(i);
     if (node->GetNodeType() == 0)
@@ -1017,6 +1022,11 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
   if (is_ub_mesh) {
     std::cout << "[UB_MESH_DEBUG] Detected UB mesh topology with " << switch_num 
               << " inter-rack switches and " << link_num << " mesh links" << std::endl;
+    
+    // Enable UB mesh mode in NCCL flow model to fix TP=8 routing issues
+    // This prevents invalid NVSwitch array access for pure mesh topologies
+    MockNccl::MockNcclGroup::enable_ub_mesh = true;
+    std::cout << "[UB_MESH_DEBUG] Enabled UB mesh NCCL flow model (fixes TP=8 routing for 64-GPU mesh)" << std::endl;
   }
   
   for (uint32_t i = 0; i < link_num; i++) {

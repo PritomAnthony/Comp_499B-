@@ -69,10 +69,36 @@ namespace MockNccl {
           TPnodes.insert(node_idx);
         }
         NVSwitchs.clear();
-        for(int idx:TPnodes){
-          NVSwitchs.push_back(_NVSwitch[idx]);
-          GroupIndex[std::make_pair(_NVSwitch[idx],TP)] = all_group_idx;
+        
+        // UB mesh topology handling: avoid NVSwitch array access for pure mesh
+        if (enable_ub_mesh) {
+          // For UB mesh: 
+          // - 64 GPU topology: Pure mesh, no switches needed for TP groups
+          // - 128 GPU topology: Use LRS switches for inter-rack communication
+          if (_ngpus == 64) {
+            // Pure 64-GPU mesh: No switches needed, direct GPU connections
+            // TP groups communicate directly through mesh links
+            NcclLog->writeLog(NcclLogLevel::DEBUG, "UB mesh 64-GPU: TP group %d uses direct mesh connections, ranks: %d-%d", 
+                            i, ranks[0], ranks[ranks.size()-1]);
+          } else if (_ngpus == 128) {
+            // 128-GPU UB mesh: Use LRS switches for inter-rack TP communication
+            for(int idx:TPnodes){
+              // For 128-GPU UB mesh, use LRS switches (not NVSwitches)
+              // LRS switches start after GPU nodes: 128, 129, 130...
+              int lrs_switch_id = 128 + (idx / 8); // 8 GPUs per rack, then LRS switch
+              NVSwitchs.push_back(lrs_switch_id);
+              GroupIndex[std::make_pair(lrs_switch_id,TP)] = all_group_idx;
+            }
+            NcclLog->writeLog(NcclLogLevel::DEBUG, "UB mesh 128-GPU: TP group %d uses LRS switches for inter-rack communication", i);
+          }
+        } else {
+          // Traditional hierarchical topology: use NVSwitches
+          for(int idx:TPnodes){
+            NVSwitchs.push_back(_NVSwitch[idx]);
+            GroupIndex[std::make_pair(_NVSwitch[idx],TP)] = all_group_idx;
+          }
         }
+        
         AllGroups[all_group_idx]=GroupInfo(all_group_idx,TP,nNodesPerTPGroup,_TP_size,ranks,NVSwitchs);
         all_group_idx ++;
       }

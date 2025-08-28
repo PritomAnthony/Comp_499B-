@@ -13,7 +13,10 @@ AS_SEND_LAT=1 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./workload/G13B-M1
 
 
 
+## test ub mesh : 
 
+
+ AS_SEND_LAT=1 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./example/microAllReduce.txt -n ./64_GPUs_Simulation/topology_files/UB_64_mesh_8gps_8servers_900Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI_Anthony.conf|tee ./64_GPUs_Simulation/log_files/UB_64_updatedRouting.log
 
 
 
