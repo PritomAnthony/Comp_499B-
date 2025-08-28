@@ -1726,6 +1726,7 @@ void Sys::proceed_to_next_vnet_baseline(StreamBaseline* stream) {
   }
   if (stream->my_current_phase.algorithm != nullptr) {
     delete stream->my_current_phase.algorithm;
+    stream->my_current_phase.algorithm = nullptr;
   }
   if (stream->phases_to_go.size() == 0) {
     stream->take_bus_stats_average();
