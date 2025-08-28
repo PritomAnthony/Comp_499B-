@@ -138,6 +138,13 @@ void SendFlow(int src, int dst, uint64_t maxPacketCount,
   send_lat *= 1000;
   flow_input.idx++;
   if(real_PacketCount == 0) real_PacketCount = 1;
+    
+    // DEBUG: Log flow initiation
+    std::cout << "[FLOW_DEBUG] Initiating flow from node=" << src << " to node=" << dst 
+              << " maxPacketCount=" << maxPacketCount << " tag=" << tag 
+              << " flow_id=" << request->flowTag.current_flow_id 
+              << " at time=" << AstraSim::Sys::boostedTick() << std::endl;
+    
     MockNcclLog* NcclLog = MockNcclLog::getInstance();
     NcclLog->writeLog(NcclLogLevel::DEBUG," [Packet sending event]  %dSendFlow to  %d channelid:  %d flow_id  %d srcip  %d dstip  %d size:  %llu at the tick:  %d",src,dst,tag,flow_id,serverAddress[src],serverAddress[dst],maxPacketCount,AstraSim::Sys::boostedTick());
     NcclLog->writeLog(NcclLogLevel::DEBUG," request->flowTag [Packet sending event]  %dSendFlow to  %d tag_id:  %d flow_id  %d srcip  %d dstip  %d size:  %llu at the tick:  %d",request->flowTag.sender_node,request->flowTag.receiver_node,request->flowTag.tag_id,request->flowTag.current_flow_id,serverAddress[src],serverAddress[dst],maxPacketCount,AstraSim::Sys::boostedTick());
