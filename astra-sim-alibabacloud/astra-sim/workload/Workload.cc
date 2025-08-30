@@ -207,16 +207,28 @@ void Workload::report() {
   #endif
 }
 void Workload::check_for_sim_end() {
+  if(generator->id == 0) {
+    std::cout << "===== SIM_END_DEBUG: check_for_sim_end called: pass_counter=" << pass_counter << ", TOTAL_PASS=" << TOTAL_PASS << ", streams_finished=" << generator->streams_finished << ", streams_injected=" << generator->streams_injected << std::endl;
+  }
   if (pass_counter == TOTAL_PASS) {
+    if(generator->id == 0) {
+      std::cout << "===== SIM_END_DEBUG: Reached TOTAL_PASS, switching to Wait_For_Sim_Finish state" << std::endl;
+    }
     current_state = LoopState::Wait_For_Sim_Finish;
     if (generator->streams_finished != generator->streams_injected &&
         registered_for_finished_streams == false) {
+      if(generator->id == 0) {
+        std::cout << "===== SIM_END_DEBUG: Streams not finished, registering for finished stream callback" << std::endl;
+      }
       generator->register_for_finished_stream(this);
       registered_for_finished_streams = true;
       layers[0]->is_weight_grad_comm_finished_blocking();
       return;
     }
     if (generator->streams_finished == generator->streams_injected) {
+      if(generator->id == 0) {
+        std::cout << "===== SIM_END_DEBUG: All streams finished, ending workload" << std::endl;
+      }
       #ifndef PHY_MTP
       if (generator->id == 0) {
         report();
@@ -792,9 +804,19 @@ void Workload::iterate_hybrid_parallel_Transformer_fwd_in_bckwd() {
   MockNcclLog* NcclLog = MockNcclLog::getInstance();
   assert(index >= 0);
   assert(index < SIZE);
+  if(generator->id == 0) {
+    std::cout << "===== LAYER_DEBUG: iterate_hybrid called, index=" << index << ", state=" << (int)current_state << ", SIZE=" << SIZE << " at time=" << Sys::boostedTick() << std::endl;
+    std::cout << "===== LAYER_DEBUG: streams_injected=" << generator->streams_injected << ", streams_finished=" << generator->streams_finished << std::endl;
+  }
   check_for_sim_end();
   if (current_state == LoopState::Forward_Pass) {
+    if(generator->id == 0) {
+      std::cout << "===== LAYER_DEBUG: Forward_Pass state for layer " << index << " (layer_name=" << layers[index]->id << ")" << std::endl;
+    }
     if (!layers[index]->is_weight_grad_comm_finished_blocking()) {
+      if(generator->id == 0) {
+        std::cout << "===== LAYER_DEBUG: weight_grad_comm not finished for layer " << index << ", returning" << std::endl;
+      }
       return;
     }
     if (delay_loaded == false) {
@@ -808,6 +830,9 @@ void Workload::iterate_hybrid_parallel_Transformer_fwd_in_bckwd() {
     }
     if (!collective_issued) {
       collective_issued = true;
+      if(generator->id == 0) {
+        std::cout << "===== LAYER_DEBUG: About to issue forward pass comm for layer " << index << " (" << layers[index]->id << "), comm_size=" << layers[index]->fwd_pass_comm_size << std::endl;
+      }
       if(layers[index]->fwd_pass_comm_size < 4096 && layers[index]->fwd_pass_comm_size >0){
         layers[index]->fwd_pass_comm_size = 4096;
       }
@@ -818,7 +843,13 @@ void Workload::iterate_hybrid_parallel_Transformer_fwd_in_bckwd() {
     index++;
     delay_loaded = false;
     collective_issued = false;
+    if(generator->id == 0) {
+      std::cout << "===== LAYER_DEBUG: Forward pass completed for layer " << (index-1) << ", moving to index=" << index << std::endl;
+    }
     if (index >= SIZE) {
+      if(generator->id == 0) {
+        std::cout << "===== LAYER_DEBUG: Reached end of forward pass (index=" << index << " >= SIZE=" << SIZE << "), switching to Input_Gradient" << std::endl;
+      }
       current_state = LoopState::Input_Gradient;
       index--;
     }

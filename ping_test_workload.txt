@@ -1,0 +1,3 @@
+# Simple ping test between adjacent servers
+1 0 8 1048576 ALL_REDUCE
+1 8 0 1048576 ALL_REDUCE

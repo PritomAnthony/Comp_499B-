@@ -1494,6 +1494,18 @@ DataSet* Sys::generate_collective(
     else if(event == EventType::Input_Grad_Comm_Finished) event_name = "INPUT_GRAD";
     else if(event == EventType::Wight_Grad_Comm_Finished) event_name = "WEIGHT_GRAD";
     std::cout << "DEBUG_COLLECTIVE_TYPE: layer=" << layer_num << ", event=" << event_name << " (raw=" << (int)event << "), size=" << size << ", chunk_size=" << chunk_size << std::endl;
+    
+    // Special debug for embedding_norm layer
+    if(layer_num == 21) {
+      std::cout << "EMBEDDING_NORM_DEBUG: generate_collective called for layer 21, size=" << size 
+                << ", collective_type=" << (int)collective_type << ", topology_dims=" << topology->get_num_of_dimensions() 
+                << ", event=" << event_name << std::endl;
+      std::cout << "EMBEDDING_NORM_DEBUG: dimensions_involved: ";
+      for(int i = 0; i < dimensions_involved.size(); i++) {
+        std::cout << (dimensions_involved[i] ? 1 : 0) << " ";
+      }
+      std::cout << std::endl;
+    }
   }
   if(id == 0) std::cout << "DEBUG_STREAM_COUNT: chunk size is: " << chunk_size << " , size is: " << size << " , layer_num is: " << layer_num << " , node: " << id << std::endl;
   uint64_t recommended_chunk_size = chunk_size;
@@ -1738,6 +1750,13 @@ DataSet* Sys::generate_collective(
       else if(event == EventType::Input_Grad_Comm_Finished) event_name = "INPUT_GRAD";
       else if(event == EventType::Wight_Grad_Comm_Finished) event_name = "WEIGHT_GRAD";
       std::cout << "DEBUG_STREAM_COUNT: Generated " << count << " streams for layer " << layer_num << " (" << event_name << "), total injected: " << streams_injected << std::endl;
+      
+      // Special debug for embedding_norm layer
+      if(layer_num == 21) {
+        std::cout << "EMBEDDING_NORM_DEBUG: Dataset created for layer 21, active=" << dataset->active 
+                  << ", total_streams=" << dataset->total_streams << ", dataset_id=" << dataset->my_id 
+                  << ", streams_injected_global=" << streams_injected << std::endl;
+      }
     }
   }
   return dataset;
@@ -1818,6 +1837,8 @@ void Sys::proceed_to_next_vnet_baseline(StreamBaseline* stream) {
     delete stream->my_current_phase.algorithm;
   }
   if (stream->phases_to_go.size() == 0) {
+    std::cout << "[STREAM_DEBUG] Node " << id << " - Stream finishing: stream_num=" << stream->stream_num 
+              << ", total_running_streams=" << total_running_streams << std::endl;
     stream->take_bus_stats_average();
     stream->dataset->notify_stream_finished((StreamStat*)stream);
   }

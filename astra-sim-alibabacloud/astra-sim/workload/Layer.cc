@@ -1031,6 +1031,10 @@ void Layer::issue_forward_pass_comm(
     SchedulingPolicy pref_scheduling,
     CollectiveBarrier barrier) {
   MockNcclLog* NcclLog = MockNcclLog::getInstance();
+  if(generator->id == 0) {
+    std::cout << "===== LAYER_COMM_DEBUG: issue_forward_pass_comm called for layer " << layer_num << " (" << id << ")" << std::endl;
+    std::cout << "===== LAYER_COMM_DEBUG: comm_type=" << (int)fwd_pass_comm_type << ", comm_size=" << fwd_pass_comm_size << ", barrier=" << (int)barrier << std::endl;
+  }
   #ifdef ANALYTI
     fwd_barrier = barrier;
     if (generator->id == 0){
@@ -1052,6 +1056,9 @@ void Layer::issue_forward_pass_comm(
   fwd_barrier = barrier;
   collective_counter++;
   if (fwd_pass_comm_type == ComType::All_Reduce) {
+    if(generator->id == 0) {
+      std::cout << "===== LAYER_COMM_DEBUG: Generating all_reduce for layer " << layer_num << " size=" << fwd_pass_comm_size << std::endl;
+    }
     #ifdef PHY_MTP
     fp = generator->generate_all_reduce(
         fwd_pass_comm_size,
