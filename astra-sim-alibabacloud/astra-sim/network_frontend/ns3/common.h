@@ -1019,6 +1019,11 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
   // 3. May have regular switches for inter-rack communication (switch_num >= 0)
   bool is_ub_mesh = (nvswitch_num == 0 && link_num > node_num * 2);
   is_ub_mesh_topology = is_ub_mesh;  // Set global flag
+  
+  std::cout << "[UB_MESH_DEBUG] Checking UB mesh conditions: nvswitch_num=" << nvswitch_num 
+            << " link_num=" << link_num << " node_num=" << node_num 
+            << " condition=" << is_ub_mesh << std::endl;
+            
   if (is_ub_mesh) {
     std::cout << "[UB_MESH_DEBUG] Detected UB mesh topology with " << switch_num 
               << " inter-rack switches and " << link_num << " mesh links" << std::endl;
@@ -1027,6 +1032,9 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
     // This prevents invalid NVSwitch array access for pure mesh topologies
     MockNccl::MockNcclGroup::enable_ub_mesh = true;
     std::cout << "[UB_MESH_DEBUG] Enabled UB mesh NCCL flow model (fixes TP=8 routing for 64-GPU mesh)" << std::endl;
+    std::cout << "[UB_MESH_DEBUG] Flag set to: " << MockNccl::MockNcclGroup::enable_ub_mesh << std::endl;
+  } else {
+    std::cout << "[UB_MESH_DEBUG] UB mesh NOT detected - using traditional topology" << std::endl;
   }
   
   for (uint32_t i = 0; i < link_num; i++) {

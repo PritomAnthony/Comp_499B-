@@ -49,7 +49,9 @@ class Ring : public Algorithm {
   long total_packets_sent;
   long total_packets_received;
   uint64_t msg_size;
-  std::list<MyPacket*> locked_packets;
+  std::list<int> locked_packet_indices; // Use indices instead of pointers
+  std::list<MyPacket*> locked_packets; // DEPRECATED - will be removed
+  int pending_packet_release_count; // Count of packets pending release
   bool processed;
   bool send_back;
   bool NPU_to_MA;

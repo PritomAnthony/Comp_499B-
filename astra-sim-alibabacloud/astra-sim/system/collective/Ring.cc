@@ -32,6 +32,7 @@ Ring::Ring(
   this->free_packets = 0;
   this->zero_latency_packets = 0;
   this->non_zero_latency_packets = 0;
+  this->pending_packet_release_count = 0;
   this->toggle = false;
   this->name = Name::Ring;
   this->enabled = true;
@@ -109,31 +110,47 @@ void Ring::run(EventType event, CallData* data) {
   }
 }
 void Ring::release_packets() {
-  for (auto packet : locked_packets) {
-    packet->set_notifier(this);
+  // Safety check - if no packets, nothing to release
+  if (packets.empty() || pending_packet_release_count == 0) {
+    return;
   }
-  if (NPU_to_MA == true) {
-    (new PacketBundle(
-         stream->owner,
-         stream,
-         locked_packets,
-         processed,
-         send_back,
-         msg_size,
-         transmition))
-        ->send_to_MA();
-  } else {
-    (new PacketBundle(
-         stream->owner,
-         stream,
-         locked_packets,
-         processed,
-         send_back,
-         msg_size,
-         transmition))
-        ->send_to_NPU();
+  
+  // Create list of pointers to the first N packets (where N = pending_packet_release_count)
+  std::list<MyPacket*> valid_packets;
+  
+  auto it = packets.begin();
+  for (int i = 0; i < pending_packet_release_count && it != packets.end(); ++i, ++it) {
+    it->set_notifier(this);
+    valid_packets.push_back(&(*it));
   }
-  locked_packets.clear();
+  
+  // Create PacketBundle with valid pointers
+  if (!valid_packets.empty()) {
+    if (NPU_to_MA == true) {
+      (new PacketBundle(
+           stream->owner,
+           stream,
+           valid_packets,
+           processed,
+           send_back,
+           msg_size,
+           transmition))
+          ->send_to_MA();
+    } else {
+      (new PacketBundle(
+           stream->owner,
+           stream,
+           valid_packets,
+           processed,
+           send_back,
+           msg_size,
+           transmition))
+          ->send_to_NPU();
+    }
+  }
+  
+  // Reset the count
+  pending_packet_release_count = 0;
 }
 void Ring::process_stream_count() {
   if (remained_packets_per_message > 0) {
@@ -193,7 +210,10 @@ void Ring::insert_packet(Callable* sender) {
         current_sender,
         current_receiver)); // vnet Must be changed for alltoall topology
     packets.back().sender = sender;
-    locked_packets.push_back(&packets.back());
+    
+    // Increment pending count instead of storing pointers
+    pending_packet_release_count++;
+    
     processed = false;
     send_back = false;
     NPU_to_MA = true;
@@ -207,7 +227,10 @@ void Ring::insert_packet(Callable* sender) {
         current_sender,
         current_receiver)); // vnet Must be changed for alltoall topology
     packets.back().sender = sender;
-    locked_packets.push_back(&packets.back());
+    
+    // Increment pending count instead of storing pointers
+    pending_packet_release_count++;
+    
     if (comType == ComType::Reduce_Scatter ||
         (comType == ComType::All_Reduce && toggle)) {
       processed = true;
@@ -281,6 +304,9 @@ void Ring::exit() {
   if (packets.size() != 0) {
     packets.clear();
   }
+  // Reset pending count
+  pending_packet_release_count = 0;
+  // Clear deprecated locked_packets for safety
   if (locked_packets.size() != 0) {
     locked_packets.clear();
   }

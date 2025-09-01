@@ -29,6 +29,7 @@
 #include <sstream>
 #include <tuple>
 #include <vector>
+#include <mutex>
 #include<condition_variable>
 #include "Algorithm.hh"
 #include "astra-sim/system/Common.hh"
@@ -118,7 +119,26 @@ class NcclTreeFlowModel : public Algorithm {
       g_flow_inCriticalSection.store (false, std::memory_order_release);
     }
   };
+  
+  // Targeted critical section only for reduce-scatter final operations
+  class ReduceScatterOnlyCriticalSection
+  {
+  public:
+    inline ReduceScatterOnlyCriticalSection ()
+    {
+      while (g_reduce_scatter_only_inCriticalSection.exchange (true, std::memory_order_acquire))
+        ;
+    }
+
+    inline ~ReduceScatterOnlyCriticalSection ()
+    {
+      g_reduce_scatter_only_inCriticalSection.store (false, std::memory_order_release);
+    }
+  };
+  
   static std::atomic<bool> g_flow_inCriticalSection;
+  static std::atomic<bool> g_reduce_scatter_only_inCriticalSection;
+  static std::mutex debug_output_mutex;
 
 };
 } // namespace AstraSim

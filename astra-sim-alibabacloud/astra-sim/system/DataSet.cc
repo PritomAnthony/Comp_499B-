@@ -26,7 +26,7 @@ void DataSet::notify_stream_finished(StreamStat* data) {
   MockNcclLog* NcclLog = MockNcclLog::getInstance();
   NcclLog->writeLog(NcclLogLevel::DEBUG,"notify_stream_finished id: %d finished_streams: %d total streams: %d notify %p",my_id,finished_streams+1,total_streams,notifier);
   finished_streams++;
-  std::cout << "[DATASET_DEBUG] Dataset " << my_id << " stream finished: " << finished_streams << "/" << total_streams << std::endl;
+  //std::cout << "[DATASET_DEBUG] Dataset " << my_id << " stream finished: " << finished_streams << "/" << total_streams << std::endl;
   
   if (data != nullptr) {
     update_stream_stats(data);
@@ -34,7 +34,7 @@ void DataSet::notify_stream_finished(StreamStat* data) {
   if (finished_streams == total_streams) {
     finished = true;
     finish_tick = Sys::boostedTick();
-    std::cout << "[DATASET_DEBUG] Dataset " << my_id << " ALL STREAMS COMPLETE! Calling notifier." << std::endl;
+    //std::cout << "[DATASET_DEBUG] Dataset " << my_id << " ALL STREAMS COMPLETE! Calling notifier." << std::endl;
     if (notifier != nullptr) {
       NcclLog->writeLog(NcclLogLevel::DEBUG,"notify_stream_finished notifier != nullptr ");
       take_stream_stats_average();

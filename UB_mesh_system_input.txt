@@ -1,6 +1,6 @@
 all-reduce-implementation: NcclFlowModel
-reduce-scatter-implementation: NcclFlowModel
+reduce-scatter-implementation: halvingDoubling
 all-gather-implementation: NcclFlowModel
-all-to-all-implementation: NcclFlowModel
+all-to-all-implementation: direct8
 scheduling-policy: LIFO
 collective-optimization: baseline

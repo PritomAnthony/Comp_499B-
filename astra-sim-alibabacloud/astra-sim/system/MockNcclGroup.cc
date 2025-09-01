@@ -29,10 +29,10 @@ namespace MockNccl {
     
     if (enable_ub_mesh) {
       // UB mesh: Hybrid architecture with regular switches (not NVSwitches)
-      // - 128 GPU nodes (0-127) with computation + intra-rack switching capability  
-      // - 16 regular switches (128-143) for inter-rack communication
+      // - 64 GPUs across 8 servers (8 GPUs per server) with computation + intra-server switching capability  
+      // - Regular switches for inter-server communication as needed
       // - No NVSwitches used in UB mesh architecture
-      NcclLog->writeLog(NcclLogLevel::INFO, "UB mesh hybrid architecture - GPU nodes with switching + regular inter-rack switches, TP=%d, DP=%d", _TP_size, _DP_size);
+      NcclLog->writeLog(NcclLogLevel::INFO, "UB mesh hybrid architecture - GPU nodes with switching + regular inter-server switches, TP=%d, DP=%d", _TP_size, _DP_size);
     }
     
     if (_ngpus % _gpus_per_nodes != 0 || _ngpus / _gpus_per_nodes <= 0){
@@ -51,7 +51,17 @@ namespace MockNccl {
       NcclLog->writeLog(NcclLogLevel::ERROR,"The group division method is incorrect.");
       return;
     }
-    int nNodesPerTPGroup = _TP_size / nlocalranks + (_TP_size % nlocalranks > 0 ? 1 : 0);
+    
+    // Calculate nNodesPerTPGroup - handle UB mesh inter-server case
+    int nNodesPerTPGroup;
+    if (enable_ub_mesh && _ngpus == 64 && _gpus_per_nodes == 8 && _TP_size == 2) {
+      // For UB mesh 64-GPU with TP=2: Each TP group spans 2 servers
+      nNodesPerTPGroup = 2;
+    } else {
+      // Default calculation for other configurations
+      nNodesPerTPGroup = _TP_size / nlocalranks + (_TP_size % nlocalranks > 0 ? 1 : 0);
+    }
+    
     std::vector<int>ranks;
     std::vector<int>NVSwitchs;
     // ...existing code for group construction...
@@ -61,13 +71,38 @@ namespace MockNccl {
       for(int i =0;i<TP_nums;i++){
         ranks.clear();
         TPnodes.clear();
-        for(int j =0;j<_TP_size;j++){
-          int rank = i*_TP_size+j;
-          ranks.push_back(rank);
-          GroupIndex[std::make_pair(rank, TP)] = all_group_idx;
-          int node_idx = rank / _gpus_per_nodes;
-          TPnodes.insert(node_idx);
+        
+        // UB mesh inter-server TP group creation
+        if (enable_ub_mesh && _ngpus == 64 && _gpus_per_nodes == 8 && _TP_size == 2) {
+          // For UB mesh 64-GPU with TP=2: Create inter-server pairs
+          // GPU 0↔32, 1↔33, 2↔34, ..., 31↔63
+          int local_gpu = i % 32;  // 0-31 for first 32 groups
+          int rank1 = local_gpu;           // GPU on server 0-3
+          int rank2 = local_gpu + 32;      // Corresponding GPU on server 4-7
+          
+          ranks.push_back(rank1);
+          ranks.push_back(rank2);
+          GroupIndex[std::make_pair(rank1, TP)] = all_group_idx;
+          GroupIndex[std::make_pair(rank2, TP)] = all_group_idx;
+          
+          int node_idx1 = rank1 / _gpus_per_nodes;
+          int node_idx2 = rank2 / _gpus_per_nodes;
+          TPnodes.insert(node_idx1);
+          TPnodes.insert(node_idx2);
+          
+          NcclLog->writeLog(NcclLogLevel::DEBUG, "UB mesh inter-server TP group %d: GPU %d (server %d) ↔ GPU %d (server %d)", 
+                          i, rank1, node_idx1, rank2, node_idx2);
+        } else {
+          // Default sequential TP group creation for other topologies
+          for(int j =0;j<_TP_size;j++){
+            int rank = i*_TP_size+j;
+            ranks.push_back(rank);
+            GroupIndex[std::make_pair(rank, TP)] = all_group_idx;
+            int node_idx = rank / _gpus_per_nodes;
+            TPnodes.insert(node_idx);
+          }
         }
+        
         NVSwitchs.clear();
         
         // UB mesh topology handling: avoid NVSwitch array access for pure mesh
@@ -103,7 +138,111 @@ namespace MockNccl {
         all_group_idx ++;
       }
     }
-    // ...rest of existing code...
+    // init DP group
+    if(_DP_size>1){
+      std::set<int>DPnodes;
+      for(int i =0;i<DP_nums;i++){
+        ranks.clear();
+        DPnodes.clear();
+        for(int j =0;j<_DP_size;j++){
+          int rank = i+j*DP_nums;
+          ranks.push_back(rank);
+          GroupIndex[std::make_pair(rank, DP)] = all_group_idx;
+          int node_idx = rank/_gpus_per_nodes;
+          DPnodes.insert(node_idx);
+        }
+        NVSwitchs.clear();
+        
+        // UB mesh doesn't use NVSwitches for DP groups
+        if (!enable_ub_mesh) {
+          for(int idx:DPnodes){
+            NVSwitchs.push_back(_NVSwitch[idx]);
+            GroupIndex[std::make_pair(_NVSwitch[idx],DP)] = all_group_idx;
+          }
+        }
+        
+        AllGroups[all_group_idx]=GroupInfo(all_group_idx,DP,DPnodes.size(),_DP_size,ranks,NVSwitchs);
+        all_group_idx ++;
+      }
+    }
+    // init PP group
+    if(_PP_size > 1){
+
+    }
+    // init EP
+    std::map<int,GroupInfo> AllTPGroups;
+    for(auto it = AllGroups.begin();it!=AllGroups.end();it++){
+      if(it->second.type==TP){
+        AllTPGroups[it->second.group_index]=it->second;
+      }
+    }
+    if(_EP_size>1){
+      int TP_idx=0;
+      std::set<int> EPnodes;
+      for (int i = 0; i < TP_nums / _EP_size; i++){
+        TP_idx = i*_EP_size;
+        for(int j =0;j<_EP_size;j++){
+          for(int k = 0;k<AllTPGroups[TP_idx].Ranks.size();k++){
+            ranks.clear();
+            EPnodes.clear();
+            for(int l = TP_idx;l<TP_idx+_EP_size;l++){
+              int tmp_rank = AllTPGroups[l].Ranks[k];
+              int node_idx = tmp_rank/_gpus_per_nodes;
+              ranks.push_back(tmp_rank);
+              GroupIndex[std::make_pair(tmp_rank, EP)] = all_group_idx;
+              EPnodes.insert(node_idx);
+            }
+            NVSwitchs.clear();
+            
+            // UB mesh doesn't use NVSwitches for EP groups
+            if (!enable_ub_mesh) {
+              for(int idx:EPnodes){
+                NVSwitchs.push_back(_NVSwitch[idx]);
+                GroupIndex[std::make_pair(_NVSwitch[idx],EP)] = all_group_idx;
+              }
+            }
+            
+            AllGroups[all_group_idx] = GroupInfo(all_group_idx,EP,EPnodes.size(),_EP_size,ranks,NVSwitchs);
+            all_group_idx++;
+          }
+        }
+      }
+    }
+    //init EP_DP
+    if (_DP_EP_size > 1){
+      int TP_idx = 0;
+      std::set<int> DP_EP_nodes;
+      for (int i = 0; i < TP_nums / _DP_EP_size; i++){
+        TP_idx = i;
+        for (int j = 0; j < _DP_EP_size; j++){
+          for (int k = 0; k < AllTPGroups[TP_idx].Ranks.size(); k++){
+            ranks.clear();
+            DP_EP_nodes.clear();
+            for (int l = TP_idx; l < TP_idx + _DP_EP_size * _EP_size; l += _EP_size){
+              int tmp_rank = AllTPGroups[l].Ranks[k];
+              int node_idx = tmp_rank / _gpus_per_nodes;
+              ranks.push_back(tmp_rank);
+              GroupIndex[std::make_pair(tmp_rank, DP_EP)] = all_group_idx;
+              DP_EP_nodes.insert(node_idx);
+            }
+            NVSwitchs.clear();
+            
+            // UB mesh doesn't use NVSwitches for DP_EP groups
+            if (!enable_ub_mesh) {
+              for (int idx : DP_EP_nodes){
+                NVSwitchs.push_back(_NVSwitch[idx]);
+                GroupIndex[std::make_pair(_NVSwitch[idx], DP_EP)] = all_group_idx;
+              }
+            }
+            
+            AllGroups[all_group_idx] = GroupInfo(all_group_idx, DP_EP, DP_EP_nodes.size(), _DP_EP_size, ranks, NVSwitchs);
+            all_group_idx++;
+          }
+        }
+      }
+    }
+    return;
+
   }
   
   void MockNcclGroup::generateringchannels(std::map<int, std::vector<int>> localrings, MockNccl::GroupInfo* groupInfo, std::map<int, std::map<int, std::vector<int>>>& ringchannels) {
@@ -1653,6 +1792,12 @@ namespace MockNccl {
     }
     gp_idx = GroupIndex[std::make_pair(rank,type)];
     gp_info = AllGroups[gp_idx];
+    
+    // UB mesh doesn't use NVSwitches, return empty channels
+    if (enable_ub_mesh || gp_info.NVSwitchs.empty()) {
+      return nvlschannel;
+    }
+    
     if (gp_info.nNodes > 1) {
       NcclLog->writeLog(NcclLogLevel::DEBUG," %d","error NVLS ALGO dont");
       return {};
@@ -1685,6 +1830,12 @@ namespace MockNccl {
     }
     gp_idx = GroupIndex[std::make_pair(rank,type)];
     gp_info = AllGroups[gp_idx];
+    
+    // UB mesh doesn't use NVSwitches, return empty tree channels
+    if (enable_ub_mesh || gp_info.NVSwitchs.empty()) {
+      return nvlstreechannels;
+    }
+    
     if(AllNVLStreechannels.count(gp_idx)){
       return AllNVLStreechannels[gp_idx];
     }
@@ -1815,6 +1966,12 @@ namespace MockNccl {
     }
     gp_idx = GroupIndex[std::make_pair(rank,type)];
     gp_info = AllGroups[gp_idx];
+    
+    // UB mesh doesn't use NVSwitches, return empty tree channels
+    if (enable_ub_mesh) {
+      return treechannels;
+    }
+    
     if(Alltreechannels.count(gp_idx)){
       return Alltreechannels[gp_idx];
     }
@@ -2020,7 +2177,10 @@ namespace MockNccl {
     switch (op) {
       case AstraSim::ComType::All_Reduce:
           if(type==TP){
-            if(gpu_type==GPUType::A100||gpu_type==GPUType::A800){
+            // Force RING algorithm for UB mesh - no NVSwitches available
+            if (enable_ub_mesh) {
+              info->algorithm = NCCL_ALGO_RING;
+            } else if(gpu_type==GPUType::A100||gpu_type==GPUType::A800){
               info->algorithm = NCCL_ALGO_RING;
             }else if(gpu_type==GPUType::H100||gpu_type==GPUType::H800){
               if (gp_info.nRanks >= 8 && NVLSenable) {

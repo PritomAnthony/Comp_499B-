@@ -14,7 +14,17 @@ LICENSE file in the root directory of this source tree.
 #include "Common.hh"
 #include "RendezvousRecvData.hh"
 #include "RendezvousSendData.hh"
+#include <mutex>
+
+// Thread-safe debug logging macro
+#define THREAD_SAFE_DEBUG(msg) \
+  do { \
+    static std::mutex debug_mutex; \
+    std::lock_guard<std::mutex> lock(debug_mutex); \
+    std::cout << msg << std::endl; \
+  } while(0)
 #include "calbusbw.h"
+#include <thread>
 #include "astra-sim/system/collective/AllToAll.hh"
 #include "astra-sim/system/collective/DoubleBinaryTreeAllReduce.hh"
 #include "astra-sim/system/collective/HalvingDoubling.hh"
@@ -186,6 +196,7 @@ Sys::Sys(
   }
   all_generators[id+npu_offset] = this;
 
+
   // UB mesh: Hybrid architecture with GPU switching + dedicated regular switches
   // - GPU nodes (0-127) have computation AND intra-rack switching capability
   // - Regular switches (128-143) handle inter-rack communication (NOT NVSwitches)
@@ -326,6 +337,16 @@ Sys::Sys(
         "Unable to initialize the workload layer because it can not open the workload file");
     return;
   }
+  
+  // Set UB mesh flag before MockNccl initialization
+  // Detect UB mesh configuration: 64 GPUs with TP=2 indicates inter-server TP groups
+  if (workload->all_gpus == 64 && workload->model_parallel_npu_group == 2) {
+    //std::cout << "[MOCKNCCL_DEBUG] Setting UB mesh flag: all_gpus=" << workload->all_gpus 
+              //<< " TP_size=" << workload->model_parallel_npu_group << std::endl;
+    MockNccl::MockNcclGroup::enable_ub_mesh = true;
+  }
+
+
   #if defined(NS3_MTP) || defined(NS3_MPI) || defined(PHY_MTP)
   result = mock_nccl_grobal_group_init();
   if(result == false) {
@@ -512,14 +533,29 @@ int Sys::sim_send(
     void* fun_arg) {
   if (delay == 0 && fun_arg == nullptr) {
     Sys::sysCriticalSection cs;
+    // DEBUG: Only log near the final layer when simulation is ending
+    if (finished_workloads >= 1 || pending_sends.size() < 10) {
+      //THREAD_SAFE_DEBUG("[DEBUG] sim_send entering critical section for dst=" << dst << ", tag=" << tag << ", size=" << count << ", thread_id=" << std::this_thread::get_id());
+      //THREAD_SAFE_DEBUG("[DEBUG] Inside critical section, checking is_there_pending_sends map, current size=" << is_there_pending_sends.size());
+    }
       
     SendPacketEventHandlerData* fun_arg_tmp =
         new SendPacketEventHandlerData(this, id+npu_offset, dst, tag);
     fun_arg = (void*)fun_arg_tmp;
     if (is_there_pending_sends.find(std::make_pair(dst, tag)) == is_there_pending_sends.end() ||
     is_there_pending_sends[std::make_pair(dst, tag)] == false) {
+      // DEBUG: Log the critical map access that's causing the crash (only near end)
+      if (finished_workloads >= 1 || pending_sends.size() < 10) {
+        //THREAD_SAFE_DEBUG("[DEBUG] About to set is_there_pending_sends[(" << dst << "," << tag << ")] = true, thread_id=" << std::this_thread::get_id());
+      }
       is_there_pending_sends[std::make_pair(dst, tag)] = true;
+      if (finished_workloads >= 1 || pending_sends.size() < 10) {
+        //THREAD_SAFE_DEBUG("[DEBUG] Successfully set is_there_pending_sends[(" << dst << "," << tag << ")] = true");
+      }
       cs.ExitSection();
+      if (finished_workloads >= 1 || pending_sends.size() < 10) {
+        //THREAD_SAFE_DEBUG("[DEBUG] Successfully exited critical section after setting pending send");
+      }
     } else {
       if (pending_sends.find(std::make_pair(dst, tag)) ==
           pending_sends.end()) {
@@ -1837,8 +1873,8 @@ void Sys::proceed_to_next_vnet_baseline(StreamBaseline* stream) {
     delete stream->my_current_phase.algorithm;
   }
   if (stream->phases_to_go.size() == 0) {
-    std::cout << "[STREAM_DEBUG] Node " << id << " - Stream finishing: stream_num=" << stream->stream_num 
-              << ", total_running_streams=" << total_running_streams << std::endl;
+    //std::cout << "[STREAM_DEBUG] Node " << id << " - Stream finishing: stream_num=" << stream->stream_num 
+              //<< ", total_running_streams=" << total_running_streams << std::endl;
     stream->take_bus_stats_average();
     stream->dataset->notify_stream_finished((StreamStat*)stream);
   }

@@ -15,3 +15,12 @@ AS_SEND_LAT=1 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16
 AS_SEND_LAT=1 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 
 -w ./64_GPUs_Simulation/wokload/None-None-world_size64-tp2-pp1-ep32-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt 
 -n ./64_GPUs_Simulation/topology_files/fat_tree_custom_64g_8e_4a_2c_H100 -c astra-sim-alibabacloud/inputs/config/SimAI.conf|tee ./64_GPUs_Simulation/log_files/fat_tree_custom_64g_8e_4a_2c_H100.log
+
+
+
+
+
+
+## ub mesh updated command: 
+
+ cd /home/parozario/newSimAI/Comp_499B-/ && gdb --batch --ex run --ex bt --ex quit --args env AS_SEND_LAT=1 AS_NVLS_ENABLE=1 ./bin/SimAI_simulator -t 16 -w ./64_GPUs_Simulation/wokload/None-None-world_size64-tp2-pp1-ep32-gbs64-mbs1-seq4096-MOE-True-GEMM-True-flash_attn-False.txt -n ./64_GPUs_Simulation/topology_files/UB_64_mesh_8gps_8servers_900Gbps_H100 -c astra-sim-alibabacloud/inputs/config/SimAI_Anthony.conf | tee 64_GPUs_Simulation/log_files/UB_64_final.log

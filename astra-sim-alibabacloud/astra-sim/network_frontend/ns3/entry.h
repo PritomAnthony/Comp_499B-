@@ -16,6 +16,8 @@
 #ifndef __ENTRY_H__
 #define __ENTRY_H__
 
+#include <mutex>
+
 #undef PGO_TRAINING
 #define PATH_TO_PGO_CONFIG "path_to_pgo_config"
 #define _QPS_PER_CONNECTION_  1
@@ -111,11 +113,17 @@ void SendFlow(int src, int dst, uint64_t maxPacketCount,
   uint64_t PacketCount=((maxPacketCount+_QPS_PER_CONNECTION_-1)/_QPS_PER_CONNECTION_);
   uint64_t leftPacketCount = maxPacketCount;
   
-  // DEBUG: Log flow initiation
-  std::cout << "[FLOW_DEBUG] Initiating flow from node=" << src << " to node=" << dst 
-            << " maxPacketCount=" << maxPacketCount << " tag=" << tag 
-            << " flow_id=" << request->flowTag.current_flow_id 
-            << " at time=" << AstraSim::Sys::boostedTick() << std::endl;
+  // DEBUG: Log flow initiation with thread safety
+  {
+    #ifdef NS3_MTP
+    static std::mutex flow_debug_mutex;
+    std::lock_guard<std::mutex> lock(flow_debug_mutex);
+    #endif
+    std::cout << "[FLOW_DEBUG] Initiating flow from node=" << src << " to node=" << dst 
+              << " maxPacketCount=" << maxPacketCount << " tag=" << tag 
+              << " flow_id=" << request->flowTag.current_flow_id 
+              << " at time=" << AstraSim::Sys::boostedTick() << std::endl;
+  }
   
   for(int index = 0 ;index<_QPS_PER_CONNECTION_;index++){
   uint64_t real_PacketCount = min(PacketCount,leftPacketCount);
@@ -162,13 +170,19 @@ void SendFlow(int src, int dst, uint64_t maxPacketCount,
     #endif
     ApplicationContainer appCon = clientHelper.Install(n.Get(src));
     appCon.Start(Time(send_lat));
-    waiting_to_sent_callback[std::make_pair(request->flowTag.current_flow_id,std::make_pair(src,dst))]++;
-    waiting_to_notify_receiver[std::make_pair(request->flowTag.current_flow_id,std::make_pair(src,dst))]++;
+    // Safe map access with key validation
+    auto flow_key = std::make_pair(request->flowTag.current_flow_id, std::make_pair(src, dst));
+    waiting_to_sent_callback[flow_key]++;
+    waiting_to_notify_receiver[flow_key]++;
     #ifdef NS3_MTP
     cs.ExitSection();
     #endif
   }
-  NcclLog->writeLog(NcclLogLevel::DEBUG,"waiting_to_notify_receiver  current_flow_id  %d src  %d dst  %d count  %d",request->flowTag.current_flow_id,src,dst,waiting_to_notify_receiver[std::make_pair(request->flowTag.tag_id,std::make_pair(src,dst))]);
+  // Use the same key for consistency
+  auto flow_key = std::make_pair(request->flowTag.current_flow_id, std::make_pair(src, dst));
+  auto count_it = waiting_to_notify_receiver.find(flow_key);
+  int count_val = (count_it != waiting_to_notify_receiver.end()) ? count_it->second : 0;
+  NcclLog->writeLog(NcclLogLevel::DEBUG,"waiting_to_notify_receiver  current_flow_id  %d src  %d dst  %d count  %d",request->flowTag.current_flow_id,src,dst,count_val);
   }
 }
 
