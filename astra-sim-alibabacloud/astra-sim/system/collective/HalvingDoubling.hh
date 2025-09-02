@@ -27,6 +27,7 @@ LICENSE file in the root directory of this source tree.
 namespace AstraSim {
 class HalvingDoubling : public Algorithm {
  public:
+  static int g_flow_id;  // Global flow ID counter to prevent flow key collisions
   RingTopology::Direction dimension;
   MemBus::Transmition transmition;
   int zero_latency_packets;

@@ -7,6 +7,8 @@ LICENSE file in the root directory of this source tree.
 #include "astra-sim/system/PacketBundle.hh"
 #include "astra-sim/system/RecvPacketEventHadndlerData.hh"
 namespace AstraSim {
+// Initialize global flow ID counter for network flow tracking  
+int Ring::g_flow_id = 0;
 Ring::Ring(
     ComType type,
     int id,
@@ -268,6 +270,8 @@ bool Ring::ready() {
   snd_req.reqType = UINT8;
   snd_req.vnet = this->stream->current_queue_id;
   snd_req.layerNum = layer_num;
+  // CRITICAL: Set unique flow ID to prevent network layer flow map collisions
+  snd_req.flowTag.current_flow_id = g_flow_id++;
   stream->owner->front_end_sim_send(
       0,
       Sys::dummy_data,

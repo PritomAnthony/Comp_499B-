@@ -1173,6 +1173,13 @@ std::map<std::string, std::vector<bool>> Workload::decode_involved_dimensions(
         std::cout << (model[i] ? "1" : "0") << " ";
       }
       std::cout << std::endl;
+      
+      // Show actual logical dimension sizes
+      std::cout << "DEBUG_POLICY: logical dimension sizes: ";
+      for (int i = 0; i < generator->logical_broken_dims.size() && i < 10; i++) {
+        std::cout << generator->logical_broken_dims[i] << " ";
+      }
+      std::cout << std::endl;
     }
     result["fwd"] = model;
     result["ig"] = model;

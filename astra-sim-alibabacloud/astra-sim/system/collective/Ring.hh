@@ -27,6 +27,7 @@ LICENSE file in the root directory of this source tree.
 namespace AstraSim {
 class Ring : public Algorithm {
  public:
+  static int g_flow_id;  // Global flow ID counter to prevent flow key collisions
   // enum class Type{AllReduce,AllGather,ReduceScatter,AllToAll};
   RingTopology::Direction dimension;
   RingTopology::Direction direction;

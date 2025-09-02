@@ -78,7 +78,7 @@ Sys::~Sys() {
               << "Percentage of finished streams: "
               << (((double)streams_finished) / streams_injected) * 100 << " %"
               << std::endl;
-    if(id == 0) std::cout << "DEBUG_FINAL_COUNT: Node 0 final stream_counter value: " << stream_counter << std::endl;
+    // DEBUG: Node 0 final stream_counter value: stream_counter
     std::cout << std::endl
               << "*****" << std::endl;
   }
@@ -1819,22 +1819,14 @@ void Sys::call_events() {
   cs.ExitSection();
   }
   FINISH_CHECK: 
-  static int debug_counter = 0;
-  if (id == 0 && (debug_counter++ % 1000 == 0)) {
-    std::cout << "DEBUG_SIM_END: Node " << id << " checking finish condition: finished_workloads=" << finished_workloads << ", event_queue.size()=" << event_queue.size() << ", pending_sends.size()=" << pending_sends.size() << ", initialized=" << initialized << std::endl;
-  }
   if ((finished_workloads == 1 && event_queue.size() == 0 && pending_sends.size() == 0) ||
       initialized == false) {
     if (id == 0) {
-      std::cout << "DEBUG_SIM_END: Node " << id << " FINISH CONDITION MET - calling sim_finish!" << std::endl;
       std::cout << "Simulation completed: all workloads finished" << std::endl;
     }
-    // Call sim_finish on ALL nodes to get per-node statistics
-    std::cout << "DEBUG_SIM_END: Node " << id << " calling NI->sim_finish()" << std::endl;
+    // Call sim_finish on ALL nodes to collect per-node statistics (only rank 0 prints)
     NI->sim_finish();
     delete this;
-  } else if (id == 0 && (debug_counter % 1000 == 0)) {
-    std::cout << "DEBUG_SIM_END: Node " << id << " FINISH CONDITION NOT MET - continuing simulation" << std::endl;
   }
 
 }

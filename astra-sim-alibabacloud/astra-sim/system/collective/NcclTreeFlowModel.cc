@@ -348,7 +348,7 @@ bool NcclTreeFlowModel::recv_ready(int channel_id, int flow_id) {
         recv_prev,
         1); 
     ehd->flowTag.child_flow_id = -1;
-    ehd->flowTag.current_flow_id = -1;
+    ehd->flowTag.current_flow_id = flow_id;
     ehd->flowTag.channel_id = channel_id;
     ehd->flowTag.chunk_id = flow_model.chunk_id;
     ehd->flowTag.sender_node = recv_prev;
@@ -543,7 +543,7 @@ bool NcclTreeFlowModel::ready(int channel_id, int flow_id) {
         packet.preferred_vnet,
         packet.stream_num);
     ehd->flowTag.child_flow_id = -1;
-    ehd->flowTag.current_flow_id = -1;
+    ehd->flowTag.current_flow_id = flow_id;
     auto flow_model = this->_flow_models[std::make_pair(channel_id,flow_id)];
     if(flow_model.parent_flow_id.size()==0 || flow_model.conn_type == "RING"){
       ehd->flowTag.tag_id = layer_num*flow_model.chunk_count*m_channels + flow_model.chunk_count*flow_model.channel_id+flow_model.chunk_id;
@@ -679,7 +679,7 @@ bool NcclTreeFlowModel::phy_ready(int channel_id,int flow_id) {
         stream->current_queue_id,
         1);
     ehd->flowTag.child_flow_id = -1;
-    ehd->flowTag.current_flow_id = -1;
+    ehd->flowTag.current_flow_id = flow_id;
     auto flow_model = this->_flow_models[std::make_pair(channel_id,flow_id)];
     if(flow_model.parent_flow_id.size()==0 || flow_model.conn_type == "RING"){
       ehd->flowTag.tag_id = layer_num*flow_model.chunk_count*m_channels + flow_model.chunk_count*flow_model.channel_id+flow_model.chunk_id;
