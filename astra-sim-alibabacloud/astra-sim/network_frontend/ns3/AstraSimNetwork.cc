@@ -74,23 +74,21 @@ public:
   ~ASTRASimNetwork() {}
   int sim_comm_size(AstraSim::sim_comm comm, int *size) { return 0; }
   int sim_finish() {
-    std::cout << "DEBUG_SIM_FINISH: Entering sim_finish() for rank " << rank << std::endl;
-    std::cout << "DEBUG_SIM_FINISH: nodeHash size: " << nodeHash.size() << std::endl;
-    
-    if (nodeHash.empty()) {
-      std::cout << "DEBUG_SIM_FINISH: WARNING - nodeHash is EMPTY! No per-node statistics available." << std::endl;
-    } else {
-      std::cout << "DEBUG_SIM_FINISH: Printing per-node statistics:" << std::endl;
-      for (auto it = nodeHash.begin(); it != nodeHash.end(); it++) {
-        pair<int, int> p = it->first;
-        if (p.second == 0) {
-          cout << "All data sent from node " << p.first << " is " << it->second << "\n";
-        } else {
-          cout << "All data received by node " << p.first << " is " << it->second << "\n";
+    // Only rank 0 prints per-node statistics to avoid duplicate output
+    if (rank == 0) {
+      if (nodeHash.empty()) {
+        std::cout << "WARNING: nodeHash is EMPTY! No per-node statistics available." << std::endl;
+      } else {
+        for (auto it = nodeHash.begin(); it != nodeHash.end(); it++) {
+          pair<int, int> p = it->first;
+          if (p.second == 0) {
+            cout << "All data sent from node " << p.first << " is " << it->second << "\n";
+          } else {
+            cout << "All data received by node " << p.first << " is " << it->second << "\n";
+          }
         }
       }
     }
-    std::cout << "DEBUG_SIM_FINISH: Completed processing in sim_finish(), returning normally" << std::endl;
     return 0;
   }
   double sim_time_resolution() { return 1e-9; }  // 1 nanosecond resolution
@@ -166,6 +164,9 @@ public:
       uint64_t count = recvHash[make_pair(tag, make_pair(t.src, t.dest))];
       if (count == t.count) {
         recvHash.erase(make_pair(tag, make_pair(t.src, t.dest)));
+        // Reset flow IDs before assignment to ensure clean state
+        ehd->flowTag.current_flow_id = -1;
+        ehd->flowTag.child_flow_id = -1;
         assert(ehd->flowTag.child_flow_id == -1 && ehd->flowTag.current_flow_id == -1);
         if(receiver_pending_queue.count(std::make_pair(std::make_pair(rank, src),tag))!= 0) {
           AstraSim::ncclFlowTag pending_tag = receiver_pending_queue[std::make_pair(std::make_pair(rank, src),tag)];
@@ -179,6 +180,9 @@ public:
         goto sim_recv_end_section;
       } else if (count > t.count) {
         recvHash[make_pair(tag, make_pair(t.src, t.dest))] = count - t.count;
+        // Reset flow IDs before assignment to ensure clean state
+        ehd->flowTag.current_flow_id = -1;
+        ehd->flowTag.child_flow_id = -1;
         assert(ehd->flowTag.child_flow_id == -1 && ehd->flowTag.current_flow_id == -1);
         if(receiver_pending_queue.count(std::make_pair(std::make_pair(rank, src),tag))!= 0) {
           AstraSim::ncclFlowTag pending_tag = receiver_pending_queue[std::make_pair(std::make_pair(rank, src),tag)];

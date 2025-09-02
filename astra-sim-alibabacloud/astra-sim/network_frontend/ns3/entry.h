@@ -208,6 +208,9 @@ void notify_receiver_receive_data(int sender_node, int receiver_node,
         #ifdef NS3_MTP
         cs.ExitSection();
         #endif
+        // Reset flow IDs before assignment to ensure clean state
+        ehd->flowTag.current_flow_id = -1;
+        ehd->flowTag.child_flow_id = -1;
         assert(ehd->flowTag.current_flow_id == -1 && ehd->flowTag.child_flow_id == -1);
         ehd->flowTag = flowTag;
         t2.msg_handler(t2.fun_arg);
@@ -220,6 +223,9 @@ void notify_receiver_receive_data(int sender_node, int receiver_node,
         #ifdef NS3_MTP
         cs.ExitSection();
         #endif
+        // Reset flow IDs before assignment to ensure clean state
+        ehd->flowTag.current_flow_id = -1;
+        ehd->flowTag.child_flow_id = -1;
         assert(ehd->flowTag.current_flow_id == -1 && ehd->flowTag.child_flow_id == -1);
         ehd->flowTag = flowTag;
         t2.msg_handler(t2.fun_arg);

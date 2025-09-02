@@ -19,6 +19,8 @@ RecvPacketEventHadndlerData::RecvPacketEventHadndlerData(
   ready_time = Sys::boostedTick();
   flow_id = -2;
   child_flow_id = -1;
+  // Initialize flowTag with default values
+  this->flowTag = ncclFlowTag();
 }
 RecvPacketEventHadndlerData::RecvPacketEventHadndlerData(
     BaseStream* owner,
