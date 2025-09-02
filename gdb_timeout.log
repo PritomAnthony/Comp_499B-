@@ -1,0 +1,17 @@
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+process 361529 is executing new program: /home/parozario/newSimAI/Comp_499B-/astra-sim-alibabacloud/extern/network_backend/ns3-interface/simulation/build/scratch/ns3.36.1-AstraSimNetwork-debug
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+[New Thread 0x7ffff5c0a640 (LWP 361549)]
+[New Thread 0x7ffff5409640 (LWP 361550)]
+[New Thread 0x7ffff4c08640 (LWP 361551)]
+[New Thread 0x7ffff4407640 (LWP 361552)]
+[New Thread 0x7ffff3c06640 (LWP 361553)]
+[New Thread 0x7ffff3405640 (LWP 361554)]
+[New Thread 0x7ffff2c04640 (LWP 361555)]
+Exception ignored in: <gdb._GdbOutputFile object at 0x7a7a081ffa00>
+Traceback (most recent call last):
+  File "/usr/share/gdb/python/gdb/__init__.py", line 47, in flush
+    def flush(self):
+KeyboardInterrupt: 
