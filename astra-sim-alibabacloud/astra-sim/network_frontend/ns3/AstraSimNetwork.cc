@@ -313,11 +313,11 @@ int main(int argc, char *argv[]) {
     workload_file.close();
   }
   
-  std::cout << "DEBUG: Detected configuration:" << std::endl;
-  std::cout << "  Total nodes from topology: " << node_num << std::endl;
-  std::cout << "  Switch nodes: " << switch_num << std::endl;
-  std::cout << "  GPU nodes: " << gpu_num << std::endl;
-  std::cout << "  TP size: " << tp_size << std::endl;
+  // std::cout << "DEBUG: Detected configuration:" << std::endl;
+  // std::cout << "  Total nodes from topology: " << node_num << std::endl;
+  // std::cout << "  Switch nodes: " << switch_num << std::endl;
+  // std::cout << "  Compute nodes (servers): " << nodes_num << std::endl;
+  // std::cout << "  TP size: " << tp_size << std::endl;
 
   std::map<int, int> node2nvswitch;
   std::map<int, std::vector<int>> tp_groups;
@@ -339,6 +339,15 @@ int main(int argc, char *argv[]) {
       NVswitchs.push_back(switch_id);
     }
   }
+  
+  // Debug: Show NVSwitch IDs
+  // std::cout << "DEBUG: NVSwitch IDs created:" << std::endl;
+  // std::cout << "  NVswitchs array size: " << NVswitchs.size() << std::endl;
+  // for(int i = 0; i < NVswitchs.size(); i++) {
+  //   std::cout << "  NVswitchs[" << i << "] = " << NVswitchs[i] << std::endl;
+  // }
+  
+  
   
   // Configure cross-group communication paths
   for (auto& group : tp_groups) {
@@ -381,12 +390,24 @@ int main(int argc, char *argv[]) {
     // Calculate the group ID for this node based on actual TP size
     int group_id = j / tp_size;
     
+    // // Debug: Show what's being passed to Sys constructor for this node
+    // std::cout << "DEBUG: Creating Sys for node " << j << ":" << std::endl;
+    // std::cout << "  group_id = " << group_id << std::endl;
+    // std::cout << "  gpus_per_server = " << gpus_per_server << std::endl;
+    // std::cout << "  total GPUs (_ngpus) = " << gpu_num << std::endl;
+    // std::cout << "  NVswitchs passed to constructor: [";
+    for(int k = 0; k < NVswitchs.size(); k++) {
+      std::cout << NVswitchs[k];
+      if(k < NVswitchs.size() - 1) std::cout << ", ";
+    }
+    std::cout << "]" << std::endl;
+    
     systems[j] = new AstraSim::Sys(
         networks[j],
         nullptr,
         j,
         group_id,  // Pass group_id for tensor parallel awareness
-        1,
+        1,  // num of passes
         {gpu_num},  // Pass total GPU count for initial ring setup
         {1},  // Single dimension initially
         "/home/parozario/newSimAI/Comp_499B-/UB_mesh_system_input.txt",

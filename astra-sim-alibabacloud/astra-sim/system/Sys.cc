@@ -1437,7 +1437,7 @@ bool Sys::mock_nccl_grobal_group_init(){
     if (MockNccl::MockNcclGroup::enable_ub_mesh) {
       // UB mesh: 128 GPU nodes + 16 dedicated inter-rack switches
       // Each GPU node has computation + intra-rack switching capability
-      DP_size = 128 / (TP_size * PP_size);  // Only count GPU nodes for DP
+      DP_size = 64 / (TP_size * PP_size);  // Only count GPU nodes for DP
     } else {
       // Fat Tree: Traditional GPU + separate switch hierarchy
       DP_size = all_gpus[0] / (TP_size * PP_size);
@@ -1451,7 +1451,7 @@ bool Sys::mock_nccl_grobal_group_init(){
       // Use empty NVSwitch vector since UB mesh uses regular switches
       std::vector<int> empty_nvswitches;  // UB mesh has no NVSwitches
       GlobalGroup = new MockNccl::MockNcclGroup(
-        128,             // 128 GPU nodes (not total_nodes which includes switches)
+        all_gpus[0],             // 128 GPU nodes (not total_nodes which includes switches)
         1,               // 1 GPU per node with switching capability
         TP_size, DP_size, PP_size, EP_size, DP_EP_size,
         empty_nvswitches,// No NVSwitches - UB mesh uses regular switches

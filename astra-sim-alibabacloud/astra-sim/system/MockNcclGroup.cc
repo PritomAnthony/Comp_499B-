@@ -73,7 +73,8 @@ namespace MockNccl {
         TPnodes.clear();
         
         // UB mesh inter-server TP group creation
-        if (enable_ub_mesh && _ngpus == 64 && _gpus_per_nodes == 8 && _TP_size == 2) {
+        if (enable_ub_mesh) {
+          std::cout << "DEBUG: Creating UB mesh inter-server TP" << i << std::endl;
           // For UB mesh 64-GPU with TP=2: Create inter-server pairs
           // GPU 0↔32, 1↔33, 2↔34, ..., 31↔63
           int local_gpu = i % 32;  // 0-31 for first 32 groups
@@ -102,6 +103,14 @@ namespace MockNccl {
             TPnodes.insert(node_idx);
           }
         }
+        
+        // Debug: Show which GPUs are in this TP group
+        std::cout << "TP group " << all_group_idx << ": GPUs [";
+        for(int k = 0; k < ranks.size(); k++) {
+          std::cout << ranks[k];
+          if(k < ranks.size() - 1) std::cout << ", ";
+        }
+        std::cout << "] (size=" << _TP_size << ", nodes=" << TPnodes.size() << ")" << std::endl;
         
         NVSwitchs.clear();
         

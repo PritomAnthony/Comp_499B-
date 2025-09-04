@@ -1031,7 +1031,7 @@ void SetupNetwork(void (*qp_finish)(FILE *, Ptr<RdmaQueuePair>),void (*send_fini
     // Enable UB mesh mode in NCCL flow model to fix TP=8 routing issues
     // This prevents invalid NVSwitch array access for pure mesh topologies
     MockNccl::MockNcclGroup::enable_ub_mesh = true;
-    std::cout << "[UB_MESH_DEBUG] Enabled UB mesh NCCL flow model (fixes TP=8 routing for 64-GPU mesh)" << std::endl;
+    //std::cout << "[UB_MESH_DEBUG] Enabled UB mesh NCCL flow model (fixes TP=8 routing for 64-GPU mesh)" << std::endl;
     std::cout << "[UB_MESH_DEBUG] Flag set to: " << MockNccl::MockNcclGroup::enable_ub_mesh << std::endl;
   } else {
     std::cout << "[UB_MESH_DEBUG] UB mesh NOT detected - using traditional topology" << std::endl;
