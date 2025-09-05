@@ -1435,9 +1435,8 @@ bool Sys::mock_nccl_grobal_group_init(){
     // UB mesh vs Fat Tree: Different architectural approaches
     int DP_size;
     if (MockNccl::MockNcclGroup::enable_ub_mesh) {
-      // UB mesh: 128 GPU nodes + 16 dedicated inter-rack switches
-      // Each GPU node has computation + intra-rack switching capability
-      DP_size = 64 / (TP_size * PP_size);  // Only count GPU nodes for DP
+      // UB mesh: GPU nodes with computation + intra-rack switching capability
+      DP_size = all_gpus[0] / (TP_size * PP_size);  // Use actual GPU count for DP
     } else {
       // Fat Tree: Traditional GPU + separate switch hierarchy
       DP_size = all_gpus[0] / (TP_size * PP_size);

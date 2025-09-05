@@ -46,21 +46,26 @@ namespace MockNccl {
     int DP_nums = _ngpus/_DP_size;
     int PP_nums = _ngpus/_PP_size;
     int EP_nums = _ngpus/_EP_size;
-    int DP_EP_nums = _ngpus/_DP_EP_size;
-    if (TP_nums <= 0 || DP_nums <= 0 || PP_nums <= 0 || EP_nums <= 0 || DP_EP_nums <= 0 || (_TP_size * _DP_size * _PP_size != _ngpus) || (_EP_size * _DP_EP_size != _DP_size)){
-      NcclLog->writeLog(NcclLogLevel::ERROR,"The group division method is incorrect.");
+    
+    // Handle DP_EP_size safely - avoid division by zero
+    int DP_EP_nums = 0;
+    if (_DP_EP_size > 0) {
+        DP_EP_nums = _ngpus/_DP_EP_size;
+    }
+    
+    // Check for valid group division, allowing DP_EP_size to be 0
+    bool valid_basic_division = (TP_nums > 0 && DP_nums > 0 && PP_nums > 0 && EP_nums > 0);
+    bool valid_total_size = (_TP_size * _DP_size * _PP_size == _ngpus);
+    bool valid_dp_ep = (_DP_EP_size == 0) || (_EP_size * _DP_EP_size == _DP_size && DP_EP_nums > 0);
+    
+    if (!valid_basic_division || !valid_total_size || !valid_dp_ep) {
+      NcclLog->writeLog(NcclLogLevel::ERROR,"The group division method is incorrect. TP_nums=%d, DP_nums=%d, PP_nums=%d, EP_nums=%d, DP_EP_nums=%d, _DP_EP_size=%d", 
+                       TP_nums, DP_nums, PP_nums, EP_nums, DP_EP_nums, _DP_EP_size);
       return;
     }
     
-    // Calculate nNodesPerTPGroup - handle UB mesh inter-server case
-    int nNodesPerTPGroup;
-    if (enable_ub_mesh && _ngpus == 64 && _gpus_per_nodes == 8 && _TP_size == 2) {
-      // For UB mesh 64-GPU with TP=2: Each TP group spans 2 servers
-      nNodesPerTPGroup = 2;
-    } else {
-      // Default calculation for other configurations
-      nNodesPerTPGroup = _TP_size / nlocalranks + (_TP_size % nlocalranks > 0 ? 1 : 0);
-    }
+    // Calculate nNodesPerTPGroup - use default calculation for safety
+    int nNodesPerTPGroup = _TP_size / nlocalranks + (_TP_size % nlocalranks > 0 ? 1 : 0);
     
     std::vector<int>ranks;
     std::vector<int>NVSwitchs;
@@ -72,36 +77,13 @@ namespace MockNccl {
         ranks.clear();
         TPnodes.clear();
         
-        // UB mesh inter-server TP group creation
-        if (enable_ub_mesh) {
-          std::cout << "DEBUG: Creating UB mesh inter-server TP" << i << std::endl;
-          // For UB mesh 64-GPU with TP=2: Create inter-server pairs
-          // GPU 0↔32, 1↔33, 2↔34, ..., 31↔63
-          int local_gpu = i % 32;  // 0-31 for first 32 groups
-          int rank1 = local_gpu;           // GPU on server 0-3
-          int rank2 = local_gpu + 32;      // Corresponding GPU on server 4-7
-          
-          ranks.push_back(rank1);
-          ranks.push_back(rank2);
-          GroupIndex[std::make_pair(rank1, TP)] = all_group_idx;
-          GroupIndex[std::make_pair(rank2, TP)] = all_group_idx;
-          
-          int node_idx1 = rank1 / _gpus_per_nodes;
-          int node_idx2 = rank2 / _gpus_per_nodes;
-          TPnodes.insert(node_idx1);
-          TPnodes.insert(node_idx2);
-          
-          NcclLog->writeLog(NcclLogLevel::DEBUG, "UB mesh inter-server TP group %d: GPU %d (server %d) ↔ GPU %d (server %d)", 
-                          i, rank1, node_idx1, rank2, node_idx2);
-        } else {
-          // Default sequential TP group creation for other topologies
-          for(int j =0;j<_TP_size;j++){
-            int rank = i*_TP_size+j;
-            ranks.push_back(rank);
-            GroupIndex[std::make_pair(rank, TP)] = all_group_idx;
-            int node_idx = rank / _gpus_per_nodes;
-            TPnodes.insert(node_idx);
-          }
+        // Regular sequential TP group creation
+        for(int j =0;j<_TP_size;j++){
+          int rank = i*_TP_size+j;
+          ranks.push_back(rank);
+          GroupIndex[std::make_pair(rank, TP)] = all_group_idx;
+          int node_idx = rank / _gpus_per_nodes;
+          TPnodes.insert(node_idx);
         }
         
         // Debug: Show which GPUs are in this TP group
@@ -111,6 +93,12 @@ namespace MockNccl {
           if(k < ranks.size() - 1) std::cout << ", ";
         }
         std::cout << "] (size=" << _TP_size << ", nodes=" << TPnodes.size() << ")" << std::endl;
+        
+        // Bounds check for group creation
+        if (all_group_idx < 0 || ranks.size() != _TP_size) {
+          std::cout << "Invalid TP group " << all_group_idx << ": size=" << ranks.size() << ", expected=" << _TP_size << std::endl;
+          continue;
+        }
         
         NVSwitchs.clear();
         

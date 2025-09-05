@@ -88,7 +88,6 @@ NcclTreeFlowModel::NcclTreeFlowModel(
         }
         NcclTreeFlowModel::FlowCriticalSection cs;
         this->_stream_count[f.second.channel_id] += 1;
-        cs.ExitSection();
         assert(this->_flow_models.count(f.first) == 0);
         this->_flow_models[f.first] = f.second;
         send_packets++;
@@ -165,16 +164,17 @@ void NcclTreeFlowModel::run(EventType event, CallData* data) {
       }
     }
     assert(flow_exist == true);
-    NcclTreeFlowModel::FlowCriticalSection cs;
-    free_packets[std::make_pair(channel_id, flowTag.sender_node)]--;
     bool tag = true;
-    for (int i = 0; i < m_channels; i++) {
-      if (_stream_count[i] != 0) {
-        tag = false;
-        break;
+    {
+      NcclTreeFlowModel::FlowCriticalSection cs;
+      free_packets[std::make_pair(channel_id, flowTag.sender_node)]--;
+      for (int i = 0; i < m_channels; i++) {
+        if (_stream_count[i] != 0) {
+          tag = false;
+          break;
+        }
       }
-    }
-    cs.ExitSection();
+    } // Critical section ends here
     if(tag) { 
       ready(channel_id, -1);
       iteratable(channel_id);
@@ -200,18 +200,18 @@ void NcclTreeFlowModel::run(EventType event, CallData* data) {
     }
     NcclLog->writeLog(NcclLogLevel::DEBUG,"next_flow_list.size %d",next_flow_list.size());
     for (int next_flow_id : next_flow_list) {
-      NcclTreeFlowModel::FlowCriticalSection cs;
-      if (indegree_mapping.count(next_flow_id) == 0) {
-        flow_exist = false;
-        cs.ExitSection();
-        break;
+      {
+        NcclTreeFlowModel::FlowCriticalSection cs;
+        if (indegree_mapping.count(next_flow_id) == 0) {
+          flow_exist = false;
+          break; // Exit both critical section and loop
+        }
+        if (--indegree_mapping[next_flow_id] == 0) {
+          MockNccl::SingleFlow cur_flow = _flow_models[std::make_pair(channel_id, next_flow_id)];
+        } // Critical section ends here
       }
-      if (--indegree_mapping[next_flow_id] == 0) {
-        MockNccl::SingleFlow cur_flow = _flow_models[std::make_pair(channel_id, next_flow_id)];
-          cs.ExitSection();
-          insert_packets(channel_id, next_flow_id);
-      }else{
-        cs.ExitSection();
+      if (indegree_mapping.count(next_flow_id) != 0 && indegree_mapping[next_flow_id] == 0) {
+        insert_packets(channel_id, next_flow_id);
       }
     }
     assert(flow_exist = true);
